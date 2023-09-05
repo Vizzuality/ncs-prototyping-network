@@ -7,7 +7,7 @@ const Home: React.FC = () => (
       <title>Welcome</title>
     </Head>
     <div className="prose p-20">
-      <h1>Welcome to TNC Prototype Dashboard.</h1>
+      <h1>Welcome to Staging TNC Prototype Dashboard.</h1>
       <p>Remember to edit:</p>
       <ul>
         <li>package.json</li>
