@@ -1,32 +1,25 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { type NextPage } from 'next';
 
-const Home: React.FC = () => (
-  <div>
-    <Head>
-      <title>Welcome</title>
-    </Head>
-    <div className="prose p-20">
-      <h1>Welcome to Staging TNC Prototype Dashboard.</h1>
-      <p>Remember to edit:</p>
-      <ul>
-        <li>package.json</li>
-        <li>pages/_app.js</li>
-      </ul>
-      <p>
-        Also, we strongly recommend to read and follow our{' '}
-        <a
-          href="https://vizzuality.github.io/devismos/docs/guidelines/standardization/"
-          target="_blank"
-        >
-          Standardization guidelines
-        </a>
-      </p>
-      <p>
-        Don&apos;t forget to check the <Link href="/docs">Documentation</Link>
-      </p>
-    </div>
-  </div>
-);
+// import Hero from 'containers/home/hero';
+
+import Layout from 'layouts';
+
+const Home: NextPage = () => {
+  return (
+    <Layout>
+      <motion.div
+        className="flex flex-col justify-between"
+        initial={{ y: 300 }}
+        animate={{ y: 40 }}
+        transition={{
+          duration: 1,
+        }}
+      >
+        {/* <Hero /> */}
+      </motion.div>
+    </Layout>
+  );
+};
 
 export default Home;
