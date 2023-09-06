@@ -25,10 +25,16 @@ module.exports = {
     },
     extend: {
       colors: {
+        butternut: '#e29717',
+        spring: '#a0c04d',
+        indigo: '#23487a',
+        midnight: '#1C3038',
+        text: '#454545',
+        accents: '#d8d8d8',
+        background: '#f2f2f2',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',

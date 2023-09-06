@@ -20,7 +20,7 @@ const Layout: React.FC<LayoutProps> = (props: PropsWithChildren) => {
         <title>TNC Prototype Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-auto flex min-h-screen w-full flex-grow flex-col px-10 md:container">
+      <main className="flex min-h-screen flex-col">
         <Header />
 
         <motion.div

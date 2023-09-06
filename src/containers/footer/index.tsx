@@ -4,10 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import NavigationTabs from 'containers/nav-tabs';
+import Wrapper from 'containers/wrapper';
 
 const Footer: React.FC = () => {
   return (
-    <div className="mt-auto flex w-full flex-col self-end pb-10">
+    <Wrapper className="mt-auto flex w-full flex-col self-end pb-10">
       <Link className="items-left flex cursor-pointer" href="/">
         <h1 className="text-2xl font-semibold uppercase">NCS Prototyping Network</h1>
       </Link>
@@ -33,7 +34,7 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

@@ -1,7 +1,13 @@
+import Wrapper from 'containers/wrapper';
+
 const Data = (): JSX.Element => {
   return (
-    <section className="bg-gray-600">
-      <h2 className="text-3xl">What we do</h2>
+    <section className="bg-background">
+      <Wrapper>
+        <div className="py-10">
+          <h2 className="text-3xl">DATA</h2>
+        </div>
+      </Wrapper>
     </section>
   );
 };
