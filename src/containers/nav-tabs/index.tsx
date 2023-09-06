@@ -11,8 +11,6 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
   const router = useRouter();
   const { pathname } = router;
 
-  console.log({ section });
-
   return (
     <nav
       className={cn({

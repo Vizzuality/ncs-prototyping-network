@@ -5,9 +5,9 @@ import Layout from 'layouts';
 const Projects: NextPage = () => {
   return (
     <Layout>
-      <section className="mt-44 flex flex-col items-center justify-center">
+      <div className="mt-44 flex flex-col items-center justify-center">
         <h2 className="text-3xl">Projects Page</h2>
-      </section>
+      </div>
     </Layout>
   );
 };
