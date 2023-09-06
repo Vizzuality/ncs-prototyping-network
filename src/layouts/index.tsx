@@ -4,6 +4,7 @@ import Head from 'next/head';
 
 import { motion } from 'framer-motion';
 
+import Footer from 'containers/footer';
 import Header from 'containers/header';
 
 type LayoutProps = {
@@ -19,7 +20,7 @@ const Layout: React.FC<LayoutProps> = (props: PropsWithChildren) => {
         <title>TNC Prototype Dashboard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex w-full flex-col items-center">
+      <main className="mx-auto flex min-h-screen w-full flex-grow flex-col px-10 md:container">
         <Header />
 
         <motion.div
@@ -31,6 +32,7 @@ const Layout: React.FC<LayoutProps> = (props: PropsWithChildren) => {
         >
           {children}
         </motion.div>
+        <Footer />
       </main>
     </>
   );
