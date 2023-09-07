@@ -15,7 +15,7 @@ const Objectives = (): JSX.Element => {
             <div key={o.id} className="flex flex-col space-y-3">
               <div className="h-1.5 w-20 rounded-xl bg-accents" />
               <p className="text-4xl font-bold text-butternut">{o.id}</p>
-              <p className="pt-3 text-2xl font-light leading-10 text-text">{o.text}</p>
+              <p className="pt-3 text-xl font-light leading-8 text-text">{o.text}</p>
             </div>
           ))}
         </div>

@@ -21,6 +21,9 @@ const nextConfig = {
   // ? https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files
   output: 'standalone',
   poweredByHeader: false,
+  images: {
+    domains: ['dummyimage.com', 'placebear.com'],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

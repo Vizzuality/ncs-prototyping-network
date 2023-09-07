@@ -7,11 +7,9 @@ import Wrapper from 'containers/wrapper';
 
 const Header: React.FC = () => {
   return (
-    <Wrapper className="flex w-full flex-row items-center justify-between">
+    <Wrapper className="h-18 flex w-full flex-row items-center justify-between self-start border">
       <Link className="flex cursor-pointer" href="/">
-        <h1 className="justify-self-start font-sans text-3xl font-bold uppercase">
-          NCS Prototyping Network
-        </h1>
+        <h1 className="font-sans text-3xl font-bold uppercase">NCS Prototyping Network</h1>
       </Link>
       <NavigationTabs />
     </Wrapper>
