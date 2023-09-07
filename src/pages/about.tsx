@@ -8,7 +8,7 @@ const About: NextPage = () => {
   return (
     <Layout>
       <Wrapper>
-        <h2 className="text-3xl">About Page</h2>
+        <div />
       </Wrapper>
     </Layout>
   );

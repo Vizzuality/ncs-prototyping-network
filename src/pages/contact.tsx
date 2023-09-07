@@ -4,7 +4,7 @@ import Wrapper from 'containers/wrapper';
 
 import Layout from 'layouts';
 
-const Resources: NextPage = () => {
+const Contact: NextPage = () => {
   return (
     <Layout>
       <Wrapper>
@@ -14,4 +14,4 @@ const Resources: NextPage = () => {
   );
 };
 
-export default Resources;
+export default Contact;

@@ -40,7 +40,11 @@ const HomeProjects = (): JSX.Element => {
       <section className="flex flex-col space-y-12 py-10">
         <div className="flex flex-col space-y-4">
           <h4 className="font-serif text-4xl  text-indigo">NCS Prototyping Projects</h4>
-          <p className="pt-3 text-xl font-light leading-8 text-text">Each of the...</p>
+          <p className="pt-3 text-xl font-light leading-8 text-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
         </div>
         <div className="">
           <Slider {...settings}>

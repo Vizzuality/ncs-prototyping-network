@@ -23,13 +23,13 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
             key={tab.label}
             className={cn({
               'flex cursor-pointer px-5 first:pl-0': true,
-              'border-r-[3px] border-black': section === 'footer',
+              'border-r-[3px] border-white': section === 'footer',
             })}
             href={tab.href}
           >
             <p
               className={cn({
-                'py-5 font-sans text-base uppercase text-black': true,
+                'py-5 font-sans text-base uppercase text-white': true,
                 'font-bold': pathname === tab.href && section !== 'footer',
                 'py-0': section === 'footer',
               })}
