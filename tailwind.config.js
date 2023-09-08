@@ -32,6 +32,10 @@ module.exports = {
         text: '#454545',
         accents: '#d8d8d8',
         background: '#f2f2f2',
+        rust: '#c85c19',
+        cirrus: '#3a89b4',
+        iris: '#46166b',
+
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

@@ -2,6 +2,7 @@ import { type NextPage } from 'next';
 
 import Data from 'containers/home/data';
 import Facts from 'containers/home/facts';
+import Fields from 'containers/home/fields';
 import Hero from 'containers/home/hero';
 import Lessons from 'containers/home/lessons';
 import HomeMap from 'containers/home/map';
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
       <Facts />
       <Objectives />
       <Lessons />
+      <Fields />
     </Layout>
   );
 };
