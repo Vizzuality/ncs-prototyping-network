@@ -1,15 +1,13 @@
 import { type NextPage } from 'next';
 
-import Wrapper from 'containers/wrapper';
+import Hero from 'containers/home/hero';
 
 import Layout from 'layouts';
 
 const Resources: NextPage = () => {
   return (
     <Layout>
-      <Wrapper>
-        <div />
-      </Wrapper>
+      <Hero />
     </Layout>
   );
 };

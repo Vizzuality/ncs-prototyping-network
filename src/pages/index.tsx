@@ -1,7 +1,9 @@
 import { type NextPage } from 'next';
 
 import Data from 'containers/home/data';
+import Facts from 'containers/home/facts';
 import Hero from 'containers/home/hero';
+import Lessons from 'containers/home/lessons';
 import HomeMap from 'containers/home/map';
 import Objectives from 'containers/home/objectives';
 import Projects from 'containers/home/projects';
@@ -15,7 +17,9 @@ const Home: NextPage = () => {
       <HomeMap />
       <Data />
       <Projects />
+      <Facts />
       <Objectives />
+      <Lessons />
     </Layout>
   );
 };

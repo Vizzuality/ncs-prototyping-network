@@ -1,4 +1,4 @@
-export const NAV_TABS = [
+export const NAV_TABS_HEADER = [
   {
     label: 'Home',
     href: '/',
@@ -10,6 +10,25 @@ export const NAV_TABS = [
   {
     label: 'About',
     href: '/about',
+  },
+  {
+    label: 'Resources',
+    href: '/resources',
+  },
+];
+
+export const NAV_TABS_FOOTER = [
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Projects',
+    href: '/projects',
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
   },
   {
     label: 'Resources',

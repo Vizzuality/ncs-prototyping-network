@@ -5,11 +5,13 @@ import { useRouter } from 'next/router';
 
 import { cn } from 'utils/cn';
 
-import { NAV_TABS } from './constants';
+import { NAV_TABS_HEADER, NAV_TABS_FOOTER } from './constants';
 
 const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
   const router = useRouter();
   const { pathname } = router;
+
+  const NAV_TABS = section === 'footer' ? NAV_TABS_FOOTER : NAV_TABS_HEADER;
 
   return (
     <nav

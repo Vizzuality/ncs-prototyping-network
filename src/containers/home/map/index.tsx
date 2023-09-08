@@ -1,6 +1,8 @@
+import { ArrowRight } from 'lucide-react';
+
 import Wrapper from 'containers/wrapper';
 
-import Button from '@/components/ui/button';
+import Button from 'components/ui/button';
 
 const HomeMap = (): JSX.Element => {
   return (
@@ -15,9 +17,14 @@ const HomeMap = (): JSX.Element => {
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             mollit anim id est laborum.
           </p>
-          <Button className="mt-6 h-12 rounded-none bg-butternut text-white">Projects</Button>
+          <div>
+            <Button className="mt-6 flex h-12 space-x-6 rounded-none bg-butternut px-6 text-white">
+              <p className="uppercase">View Projects</p>
+              <ArrowRight color="white" size={20} />
+            </Button>
+          </div>
         </div>
-        <div className="h-96 w-2/3 border"></div>
+        <div className="h-full w-2/3"></div>
       </section>
     </Wrapper>
   );
