@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
@@ -18,19 +18,19 @@ const Fields = (): JSX.Element => {
           <div className="flex items-center justify-between border-t-2 p-4">
             <p className="text-4xl text-rust">Agroforestry</p>
             <button className="flex h-full w-32 justify-center">
-              <ArrowRight className="stroke-rust" size={40} />
+              <HiArrowNarrowRight className="stroke-rust" size={40} />
             </button>
           </div>
           <div className="flex items-center justify-between border-t-2 p-4">
             <p className="text-4xl text-cirrus">Coastal Wetlands</p>
             <button className="flex h-full w-32 justify-center">
-              <ArrowRight className="stroke-cirrus" size={40} />
+              <HiArrowNarrowRight className="stroke-cirrus" size={40} />
             </button>
           </div>
           <div className="flex items-center justify-between border-t-2 border-b-2 p-4">
             <p className="text-4xl text-iris">Petlands</p>
             <button className="flex h-full w-32 justify-center">
-              <ArrowRight className="stroke-iris" size={40} />
+              <HiArrowNarrowRight className="stroke-iris" size={40} />
             </button>
           </div>
         </div>

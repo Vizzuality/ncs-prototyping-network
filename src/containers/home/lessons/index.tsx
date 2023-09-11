@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { ArrowRight } from 'lucide-react';
+import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
@@ -48,7 +48,7 @@ const Lessons = (): JSX.Element => {
 
               {lesson.points.map((point) => (
                 <div key={point} className="flex space-x-2">
-                  <ArrowRight className="stroke-butternut" size={40} />
+                  <HiArrowNarrowRight className="stroke-butternut" size={40} />
                   <p className="text-lg leading-9 text-text">{point}</p>
                 </div>
               ))}

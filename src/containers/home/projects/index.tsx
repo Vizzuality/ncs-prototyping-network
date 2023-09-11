@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 
 import Image from 'next/image';
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
@@ -17,7 +17,7 @@ const HomeProjects = (): JSX.Element => {
         className="absolute right-0 z-10 flex h-16 w-8 cursor-pointer items-center bg-spring"
         onClick={onClick}
       >
-        <ChevronRight color="white" size={40} />
+        <HiChevronRight color="white" size={40} />
       </button>
     );
   };
@@ -28,7 +28,7 @@ const HomeProjects = (): JSX.Element => {
         className="absolute left-0 z-10 flex h-16 w-8 cursor-pointer items-center bg-spring"
         onClick={onClick}
       >
-        <ChevronLeft color="white" size={40} />
+        <HiChevronLeft color="white" size={40} />
       </button>
     );
   };

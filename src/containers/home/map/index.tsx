@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
@@ -20,7 +20,7 @@ const HomeMap = (): JSX.Element => {
           <div>
             <Button className="mt-6 flex h-12 space-x-6 rounded-none bg-butternut px-6 text-white">
               <p className="uppercase">View Projects</p>
-              <ArrowRight color="white" size={20} />
+              <HiArrowNarrowRight color="white" size={20} />
             </Button>
           </div>
         </div>
