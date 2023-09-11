@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 import type { FieldValidator, FieldState } from 'final-form';
 import validate from 'validate.js';
 
