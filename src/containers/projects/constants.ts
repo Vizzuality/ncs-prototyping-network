@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     country: 'Australia',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
-    pathway: 'Coastal Wetland',
+    pathway: 'Peatlands',
     action: 'Protect',
     phase: 'Early stage',
     categories: ['Community-based', 'Carbon Project', 'Policy Project'],
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     country: 'Angola',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
-    pathway: 'Coastal Wetland',
+    pathway: 'Peatlands',
     action: 'Protect',
     phase: 'Late stage',
     categories: ['Community-based', 'carbon-project', 'policy-project'],
@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
     country: 'Brazil',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
-    pathway: 'Coastal Wetland',
+    pathway: 'Agroforestry',
     action: 'Protect',
     phase: 'Last stage',
     categories: ['Community-based', 'carbon-project', 'policy-project'],
@@ -114,7 +114,7 @@ export const PROJECTS: Project[] = [
     country: 'Tanzania',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
-    pathway: 'Coastal Wetland',
+    pathway: 'Agroforestry',
     action: 'Protect',
     phase: 'Early stage',
     categories: ['Community-based', 'carbon-project', 'policy-project'],
@@ -129,7 +129,7 @@ export const PROJECTS: Project[] = [
     country: 'Costa Rica',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
-    pathway: 'Coastal Wetland',
+    pathway: 'Agroforestry',
     action: 'Protect',
     phase: 'Early stage',
     categories: ['Community-based', 'carbon-project', 'policy-project'],

@@ -1,7 +1,7 @@
 export const PATHWAY_OPTIONS = [
   { value: 'Coastal Wetland', label: 'Coastal Wetland' },
-  { value: 'Pathway 2', label: 'Pathway 2' },
-  { value: 'Pathway 3', label: 'Pathway 3' },
+  { value: 'Agroforestry', label: 'Agroforestry' },
+  { value: 'Peatlands', label: 'Peatlands' },
 ];
 
 export const ACTION_OPTIONS = [
