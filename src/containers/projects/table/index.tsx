@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
+import { useRecoilValue } from 'recoil';
 
+import { filtersAtom } from '@/store';
 import { Project } from '@/types/project';
 
 import { COLUMNS, PROJECTS } from '../constants';
@@ -11,6 +14,8 @@ import { COLUMNS, PROJECTS } from '../constants';
 type Direction = 'asc' | 'desc';
 
 const ProjectTable = ({}): JSX.Element => {
+  const filters = useRecoilValue(filtersAtom);
+  console.info(filters);
   const [sortedBy, setSortedBy] = useState<string>('country');
 
   const [direction, setDirection] = useState<Direction>('asc');
@@ -69,12 +74,16 @@ const ProjectTable = ({}): JSX.Element => {
             {sortedData.map((project) => {
               return (
                 <tr key={project.id} className="text-text [&>*]:px-4 [&>*]:py-2">
-                  <td className="flex space-x-2">
-                    <Image alt={project.country} src={project.image} width={100} height={100} />
-                    <div className="flex flex-col">
-                      <p className="font-serif text-xl text-indigo">{project.country}</p>
-                      <p className="max-w-xs">{project.description}</p>
-                    </div>
+                  <td>
+                    <Link href={`/projects/${project.id}`} className="group flex space-x-3">
+                      <Image alt={project.country} src={project.image} width={160} height={80} />
+                      <div className="flex flex-col">
+                        <p className="font-serif text-xl text-indigo group-hover:underline">
+                          {project.country}
+                        </p>
+                        <p className="max-w-sm group-hover:opacity-80">{project.description}</p>
+                      </div>
+                    </Link>
                   </td>
                   <td>{project.pathway}</td>
                   <td>{project.action}</td>

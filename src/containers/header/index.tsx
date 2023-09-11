@@ -15,9 +15,9 @@ const Header: React.FC = () => {
   return (
     <div
       className={cn({
-        'absolute top-0 w-full': true,
+        'absolute top-0 w-full': !pathname.startsWith('/projects'),
         'bg-gradient-to-r from-midnight to-indigo':
-          pathname === '/projects' || pathname === '/contact',
+          pathname.startsWith('/projects') || pathname === '/contact',
       })}
     >
       <Wrapper className="h-18 flex w-full flex-row items-center justify-between self-start">

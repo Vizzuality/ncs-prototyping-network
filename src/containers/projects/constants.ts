@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
     people: '6,000',
     mitigation: '1,000,000 tCO2e',
     co_benefits: ['Biodiversity', 'Resilience/Adaptation', 'Livelihoods/Economic'],
-    image: 'https://dummyimage.com/330x290/000/fff&text=+',
+    image: 'https://dummyimage.com/400x250/000/fff&text=+',
   },
   {
     id: 2,
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     people: '2,500',
     mitigation: '1,000,000 tCO2e',
     co_benefits: ['Biodiversity', 'Resilience/Adaptation', 'Livelihoods/Economic'],
-    image: 'https://dummyimage.com/330x290/000/fff&text=+',
+    image: 'https://dummyimage.com/400x250/000/fff&text=+',
   },
   {
     id: 3,
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
     people: '4,000',
     mitigation: '1,000,000 tCO2e',
     co_benefits: ['Biodiversity', 'Resilience/Adaptation', 'Livelihoods/Economic'],
-    image: 'https://dummyimage.com/330x290/000/fff&text=+',
+    image: 'https://dummyimage.com/400x250/000/fff&text=+',
   },
   {
     id: 4,
@@ -107,7 +107,7 @@ export const PROJECTS: Project[] = [
     people: '6,000',
     mitigation: '1,000,000 tCO2e',
     co_benefits: ['Biodiversity', 'Resilience/Adaptation', 'Livelihoods/Economic'],
-    image: 'https://dummyimage.com/330x290/000/fff&text=+',
+    image: 'https://dummyimage.com/400x250/000/fff&text=+',
   },
   {
     id: 5,
@@ -122,7 +122,7 @@ export const PROJECTS: Project[] = [
     people: '7,000',
     mitigation: '1,000,000 tCO2e',
     co_benefits: ['Biodiversity', 'Resilience/Adaptation', 'Livelihoods/Economic'],
-    image: 'https://dummyimage.com/330x290/000/fff&text=+',
+    image: 'https://dummyimage.com/400x250/000/fff&text=+',
   },
   {
     id: 6,
@@ -137,6 +137,6 @@ export const PROJECTS: Project[] = [
     people: '8,000',
     mitigation: '1,000,000 tCO2e',
     co_benefits: ['Biodiversity', 'Resilience/Adaptation', 'Livelihoods/Economic'],
-    image: 'https://dummyimage.com/330x290/000/fff&text=+',
+    image: 'https://dummyimage.com/400x250/000/fff&text=+',
   },
 ];
