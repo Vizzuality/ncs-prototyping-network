@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { GAPage } from 'lib/analytics/ga';
 
 import { QueryClient, QueryClientProvider, Hydrate } from '@tanstack/react-query';
+import { RecoilRoot } from 'recoil';
 
 import { MediaContextProvider } from 'components/media-query';
 
@@ -35,13 +36,15 @@ const MyApp = ({ Component, pageProps }: AppProps<PageProps>) => {
   }, [router.events, handleRouteChangeCompleted]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <MediaContextProvider disableDynamicMediaQueries>
-          <Component {...pageProps} />
-        </MediaContextProvider>
-      </Hydrate>
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <MediaContextProvider disableDynamicMediaQueries>
+            <Component {...pageProps} />
+          </MediaContextProvider>
+        </Hydrate>
+      </QueryClientProvider>
+    </RecoilRoot>
   );
 };
 

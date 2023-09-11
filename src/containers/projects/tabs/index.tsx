@@ -1,15 +1,16 @@
-import { useState } from 'react';
-
 import { motion } from 'framer-motion';
 import { HiOutlineTable } from 'react-icons/hi';
 import { HiMapPin } from 'react-icons/hi2';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 
 import { cn } from '@/utils/cn';
+import { projectsViewAtom } from 'store';
 
 import { TABS } from './constants';
 
 const Tabs = (): JSX.Element => {
-  const [activeTab, setActiveTab] = useState(TABS[0].id);
+  const projectsView = useRecoilValue(projectsViewAtom);
+  const setProjectsView = useSetRecoilState(projectsViewAtom);
 
   return (
     <div>
@@ -18,9 +19,9 @@ const Tabs = (): JSX.Element => {
           <button
             key={tab.id}
             className="relative m-0 flex cursor-pointer items-center justify-between"
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => setProjectsView(tab.id)}
           >
-            {tab.id === activeTab && (
+            {tab.id === projectsView && (
               <motion.div
                 className="absolute left-0 right-0 -top-0.5 h-8 rounded-3xl bg-white"
                 layoutId="underline"
@@ -31,7 +32,7 @@ const Tabs = (): JSX.Element => {
                 <HiMapPin
                   className={cn({
                     'fill-black': true,
-                    'fill-butternut': tab.id === activeTab,
+                    'fill-butternut': tab.id === projectsView,
                   })}
                   size={20}
                 />
@@ -40,7 +41,7 @@ const Tabs = (): JSX.Element => {
                 <HiOutlineTable
                   className={cn({
                     'stroke-black': true,
-                    'stroke-butternut': tab.id === activeTab,
+                    'stroke-butternut': tab.id === projectsView,
                   })}
                   size={20}
                 />
@@ -48,7 +49,7 @@ const Tabs = (): JSX.Element => {
               <p
                 className={cn({
                   ' font-sans text-base text-black': true,
-                  'text-butternut': tab.id === activeTab,
+                  'text-butternut': tab.id === projectsView,
                 })}
               >
                 {tab.label}
