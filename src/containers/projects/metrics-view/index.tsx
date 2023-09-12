@@ -14,7 +14,7 @@ import { COLUMNS, PROJECTS } from '../constants';
 
 type Direction = 'asc' | 'desc';
 
-const ProjectTable = ({}): JSX.Element => {
+const MetricsView = ({}): JSX.Element => {
   const router = useRouter();
   const { pathname } = router;
 
@@ -133,4 +133,4 @@ const ProjectTable = ({}): JSX.Element => {
   );
 };
 
-export default ProjectTable;
+export default MetricsView;

@@ -11,9 +11,9 @@ export const ACTION_OPTIONS = [
 ];
 
 export const P_PHASE_OPTIONS = [
-  { value: 'Early stage', label: 'Early stage' },
-  { value: 'Stage', label: 'Stage' },
-  { value: 'Late stage', label: 'Late stage' },
+  { value: 'Early Stage', label: 'Early Stage' },
+  { value: 'Project Design', label: 'Project Design' },
+  { value: 'Late Stage', label: 'Late Stage' },
 ];
 
 export const P_CATEGORY_OPTIONS = [

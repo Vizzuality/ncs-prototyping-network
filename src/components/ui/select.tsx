@@ -50,7 +50,7 @@ const SelectComponent = ({
           <HiChevronDown className="fill-text" size={20} />
         </Select.Trigger>
         <Select.Portal>
-          <Select.Content className="rounded-xs mt-10 overflow-hidden bg-white text-sm text-text">
+          <Select.Content className="rounded-xs z-20 mt-10 overflow-hidden bg-white text-sm text-text">
             <Select.ScrollUpButton>^</Select.ScrollUpButton>
             <Select.Viewport className="p-1">
               <Select.Group>

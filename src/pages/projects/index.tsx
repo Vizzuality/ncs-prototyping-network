@@ -2,7 +2,8 @@ import { type NextPage } from 'next';
 import { useRecoilValue } from 'recoil';
 
 import Filters from 'containers/projects/filters';
-import ProjectTable from 'containers/projects/table';
+import ProjectsMap from 'containers/projects/map-view';
+import ProjectsMetrics from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
@@ -18,10 +19,14 @@ const Projects: NextPage = () => {
           <Tabs />
           <Filters />
         </div>
-        {projectsView === 'map' && <div>Map</div>}
+        {projectsView === 'map' && (
+          <div>
+            <ProjectsMap />
+          </div>
+        )}
         {projectsView === 'metrics' && (
           <div>
-            <ProjectTable />
+            <ProjectsMetrics />
           </div>
         )}
       </Wrapper>

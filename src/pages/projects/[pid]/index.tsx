@@ -23,7 +23,7 @@ const Project: NextPage = () => {
           <HiArrowNarrowLeft className="fill-butternut" size={40} />
           <p className="text-butternut">Back to projects</p>
         </Link>
-        <div>This is the page of {projectData.country} project</div>
+        <div>This is the page of {projectData?.country} project</div>
       </Wrapper>
     </Layout>
   );
