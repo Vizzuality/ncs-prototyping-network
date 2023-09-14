@@ -8,7 +8,7 @@ export const LESSONS = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ],
-    image: 'https://dummyimage.com/700x500/000/fff&text=+',
+    image: '/images/home/lessons/logistics.png',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const LESSONS = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ],
-    image: 'https://dummyimage.com/700x500/000/fff&text=+',
+    image: '/images/home/lessons/community.png',
   },
 
   {
@@ -31,7 +31,7 @@ export const LESSONS = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ],
-    image: 'https://dummyimage.com/700x500/000/fff&text=+',
+    image: '/images/home/lessons/institutional.png',
   },
 
   {
@@ -43,7 +43,7 @@ export const LESSONS = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ],
-    image: 'https://dummyimage.com/700x500/000/fff&text=+',
+    image: '/images/home/lessons/science.png',
   },
   {
     id: 5,
@@ -54,6 +54,6 @@ export const LESSONS = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ],
-    image: 'https://dummyimage.com/700x500/000/fff&text=+',
+    image: '/images/home/lessons/resources.png',
   },
 ];

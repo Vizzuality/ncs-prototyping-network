@@ -30,7 +30,7 @@ const Lessons = (): JSX.Element => {
       {LESSONS.map((lesson) => (
         <div key={lesson.id} className="flex justify-between">
           <Image
-            src="https://dummyimage.com/700x500/000/fff&text=+"
+            src={lesson.image}
             alt="placeholder"
             height={500}
             width={700}
