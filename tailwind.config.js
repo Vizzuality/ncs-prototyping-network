@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const forms = require('@tailwindcss/forms');
 const lineClamp = require('@tailwindcss/line-clamp');
-const typography = require('@tailwindcss/typography');
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   darkMode: ['class'],
@@ -24,6 +24,10 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-ubuntu)', ...fontFamily.sans],
+        serif: ['var(--font-lora)', ...fontFamily.serif],
+      },
       colors: {
         butternut: '#e29717',
         spring: '#a0c04d',
@@ -35,7 +39,6 @@ module.exports = {
         rust: '#c85c19',
         cirrus: '#3a89b4',
         iris: '#46166b',
-
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -90,5 +93,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), forms, lineClamp, typography],
+  plugins: [require('tailwindcss-animate'), forms, lineClamp],
 };

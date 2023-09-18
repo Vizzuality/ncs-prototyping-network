@@ -5,12 +5,29 @@ import { useRouter } from 'next/router';
 
 import { GAPage } from 'lib/analytics/ga';
 
+import { Lora, Ubuntu } from '@next/font/google';
 import { QueryClient, QueryClientProvider, Hydrate } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
 
 import { MediaContextProvider } from 'components/media-query';
 
 import 'styles/globals.css';
+
+const LoraFont = Lora({
+  weight: ['400', '600', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+  variable: '--font-lora',
+  display: 'block',
+});
+
+const UbuntuFont = Ubuntu({
+  weight: ['300', '400', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+  variable: '--font-ubuntu',
+  display: 'block',
+});
 
 type PageProps = {
   dehydratedState: unknown;
@@ -36,15 +53,25 @@ const MyApp = ({ Component, pageProps }: AppProps<PageProps>) => {
   }, [router.events, handleRouteChangeCompleted]);
 
   return (
-    <RecoilRoot>
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <MediaContextProvider disableDynamicMediaQueries>
-            <Component {...pageProps} />
-          </MediaContextProvider>
-        </Hydrate>
-      </QueryClientProvider>
-    </RecoilRoot>
+    <>
+      <style jsx global>
+        {`
+          :root {
+            --font-lora: ${LoraFont.style.fontFamily};
+            --font-ubuntu: ${UbuntuFont.style.fontFamily};
+          }
+        `}
+      </style>
+      <RecoilRoot>
+        <QueryClientProvider client={queryClient}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <MediaContextProvider disableDynamicMediaQueries>
+              <Component {...pageProps} />
+            </MediaContextProvider>
+          </Hydrate>
+        </QueryClientProvider>
+      </RecoilRoot>
+    </>
   );
 };
 
