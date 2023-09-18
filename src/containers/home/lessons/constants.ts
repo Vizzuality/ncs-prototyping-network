@@ -4,7 +4,7 @@ export const LESSONS = [
     title: 'Field Logistics',
     points: [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ],
@@ -15,8 +15,8 @@ export const LESSONS = [
     title: 'Community Engagement and Equity',
     points: [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ],
     image: '/images/home/lessons/community.png',
@@ -26,7 +26,7 @@ export const LESSONS = [
     id: 3,
     title: 'Institutional',
     points: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit',

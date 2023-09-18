@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     >
       <Wrapper className="h-18 flex w-full flex-row items-center justify-between self-start">
         <Link className="flex cursor-pointer" href="/">
-          <h1 className="font-sans text-3xl uppercase text-white">NCS Prototyping Network</h1>
+          <h1 className="font-sans text-2xl uppercase text-white">NCS Prototyping Network</h1>
         </Link>
         <NavigationTabs />
       </Wrapper>
