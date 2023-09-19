@@ -9,7 +9,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
   const { country, description, pathway, mitigation, phase, area } = data;
 
   const COLORS = {
-    'Coastal Wetland': 'bg-rust',
+    'Coastal Wetlands': 'bg-rust',
     Agroforestry: 'bg-iris',
     Peatlands: 'bg-cirrus',
   };

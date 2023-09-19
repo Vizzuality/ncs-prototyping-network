@@ -1,27 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
 
-import { filtersAtom } from 'store';
 import { Project } from 'types/project';
 
 import { COLUMNS, PROJECTS } from '../constants';
 
 type Direction = 'asc' | 'desc';
 
-const MetricsView = ({}): JSX.Element => {
-  const router = useRouter();
-  const { pathname } = router;
-
-  const filters = useRecoilValue(filtersAtom);
-  const resetFilters = useResetRecoilState(filtersAtom);
-
-  const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
+const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
   const [sortedBy, setSortedBy] = useState<string>('country');
 
   const [direction, setDirection] = useState<Direction>('asc');
@@ -36,24 +26,7 @@ const MetricsView = ({}): JSX.Element => {
     return sortedArr;
   };
 
-  useEffect(() => {
-    const activedFilters = Object.values(filters).some((f) => f !== '');
-    if (activedFilters) {
-      const filterKeys = Object.keys(filters);
-      const filteredData = PROJECTS.filter(function (eachObj) {
-        return filterKeys.some(function (key: keyof Project) {
-          return filters[key] === eachObj[key];
-        });
-      });
-      setDataFiltered(filteredData);
-    }
-  }, [filters]);
-
-  useEffect(() => {
-    resetFilters();
-  }, [pathname, resetFilters]);
-
-  const sortedData = getSortedData(dataFiltered, sortedBy, direction);
+  const sortedData = getSortedData(data, sortedBy, direction);
 
   return (
     <>
