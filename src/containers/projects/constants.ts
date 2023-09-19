@@ -53,7 +53,7 @@ export const PROJECTS: Project[] = [
     id: 1,
     country: 'Australia',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh.',
     pathway: 'Peatlands',
     action: 'Manage',
     phase: 'Implementing',
@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
     id: 2,
     country: 'Angola',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh.',
     pathway: 'Peatlands',
     action: 'Restore',
     phase: 'Piloting',
@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
     id: 3,
     country: 'Brazil',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh.',
     pathway: 'Agroforestry',
     action: 'Restore',
     phase: 'Piloting',
@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
     id: 4,
     country: 'Kenia',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh.',
     pathway: 'Coastal Wetlands',
     action: 'Manage',
     phase: 'Implementing',
@@ -113,7 +113,7 @@ export const PROJECTS: Project[] = [
     id: 5,
     country: 'Tanzania',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh.',
     pathway: 'Agroforestry',
     action: 'Protect',
     phase: 'Scaling',
@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
     id: 6,
     country: 'Costa Rica',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh.',
     pathway: 'Agroforestry',
     action: 'Manage',
     phase: 'Scaling',
