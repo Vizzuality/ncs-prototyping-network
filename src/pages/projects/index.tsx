@@ -5,8 +5,8 @@ import { useRecoilValue, useResetRecoilState } from 'recoil';
 
 import { PROJECTS } from 'containers/projects/constants';
 import Filters from 'containers/projects/filters';
-import ProjectsMap from 'containers/projects/map-view';
-import ProjectsMetrics from 'containers/projects/metrics-view';
+import MapView from 'containers/projects/map-view';
+import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
@@ -41,20 +41,12 @@ const Projects: NextPage = () => {
   return (
     <Layout>
       <Wrapper>
-        <div className="my-6 flex items-center space-x-6">
+        <div className="mt-6 mb-10 flex items-center space-x-6">
           <Tabs />
           <Filters />
         </div>
-        {projectsView === 'map' && (
-          <div>
-            <ProjectsMap data={dataFiltered} />
-          </div>
-        )}
-        {projectsView === 'metrics' && (
-          <div>
-            <ProjectsMetrics data={dataFiltered} />
-          </div>
-        )}
+        {projectsView === 'map' && <MapView data={dataFiltered} />}
+        {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
       </Wrapper>
     </Layout>
   );

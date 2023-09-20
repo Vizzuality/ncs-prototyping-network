@@ -12,6 +12,19 @@ type Option = {
   label: string;
 };
 
+const THEME = {
+  primary: {
+    arrow: 'fill-text',
+    trigger: 'rounded-lg border-[1px] px-4 text-text',
+    value: 'text-text',
+  },
+  secondary: {
+    arrow: 'fill-butternut',
+    trigger: 'border-none w-[180px] text-indigo justify-end space-x-2',
+    value: 'text-indigo',
+  },
+};
+
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof Select.Item>,
   React.ComponentPropsWithoutRef<typeof Select.Item>
@@ -20,7 +33,7 @@ const SelectItem = React.forwardRef<
     <Select.Item
       ref={ref}
       className={cn(
-        'relative w-full cursor-pointer items-center justify-between outline-none focus:bg-accent focus:text-accent-foreground',
+        'relative flex h-8 w-full cursor-pointer items-center pl-4 outline-none focus:bg-background focus:text-indigo',
         className
       )}
       {...props}
@@ -31,10 +44,12 @@ const SelectItem = React.forwardRef<
 });
 
 const SelectComponent = ({
+  theme = 'primary',
   type,
   options,
   onValueChange,
 }: {
+  theme?: 'primary' | 'secondary';
   type: string;
   options: Option[];
   onValueChange: (value: string) => void;
@@ -43,16 +58,29 @@ const SelectComponent = ({
     <div>
       <Select.Root onValueChange={onValueChange}>
         <Select.Trigger
-          className="inline-flex h-10 items-center justify-center rounded-lg border-[1px] px-4 text-text"
+          className={cn({
+            'inline-flex h-10 items-center justify-center': true,
+            [THEME[theme].trigger]: !!theme,
+          })}
           aria-label={type}
         >
-          <Select.Value placeholder={type} />
-          <HiChevronDown className="fill-text" size={20} />
+          <Select.Value
+            className={cn({
+              [THEME[theme].value]: !!theme,
+            })}
+            placeholder={type}
+          />
+          <HiChevronDown
+            className={cn({
+              [THEME[theme].arrow]: !!theme,
+            })}
+            size={25}
+          />
         </Select.Trigger>
         <Select.Portal>
-          <Select.Content className="rounded-xs z-20 mt-10 overflow-hidden bg-white text-sm text-text">
+          <Select.Content className="z-20 mt-10 w-full overflow-hidden rounded-lg border bg-white text-base text-text">
             <Select.ScrollUpButton>^</Select.ScrollUpButton>
-            <Select.Viewport className="p-1">
+            <Select.Viewport>
               <Select.Group>
                 {options.map((option) => (
                   <SelectItem key={option.value} value={option.value}>

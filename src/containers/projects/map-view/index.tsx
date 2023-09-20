@@ -24,7 +24,14 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
     <div className="w-6/12">
       <div className="flex items-center justify-end space-x-6">
         <p className="font-sans text-xs text-text">SORT BY:</p>
-        <Select type="sortBy" onValueChange={(v) => setSortedBy(v)} options={SORT_OPTIONS} />
+        <div className="mb-1">
+          <Select
+            theme="secondary"
+            type="Country"
+            onValueChange={(v) => setSortedBy(v)}
+            options={SORT_OPTIONS}
+          />
+        </div>
       </div>
       <div className="grid grid-cols-2 gap-3">
         {sortedData.map((project) => (

@@ -2,14 +2,26 @@ import React from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 
+import { cn } from 'utils/cn';
+
 const Footer: React.FC = () => {
+  const { pathname } = useRouter();
+
   return (
     <div className="relative">
-      <div className="mt-auto bg-[url('/images/home/footer.png')] bg-cover bg-bottom bg-no-repeat after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']">
+      <div
+        className={cn({
+          "mt-auto  bg-cover bg-no-repeat after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
+            true,
+          "bg-[url('/images/home/footer.png')] bg-bottom": pathname === '/',
+          "bg-[url('/images/projects/footer.png')]": pathname.startsWith('/projects'),
+        })}
+      >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
           <Link className="items-left flex cursor-pointer" href="/">
             <h1 className="text-2xl font-semibold uppercase">NCS Prototyping Network</h1>
