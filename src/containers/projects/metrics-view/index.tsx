@@ -80,7 +80,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
               return (
                 <tr
                   key={project.id}
-                  className="text-[13px] text-text [&>*]:border-b-[2px] [&>*]:px-4 [&>*]:py-4"
+                  className="text-2xs text-text [&>*]:border-b-[2px] [&>*]:px-4 [&>*]:py-4"
                 >
                   <td className="w-3/12 !pl-0">
                     <Link href={`/projects/${project.id}`} className="group flex space-x-3">
@@ -89,7 +89,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                         <p className="font-serif text-2xl font-semibold text-indigo group-hover:underline">
                           {project.country}
                         </p>
-                        <p className="max-w-sm text-[13px] text-text group-hover:opacity-80">
+                        <p className="max-w-sm text-2xs text-text group-hover:opacity-80">
                           {project.description}
                         </p>
                       </div>

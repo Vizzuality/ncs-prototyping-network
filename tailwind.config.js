@@ -12,8 +12,6 @@ module.exports = {
     './src/components/**/*.{ts,tsx}',
     './src/layouts/**/*.@(tsx|ts)',
     './src/containers/**/*.@(tsx|ts)',
-    // Remove this line if the documentation is not used
-    './src/doc-containers/**/*.@(tsx|ts)',
   ],
   theme: {
     container: {
@@ -27,6 +25,9 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-ubuntu)', ...fontFamily.sans],
         serif: ['var(--font-lora)', ...fontFamily.serif],
+      },
+      fontSize: {
+        '2xs': '0.813rem',
       },
       colors: {
         butternut: '#e29717',

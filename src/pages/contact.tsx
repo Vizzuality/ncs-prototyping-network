@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 
 import { Form, Field } from 'react-final-form';
 
@@ -13,8 +13,6 @@ import Layout from 'layouts';
 const Contact: NextPage = () => {
   const formRef = useRef(null);
 
-  const [submitting, setSubmitting] = useState(false);
-
   const INITIAL_VALUES = useMemo(() => {
     return {
       name: '',
@@ -28,8 +26,6 @@ const Contact: NextPage = () => {
 
   const onSubmit = useCallback((data) => {
     console.log('form data', data);
-
-    setSubmitting(true);
   }, []);
 
   return (
@@ -58,7 +54,7 @@ const Contact: NextPage = () => {
                     >
                       {({ input }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl text-text">Given name *</label>
+                          <label className="text-xl font-light text-text">Given name *</label>
                           <input
                             {...input}
                             value={input.value as string}
@@ -77,7 +73,7 @@ const Contact: NextPage = () => {
                     >
                       {({ input }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl text-text">Surname *</label>
+                          <label className="text-xl font-light text-text">Surname *</label>
                           <input
                             {...input}
                             value={input.value as string}
@@ -95,7 +91,7 @@ const Contact: NextPage = () => {
                     >
                       {({ input }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl text-text">Email</label>
+                          <label className="text-xl font-light text-text">Email</label>
                           <input
                             {...input}
                             value={input.value as string}
@@ -113,7 +109,7 @@ const Contact: NextPage = () => {
                     >
                       {({ input }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl text-text">Subject *</label>
+                          <label className="text-xl font-light text-text">Subject *</label>
                           <input
                             {...input}
                             value={input.value as string}
@@ -129,27 +125,43 @@ const Contact: NextPage = () => {
                       component="input"
                       validate={composeValidators([{ presence: true }])}
                     >
-                      {({ input }) => (
-                        <div className="relative w-full space-y-2">
-                          <label className="text-xl text-text">Message *</label>
-                          <textarea
-                            {...input}
-                            placeholder="Enter your message"
-                            value={input.value as string}
-                            rows={4}
-                            className="focus:ring-brand-700 flex h-40 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
-                          />
-                        </div>
-                      )}
+                      {({ input }) => {
+                        return (
+                          <div className="relative w-full space-y-2">
+                            <label className="text-xl font-light text-text">Message *</label>
+                            <textarea
+                              {...input}
+                              placeholder="Enter your message"
+                              value={input.value as string}
+                              rows={4}
+                              className="focus:ring-brand-700 flex h-40 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
+                            />
+                          </div>
+                        );
+                      }}
                     </Field>
+                    <div className="flex items-center space-x-4">
+                      <Field
+                        name="copy"
+                        component="input"
+                        type="checkbox"
+                        format={(v) => v === true}
+                        parse={(v) => (v ? true : false)}
+                      />
+                      <label className="text-base text-text" htmlFor="copy">
+                        I’d like to receive an email copy of my message
+                      </label>
+                    </div>
 
-                    <Button
-                      disabled={!submitting}
-                      type="submit"
-                      className="rounded-none bg-butternut px-10 uppercase"
-                    >
-                      <p>Send</p>
-                    </Button>
+                    <div className="pt-2">
+                      <Button
+                        disabled={!form.getState().valid}
+                        type="submit"
+                        className="flex h-14 rounded-none bg-butternut px-20 uppercase"
+                      >
+                        <p>Send</p>
+                      </Button>
+                    </div>
                   </div>
                 </form>
               );

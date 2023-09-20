@@ -21,7 +21,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   const sortedData = getSortedData(data, sortedBy);
 
   return (
-    <div className="w-6/12">
+    <div className="z-20 w-6/12">
       <div className="flex items-center justify-end space-x-6">
         <p className="font-sans text-xs text-text">SORT BY:</p>
         <div className="mb-1">

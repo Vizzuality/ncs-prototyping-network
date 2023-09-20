@@ -25,7 +25,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
   };
 
   return (
-    <div className="relative w-[330px] shadow-md">
+    <div className="relative w-[330px] shadow-lg">
       <Image
         alt={description}
         src="https://dummyimage.com/700x300/000/fff&text=+"
@@ -46,16 +46,16 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
       </div>
       <div className="flex flex-col space-y-2 p-[18px]">
         <p className="font-serif text-2xl font-semibold text-indigo">{country}</p>
-        <p className="max-w-xs font-sans text-[13px] font-light text-text">{description}</p>
-        <p className="max-w-xs font-sans text-[13px] font-light text-text">
+        <p className="max-w-xs font-sans text-2xs font-light text-text">{description}</p>
+        <p className="max-w-xs font-sans text-2xs font-light text-text">
           <span className="font-medium uppercase">Mitigation potencial:</span> {''}
           {mitigation}
         </p>
-        <p className="max-w-xs font-sans text-[13px] font-light text-text">
+        <p className="max-w-xs font-sans text-2xs font-light text-text">
           <span className="font-medium uppercase">Project phase:</span> {''}
           {phase}
         </p>
-        <p className="max-w-xs font-sans text-[13px] font-light text-text">
+        <p className="max-w-xs font-sans text-2xs font-light text-text">
           <span className="font-medium uppercase">Area impacted:</span> {''}
           {area}
         </p>

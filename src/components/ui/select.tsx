@@ -15,11 +15,13 @@ type Option = {
 const THEME = {
   primary: {
     arrow: 'fill-text',
+    content: '',
     trigger: 'rounded-lg border-[1px] px-4 text-text',
     value: 'text-text',
   },
   secondary: {
     arrow: 'fill-butternut',
+    content: 'w-[180px]',
     trigger: 'border-none w-[180px] text-indigo justify-end space-x-2',
     value: 'text-indigo',
   },
@@ -78,7 +80,13 @@ const SelectComponent = ({
           />
         </Select.Trigger>
         <Select.Portal>
-          <Select.Content className="z-20 mt-10 w-full overflow-hidden rounded-lg border bg-white text-base text-text">
+          <Select.Content
+            className={cn({
+              'z-20 mt-10 w-full overflow-hidden rounded-lg border bg-white text-base text-text':
+                true,
+              [THEME[theme].content]: !!theme,
+            })}
+          >
             <Select.ScrollUpButton>^</Select.ScrollUpButton>
             <Select.Viewport>
               <Select.Group>
