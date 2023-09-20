@@ -3,8 +3,8 @@ import { HiOutlineTable } from 'react-icons/hi';
 import { HiMapPin } from 'react-icons/hi2';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 
-import { cn } from '@/utils/cn';
 import { projectsViewAtom } from 'store';
+import { cn } from 'utils/cn';
 
 import { TABS } from './constants';
 
@@ -47,7 +47,7 @@ const Tabs = (): JSX.Element => {
             )}
             <p
               className={cn({
-                ' font-sans text-base text-black': true,
+                'font-sans text-base text-black': true,
                 'text-butternut': tab.id === projectsView,
               })}
             >

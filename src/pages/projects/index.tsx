@@ -26,7 +26,7 @@ const Projects: NextPage = () => {
   }, [resetFilters]);
 
   useEffect(() => {
-    const activedFilters = Object.values(filters).some((f) => f !== '');
+    const activedFilters = Object.values(filters).some((f) => f.length > 0);
     if (activedFilters) {
       const filterKeys = Object.keys(filters);
       const filteredData = PROJECTS.filter(function (eachObj) {
@@ -43,6 +43,7 @@ const Projects: NextPage = () => {
       <Wrapper>
         <div className="mt-6 mb-10 flex items-center space-x-6">
           <Tabs />
+
           <Filters />
         </div>
         {projectsView === 'map' && <MapView data={dataFiltered} />}
