@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 
+import { useRouter } from 'next/router';
+
 import { type NextPage } from 'next';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import { PROJECTS } from 'containers/projects/constants';
 import Filters from 'containers/projects/filters';
@@ -16,26 +18,51 @@ import { Project } from 'types/project';
 
 const Projects: NextPage = () => {
   const projectsView = useRecoilValue(projectsViewAtom);
-  const filters = useRecoilValue(filtersAtom);
-  const resetFilters = useResetRecoilState(filtersAtom);
+
+  const [filters, setFilters] = useRecoilState(filtersAtom);
+
+  const { query } = useRouter();
+  const { pathway } = query;
 
   const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
 
   useEffect(() => {
-    resetFilters();
-  }, [resetFilters]);
+    if (pathway) {
+      setFilters({ ...filters, pathway: [pathway as string] });
+    }
+  }, [pathway]);
 
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
-    if (activedFilters) {
-      const filterKeys = Object.keys(filters);
-      const filteredData = PROJECTS.filter(function (eachObj) {
-        return filterKeys.some(function (key: keyof Project) {
-          return filters[key] === eachObj[key];
-        });
+    const filteredPathwayData = () => {
+      const pathwayData = PROJECTS.filter((project) => {
+        if (filters.pathway.includes(project.pathway)) return project.pathway;
       });
-      setDataFiltered(filteredData);
-    }
+      setDataFiltered(pathwayData);
+    };
+    const filteredPhaseData = () => {
+      const phaseData = PROJECTS.filter((project) => {
+        if (filters.phase.includes(project.phase)) return project.phase;
+      });
+      setDataFiltered(phaseData);
+    };
+    const filteredActionData = () => {
+      const actionData = PROJECTS.filter((project) => {
+        if (filters.action.includes(project.action)) return project.action;
+      });
+      setDataFiltered(actionData);
+    };
+    const filteredCategoryData = () => {
+      const categoryData = PROJECTS.filter((project) => {
+        if (filters.category.includes(project.category)) return project.category;
+      });
+      setDataFiltered(categoryData);
+    };
+    if (filters.pathway.length > 0) filteredPathwayData();
+    if (filters.phase.length > 0) filteredPhaseData();
+    if (filters.action.length > 0) filteredActionData();
+    if (filters.category.length > 0) filteredCategoryData();
+    if (!activedFilters) return setDataFiltered(PROJECTS);
   }, [filters]);
 
   return (
@@ -43,7 +70,6 @@ const Projects: NextPage = () => {
       <Wrapper>
         <div className="mt-6 mb-10 flex items-center space-x-6">
           <Tabs />
-
           <Filters />
         </div>
         {projectsView === 'map' && <MapView data={dataFiltered} />}

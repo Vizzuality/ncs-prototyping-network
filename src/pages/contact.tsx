@@ -25,7 +25,7 @@ const Contact: NextPage = () => {
   }, []);
 
   const onSubmit = useCallback((data) => {
-    console.log('form data', data);
+    console.info('form data', data);
   }, []);
 
   return (

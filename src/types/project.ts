@@ -13,7 +13,7 @@ export interface Project {
   pathway: string;
   action: string;
   phase: string;
-  categories: string[];
+  category: string;
   area: string;
   people: string;
   mitigation: string;

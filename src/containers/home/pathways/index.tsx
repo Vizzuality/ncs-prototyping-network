@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
@@ -34,14 +35,22 @@ const Pathways = (): JSX.Element => {
                   {name}
                 </p>
               </div>
-              <button className="flex h-full w-32 justify-center">
-                <HiArrowNarrowRight
-                  className={cn({
-                    [className.arrow]: !!className.arrow,
-                  })}
-                  size={50}
-                />
-              </button>
+
+              <Link
+                href={{
+                  pathname: '/projects',
+                  query: { pathway: name },
+                }}
+              >
+                <div className="flex h-full w-32 justify-center">
+                  <HiArrowNarrowRight
+                    className={cn({
+                      [className.arrow]: !!className.arrow,
+                    })}
+                    size={50}
+                  />
+                </div>
+              </Link>
             </div>
           ))}
         </div>

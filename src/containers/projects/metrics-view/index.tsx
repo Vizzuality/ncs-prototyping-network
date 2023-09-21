@@ -98,15 +98,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                   <td className="bg-background">{project.pathway}</td>
                   <td>{project.action}</td>
                   <td className="bg-background">{project.phase}</td>
-                  <td>
-                    <div className="flex flex-col">
-                      {project.categories.map((category) => (
-                        <span key={category} className="mr-2">
-                          {category}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
+                  <td>{project.category}</td>
                   <td className="bg-background">{project.area}</td>
                   <td>{project.people}</td>
                   <td className="bg-background">{project.mitigation}</td>

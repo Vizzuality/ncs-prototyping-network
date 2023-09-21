@@ -1,10 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
-
-import Button from 'components/ui/button';
 
 const HomeMap = (): JSX.Element => {
   return (
@@ -19,12 +18,13 @@ const HomeMap = (): JSX.Element => {
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             mollit anim id est laborum.
           </p>
-          <div>
-            <Button className="mt-6 flex h-14 space-x-6 rounded-none bg-butternut px-7 text-white">
+
+          <Link href="/projects">
+            <div className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white">
               <p className="text-base font-bold uppercase">View Projects</p>
               <HiArrowNarrowRight color="white" size={20} />
-            </Button>
-          </div>
+            </div>
+          </Link>
         </div>
         <div className="mt-8 flex h-full w-2/3 items-center justify-center">
           <Image src="/images/home/map.png" alt="Map" width={678} height={338} />
