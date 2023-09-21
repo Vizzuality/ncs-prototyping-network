@@ -31,7 +31,7 @@ const Lessons = (): JSX.Element => {
         <div key={lesson.id} className="flex justify-between">
           <Image
             src={lesson.image}
-            alt="placeholder"
+            alt={lesson.title}
             height={500}
             width={700}
             style={{ objectFit: 'cover' }}

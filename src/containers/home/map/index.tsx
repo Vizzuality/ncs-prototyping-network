@@ -20,10 +20,10 @@ const HomeMap = (): JSX.Element => {
           </p>
 
           <Link href="/projects">
-            <div className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white">
+            <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
               <p className="text-base font-bold uppercase">View Projects</p>
-              <HiArrowNarrowRight color="white" size={20} />
-            </div>
+              <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
+            </button>
           </Link>
         </div>
         <div className="mt-8 flex h-full w-2/3 items-center justify-center">

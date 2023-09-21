@@ -17,8 +17,8 @@ export const P_PHASE_OPTIONS = [
 ];
 
 export const P_CATEGORY_OPTIONS = [
-  { value: 'Comunity-based', label: 'Comunity-based' },
+  { value: 'Community-based', label: 'Community-based' },
   { value: 'Goverment-led', label: 'Goverment-led' },
-  { value: 'Carbon Project', label: 'Carbon Project' },
-  { value: 'Policy Project', label: 'Policy Project' },
+  { value: 'Carbon project', label: 'Carbon project' },
+  { value: 'Policy project', label: 'Policy project' },
 ];
