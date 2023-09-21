@@ -30,38 +30,33 @@ const Projects: NextPage = () => {
     if (pathway) {
       setFilters({ ...filters, pathway: [pathway as string] });
     }
-  }, [pathway]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
 
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
-    const filteredPathwayData = () => {
+    const dataFinalFiltered = () => {
       const pathwayData = PROJECTS.filter((project) => {
-        if (filters.pathway.includes(project.pathway)) return project.pathway;
+        if (filters.pathway.length > 0 && filters.pathway.includes(project.pathway))
+          return project.pathway;
       });
-      setDataFiltered(pathwayData);
-    };
-    const filteredPhaseData = () => {
-      const phaseData = PROJECTS.filter((project) => {
-        if (filters.phase.includes(project.phase)) return project.phase;
+      const data = pathwayData.filter((project) => {
+        if (filters.phase.length > 0) {
+          if (!filters.phase.includes(project.phase)) return false;
+        }
+        if (filters.action.length > 0) {
+          if (!filters.action.includes(project.action)) return false;
+        }
+        if (filters.category.length > 0) {
+          if (!filters.category.includes(project.category)) return false;
+        }
+        return true;
       });
-      setDataFiltered(phaseData);
+      return data;
     };
-    const filteredActionData = () => {
-      const actionData = PROJECTS.filter((project) => {
-        if (filters.action.includes(project.action)) return project.action;
-      });
-      setDataFiltered(actionData);
-    };
-    const filteredCategoryData = () => {
-      const categoryData = PROJECTS.filter((project) => {
-        if (filters.category.includes(project.category)) return project.category;
-      });
-      setDataFiltered(categoryData);
-    };
-    if (filters.pathway.length > 0) filteredPathwayData();
-    if (filters.phase.length > 0) filteredPhaseData();
-    if (filters.action.length > 0) filteredActionData();
-    if (filters.category.length > 0) filteredCategoryData();
+
+    if (activedFilters) return setDataFiltered(dataFinalFiltered());
+
     if (!activedFilters) return setDataFiltered(PROJECTS);
   }, [filters]);
 
