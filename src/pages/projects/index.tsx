@@ -36,11 +36,10 @@ const Projects: NextPage = () => {
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
     const dataFinalFiltered = () => {
-      const pathwayData = PROJECTS.filter((project) => {
-        if (filters.pathway.length > 0 && filters.pathway.includes(project.pathway))
-          return project.pathway;
-      });
-      const data = pathwayData.filter((project) => {
+      const data = PROJECTS.filter((project) => {
+        if (filters.pathway.length > 0) {
+          if (!filters.pathway.includes(project.pathway)) return false;
+        }
         if (filters.phase.length > 0) {
           if (!filters.phase.includes(project.phase)) return false;
         }
