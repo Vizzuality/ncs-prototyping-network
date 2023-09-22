@@ -102,8 +102,20 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                       </div>
                     </Link>
                   </td>
-                  <td className="bg-background">{project.pathways}</td>
-                  <td>{project.action_types}</td>
+                  <td className="bg-background">
+                    <div>
+                      {project.pathways.map((pathway, idx) => (
+                        <p key={idx}>{pathway}</p>
+                      ))}
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      {project.action_types.map((at, idx) => (
+                        <p key={idx}>{at}</p>
+                      ))}
+                    </div>
+                  </td>
                   <td className="bg-background">{project.project_phase}</td>
                   <td>{project.project_category}</td>
                   <td className="bg-background">{project.hectares_impacted}</td>

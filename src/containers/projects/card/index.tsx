@@ -6,31 +6,11 @@ import Icon from '@/components/icon';
 import { cn } from '@/utils/cn';
 import { Project } from 'types/project';
 
-import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
-import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
-import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
+import { COLORS, ICONS } from './constants';
 
 const Card = ({ data }: { data: Project }): JSX.Element => {
   const { country, long_title, pathways, carbon_mitigation, project_phase, hectares_impacted, id } =
     data;
-
-  // !TODO: Read from key types
-  const COLORS = {
-    'Coastal Wetlands (Avoided Impacts)': 'bg-rust',
-    'Coastal Wetlands (Restoration)': 'bg-rust',
-    Agroforestry: 'bg-iris',
-    'Peatlands (Avoided Impacts)': 'bg-cirrus',
-    'Peatlands (Restoration)': 'bg-cirrus',
-  };
-
-  // !TODO: Read from key types
-  const ICONS = {
-    Agroforestry: AGROFORESTRY_SVG,
-    'Coastal Wetlands (Avoided Impacts)': COASTAL_WETLANDS_SVG,
-    'Coastal Wetlands (Restoration)': COASTAL_WETLANDS_SVG,
-    'Peatlands (Avoided Impacts)': PEATLANDS_SVG,
-    'Peatlands (Restoration)': PEATLANDS_SVG,
-  };
 
   return (
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
@@ -43,9 +23,9 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
           height={130}
         />
         <div className="absolute top-2 left-2 z-10">
-          {pathways.map((pathway) => (
+          {pathways.map((pathway, idx) => (
             <div
-              key={pathway}
+              key={idx}
               className={cn({
                 'inline-flex items-center space-x-1 rounded-3xl bg-black px-2.5 py-0.5': true,
                 [COLORS[pathway]]: pathway,

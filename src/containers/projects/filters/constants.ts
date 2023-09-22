@@ -1,36 +1,65 @@
-// !TODO Read from types
+import {
+  PATHWAYS,
+  ACTION_TYPES,
+  PROJECT_PHASES,
+  PROJECT_CATEGORIES,
+} from 'utils/constants-projects';
 
 export const PATHWAYS_OPTIONS = [
-  { value: 'Agroforestry', label: 'Agroforestry', disabled: false },
+  { value: PATHWAYS.Agroforestry, label: PATHWAYS.Agroforestry, disabled: false },
   {
-    value: 'Coastal Wetlands (Avoided Impacts)',
-    label: 'Coastal Wetlands (Avoided Impacts)',
+    value: PATHWAYS.CoastalWetlandsAvoidedImpacts,
+    label: PATHWAYS.CoastalWetlandsAvoidedImpacts,
     disabled: false,
   },
   {
-    value: 'Coastal Wetlands (Restoration)',
-    label: 'Coastal Wetlands (Restoration)',
+    value: PATHWAYS.CoastalWetlandsRestoration,
+    label: PATHWAYS.CoastalWetlandsRestoration,
     disabled: false,
   },
-  { value: 'Peatlands (Avoided Impacts)', label: 'Peatlands (Avoided Impacts)', disabled: false },
-  { value: 'Peatlands (Restoration)', label: 'Peatlands (Restoration)', disabled: false },
+  {
+    value: PATHWAYS.PeatlandsAvoidedImpacts,
+    label: PATHWAYS.PeatlandsAvoidedImpacts,
+    disabled: false,
+  },
+  {
+    value: PATHWAYS.PeatlandsRestoration,
+    label: PATHWAYS.PeatlandsRestoration,
+    disabled: false,
+  },
 ];
 
 export const ACTION_TYPES_OPTIONS = [
-  { value: 'Protect', label: 'Protect', disabled: false },
-  { value: 'Manage', label: 'Manage', disabled: false },
-  { value: 'Restore', label: 'Restore', disabled: false },
+  { value: ACTION_TYPES.Protect, label: ACTION_TYPES.Protect, disabled: false },
+  { value: ACTION_TYPES.Manage, label: ACTION_TYPES.Manage, disabled: false },
+  { value: ACTION_TYPES.Restore, label: ACTION_TYPES.Restore, disabled: false },
 ];
 
 export const P_PHASE_OPTIONS = [
-  { value: 'Piloting', label: 'Piloting', disabled: false },
-  { value: 'Implementing', label: 'Implementing', disabled: false },
-  { value: 'Scaling', label: 'Scaling', disabled: false },
+  { value: PROJECT_PHASES.Piloting, label: PROJECT_PHASES.Piloting, disabled: false },
+  { value: PROJECT_PHASES.Implementing, label: PROJECT_PHASES.Implementing, disabled: false },
+  { value: PROJECT_PHASES.Scaling, label: PROJECT_PHASES.Scaling, disabled: false },
 ];
 
 export const P_CATEGORY_OPTIONS = [
-  { value: 'Community based', label: 'Community based', disabled: false },
-  { value: 'Goverment led', label: 'Goverment led', disabled: false },
-  { value: 'Carbon project', label: 'Carbon project', disabled: false },
-  { value: 'Policy project', label: 'Policy project', disabled: false },
+  {
+    value: PROJECT_CATEGORIES.CommunityBased,
+    label: PROJECT_CATEGORIES.CommunityBased,
+    disabled: false,
+  },
+  {
+    value: PROJECT_CATEGORIES.GovermentLed,
+    label: PROJECT_CATEGORIES.GovermentLed,
+    disabled: false,
+  },
+  {
+    value: PROJECT_CATEGORIES.CarbonProject,
+    label: PROJECT_CATEGORIES.CarbonProject,
+    disabled: false,
+  },
+  {
+    value: PROJECT_CATEGORIES.PolicyProject,
+    label: PROJECT_CATEGORIES.PolicyProject,
+    disabled: false,
+  },
 ];

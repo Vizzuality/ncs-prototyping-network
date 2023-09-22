@@ -2,6 +2,7 @@ import { useRecoilState } from 'recoil';
 
 import MultiSelect from 'components/ui/multiselect';
 import { filtersAtom } from 'store';
+import { PATHWAYS } from 'utils/constants-projects';
 
 import {
   PATHWAYS_OPTIONS,
@@ -9,6 +10,8 @@ import {
   P_PHASE_OPTIONS,
   P_CATEGORY_OPTIONS,
 } from './constants';
+
+console.log('--->', PATHWAYS.CoastalWetlandsAvoidedImpacts);
 
 const Filters = (): JSX.Element => {
   const [filters, setFilters] = useRecoilState(filtersAtom);

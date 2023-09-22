@@ -1,3 +1,5 @@
+import { CO_BENEFITS } from 'utils/constants-projects';
+
 import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
 import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
 import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
@@ -50,11 +52,10 @@ export const COLUMNS = [
   },
 ];
 
-// !TODO: Read keys from types
 export const CO_BENEFITS_ICONS = {
-  Biodiversity: AGROFORESTRY_SVG,
-  'Ecosystem Services': COASTAL_WETLANDS_SVG,
-  'Reslience and adaptation': PEATLANDS_SVG,
-  'Human Health/Well-Being': PEATLANDS_SVG,
-  'Livelihoods/Economic': AGROFORESTRY_SVG,
+  [CO_BENEFITS.Biodiversity]: AGROFORESTRY_SVG,
+  [CO_BENEFITS.EcosystemServices]: COASTAL_WETLANDS_SVG,
+  [CO_BENEFITS.ReslienceAndAdaptation]: PEATLANDS_SVG,
+  [CO_BENEFITS.HumanHealthWellBeing]: PEATLANDS_SVG,
+  [CO_BENEFITS.LivelihoodsEconomic]: AGROFORESTRY_SVG,
 };

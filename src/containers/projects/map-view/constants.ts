@@ -1,5 +1,5 @@
 export const SORT_OPTIONS = [
-  { value: 'mitigation', label: 'Mitigation Potencial' },
-  { value: 'area', label: 'Area Impacted' },
-  { value: 'people', label: 'People Supported' },
+  { value: 'carbon_mitigation', label: 'Mitigation Potencial' },
+  { value: 'hectares_impacted', label: 'Area Impacted' },
+  { value: 'people_supported', label: 'People Supported' },
 ];
