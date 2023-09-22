@@ -7,7 +7,7 @@ import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
-import { PROJECTS } from '@/containers/projects/constants';
+import { PROJECTS } from 'data/projects';
 import Layout from 'layouts';
 import { type PageQuery } from 'types/query';
 
@@ -32,18 +32,24 @@ const Project: NextPage = () => {
             </h2>
             <div className="flex space-x-20 font-sans">
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">{projectData?.mitigation}</p>
+                <p className="pb-2 text-4xl font-bold text-spring">
+                  {projectData?.carbon_mitigation}
+                </p>
                 <div className="flex flex-col items-center text-[17px] font-medium leading-6 text-text">
                   <p>Tons of Carbon</p>
                   <p>Mitigation Potential</p>
                 </div>
               </div>
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">{projectData?.area}</p>
+                <p className="pb-2 text-4xl font-bold text-spring">
+                  {projectData?.hectares_impacted}
+                </p>
                 <p className="text-[17px] font-medium text-text">Hectares Impacted</p>
               </div>
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">{projectData?.people}</p>
+                <p className="pb-2 text-4xl font-bold text-spring">
+                  {projectData?.people_supported}
+                </p>
                 <p className="text-[17px] font-medium text-text">People Supported</p>
               </div>
             </div>

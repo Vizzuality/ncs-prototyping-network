@@ -7,10 +7,11 @@ import Link from 'next/link';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
 import Icon from '@/components/icon';
+import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
-import { COLUMNS, PROJECTS, CO_BENEFITS_ICONS } from '../constants';
+import { COLUMNS, CO_BENEFITS_ICONS } from '../constants';
 
 type Direction = 'asc' | 'desc';
 
@@ -84,24 +85,30 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                 >
                   <td className="w-3/12 !pl-0">
                     <Link href={`/projects/${project.id}`} className="group flex space-x-3">
-                      <Image alt={project.country} src={project.image} width={100} height={100} />
+                      <Image
+                        alt={project.photo_2_caption}
+                        // !TODO: Change to photo_2 when we have media upload
+                        src="https://dummyimage.com/330x290/000/fff&text=+"
+                        width={100}
+                        height={100}
+                      />
                       <div className="flex flex-col">
                         <p className="font-serif text-2xl font-semibold text-indigo group-hover:underline">
                           {project.country}
                         </p>
                         <p className="max-w-sm text-2xs text-text group-hover:opacity-80">
-                          {project.description}
+                          {project.long_title}
                         </p>
                       </div>
                     </Link>
                   </td>
-                  <td className="bg-background">{project.pathway}</td>
-                  <td>{project.action}</td>
-                  <td className="bg-background">{project.phase}</td>
-                  <td>{project.category}</td>
-                  <td className="bg-background">{project.area}</td>
-                  <td>{project.people}</td>
-                  <td className="bg-background">{project.mitigation}</td>
+                  <td className="bg-background">{project.pathways}</td>
+                  <td>{project.action_types}</td>
+                  <td className="bg-background">{project.project_phase}</td>
+                  <td>{project.project_category}</td>
+                  <td className="bg-background">{project.hectares_impacted}</td>
+                  <td>{project.people_supported}</td>
+                  <td className="bg-background">{project.carbon_mitigation}</td>
                   <td>
                     {project.co_benefits.map((cb) => {
                       return <Icon icon={CO_BENEFITS_ICONS[cb]} className="h-7 w-7" key={cb} />;

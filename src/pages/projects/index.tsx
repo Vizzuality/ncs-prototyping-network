@@ -5,16 +5,16 @@ import { useRouter } from 'next/router';
 import { type NextPage } from 'next';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import { PROJECTS } from 'containers/projects/constants';
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
 import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
+import { PROJECTS } from 'data/projects';
 import Layout from 'layouts';
 import { filtersAtom, projectsViewAtom } from 'store';
-import { Project } from 'types/project';
+import { ActionTypes, Pathways, Project } from 'types/project';
 
 const Projects: NextPage = () => {
   const projectsView = useRecoilValue(projectsViewAtom);
@@ -28,7 +28,7 @@ const Projects: NextPage = () => {
 
   useEffect(() => {
     if (pathway) {
-      setFilters({ ...filters, pathway: [pathway as string] });
+      setFilters({ ...filters, pathways: [pathway as string] });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
@@ -37,17 +37,18 @@ const Projects: NextPage = () => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
     const dataFinalFiltered = () => {
       const data = PROJECTS.filter((project) => {
-        if (filters.pathway.length > 0) {
-          if (!filters.pathway.includes(project.pathway)) return false;
+        if (filters.pathways.length > 0) {
+          if (!filters.pathways.some((pw: Pathways) => project.pathways.includes(pw))) return false;
         }
-        if (filters.phase.length > 0) {
-          if (!filters.phase.includes(project.phase)) return false;
+        if (filters.project_phase.length > 0) {
+          if (!filters.project_phase.includes(project.project_phase)) return false;
         }
-        if (filters.action.length > 0) {
-          if (!filters.action.includes(project.action)) return false;
+        if (filters.action_types.length > 0) {
+          if (!filters.action_types.some((at: ActionTypes) => project.action_types.includes(at)))
+            return false;
         }
-        if (filters.category.length > 0) {
-          if (!filters.category.includes(project.category)) return false;
+        if (filters.project_category.length > 0) {
+          if (!filters.project_category.includes(project.project_category)) return false;
         }
         return true;
       });

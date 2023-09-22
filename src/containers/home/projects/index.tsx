@@ -8,7 +8,7 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
-import { PROJECTS } from './constants';
+import { PROJECTS } from 'data/projects';
 
 const HomeProjects = (): JSX.Element => {
   const SampleNextArrow = ({ onClick }: { onClick?: MouseEventHandler<HTMLButtonElement> }) => {
@@ -59,10 +59,16 @@ const HomeProjects = (): JSX.Element => {
           <Slider {...settings}>
             {PROJECTS.map((project) => (
               <div key={project.id} className="relative">
-                <Image alt="Brasil Agroforestry" src={project.image} width={333} height={200} />
+                <Image
+                  alt={project.photo_2_caption}
+                  // !TODO: Change to photo_2 when we have media upload
+                  src="https://dummyimage.com/330x290/000/fff&text=+"
+                  width={333}
+                  height={200}
+                />
                 <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4 text-white">
-                  <h3 className="font-serif text-xs font-bold uppercase">{project.title}</h3>
-                  <p className="font-sans text-lg font-light leading-6">{project.description}</p>
+                  <h3 className="font-serif text-xs font-bold uppercase">{project.project_name}</h3>
+                  <p className="font-sans text-lg font-light leading-6">{project.long_title}</p>
                 </div>
               </div>
             ))}
