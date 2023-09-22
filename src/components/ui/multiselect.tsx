@@ -12,7 +12,7 @@ import ARROW_FILLED_DOWN_SVG from 'svgs/ui/arrow-filled-down.svg?sprite';
 export interface MultiSelectProps {
   id: string | number;
   className?: string;
-  options?: { label: string; value: string }[];
+  options?: { label: string; value: string; disabled?: boolean }[];
   placeholder?: string;
   disabled?: boolean;
   values?: string[];
@@ -171,14 +171,14 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
 
                   {options.map((opt) => {
                     return (
-                      <Listbox.Option key={opt.value} value={opt.value}>
+                      <Listbox.Option key={opt.value} value={opt.value} disabled={opt.disabled}>
                         {({ active, disabled }) => (
                           <div
                             className={cn({
                               'relative flex cursor-pointer select-none items-center space-x-1.5 py-2 px-3 text-base text-text hover:bg-background':
                                 true,
                               'text-indigo': !!active,
-                              'opacity-40': !!disabled,
+                              'pointer-events-none opacity-40': !!disabled,
                             })}
                           >
                             <div className="w-4">

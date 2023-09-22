@@ -26,7 +26,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
   };
 
   return (
-    <div className="relative w-[330px] cursor-pointer shadow-lg hover:shadow-2xl">
+    <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
       <Link href={`/projects/${id}`}>
         <Image
           alt={description}
