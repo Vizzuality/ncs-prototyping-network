@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
 
@@ -8,15 +7,9 @@ import { CO_BENEFITS_ICONS } from 'containers/projects/constants';
 import Wrapper from 'containers/wrapper';
 
 import Icon from 'components/icon';
-import { PROJECTS } from 'data/projects';
-import { type PageQuery } from 'types/query';
+import { Project } from 'types/project';
 
-const ProjectDetail = (): JSX.Element => {
-  const { query } = useRouter();
-  const { pid } = query as PageQuery;
-
-  const projectData = PROJECTS.find((p) => `${p.id}` === pid);
-
+const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
   return (
     <>
       <Wrapper>
@@ -27,28 +20,22 @@ const ProjectDetail = (): JSX.Element => {
           </Link>
           <div className="flex flex-col items-center">
             <h2 className="mb-16 max-w-3xl font-serif text-[35px] font-medium leading-9 text-indigo">
-              {projectData?.long_title}
+              {data?.long_title}
             </h2>
             <div className="flex space-x-20 font-sans">
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">
-                  {projectData?.carbon_mitigation}
-                </p>
+                <p className="pb-2 text-4xl font-bold text-spring">{data?.carbon_mitigation}</p>
                 <div className="flex flex-col items-center text-[17px] font-medium leading-6 text-text">
                   <p>Tons of Carbon</p>
                   <p>Mitigation Potential</p>
                 </div>
               </div>
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">
-                  {projectData?.hectares_impacted}
-                </p>
+                <p className="pb-2 text-4xl font-bold text-spring">{data?.hectares_impacted}</p>
                 <p className="text-[17px] font-medium text-text">Hectares Impacted</p>
               </div>
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">
-                  {projectData?.people_supported}
-                </p>
+                <p className="pb-2 text-4xl font-bold text-spring">{data?.people_supported}</p>
                 <p className="text-[17px] font-medium text-text">People Supported</p>
               </div>
             </div>
@@ -81,7 +68,7 @@ const ProjectDetail = (): JSX.Element => {
         <div className="flex w-1/2 justify-end bg-indigo">
           <div className="flex flex-col space-y-3 p-20 text-white">
             <h4 className="font-serif text-4xl font-medium">Goals</h4>
-            <p className="max-w-xl font-sans text-xl leading-9">{projectData?.project_goal}</p>
+            <p className="max-w-xl font-sans text-xl leading-9">{data?.project_goal}</p>
           </div>
         </div>
         <Image
@@ -97,9 +84,7 @@ const ProjectDetail = (): JSX.Element => {
         <Wrapper>
           <div className="flex flex-col items-center space-y-4 py-16 text-white">
             <h4 className="pb-2 font-serif text-3xl font-medium">Why This, Why Now</h4>
-            <p className="max-w-3xl text-center font-sans text-xl leading-9">
-              {projectData?.why_content}
-            </p>
+            <p className="max-w-3xl text-center font-sans text-xl leading-9">{data?.why_content}</p>
           </div>
         </Wrapper>
       </section>
@@ -116,26 +101,26 @@ const ProjectDetail = (): JSX.Element => {
             <tbody>
               <tr className="border-b-[2px] [&>*]:py-10">
                 <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                  {projectData?.lesson_1_category}
+                  {data?.lesson_1_category}
                 </td>
                 <td className="w-3/4 px-20 font-sans text-[17px] leading-6 text-text">
-                  {projectData?.lesson_1}
+                  {data?.lesson_1}
                 </td>
               </tr>
               <tr className="border-b-[2px] [&>*]:py-10">
                 <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
-                  {projectData?.lesson_2_category}
+                  {data?.lesson_2_category}
                 </td>
                 <td className="w-3/4 px-20 font-sans text-[17px] leading-6 text-text">
-                  {projectData?.lesson_2}
+                  {data?.lesson_2}
                 </td>
               </tr>
               <tr className="[&>*]:py-10">
                 <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                  {projectData?.lesson_3_category}
+                  {data?.lesson_3_category}
                 </td>
                 <td className="w-3/4 px-20 font-sans text-[17px] leading-6 text-text">
-                  {projectData?.lesson_3}
+                  {data?.lesson_3}
                 </td>
               </tr>
             </tbody>
@@ -153,9 +138,7 @@ const ProjectDetail = (): JSX.Element => {
         <Wrapper>
           <div className="flex w-3/4 flex-col space-y-6 py-16">
             <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
-            <p className="font-sans text-[17px] leading-6 text-text">
-              {projectData?.project_summary}
-            </p>
+            <p className="font-sans text-[17px] leading-6 text-text">{data?.project_summary}</p>
           </div>
         </Wrapper>
       </section>
@@ -169,49 +152,49 @@ const ProjectDetail = (): JSX.Element => {
         </div>
         <Wrapper>
           <div className="py-16">
-            {projectData?.cb_biodiversity && (
+            {data?.cb_biodiversity && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex">
                   <Icon icon={CO_BENEFITS_ICONS.Biodiversity} className="h-7 w-7" />
                   <p className="text-xl font-light">Biodiversity</p>
                 </div>
-                <p className="text-[17px] leading-6">{projectData?.cb_biodiversity}</p>
+                <p className="text-[17px] leading-6">{data?.cb_biodiversity}</p>
               </div>
             )}
-            {projectData?.cb_ecosystem_services && (
+            {data?.cb_ecosystem_services && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex">
                   <Icon icon={CO_BENEFITS_ICONS.EcosystemServices} className="h-7 w-7" />
                   <p className="text-xl font-light">Ecosystem Services</p>
                 </div>
-                <p className="text-[17px] leading-6">{projectData?.cb_ecosystem_services}</p>
+                <p className="text-[17px] leading-6">{data?.cb_ecosystem_services}</p>
               </div>
             )}
-            {projectData?.cb_livelihood_econ && (
+            {data?.cb_livelihood_econ && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex">
                   <Icon icon={CO_BENEFITS_ICONS.ReslienceAndAdaptation} className="h-7 w-7" />
                   <p className="text-xl font-light">Livelihoods & Economics</p>
                 </div>
-                <p className="text-[17px] leading-6">{projectData?.cb_livelihood_econ}</p>
+                <p className="text-[17px] leading-6">{data?.cb_livelihood_econ}</p>
               </div>
             )}
-            {projectData?.cb_health_well_being && (
+            {data?.cb_health_well_being && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex">
                   <Icon icon={CO_BENEFITS_ICONS.HumanHealthWellBeing} className="h-7 w-7" />
                   <p className="text-xl font-light">Health & Well-being</p>
                 </div>
-                <p className="text-[17px] leading-6">{projectData?.cb_health_well_being}</p>
+                <p className="text-[17px] leading-6">{data?.cb_health_well_being}</p>
               </div>
             )}
-            {projectData?.cb_resilience_adapt && (
+            {data?.cb_resilience_adapt && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex">
                   <Icon icon={CO_BENEFITS_ICONS.LivelihoodsEconomic} className="h-7 w-7" />
                   <p className="text-xl font-light">Resilience & Adaptation</p>
                 </div>
-                <p className="text-[17px] leading-6">{projectData?.cb_resilience_adapt}</p>
+                <p className="text-[17px] leading-6">{data?.cb_resilience_adapt}</p>
               </div>
             )}
           </div>
@@ -222,7 +205,7 @@ const ProjectDetail = (): JSX.Element => {
           <div className="space-y-4 border-t-[2px] py-8">
             <h4 className="font-serif text-3xl font-medium text-indigo">Partners</h4>
             <div className="flex flex-wrap font-light leading-8 text-text">
-              {projectData?.primary_partners.split(/[,]+/).map((partner) => (
+              {data?.primary_partners.split(/[,]+/).map((partner) => (
                 <p key={partner} className="mr-8">
                   {partner}
                 </p>
@@ -235,7 +218,7 @@ const ProjectDetail = (): JSX.Element => {
         <Wrapper>
           <div className="flex justify-center py-20">
             <p className="max-w-3xl text-center font-sans text-xl font-light leading-7 text-white">
-              {projectData?.callout}
+              {data?.callout}
             </p>
           </div>
         </Wrapper>

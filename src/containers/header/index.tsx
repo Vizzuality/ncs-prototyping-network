@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
@@ -9,8 +9,7 @@ import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const Header: React.FC = () => {
-  const router = useRouter();
-  const { pathname } = router;
+  const pathname = usePathname();
 
   return (
     <div

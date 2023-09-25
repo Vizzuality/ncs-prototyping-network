@@ -1,15 +1,14 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 import { cn } from 'utils/cn';
 
 import { NAV_TABS_HEADER, NAV_TABS_FOOTER } from './constants';
 
 const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
-  const router = useRouter();
-  const { pathname } = router;
+  const pathname = usePathname();
 
   const NAV_TABS = section === 'footer' ? NAV_TABS_FOOTER : NAV_TABS_HEADER;
 

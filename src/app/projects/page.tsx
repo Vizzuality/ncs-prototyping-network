@@ -1,6 +1,7 @@
+'use client';
 import { useEffect, useState } from 'react';
 
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 import { type NextPage } from 'next';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -11,8 +12,8 @@ import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
+import Layout from 'app/layout';
 import { PROJECTS } from 'data/projects';
-import Layout from 'layouts';
 import { filtersAtom, projectsViewAtom } from 'store';
 import { ActionTypes, Pathways, Project } from 'types/project';
 
@@ -20,18 +21,18 @@ const Projects: NextPage = () => {
   const projectsView = useRecoilValue(projectsViewAtom);
 
   const [filters, setFilters] = useRecoilState(filtersAtom);
+  const searchParams = useSearchParams();
 
-  const { query } = useRouter();
-  const { pathway } = query;
+  const pathway = searchParams.get('pathway');
 
   const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
 
   useEffect(() => {
     if (pathway) {
-      setFilters({ ...filters, pathways: [pathway as string] });
+      setFilters({ ...filters, pathways: [pathway] });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters]);
+  }, []);
 
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
