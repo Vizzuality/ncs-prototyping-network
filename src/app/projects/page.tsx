@@ -12,8 +12,8 @@ import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
+import Layout from 'app/layout';
 import { PROJECTS } from 'data/projects';
-import Layout from 'layouts';
 import { filtersAtom, projectsViewAtom } from 'store';
 import { ActionTypes, Pathways, Project } from 'types/project';
 

@@ -3,7 +3,7 @@ import { type NextPage } from 'next';
 
 import Wrapper from 'containers/wrapper';
 
-import Layout from 'layouts';
+import Layout from 'app/layout';
 
 const About: NextPage = () => {
   return (
