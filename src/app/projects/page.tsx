@@ -19,8 +19,6 @@ import { ActionTypes, Pathways, Project } from 'types/project';
 const Projects: NextPage = () => {
   const projectsView = useRecoilValue(projectsViewAtom);
 
-  console.log({ projectsView });
-
   const [filters, setFilters] = useRecoilState(filtersAtom);
   const searchParams = useSearchParams();
 

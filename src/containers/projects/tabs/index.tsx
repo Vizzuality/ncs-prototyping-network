@@ -12,8 +12,6 @@ const Tabs = (): JSX.Element => {
   const projectsView = useRecoilValue(projectsViewAtom);
   const setProjectsView = useSetRecoilState(projectsViewAtom);
 
-  console.log('TABS RENDERED', projectsView);
-
   return (
     <div className="mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
       {TABS.map((tab) => (

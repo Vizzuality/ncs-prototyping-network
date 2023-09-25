@@ -12,7 +12,6 @@ import {
 
 const Filters = (): JSX.Element => {
   const [filters, setFilters] = useRecoilState(filtersAtom);
-  console.log({ filters });
 
   return (
     <div className="flex w-9/12 flex-col space-y-1">
