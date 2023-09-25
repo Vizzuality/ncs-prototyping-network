@@ -1,11 +1,9 @@
-'use client';
 import { notFound } from 'next/navigation';
 
 import { type NextPage } from 'next';
 
 import ProjectDetail from 'containers/projects/detail';
 
-import Layout from 'app/layout';
 import { PROJECTS } from 'data/projects';
 
 const Project: NextPage = ({ params }: { params: { id: string } }) => {
@@ -15,11 +13,7 @@ const Project: NextPage = ({ params }: { params: { id: string } }) => {
     notFound();
   }
 
-  return (
-    <Layout>
-      <ProjectDetail data={data} />
-    </Layout>
-  );
+  return <ProjectDetail data={data} />;
 };
 
 export default Project;

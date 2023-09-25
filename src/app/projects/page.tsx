@@ -12,7 +12,6 @@ import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
-import Layout from 'app/layout';
 import { PROJECTS } from 'data/projects';
 import { filtersAtom, projectsViewAtom } from 'store';
 import { ActionTypes, Pathways, Project } from 'types/project';
@@ -62,16 +61,14 @@ const Projects: NextPage = () => {
   }, [filters]);
 
   return (
-    <Layout>
-      <Wrapper>
-        <div className="mt-6 mb-10 flex items-center space-x-6">
-          <Tabs />
-          <Filters />
-        </div>
-        {projectsView === 'map' && <MapView data={dataFiltered} />}
-        {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
-      </Wrapper>
-    </Layout>
+    <Wrapper>
+      <div className="mt-6 mb-10 flex items-center space-x-6">
+        <Tabs />
+        <Filters />
+      </div>
+      {projectsView === 'map' && <MapView data={dataFiltered} />}
+      {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
+    </Wrapper>
   );
 };
 
