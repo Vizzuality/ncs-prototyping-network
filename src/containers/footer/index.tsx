@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
@@ -10,7 +12,7 @@ import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const Footer: React.FC = () => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
   return (
     <div className="relative">

@@ -1,3 +1,4 @@
+'use client';
 import { type NextPage } from 'next';
 
 import Hero from 'containers/home/hero';

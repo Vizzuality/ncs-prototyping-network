@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
 
@@ -8,15 +7,9 @@ import { CO_BENEFITS_ICONS } from 'containers/projects/constants';
 import Wrapper from 'containers/wrapper';
 
 import Icon from 'components/icon';
-import { PROJECTS } from 'data/projects';
-import { type PageQuery } from 'types/query';
+import { Project } from 'types/project';
 
-const ProjectDetail = (): JSX.Element => {
-  const { query } = useRouter();
-  const { pid } = query as PageQuery;
-
-  const projectData = PROJECTS.find((p) => `${p.id}` === pid);
-
+const ProjectDetail = ({ projectData }: { projectData: Project }): JSX.Element => {
   return (
     <>
       <Wrapper>
