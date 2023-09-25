@@ -1,3 +1,4 @@
+'use client';
 import { type NextPage } from 'next';
 
 import Data from 'containers/home/data';
@@ -9,11 +10,9 @@ import Objectives from 'containers/home/objectives';
 import Pathways from 'containers/home/pathways';
 import Projects from 'containers/home/projects';
 
-import Layout from 'layouts';
-
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <>
       <Hero />
       <HomeMap />
       <Data />
@@ -22,7 +21,7 @@ const Home: NextPage = () => {
       <Objectives />
       <Lessons />
       <Pathways />
-    </Layout>
+    </>
   );
 };
 
