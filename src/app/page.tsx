@@ -10,11 +10,9 @@ import Objectives from 'containers/home/objectives';
 import Pathways from 'containers/home/pathways';
 import Projects from 'containers/home/projects';
 
-import Layout from 'app/layout';
-
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <>
       <Hero />
       <HomeMap />
       <Data />
@@ -23,7 +21,7 @@ const Home: NextPage = () => {
       <Objectives />
       <Lessons />
       <Pathways />
-    </Layout>
+    </>
   );
 };
 
