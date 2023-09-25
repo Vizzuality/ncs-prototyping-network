@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useState } from 'react';
 
 import Image from 'next/image';
@@ -6,12 +5,12 @@ import Link from 'next/link';
 
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
-import Icon from '@/components/icon';
+import { COLUMNS, CO_BENEFITS_ICONS } from 'containers/projects/constants';
+
+import Icon from 'components/icon';
 import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
-
-import { COLUMNS, CO_BENEFITS_ICONS } from '../constants';
 
 type Direction = 'asc' | 'desc';
 
