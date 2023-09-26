@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
-import { HiOutlineTable } from 'react-icons/hi';
-import { HiMapPin } from 'react-icons/hi2';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 
+import Icon from 'components/icon/component';
 import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
+
+import MARKER_SVG from 'svgs/ui/marker.svg?sprite';
+import METRICS_SVG from 'svgs/ui/metrics.svg?sprite';
 
 import { TABS } from './constants';
 
@@ -28,21 +30,21 @@ const Tabs = (): JSX.Element => {
           )}
           <div className="z-20 flex items-center space-x-2 px-[18.5px]">
             {tab.id === TABS[0].id && (
-              <HiMapPin
+              <Icon
+                icon={MARKER_SVG}
                 className={cn({
-                  'fill-black': true,
-                  'fill-butternut': tab.id === projectsView,
+                  'h-4 w-4 fill-indigo': true,
+                  '!fill-butternut': tab.id === projectsView,
                 })}
-                size={20}
               />
             )}
             {tab.id === TABS[1].id && (
-              <HiOutlineTable
+              <Icon
+                icon={METRICS_SVG}
                 className={cn({
-                  'stroke-black': true,
-                  'stroke-butternut': tab.id === projectsView,
+                  'h-4 w-4 fill-indigo': true,
+                  '!fill-butternut': tab.id === projectsView,
                 })}
-                size={20}
               />
             )}
             <p
