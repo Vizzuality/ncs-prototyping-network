@@ -4,13 +4,28 @@ import Link from 'next/link';
 
 import Icon from '@/components/icon';
 import { cn } from '@/utils/cn';
-import { Project } from 'types/project';
+import { Pathways, Project } from 'types/project';
 
 import { COLORS, ICONS } from './constants';
 
 const Card = ({ data }: { data: Project }): JSX.Element => {
   const { country, long_title, pathways, carbon_mitigation, project_phase, hectares_impacted, id } =
     data;
+
+  const getPathwayName = (pathway: Pathways) => {
+    switch (pathway) {
+      case 'Agroforestry':
+        return 'Agroforestry';
+      case 'Peatlands (Restoration)':
+        return 'Peatlands';
+      case 'Peatlands (Avoided Impacts)':
+        return 'Peatlands';
+      case 'Coastal Wetlands (Restoration)':
+        return 'Coastal Wetlands';
+      case 'Coastal Wetlands (Avoided Impacts)':
+        return 'Coastal Wetlands';
+    }
+  };
 
   return (
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
@@ -22,17 +37,17 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
           width={330}
           height={130}
         />
-        <div className="absolute top-2 left-2 z-10">
+        <div className="absolute top-2 left-2 z-10 flex flex-wrap">
           {pathways.map((pathway, idx) => (
             <div
               key={idx}
               className={cn({
-                'inline-flex items-center space-x-1 rounded-3xl bg-black px-2.5 py-0.5': true,
+                'mr-1 inline-flex items-center space-x-2 rounded-3xl bg-black pr-2.5 pl-1': true,
                 [COLORS[pathway]]: pathway,
               })}
             >
-              <Icon icon={ICONS[pathway]} className="h-7 w-7" />
-              <p className="font-serif text-xs uppercase text-white">{pathway}</p>
+              <Icon icon={ICONS[pathway]} className="h-6 w-6" />
+              <p className="font-serif text-xs uppercase text-white">{getPathwayName(pathway)}</p>
             </div>
           ))}
         </div>
