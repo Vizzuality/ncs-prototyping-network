@@ -91,7 +91,7 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
   }, [onSelect]);
 
   return (
-    <div className="w-full max-w-[180px] text-sm text-text">
+    <div className="w-full max-w-[185px] text-sm text-text">
       <Listbox
         as="div"
         className="space-y-1"
@@ -181,10 +181,13 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
                               'pointer-events-none opacity-40': !!disabled,
                             })}
                           >
-                            <div className="w-4">
-                              {selected.includes(opt.value) && (
-                                <HiCheck className="fill-indigo" size={16} />
-                              )}
+                            <div
+                              className={cn({
+                                'invisible w-4': true,
+                                visible: selected.includes(opt.value),
+                              })}
+                            >
+                              <HiCheck className="fill-indigo" size={16} />
                             </div>
 
                             <span

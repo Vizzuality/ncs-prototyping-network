@@ -22,6 +22,7 @@ const Footer: React.FC = () => {
             true,
           "bg-[url('/images/home/footer.png')] bg-bottom": pathname === '/',
           "bg-[url('/images/projects/footer.png')]": pathname.startsWith('/projects'),
+          "bg-[url('/images/contact/footer.png')] bg-bottom": pathname === '/contact',
         })}
       >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
