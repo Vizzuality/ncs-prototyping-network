@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { HiArrowNarrowRight } from 'react-icons/hi';
+import { motion } from 'framer-motion';
 
 import Wrapper from 'containers/wrapper';
 
+import Icon from 'components/icon/component';
 import { cn } from 'utils/cn';
+
+import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 
 import { PATHWAYS } from './constants';
 
@@ -42,14 +45,21 @@ const Pathways = (): JSX.Element => {
                   query: { pathway: name },
                 }}
               >
-                <div className="flex h-full w-32 justify-center">
-                  <HiArrowNarrowRight
+                <motion.div
+                  className="flex h-full w-32 justify-center"
+                  whileHover={{
+                    x: 15,
+                    transition: { duration: 0.25, bounce: 0 },
+                  }}
+                >
+                  <Icon
+                    icon={ARROW_SVG}
                     className={cn({
+                      'h-8 w-12': true,
                       [className.arrow]: !!className.arrow,
                     })}
-                    size={50}
                   />
-                </div>
+                </motion.div>
               </Link>
             </div>
           ))}
