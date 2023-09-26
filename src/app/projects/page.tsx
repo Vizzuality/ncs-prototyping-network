@@ -12,6 +12,7 @@ import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
+import { getEspecificPathwayName } from '@/utils/pathways';
 import { PROJECTS } from 'data/projects';
 import { filtersAtom, projectsViewAtom } from 'store';
 import { ActionTypes, Pathways, Project } from 'types/project';
@@ -28,7 +29,7 @@ const Projects: NextPage = () => {
 
   useEffect(() => {
     if (pathway) {
-      setFilters({ ...filters, pathways: [pathway] });
+      setFilters({ ...filters, pathways: getEspecificPathwayName(pathway) });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
