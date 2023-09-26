@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
+import { motion } from 'framer-motion';
+import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import { CO_BENEFITS_ICONS } from 'containers/projects/constants';
 import Wrapper from 'containers/wrapper';
@@ -9,15 +10,28 @@ import Wrapper from 'containers/wrapper';
 import Icon from 'components/icon';
 import { Project } from 'types/project';
 
+import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
+
 const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
+  const arrowAnimation = {
+    hover: {
+      x: -10,
+      transition: { duration: 0.25, bounce: 0 },
+    },
+  };
+
   return (
     <>
       <Wrapper>
         <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
-          <Link href="/projects" className="flex items-center space-x-2 pb-8">
-            <HiArrowNarrowLeft className="fill-butternut" size={30} />
-            <p className="font-sans text-xl font-medium text-butternut">Back to projects</p>
-          </Link>
+          <motion.div whileHover="hover">
+            <Link href="/projects" className="flex items-center space-x-1 pb-8">
+              <motion.div variants={arrowAnimation}>
+                <Icon icon={ARROW_SVG} className="h-4 w-8 rotate-180 stroke-butternut stroke-2" />
+              </motion.div>
+              <p className="font-sans text-xl font-medium text-butternut">Back to projects</p>
+            </Link>
+          </motion.div>
           <div className="flex flex-col items-center">
             <h2 className="mb-16 max-w-3xl font-serif text-[35px] font-medium leading-9 text-indigo">
               {data?.long_title}
