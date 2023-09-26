@@ -9,7 +9,6 @@ import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import { COLUMNS, CO_BENEFITS_ICONS } from 'containers/projects/constants';
 
 import Icon from 'components/icon';
-import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
@@ -40,7 +39,12 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
         exit={{ opacity: 0 }}
         transition={{ delay: 0.25, duration: 0.3 }}
       >
-        {PROJECTS.length > 0 && (
+        {!sortedData.length && (
+          <div className="flex h-64 w-full items-center justify-center">
+            <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
+          </div>
+        )}
+        {!!sortedData.length && (
           <table className="text-xs">
             <thead className="h-12">
               <tr className="border-b border-indigo text-left [&>*]:px-4 [&>*]:py-2">
