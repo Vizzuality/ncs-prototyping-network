@@ -1,10 +1,11 @@
 import Image from 'next/image';
 
-import { HiArrowNarrowRight } from 'react-icons/hi';
-
 import Wrapper from 'containers/wrapper';
 
 import { cn } from '@/utils/cn';
+import Icon from 'components/icon/component';
+
+import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 
 import { LESSONS } from './constants';
 
@@ -47,8 +48,8 @@ const Lessons = (): JSX.Element => {
               <h5 className="pb-4 font-serif text-2xl font-semibold text-indigo">{lesson.title}</h5>
 
               {lesson.points.map((point) => (
-                <div key={point} className="flex space-x-3">
-                  <HiArrowNarrowRight className="fill-butternut" size={40} />
+                <div key={point} className="flex items-start space-x-3">
+                  <Icon icon={ARROW_SVG} className="mt-2 h-6 w-8 stroke-butternut stroke-2" />
 
                   <p className="w-5/6 font-sans text-lg font-normal leading-9 text-text">{point}</p>
                 </div>
