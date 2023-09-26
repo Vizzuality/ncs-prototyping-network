@@ -30,7 +30,7 @@ const Contact: NextPage = () => {
 
   return (
     <Wrapper>
-      <div className="mx-auto mt-40 max-w-4xl border py-20">
+      <div className="mx-auto max-w-4xl py-20">
         <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">Contact Us</h4>
         <p className="pt-3 text-xl font-light leading-8 text-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
