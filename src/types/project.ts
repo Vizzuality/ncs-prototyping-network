@@ -17,6 +17,54 @@ export type Pathways =
 
 export type Phase = 'Piloting' | 'Implementing' | 'Scaling';
 
+//TODO: Type correctly
+export type Media = {
+  id: number;
+  ext: '.png';
+  url: string;
+  hash: string;
+  mime: 'image/png';
+  name: string;
+  size: number;
+  type: 'asset';
+  width: number;
+  folder: null;
+  height: number;
+  caption: string;
+  formats: {
+    small: {
+      ext: '.png';
+      url: string;
+      hash: string;
+      mime: 'image/png';
+      name: string;
+      path: null;
+      size: number;
+      width: number;
+      height: number;
+    };
+    thumbnail: {
+      ext: '.png';
+      url: string;
+      hash: string;
+      mime: 'image/png';
+      name: string;
+      path: null;
+      size: number;
+      width: number;
+      height: number;
+    };
+  };
+  provider: 'local';
+  createdAt: Date;
+  updatedAt: Date;
+  folderPath: string;
+  previewUrl: string | null;
+  isSelectable: boolean;
+  alternativeText: string | null;
+  provider_metadata: null;
+};
+
 export interface Project {
   id: number;
   project_name: string;
