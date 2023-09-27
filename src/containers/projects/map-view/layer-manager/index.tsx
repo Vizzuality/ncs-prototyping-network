@@ -4,7 +4,7 @@ import { Source, Layer } from 'react-map-gl';
 
 import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer } from 'mapbox-gl';
 
-import data from './airports.json';
+import data from './data.json';
 
 const GEOJSON = data as GeoJSON.FeatureCollection;
 const SOURCE: GeoJSONSourceRaw & GeoJSONSourceOptions = {

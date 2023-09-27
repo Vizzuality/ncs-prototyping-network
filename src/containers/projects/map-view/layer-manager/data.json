@@ -1,0 +1,129 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.164, -0.479]
+      },
+      "properties": {
+        "pathways":[
+          "Agroforestry"
+       ],
+        "action_types":[
+          "Restore",
+          "Protect"
+       ],
+        "project_phase":"Piloting",
+        "project_category":"Community based"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.628197, 41.956455]
+      },
+      "properties": {
+        "pathways":[
+          "Agroforestry",
+          "Coastal Wetlands (Restoration)"
+       ],
+       "action_types":[
+          "Restore",
+          "Protect"
+       ],
+       "project_phase":"Implementing",
+       "project_category":"Community based"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.3838, 6.358247]
+      },
+      "properties": {
+        "pathways":[
+          "Coastal Wetlands (Restoration)"
+       ],
+       "action_types":[
+          "Manage"
+       ],
+       "project_phase":"Scaling",
+       "project_category":"Goverment led"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-130.445587, 54.292]
+      },
+      "properties": {
+        "pathways":[
+          "Peatlands (Avoided Impacts)",
+          "Coastal Wetlands (Avoided Impacts)"
+       ],
+       "action_types":[
+          "Protect"
+       ],
+       "project_phase":"Piloting",
+       "project_category":"Community based"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.016249, 27.050816]
+      },
+      "properties": {
+        "pathways":[
+          "Peatlands (Restoration)"
+        ],
+        "action_types":[
+          "Restore",
+          "Manage"
+        ],
+        "project_phase":"Piloting",
+        "project_category":"Goverment led"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-165.441642, 64.507221]
+      },
+      "properties": {
+        "pathways":[
+          "Agroforestry"
+        ],
+        "action_types":[
+          "Protect"
+        ],
+        "project_phase":"Implementing",
+        "project_category":"Carbon project"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [48.747107, 31.343159]
+      },
+      "properties": {
+        "pathways":[
+          "Peatlands (Restoration)"
+       ],
+       "action_types":[
+          "Manage"
+       ],
+       "project_phase":"Scaling",
+       "project_category":"Policy project"
+      }
+    }
+  ]
+}
