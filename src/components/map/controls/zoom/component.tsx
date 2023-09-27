@@ -1,77 +1,74 @@
-import { FC, useCallback, MouseEvent } from 'react';
+import { useCallback, MouseEvent } from 'react';
 
 import { useMap } from 'react-map-gl';
 
-import cx from 'clsx';
-
 import Icon from 'components/icon';
+import { cn } from 'utils/cn';
 
 import ZOOM_IN_SVG from 'svgs/map/zoom-in.svg?sprite';
 import ZOOM_OUT_SVG from 'svgs/map/zoom-out.svg?sprite';
 
-import type { ZoomControlProps } from './types';
+const COMMON_CLASSES =
+  'group bg-white p-3 hover:bg-gray-100 active:outline active:outline-2 active:-outline-offset-[5px] active:outline-brand-400/40 disabled:bg-gray-50 disabled:outline-none';
 
-export const ZoomControl: FC<ZoomControlProps> = ({
-  mapId = 'current',
-  className,
-}: ZoomControlProps) => {
-  const { [mapId]: mapRef } = useMap();
-  const zoom = mapRef?.getZoom();
-  const minZoom = mapRef?.getMinZoom();
-  const maxZoom = mapRef?.getMaxZoom();
+const SVG_COMMON_CLASSES = 'h-5 w-5 group-disabled:fill-grey-75';
+
+export const ZoomControl = ({ className, mapId }: { className?: string; mapId: string }) => {
+  const { [mapId]: map } = useMap();
+  const zoom = map?.getZoom();
+  const minZoom = map?.getMinZoom();
+  const maxZoom = map?.getMaxZoom();
 
   const increaseZoom = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
-      if (!mapRef) return null;
+      if (!map) return null;
 
-      mapRef.zoomIn();
+      map.zoomIn();
     },
-    [mapRef]
+    [map]
   );
 
   const decreaseZoom = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
-      if (!mapRef) return null;
+      if (!map) return null;
 
-      mapRef.zoomOut();
+      map.zoomOut();
     },
-    [mapRef]
+    [map]
   );
 
   return (
     <div
-      className={cx({
-        'inline-flex flex-col': true,
+      className={cn({
+        'inline-flex flex-col rounded-md shadow-md shadow-black/10': true,
         [className]: !!className,
       })}
     >
       <button
-        className={cx({
-          'mb-0.5 rounded-t-3xl bg-black p-0.5 text-white disabled:cursor-default disabled:opacity-50':
-            true,
-          'hover:bg-gray-700 active:bg-gray-600': zoom < maxZoom,
+        className={cn({
+          [COMMON_CLASSES]: true,
+          'rounded-t-md': true,
         })}
         aria-label="Zoom in"
         type="button"
         disabled={zoom >= maxZoom}
         onClick={increaseZoom}
       >
-        <Icon icon={ZOOM_IN_SVG} />
+        <Icon icon={ZOOM_IN_SVG} className={SVG_COMMON_CLASSES} />
       </button>
       <button
-        className={cx({
-          'rounded-b-3xl bg-black p-0.5 text-white disabled:cursor-default disabled:opacity-50':
-            true,
-          'hover:bg-gray-700 active:bg-gray-600': zoom > minZoom,
+        className={cn({
+          [COMMON_CLASSES]: true,
+          'rounded-b-md': true,
         })}
         aria-label="Zoom out"
         type="button"
         disabled={zoom <= minZoom}
         onClick={decreaseZoom}
       >
-        <Icon icon={ZOOM_OUT_SVG} />
+        <Icon icon={ZOOM_OUT_SVG} className={SVG_COMMON_CLASSES} />
       </button>
     </div>
   );

@@ -2,17 +2,8 @@ import { useEffect, useState, useCallback, FC } from 'react';
 
 import ReactMapGL, { ViewState, ViewStateChangeEvent, useMap } from 'react-map-gl';
 
-import cx from 'clsx';
-
-import MapLibreGL from 'maplibre-gl';
-
-// * If you plan to use Mapbox (and not a fork):
-// * 1) Remove maplibre-gl
-// * 2) Remove maplibre-gl.css import
-// * 3) Install Mapbox v1/v2 (v2 requires token)
-// * 4) If you have installed v2: provide the token to the map through the `mapboxAccessToken` property
-// * 5) Remove the `mapLib` property on the map component
-// * 6) Replace the mapStyles on the map
+import cx from 'classnames';
+import { useDebouncedCallback } from 'use-debounce';
 
 import { DEFAULT_VIEW_STATE } from './constants';
 import type { CustomMapProps } from './types';
@@ -21,10 +12,10 @@ export const CustomMap: FC<CustomMapProps> = ({
   // * if no id is passed, react-map-gl will store the map reference in a 'default' key:
   // * https://github.com/visgl/react-map-gl/blob/ecb27c8d02db7dd09d8104e8c2011bda6aed4b6f/src/components/use-map.tsx#L18
   id = 'default',
-  // mapboxAccessToken,
   children,
   className,
-  viewState = {},
+  viewState,
+  constrainedAxis,
   initialViewState,
   bounds,
   onMapViewStateChange,
@@ -32,7 +23,7 @@ export const CustomMap: FC<CustomMapProps> = ({
   dragRotate,
   scrollZoom,
   doubleClickZoom,
-  mapStyle,
+  onLoad,
   ...mapboxProps
 }: CustomMapProps) => {
   /**
@@ -50,10 +41,14 @@ export const CustomMap: FC<CustomMapProps> = ({
     }
   );
   const [isFlying, setFlying] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   /**
    * CALLBACKS
    */
+  const debouncedViewStateChange = useDebouncedCallback((_viewState: ViewState) => {
+    if (onMapViewStateChange) onMapViewStateChange(_viewState);
+  }, 250);
 
   const handleFitBounds = useCallback(() => {
     const { bbox, options } = bounds;
@@ -61,21 +56,42 @@ export const CustomMap: FC<CustomMapProps> = ({
     // enabling fly mode avoids the map to be interrupted during the bounds transition
     setFlying(true);
 
-    mapRef.fitBounds(
-      [
-        [bbox[0], bbox[1]],
-        [bbox[2], bbox[3]],
-      ],
-      options
-    );
+    try {
+      mapRef?.fitBounds(
+        [
+          [bbox[0], bbox[1]],
+          [bbox[2], bbox[3]],
+        ],
+        options
+      );
+    } catch (e) {
+      setFlying(false);
+      console.error(e);
+    }
   }, [bounds, mapRef]);
 
   const handleMapMove = useCallback(
     ({ viewState: _viewState }: ViewStateChangeEvent) => {
-      setLocalViewState(_viewState);
-      onMapViewStateChange(_viewState);
+      const newViewState = {
+        ..._viewState,
+        latitude: constrainedAxis === 'y' ? localViewState.latitude : _viewState.latitude,
+        longitude: constrainedAxis === 'x' ? localViewState.longitude : _viewState.longitude,
+      };
+      setLocalViewState(newViewState);
+      debouncedViewStateChange(newViewState);
     },
-    [onMapViewStateChange]
+    [constrainedAxis, localViewState.latitude, localViewState.longitude, debouncedViewStateChange]
+  );
+
+  const handleMapLoad = useCallback(
+    (e: Parameters<CustomMapProps['onLoad']>[0]) => {
+      setLoaded(true);
+
+      if (onLoad) {
+        onLoad(e);
+      }
+    },
+    [onLoad]
   );
 
   useEffect(() => {
@@ -114,26 +130,24 @@ export const CustomMap: FC<CustomMapProps> = ({
   return (
     <div
       className={cx({
-        'relative z-0 h-full w-full': true,
+        'relative z-0 h-screen w-full print:md:h-[90vh]': true,
         [className]: !!className,
       })}
     >
       <ReactMapGL
         id={id}
-        // ! if you're using Mapbox (and not a fork), remove the below property
-        // ! and replace the according map styles
-        mapLib={MapLibreGL}
-        mapStyle={mapStyle}
         initialViewState={initialViewState}
         dragPan={!isFlying && dragPan}
         dragRotate={!isFlying && dragRotate}
         scrollZoom={!isFlying && scrollZoom}
         doubleClickZoom={!isFlying && doubleClickZoom}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         onMove={handleMapMove}
+        onLoad={handleMapLoad}
         {...mapboxProps}
         {...localViewState}
       >
-        {!!mapRef && children(mapRef.getMap())}
+        {!!mapRef && loaded && children(mapRef.getMap())}
       </ReactMapGL>
     </div>
   );

@@ -2,6 +2,8 @@
 
 import { PropsWithChildren, useState } from 'react';
 
+import { MapProvider } from 'react-map-gl';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
 
@@ -23,7 +25,9 @@ export default function Providers({ children }: PropsWithChildren) {
       </style>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <MediaContextProvider disableDynamicMediaQueries>{children}</MediaContextProvider>
+          <MediaContextProvider disableDynamicMediaQueries>
+            <MapProvider>{children}</MapProvider>
+          </MediaContextProvider>
         </QueryClientProvider>
       </RecoilRoot>
     </>

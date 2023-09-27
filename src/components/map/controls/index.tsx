@@ -1,17 +1,17 @@
 import { Children, FC, PropsWithChildren } from 'react';
 
-import cx from 'clsx';
+import { cn } from 'utils/cn';
 
 import type { ControlsProps } from './types';
 
 type ControlsPropsWithChildren = PropsWithChildren<ControlsProps>;
 
 export const Controls: FC<ControlsPropsWithChildren> = ({
-  className = 'absolute bottom-10 left-2',
+  className = 'absolute top-14 right-10',
   children,
 }: ControlsPropsWithChildren) => (
   <div
-    className={cx({
+    className={cn({
       'flex flex-col space-y-2': true,
       [className]: !!className,
     })}
