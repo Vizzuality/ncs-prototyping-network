@@ -10,6 +10,8 @@ import { RecoilRoot } from 'recoil';
 import { MediaContextProvider } from 'components/media-query';
 import { LoraFont, UbuntuFont } from 'styles/fonts';
 
+import 'styles/mapbox.css';
+
 export default function Providers({ children }: PropsWithChildren) {
   const [queryClient] = useState(() => new QueryClient());
 

@@ -9,6 +9,7 @@ import { useRecoilValue } from 'recoil';
 
 import Card from 'containers/projects/card';
 import { SORT_OPTIONS } from 'containers/projects/map-view/constants';
+import LayerManager from 'containers/projects/map-view/layer-manager';
 import Tabs from 'containers/projects/map-view/tabs';
 
 import Map from 'components/map';
@@ -55,7 +56,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
   const handleViewState = useCallback(() => {
     if (map) {
-      console.log('map', map);
+      console.log('map', map.getStyle().layers);
     }
   }, [map]);
 
@@ -140,7 +141,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
               >
                 {() => (
                   <>
-                    {/* <LayerManager /> */}
+                    <LayerManager />
 
                     <Controls
                       className={cn({
