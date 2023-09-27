@@ -1,4 +1,3 @@
-/* MAPBOX */
 .mapboxgl-map {
     /* font: 12px/20px Public Sans, Helvetica Neue, Arial, Helvetica, sans-serif; */
     overflow: hidden;
@@ -623,16 +622,10 @@
     border: 2px dotted #202020;
     opacity: 0.5;
   }
-  @media print {
-    .mapbox-improve-map {
-      display: none;
-    }
+  .mapboxgl-ctrl-attrib.mapboxgl-compact {
+    display: none;
   }
 
-  .mapboxgl-ctrl-attrib-inner {
-    position: absolute !important;
-    display: flex !important;
-    white-space: nowrap !important;
-    bottom: -15px !important;
-    right: 0px !important;
+  .mapboxgl-ctrl-attrib-inner, .mapboxgl-ctrl-attrib-button {
+    display: none !important;
   }
