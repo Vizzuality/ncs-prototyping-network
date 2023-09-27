@@ -8,9 +8,11 @@ import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
 
 import Card from 'containers/projects/card';
+import { SORT_OPTIONS } from 'containers/projects/map-view/constants';
 import Tabs from 'containers/projects/map-view/tabs';
 
 import Map from 'components/map';
+import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
 import ZoomControl from 'components/map/controls/zoom';
 import { CustomMapProps } from 'components/map/types';
@@ -20,10 +22,8 @@ import { Project } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
 
-import { SORT_OPTIONS } from './constants';
-
 const initialViewState: MapboxProps['initialViewState'] = {
-  bounds: [-237.65625, -78.836065, 238.007813, 78.767792],
+  bounds: WORLD_BOUNDS,
   fitBoundsOptions: {
     padding: 50,
   },
@@ -49,7 +49,6 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
   const { ['projects-map']: map } = useMap();
 
-  console.log({ basemap });
   const selectedBasemap = useMemo(() => BASEMAPS.find((b) => b.id === basemap).url, [basemap]);
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
