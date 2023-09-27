@@ -18,7 +18,7 @@ const BASEMAPS = [
     id: 'satellite',
     type: 'basemap',
     name: 'Satellite',
-    url: 'mapbox://styles/mapbox/satellite-v10',
+    url: 'mapbox://styles/mapbox/satellite-streets-v12',
   },
 ] satisfies BasemapTypes[];
 

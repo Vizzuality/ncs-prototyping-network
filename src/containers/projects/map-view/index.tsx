@@ -45,7 +45,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   const { ['projects-map']: map } = useMap();
 
   //!TODO: add to recoil
-  const basemap = 'light';
+  const basemap = 'satellite';
 
   const selectedBasemap = useMemo(() => BASEMAPS.find((b) => b.id === basemap).url, [basemap]);
 
@@ -120,7 +120,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
               </div>
             </div>
 
-            <div className="h-screen w-6/12 border" ref={mapRef}>
+            <div className="mt-11 h-screen w-6/12" ref={mapRef}>
               <Map
                 id="projects-map"
                 mapStyle={selectedBasemap}
@@ -130,10 +130,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                 mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
                 onMapViewStateChange={handleViewState}
                 bounds={bounds}
-                // interactiveLayerIds={interactiveLayerIds}
                 onClick={onClickHandler}
-                // onMouseMove={handleMouseMove}
-                // cursor={cursor}
                 preserveDrawingBuffer
               >
                 {() => (
