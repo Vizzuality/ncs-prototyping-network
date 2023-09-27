@@ -5,14 +5,17 @@ import { useMap } from 'react-map-gl';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
+import { useRecoilValue } from 'recoil';
 
 import Card from 'containers/projects/card';
+import Tabs from 'containers/projects/map-view/tabs';
 
 import Map from 'components/map';
 import Controls from 'components/map/controls';
 import ZoomControl from 'components/map/controls/zoom';
 import { CustomMapProps } from 'components/map/types';
 import Select from 'components/ui/select';
+import { basemapAtom } from 'store';
 import { Project } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
@@ -42,11 +45,11 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   const mapRef = useRef(null);
   const [sortedBy, setSortedBy] = useState<string>('country');
 
+  const basemap = useRecoilValue(basemapAtom);
+
   const { ['projects-map']: map } = useMap();
 
-  //!TODO: add to recoil
-  const basemap = 'satellite';
-
+  console.log({ basemap });
   const selectedBasemap = useMemo(() => BASEMAPS.find((b) => b.id === basemap).url, [basemap]);
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
@@ -120,7 +123,10 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
               </div>
             </div>
 
-            <div className="mt-11 h-screen w-6/12" ref={mapRef}>
+            <div className="relative mt-11 h-screen w-6/12" ref={mapRef}>
+              <div className="absolute top-3 right-14 z-10">
+                <Tabs />
+              </div>
               <Map
                 id="projects-map"
                 mapStyle={selectedBasemap}
@@ -139,10 +145,10 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
                     <Controls
                       className={cn({
-                        'absolute top-6 right-6 items-center print:hidden': true,
+                        'absolute top-3 right-3 items-center rounded-none print:hidden': true,
                       })}
                     >
-                      <div className="flex flex-col space-y-2 pt-1">
+                      <div className="flex flex-col space-y-2">
                         <ZoomControl mapId="projects-map" />
                       </div>
                     </Controls>

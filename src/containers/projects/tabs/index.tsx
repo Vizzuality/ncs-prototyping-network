@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import Icon from 'components/icon/component';
 import { projectsViewAtom } from 'store';
@@ -11,8 +11,7 @@ import METRICS_SVG from 'svgs/ui/metrics.svg?sprite';
 import { TABS } from './constants';
 
 const Tabs = (): JSX.Element => {
-  const projectsView = useRecoilValue(projectsViewAtom);
-  const setProjectsView = useSetRecoilState(projectsViewAtom);
+  const [projectsView, setProjectsView] = useRecoilState(projectsViewAtom);
 
   return (
     <div className="mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
