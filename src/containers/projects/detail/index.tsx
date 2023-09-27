@@ -4,13 +4,18 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
-import { CO_BENEFITS_ICONS } from 'containers/projects/constants';
 import Wrapper from 'containers/wrapper';
 
+import { PROJECTS } from '@/data/projects';
 import Icon from 'components/icon';
 import { Project } from 'types/project';
 
+import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
+import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
+import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
 import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
+
+import Card from '../card';
 
 const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
   const arrowAnimation = {
@@ -22,6 +27,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
 
   return (
     <>
+      <div className="-z-10 -mt-20 h-[426px] border bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat" />
       <Wrapper>
         <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
           <motion.div whileHover="hover">
@@ -94,11 +100,62 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           className="w-1/2"
         />
       </section>
+
+      <section className="py-16">
+        <Wrapper className="space-y-10">
+          <div>
+            <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
+            <div className="flex flex-col space-y-2 py-6 font-sans text-text">
+              {data?.key_activities
+                .split(/[.]+/)
+                .filter((el, index) => {
+                  return index % 2 === 1;
+                })
+                .map((activity, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
+                  >
+                    <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
+                    <p className="mt-2 font-sans text-xl font-light text-text">{activity}</p>
+                  </div>
+                ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
+            <p className="pt-6 font-sans text-lg font-light text-text">
+              Project Phase: {data.project_phase}
+            </p>
+
+            <p className="w-2/3 pt-4 font-sans text-[17px] leading-9 text-text">
+              {data?.project_summary}
+            </p>
+          </div>
+        </Wrapper>
+      </section>
       <section id="why" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
         <Wrapper>
           <div className="flex flex-col items-center space-y-4 py-16 text-white">
-            <h4 className="pb-2 font-serif text-3xl font-medium">Why This, Why Now</h4>
-            <p className="max-w-3xl text-center font-sans text-xl leading-9">{data?.why_content}</p>
+            <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
+            <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
+              {data?.why_content}
+            </p>
+          </div>
+        </Wrapper>
+      </section>
+      <section className="bg-background py-16">
+        <Wrapper>
+          <div className="flex w-full">
+            <div className="w-2/3">Video</div>
+            <div className="w-1/3">
+              <h4 className="font-serif text-2xl font-medium text-indigo">{data.video_caption}</h4>
+              {/* //TODO: Use correct data here */}
+              <p className="text-[17px] text-text">
+                Indigenous Women are becoming leaders for Thriving Ecosystem and we are proud to
+                help enable that.
+              </p>
+            </div>
           </div>
         </Wrapper>
       </section>
@@ -168,8 +225,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           <div className="py-16">
             {data?.cb_biodiversity && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                <div className="flex">
-                  <Icon icon={CO_BENEFITS_ICONS.Biodiversity} className="h-7 w-7" />
+                <div className="flex items-center space-x-2">
+                  <Icon icon={AGROFORESTRY_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Biodiversity</p>
                 </div>
                 <p className="text-[17px] leading-6">{data?.cb_biodiversity}</p>
@@ -177,8 +234,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             )}
             {data?.cb_ecosystem_services && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                <div className="flex">
-                  <Icon icon={CO_BENEFITS_ICONS.EcosystemServices} className="h-7 w-7" />
+                <div className="flex items-center space-x-2">
+                  <Icon icon={AGROFORESTRY_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Ecosystem Services</p>
                 </div>
                 <p className="text-[17px] leading-6">{data?.cb_ecosystem_services}</p>
@@ -186,8 +243,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             )}
             {data?.cb_livelihood_econ && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                <div className="flex">
-                  <Icon icon={CO_BENEFITS_ICONS.ReslienceAndAdaptation} className="h-7 w-7" />
+                <div className="flex items-center space-x-2">
+                  <Icon icon={PEATLANDS_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Livelihoods & Economics</p>
                 </div>
                 <p className="text-[17px] leading-6">{data?.cb_livelihood_econ}</p>
@@ -195,8 +252,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             )}
             {data?.cb_health_well_being && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                <div className="flex">
-                  <Icon icon={CO_BENEFITS_ICONS.HumanHealthWellBeing} className="h-7 w-7" />
+                <div className="flex items-center space-x-2">
+                  <Icon icon={COASTAL_WETLANDS_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Health & Well-being</p>
                 </div>
                 <p className="text-[17px] leading-6">{data?.cb_health_well_being}</p>
@@ -204,8 +261,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             )}
             {data?.cb_resilience_adapt && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                <div className="flex">
-                  <Icon icon={CO_BENEFITS_ICONS.LivelihoodsEconomic} className="h-7 w-7" />
+                <div className="flex items-center space-x-2">
+                  <Icon icon={COASTAL_WETLANDS_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Resilience & Adaptation</p>
                 </div>
                 <p className="text-[17px] leading-6">{data?.cb_resilience_adapt}</p>
@@ -214,7 +271,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </div>
         </Wrapper>
       </section>
-      <section>
+      <section className="pb-16">
         <Wrapper>
           <div className="space-y-4 border-t-[2px] py-8">
             <h4 className="font-serif text-3xl font-medium text-indigo">Partners</h4>
@@ -231,12 +288,19 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
         <Wrapper>
           <div className="flex justify-center py-20">
-            <p className="max-w-3xl text-center font-sans text-xl font-light leading-7 text-white">
+            <p className="max-w-3xl text-center font-sans text-xl font-light leading-9 text-white">
               {data?.callout}
             </p>
           </div>
         </Wrapper>
       </section>
+      <section className="py-16">
+        <Wrapper className="space-y-6">
+          <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
+          <p className="font-sans text-[17px] text-text">{data.whats_next}</p>
+        </Wrapper>
+      </section>
+
       <section id="contact" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
         <Wrapper>
           <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
@@ -251,6 +315,16 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                 <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
               </button>
             </Link>
+          </div>
+        </Wrapper>
+      </section>
+      <section className="py-16">
+        <Wrapper className="space-y-6">
+          <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
+          <div className="flex justify-between">
+            {PROJECTS.slice(0, 3).map((project, idx) => (
+              <Card key={idx} data={project} />
+            ))}
           </div>
         </Wrapper>
       </section>
