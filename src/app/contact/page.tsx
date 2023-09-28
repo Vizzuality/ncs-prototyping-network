@@ -5,18 +5,33 @@ import { Form, Field } from 'react-final-form';
 
 import { type NextPage } from 'next';
 
+import { useSaveContact } from 'hooks/contact';
+import { useToasts } from 'hooks/toast';
+
 import Wrapper from 'containers/wrapper';
 
 import { composeValidators } from 'components/forms/validations';
 import Button from 'components/ui/button';
 
+interface FormValues {
+  first_name: string;
+  last_name: string;
+  email: string;
+  subject: string;
+  message: string;
+  copy?: boolean;
+}
+
 const Contact: NextPage = () => {
   const formRef = useRef(null);
 
+  const saveContactMutation = useSaveContact();
+  const { addToast } = useToasts();
+
   const INITIAL_VALUES = useMemo(() => {
     return {
-      name: '',
-      surname: '',
+      first_name: '',
+      last_name: '',
       email: '',
       subject: '',
       message: '',
@@ -24,9 +39,49 @@ const Contact: NextPage = () => {
     };
   }, []);
 
-  const onSubmit = useCallback((data) => {
-    console.info('form data', data);
-  }, []);
+  const onSubmit = useCallback(
+    (data: FormValues) => {
+      const parsedData = {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        email: data.email,
+        message: data.message,
+      };
+
+      saveContactMutation.mutate(
+        {
+          data: parsedData,
+        },
+        {
+          onSuccess: () => {
+            addToast(
+              'success-contact',
+              <>
+                <p className="text-base">You have successfully sent your message</p>
+              </>,
+              {
+                level: 'success',
+              }
+            );
+            //!TODO: Send a copy of email
+            // form.reset();
+          },
+          onError: () => {
+            addToast(
+              'error-contact',
+              <>
+                <p className="text-base">Oops! Something went wrong</p>
+              </>,
+              {
+                level: 'error',
+              }
+            );
+          },
+        }
+      );
+    },
+    [saveContactMutation, addToast]
+  );
 
   return (
     <Wrapper>
@@ -47,7 +102,7 @@ const Contact: NextPage = () => {
               <form noValidate onSubmit={handleSubmit}>
                 <div className="mt-10 flex w-full flex-col justify-between space-y-6">
                   <Field
-                    name="name"
+                    name="first_name"
                     component="input"
                     validate={composeValidators([{ presence: true }])}
                   >
@@ -58,7 +113,7 @@ const Contact: NextPage = () => {
                           {...input}
                           value={input.value as string}
                           placeholder="Your first name or given name"
-                          type="email"
+                          type="text"
                           className="focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
                         />
                       </div>
@@ -66,7 +121,7 @@ const Contact: NextPage = () => {
                   </Field>
 
                   <Field
-                    name="surname"
+                    name="last_name"
                     component="input"
                     validate={composeValidators([{ presence: true }])}
                   >
@@ -77,7 +132,7 @@ const Contact: NextPage = () => {
                           {...input}
                           value={input.value as string}
                           placeholder="Your surname or family name(s)"
-                          type="email"
+                          type="text"
                           className="focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
                         />
                       </div>
