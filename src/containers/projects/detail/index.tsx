@@ -45,18 +45,18 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             <div className="flex space-x-20 font-sans">
               <div className="flex flex-col items-center">
                 <p className="pb-2 text-4xl font-bold text-spring">{data?.carbon_mitigation}</p>
-                <div className="flex flex-col items-center text-[17px] font-medium leading-6 text-text">
+                <div className="flex flex-col items-center text-m font-medium leading-6 text-text">
                   <p>Tons of Carbon</p>
                   <p>Mitigation Potential</p>
                 </div>
               </div>
               <div className="flex flex-col items-center">
                 <p className="pb-2 text-4xl font-bold text-spring">{data?.hectares_impacted}</p>
-                <p className="text-[17px] font-medium text-text">Hectares Impacted</p>
+                <p className="text-m font-medium text-text">Hectares Impacted</p>
               </div>
               <div className="flex flex-col items-center">
                 <p className="pb-2 text-4xl font-bold text-spring">{data?.people_supported}</p>
-                <p className="text-[17px] font-medium text-text">People Supported</p>
+                <p className="text-m font-medium text-text">People Supported</p>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               Project Phase: {data.project_phase}
             </p>
 
-            <p className="w-2/3 pt-4 font-sans text-[17px] leading-9 text-text">
+            <p className="w-2/3 pt-4 font-sans text-m leading-9 text-text">
               {data?.project_summary}
             </p>
           </div>
@@ -151,7 +151,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             <div className="w-1/3">
               <h4 className="font-serif text-2xl font-medium text-indigo">{data.video_caption}</h4>
               {/* //TODO: Use correct data here */}
-              <p className="text-[17px] text-text">
+              <p className="text-m text-text">
                 Indigenous Women are becoming leaders for Thriving Ecosystem and we are proud to
                 help enable that.
               </p>
@@ -174,7 +174,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                 <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                   {data?.lesson_1_category}
                 </td>
-                <td className="w-3/4 px-20 font-sans text-[17px] leading-6 text-text">
+                <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
                   {data?.lesson_1}
                 </td>
               </tr>
@@ -182,7 +182,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                 <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
                   {data?.lesson_2_category}
                 </td>
-                <td className="w-3/4 px-20 font-sans text-[17px] leading-6 text-text">
+                <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
                   {data?.lesson_2}
                 </td>
               </tr>
@@ -190,7 +190,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                 <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                   {data?.lesson_3_category}
                 </td>
-                <td className="w-3/4 px-20 font-sans text-[17px] leading-6 text-text">
+                <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
                   {data?.lesson_3}
                 </td>
               </tr>
@@ -209,7 +209,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         <Wrapper>
           <div className="flex w-3/4 flex-col space-y-6 py-16">
             <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
-            <p className="font-sans text-[17px] leading-6 text-text">{data?.project_summary}</p>
+            <p className="font-sans text-m leading-6 text-text">{data?.project_summary}</p>
           </div>
         </Wrapper>
       </section>
@@ -229,7 +229,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                   <Icon icon={AGROFORESTRY_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Biodiversity</p>
                 </div>
-                <p className="text-[17px] leading-6">{data?.cb_biodiversity}</p>
+                <p className="text-m leading-6">{data?.cb_biodiversity}</p>
               </div>
             )}
             {data?.cb_ecosystem_services && (
@@ -238,7 +238,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                   <Icon icon={AGROFORESTRY_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Ecosystem Services</p>
                 </div>
-                <p className="text-[17px] leading-6">{data?.cb_ecosystem_services}</p>
+                <p className="text-m leading-6">{data?.cb_ecosystem_services}</p>
               </div>
             )}
             {data?.cb_livelihood_econ && (
@@ -247,7 +247,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                   <Icon icon={PEATLANDS_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Livelihoods & Economics</p>
                 </div>
-                <p className="text-[17px] leading-6">{data?.cb_livelihood_econ}</p>
+                <p className="text-m leading-6">{data?.cb_livelihood_econ}</p>
               </div>
             )}
             {data?.cb_health_well_being && (
@@ -256,7 +256,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                   <Icon icon={COASTAL_WETLANDS_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Health & Well-being</p>
                 </div>
-                <p className="text-[17px] leading-6">{data?.cb_health_well_being}</p>
+                <p className="text-m leading-6">{data?.cb_health_well_being}</p>
               </div>
             )}
             {data?.cb_resilience_adapt && (
@@ -265,7 +265,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
                   <Icon icon={COASTAL_WETLANDS_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Resilience & Adaptation</p>
                 </div>
-                <p className="text-[17px] leading-6">{data?.cb_resilience_adapt}</p>
+                <p className="text-m leading-6">{data?.cb_resilience_adapt}</p>
               </div>
             )}
           </div>
@@ -297,7 +297,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       <section className="py-16">
         <Wrapper className="space-y-6">
           <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
-          <p className="font-sans text-[17px] text-text">{data.whats_next}</p>
+          <p className="font-sans text-m text-text">{data.whats_next}</p>
         </Wrapper>
       </section>
 
@@ -305,7 +305,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         <Wrapper>
           <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
             <p className="text-2xl">WANT MORE INFORMATION?</p>
-            <p className="text-center text-[17px]">
+            <p className="text-center text-m">
               Reach out and we’ll connect you to the people who will be the most helpful for your
               questions.
             </p>

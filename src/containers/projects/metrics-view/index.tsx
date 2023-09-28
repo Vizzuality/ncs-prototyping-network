@@ -61,7 +61,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                   >
                     <div
                       className={cn({
-                        'mb-2 flex items-end font-sans text-[17px] font-normal leading-6 text-text':
+                        'mb-2 flex items-end font-sans text-m font-normal leading-6 text-text':
                           true,
                         'text-indigo': column.sorting,
                       })}

@@ -32,7 +32,11 @@ const SOURCE: GeoJSONSourceRaw & GeoJSONSourceOptions = {
 const LAYER: CircleLayer = {
   id: 'projects-layer',
   type: 'circle',
-  // filter: ['==', 'project_phase', 'Piloting'],
+  filter: [
+    'any',
+    ['in', 'Agroforestry', ['get', 'pathways']],
+    ['in', 'Coastal Wetlands (Avoided Impacts)', ['get', 'pathways']],
+  ],
   paint: {
     'circle-color': '#1F51FF',
     'circle-opacity': 0.5,
