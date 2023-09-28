@@ -40,7 +40,7 @@ const LayerManager = () => {
     if (!activedFilters) return setDataFiltered(PROJECTS);
   }, [action_types, filters, pathways, project_category, project_phase]);
 
-  const formattedData = {
+  const GEOJSON = {
     type: 'FeatureCollection',
     features: dataFiltered.map((project) => ({
       type: 'Feature',
@@ -55,9 +55,8 @@ const LayerManager = () => {
         project_category: project.project_category,
       },
     })),
-  };
+  } as GeoJSON.FeatureCollection;
 
-  const GEOJSON = formattedData as GeoJSON.FeatureCollection;
   const SOURCE: GeoJSONSourceRaw & GeoJSONSourceOptions = {
     type: 'geojson',
     data: GEOJSON,
