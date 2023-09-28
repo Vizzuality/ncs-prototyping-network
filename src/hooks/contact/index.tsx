@@ -1,27 +1,21 @@
-'use client';
 import { useMutation } from '@tanstack/react-query';
-import { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
 
-export function useSaveContact({
-  requestConfig = {
-    method: 'PUT',
-  },
-}: {
-  requestConfig?: AxiosRequestConfig;
-}) {
+export function useSaveContact() {
   const saveContact = ({
     data,
   }: {
     data: {
-      name: string;
+      first_name: string;
+      last_name: string;
       email: string;
+      message: string;
     };
   }) => {
     return axios.request({
+      method: 'PUT',
       url: '/api/contact',
       data,
-      ...requestConfig,
     });
   };
 
