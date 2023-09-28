@@ -5,13 +5,28 @@ import { Form, Field } from 'react-final-form';
 
 import { type NextPage } from 'next';
 
+import { useSaveSubscribe } from 'hooks/subscribe';
+import { useToasts } from 'hooks/toast';
+
 import Wrapper from 'containers/wrapper';
 
 import { composeValidators } from 'components/forms/validations';
 import Button from 'components/ui/button';
 
+interface FormValues {
+  name: string;
+  surname: string;
+  email: string;
+  subject: string;
+  message: string;
+  copy?: boolean;
+}
+
 const Contact: NextPage = () => {
   const formRef = useRef(null);
+
+  const saveSubscribeMutation = useSaveSubscribe({});
+  const { addToast } = useToasts();
 
   const INITIAL_VALUES = useMemo(() => {
     return {
@@ -24,9 +39,46 @@ const Contact: NextPage = () => {
     };
   }, []);
 
-  const onSubmit = useCallback((data) => {
-    console.info('form data', data);
-  }, []);
+  const onSubmit = useCallback(
+    (data: FormValues) => {
+      const parsedData = {
+        name: data.name,
+        email: data.email,
+      };
+
+      saveSubscribeMutation.mutate(
+        {
+          data: parsedData,
+        },
+        {
+          onSuccess: () => {
+            addToast(
+              'success-contact',
+              <>
+                <p className="text-base">You have successfully sent your message</p>
+              </>,
+              {
+                level: 'success',
+              }
+            );
+            // form.reset();
+          },
+          onError: () => {
+            addToast(
+              'error-contact',
+              <>
+                <p className="text-base">Oops! Something went wrong</p>
+              </>,
+              {
+                level: 'error',
+              }
+            );
+          },
+        }
+      );
+    },
+    [saveSubscribeMutation, addToast]
+  );
 
   return (
     <Wrapper>
