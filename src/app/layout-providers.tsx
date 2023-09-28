@@ -2,11 +2,15 @@
 
 import { PropsWithChildren, useState } from 'react';
 
+import { MapProvider } from 'react-map-gl';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
 
 import { MediaContextProvider } from 'components/media-query';
 import { LoraFont, UbuntuFont } from 'styles/fonts';
+
+import 'styles/mapbox.css';
 
 export default function Providers({ children }: PropsWithChildren) {
   const [queryClient] = useState(() => new QueryClient());
@@ -23,7 +27,9 @@ export default function Providers({ children }: PropsWithChildren) {
       </style>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <MediaContextProvider disableDynamicMediaQueries>{children}</MediaContextProvider>
+          <MediaContextProvider disableDynamicMediaQueries>
+            <MapProvider>{children}</MapProvider>
+          </MediaContextProvider>
         </QueryClientProvider>
       </RecoilRoot>
     </>
