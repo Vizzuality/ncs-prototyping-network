@@ -1,10 +1,12 @@
-// import type { LayerComponentProps } from '../types';
+import { useMemo } from 'react';
 
 import { Source, Layer } from 'react-map-gl';
 
 import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer } from 'mapbox-gl';
+import { useRecoilValue } from 'recoil';
 
 import { PROJECTS } from '@/data/projects';
+import { filtersAtom } from '@/store';
 
 const formattedData = {
   type: 'FeatureCollection',
@@ -29,28 +31,38 @@ const SOURCE: GeoJSONSourceRaw & GeoJSONSourceOptions = {
   data: GEOJSON,
 };
 
-const LAYER: CircleLayer = {
-  id: 'projects-layer',
-  type: 'circle',
-  filter: [
-    'any',
-    ['in', 'Agroforestry', ['get', 'pathways']],
-    ['in', 'Coastal Wetlands (Avoided Impacts)', ['get', 'pathways']],
-  ],
-  paint: {
-    'circle-color': '#1F51FF',
-    'circle-opacity': 0.5,
-    'circle-radius': 10,
-  },
-  layout: {
-    visibility: 'visible',
-  },
-};
+const LayerManager = () => {
+  const filters = useRecoilValue(filtersAtom);
 
-const LayerManager = () => (
-  <Source {...SOURCE}>
-    <Layer {...LAYER} />
-  </Source>
-);
+  const LAYER: CircleLayer = useMemo(() => {
+    return {
+      id: 'projects-layer',
+      type: 'circle',
+      // ...(!!pathways.length && {
+      //   filter: ['any',
+      //   ['in', pathways[0], ['get', 'pathways']]],
+      // }),
+
+      // ...(!!pathways.length && {
+      //   filter: ['in', ['get', 'id'], ['literal', pathways]],
+      // }),
+      paint: {
+        'circle-color': '#1F51FF',
+        'circle-opacity': 0.5,
+        'circle-radius': 10,
+      },
+      layout: {
+        visibility: 'visible',
+      },
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
+
+  return (
+    <Source {...SOURCE}>
+      <Layer {...LAYER} />
+    </Source>
+  );
+};
 
 export default LayerManager;
