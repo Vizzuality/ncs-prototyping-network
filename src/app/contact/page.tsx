@@ -5,7 +5,7 @@ import { Form, Field } from 'react-final-form';
 
 import { type NextPage } from 'next';
 
-import { useSaveSubscribe } from 'hooks/subscribe';
+import { useSaveContact } from 'hooks/contact';
 import { useToasts } from 'hooks/toast';
 
 import Wrapper from 'containers/wrapper';
@@ -25,7 +25,7 @@ interface FormValues {
 const Contact: NextPage = () => {
   const formRef = useRef(null);
 
-  const saveSubscribeMutation = useSaveSubscribe({});
+  const saveContactMutation = useSaveContact({});
   const { addToast } = useToasts();
 
   const INITIAL_VALUES = useMemo(() => {
@@ -46,7 +46,7 @@ const Contact: NextPage = () => {
         email: data.email,
       };
 
-      saveSubscribeMutation.mutate(
+      saveContactMutation.mutate(
         {
           data: parsedData,
         },
@@ -77,7 +77,7 @@ const Contact: NextPage = () => {
         }
       );
     },
-    [saveSubscribeMutation, addToast]
+    [saveContactMutation, addToast]
   );
 
   return (

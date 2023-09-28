@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import sendgridClient from '@sendgrid/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 sendgridClient.setApiKey(process.env.SENDGRID_API_KEY_SUBSCRIPTION);
 
 const Contact = (req: NextApiRequest, res: NextApiResponse): void => {
-  console.log('Hola');
+  console.log('API CONTACT');
   if (req.method === 'PUT') {
     const { email, name } = req.body;
 
