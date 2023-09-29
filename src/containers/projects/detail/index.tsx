@@ -27,8 +27,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
 
   return (
     <>
-      <div className="-z-10 -mt-20 h-[426px] border bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat" />
-      <Wrapper>
+      <div className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat" />
+      <Wrapper className="relative flex w-full flex-row">
         <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
           <motion.div whileHover="hover">
             <Link href="/projects" className="flex items-center space-x-1 pb-8">
@@ -60,6 +60,14 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="absolute -right-16 -top-1/3 w-1/3">
+          <Image
+            src="/images/projects/project_detail.png"
+            alt="Project Detail"
+            height={486}
+            width={300}
+          />
         </div>
       </Wrapper>
       <Wrapper>

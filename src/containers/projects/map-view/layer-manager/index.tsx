@@ -11,6 +11,7 @@ import { ActionTypes, Pathways, Project } from 'types/project';
 
 const LayerManager = () => {
   const filters = useRecoilValue(filtersAtom);
+
   const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
   const { pathways, project_phase, action_types, project_category } = filters;
 
@@ -38,7 +39,7 @@ const LayerManager = () => {
     if (activedFilters) return setDataFiltered(dataFinalFiltered());
 
     if (!activedFilters) return setDataFiltered(PROJECTS);
-  }, [action_types, filters, pathways, project_category, project_phase]);
+  }, [filters, pathways, project_phase, action_types, project_category]);
 
   const GEOJSON = {
     type: 'FeatureCollection',
@@ -66,6 +67,8 @@ const LayerManager = () => {
     return {
       id: 'projects-layer',
       type: 'circle',
+      // ...(activedFilters &&
+      //   {
       // filter: [
       //   'any',
       //   ...pathways.map((id) => {
@@ -75,7 +78,7 @@ const LayerManager = () => {
       //     return ['in', id, ['get', 'project_phase']];
       //   }),
       // ],
-
+      // }),
       paint: {
         'circle-color': '#1F51FF',
         'circle-opacity': 0.5,
