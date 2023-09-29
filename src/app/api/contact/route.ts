@@ -7,9 +7,11 @@ import sendgridClient from '@sendgrid/client';
 sendgridClient.setApiKey(process.env.SENDGRID_API_KEY_SUBSCRIPTION);
 
 export async function PUT(req: Request) {
-  const body = await req.json();
+  const body: Record<string, string> = await req.json();
 
-  const { email, first_name, last_name, message } = body;
+  const copy = body.copy ? 'Yes' : 'No';
+
+  const { email, first_name, last_name, message, subject } = body;
 
   const data = {
     list_ids: ['14bf6def-dfd3-4f02-82da-08b3ee32b036'],
@@ -18,7 +20,7 @@ export async function PUT(req: Request) {
         first_name,
         last_name,
         email,
-        custom_fields: { e9_T: message },
+        custom_fields: { e9_T: message, e10_T: subject, e12_T: copy },
       },
     ],
   };
