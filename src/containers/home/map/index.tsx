@@ -20,8 +20,11 @@ const HomeMap = (): JSX.Element => {
           </p>
 
           <Link href="/projects">
-            <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
-              <p className="text-base font-bold uppercase">View Projects</p>
+            <button
+              type="button"
+              className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut"
+            >
+              <p className="text-base font-bold uppercase">Projects</p>
               <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
             </button>
           </Link>

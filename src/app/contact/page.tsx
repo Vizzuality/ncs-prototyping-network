@@ -1,7 +1,7 @@
 'use client';
 import React, { useCallback, useMemo, useRef } from 'react';
 
-import { Form, Field } from 'react-final-form';
+import { Form, Field, FormProps } from 'react-final-form';
 
 import { type NextPage } from 'next';
 
@@ -10,7 +10,6 @@ import { useSaveContact } from 'hooks/contact';
 import Wrapper from 'containers/wrapper';
 
 import { composeValidators } from 'components/forms/validations';
-import Button from 'components/ui/button';
 import { useToast } from 'components/ui/use-toast';
 
 interface FormValues {
@@ -40,17 +39,10 @@ const Contact: NextPage = () => {
   }, []);
 
   const onSubmit = useCallback(
-    (data: FormValues) => {
-      const parsedData = {
-        first_name: data.first_name,
-        last_name: data.last_name,
-        email: data.email,
-        message: data.message,
-      };
-
+    (data: FormValues, form: FormProps['form']) => {
       saveContactMutation.mutate(
         {
-          data: parsedData,
+          data,
         },
         {
           onSuccess: () => {
@@ -59,7 +51,7 @@ const Contact: NextPage = () => {
               description: "We'll be in touch soon.",
             });
 
-            // form.reset();
+            form.reset();
           },
           onError: () => {
             toast({
@@ -198,13 +190,12 @@ const Contact: NextPage = () => {
                   </div>
 
                   <div className="pt-2">
-                    <Button
-                      // disabled={!form.getState().valid}
+                    <button
                       type="submit"
-                      className="flex h-14 rounded-none bg-butternut px-20 uppercase"
+                      className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut"
                     >
-                      <p>Send</p>
-                    </Button>
+                      <p className="text-base font-bold uppercase">Send</p>
+                    </button>
                   </div>
                 </div>
               </form>
