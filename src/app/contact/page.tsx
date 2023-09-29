@@ -11,6 +11,7 @@ import Wrapper from 'containers/wrapper';
 
 import { composeValidators } from 'components/forms/validations';
 import { useToast } from 'components/ui/use-toast';
+import { cn } from 'utils/cn';
 
 interface FormValues {
   first_name: string;
@@ -29,11 +30,11 @@ const Contact: NextPage = () => {
 
   const INITIAL_VALUES = useMemo(() => {
     return {
-      first_name: '',
-      last_name: '',
-      email: '',
-      subject: '',
-      message: '',
+      first_name: null,
+      last_name: null,
+      email: null,
+      subject: null,
+      message: null,
       copy: false,
     };
   }, []);
@@ -79,6 +80,8 @@ const Contact: NextPage = () => {
           {({ handleSubmit, form }) => {
             formRef.current = form;
 
+            const isError = (error: unknown) => form.getState().submitFailed && error;
+
             return (
               // eslint-disable-next-line @typescript-eslint/no-misused-promises
               <form noValidate onSubmit={handleSubmit}>
@@ -88,7 +91,7 @@ const Contact: NextPage = () => {
                     component="input"
                     validate={composeValidators([{ presence: true }])}
                   >
-                    {({ input }) => (
+                    {({ input, meta }) => (
                       <div className="relative w-full space-y-2">
                         <label className="text-xl font-light text-text">Given name *</label>
                         <input
@@ -96,7 +99,11 @@ const Contact: NextPage = () => {
                           value={input.value as string}
                           placeholder="Your first name or given name"
                           type="text"
-                          className="focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
+                          className={cn({
+                            'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                              true,
+                            'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                          })}
                         />
                       </div>
                     )}
@@ -107,7 +114,7 @@ const Contact: NextPage = () => {
                     component="input"
                     validate={composeValidators([{ presence: true }])}
                   >
-                    {({ input }) => (
+                    {({ input, meta }) => (
                       <div className="relative w-full space-y-2">
                         <label className="text-xl font-light text-text">Surname *</label>
                         <input
@@ -115,7 +122,11 @@ const Contact: NextPage = () => {
                           value={input.value as string}
                           placeholder="Your surname or family name(s)"
                           type="text"
-                          className="focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
+                          className={cn({
+                            'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                              true,
+                            'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                          })}
                         />
                       </div>
                     )}
@@ -125,7 +136,7 @@ const Contact: NextPage = () => {
                     component="input"
                     validate={composeValidators([{ presence: true, email: true }])}
                   >
-                    {({ input }) => (
+                    {({ input, meta }) => (
                       <div className="relative w-full space-y-2">
                         <label className="text-xl font-light text-text">Email</label>
                         <input
@@ -133,7 +144,11 @@ const Contact: NextPage = () => {
                           value={input.value as string}
                           placeholder="Your email address"
                           type="email"
-                          className="focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
+                          className={cn({
+                            'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                              true,
+                            'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                          })}
                         />
                       </div>
                     )}
@@ -143,7 +158,7 @@ const Contact: NextPage = () => {
                     component="input"
                     validate={composeValidators([{ presence: true }])}
                   >
-                    {({ input }) => (
+                    {({ input, meta }) => (
                       <div className="relative w-full space-y-2">
                         <label className="text-xl font-light text-text">Subject *</label>
                         <input
@@ -151,7 +166,11 @@ const Contact: NextPage = () => {
                           value={input.value as string}
                           placeholder="Enter your subject"
                           type="text"
-                          className="focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
+                          className={cn({
+                            'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                              true,
+                            'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                          })}
                         />
                       </div>
                     )}
@@ -161,7 +180,7 @@ const Contact: NextPage = () => {
                     component="input"
                     validate={composeValidators([{ presence: true }])}
                   >
-                    {({ input }) => {
+                    {({ input, meta }) => {
                       return (
                         <div className="relative w-full space-y-2">
                           <label className="text-xl font-light text-text">Message *</label>
@@ -170,7 +189,11 @@ const Contact: NextPage = () => {
                             placeholder="Enter your message"
                             value={input.value as string}
                             rows={4}
-                            className="focus:ring-brand-700 flex h-40 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset"
+                            className={cn({
+                              'focus:ring-brand-700 flex h-40 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                                true,
+                              'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                            })}
                           />
                         </div>
                       );
@@ -192,7 +215,7 @@ const Contact: NextPage = () => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut"
+                      className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-16 text-white transition-colors hover:bg-background hover:text-butternut"
                     >
                       <p className="text-base font-bold uppercase">Send</p>
                     </button>
