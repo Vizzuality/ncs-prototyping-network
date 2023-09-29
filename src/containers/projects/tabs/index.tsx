@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 import { useRecoilState } from 'recoil';
 
+import { TABS } from 'containers/projects/tabs/constants';
+
 import Icon from 'components/icon/component';
 import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
 
 import MARKER_SVG from 'svgs/ui/marker.svg?sprite';
 import METRICS_SVG from 'svgs/ui/metrics.svg?sprite';
-
-import { TABS } from './constants';
 
 const Tabs = (): JSX.Element => {
   const [projectsView, setProjectsView] = useRecoilState(projectsViewAtom);
@@ -24,7 +24,7 @@ const Tabs = (): JSX.Element => {
           {tab.id === projectsView && (
             <motion.div
               className="absolute left-0 right-0 -top-0.5 h-8 rounded-3xl bg-white"
-              layoutId="underline"
+              layoutId="underline-view"
             />
           )}
           <div className="z-20 flex items-center space-x-2 px-[18.5px]">

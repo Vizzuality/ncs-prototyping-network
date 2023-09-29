@@ -56,7 +56,8 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
   const handleViewState = useCallback(() => {
     if (map) {
-      console.log('map', map.getStyle().layers);
+      console.info('map', map);
+      // console.log('map', map.getStyle().layers);
     }
   }, [map]);
 
@@ -73,7 +74,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   };
 
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
-    console.log('e', e);
+    console.info('e', e);
   };
 
   const getSortedData = (arr: Project[], sortedBy: string) => {

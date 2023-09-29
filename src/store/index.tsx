@@ -11,6 +11,7 @@ export const basemapAtom = atom<Basemap>({
   key: 'basemap',
   default: 'light',
 });
+
 export const projectsViewAtom = atom<string>({
   key: 'projects-view',
   default: 'map',
