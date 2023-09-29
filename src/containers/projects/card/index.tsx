@@ -2,10 +2,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Icon from '@/components/icon';
-import { cn } from '@/utils/cn';
-import { getGeneralPathwayName } from '@/utils/pathways';
+import Icon from 'components/icon';
 import { Project } from 'types/project';
+import { cn } from 'utils/cn';
+import { getGeneralPathwayName } from 'utils/pathways';
 
 import { COLORS, ICONS } from './constants';
 

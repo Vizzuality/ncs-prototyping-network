@@ -12,10 +12,10 @@ import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 
-import { getEspecificPathwayName } from '@/utils/pathways';
 import { PROJECTS } from 'data/projects';
 import { filtersAtom, projectsViewAtom } from 'store';
 import { ActionTypes, Pathways, Project } from 'types/project';
+import { getEspecificPathwayName } from 'utils/pathways';
 
 const Projects: NextPage = () => {
   const projectsView = useRecoilValue(projectsViewAtom);

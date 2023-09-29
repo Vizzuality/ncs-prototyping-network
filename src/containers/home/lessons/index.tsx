@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 import Wrapper from 'containers/wrapper';
 
-import { cn } from '@/utils/cn';
 import Icon from 'components/icon';
+import { cn } from 'utils/cn';
 
 import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 
