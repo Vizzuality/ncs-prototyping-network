@@ -6,6 +6,7 @@ import Footer from 'containers/footer';
 import Header from 'containers/header';
 
 import Providers from 'app/layout-providers';
+import { Toaster } from 'components/ui/toaster';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <main className="flex min-h-screen flex-col">
+            <Toaster />
             <Header />
 
             {children}

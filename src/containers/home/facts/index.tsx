@@ -2,7 +2,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
-import Button from '@/components/ui/button';
+import Button from 'components/ui/button';
 
 const Facts = (): JSX.Element => {
   return (

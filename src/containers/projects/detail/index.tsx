@@ -6,8 +6,8 @@ import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import Wrapper from 'containers/wrapper';
 
-import { PROJECTS } from '@/data/projects';
 import Icon from 'components/icon';
+import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
 
 import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';

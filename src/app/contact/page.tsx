@@ -6,12 +6,12 @@ import { Form, Field } from 'react-final-form';
 import { type NextPage } from 'next';
 
 import { useSaveContact } from 'hooks/contact';
-import { useToasts } from 'hooks/toast';
 
 import Wrapper from 'containers/wrapper';
 
 import { composeValidators } from 'components/forms/validations';
 import Button from 'components/ui/button';
+import { useToast } from 'components/ui/use-toast';
 
 interface FormValues {
   first_name: string;
@@ -24,9 +24,9 @@ interface FormValues {
 
 const Contact: NextPage = () => {
   const formRef = useRef(null);
+  const { toast } = useToast();
 
   const saveContactMutation = useSaveContact();
-  const { addToast } = useToasts();
 
   const INITIAL_VALUES = useMemo(() => {
     return {
@@ -54,33 +54,23 @@ const Contact: NextPage = () => {
         },
         {
           onSuccess: () => {
-            addToast(
-              'success-contact',
-              <>
-                <p className="text-base">You have successfully sent your message</p>
-              </>,
-              {
-                level: 'success',
-              }
-            );
-            //!TODO: Send a copy of email
+            toast({
+              title: 'Your message has been sent',
+              description: "We'll be in touch soon.",
+            });
+
             // form.reset();
           },
           onError: () => {
-            addToast(
-              'error-contact',
-              <>
-                <p className="text-base">Oops! Something went wrong</p>
-              </>,
-              {
-                level: 'error',
-              }
-            );
+            toast({
+              title: 'Something went wrong',
+              description: 'Please try again later.',
+            });
           },
         }
       );
     },
-    [saveContactMutation, addToast]
+    [saveContactMutation, toast]
   );
 
   return (
@@ -209,7 +199,7 @@ const Contact: NextPage = () => {
 
                   <div className="pt-2">
                     <Button
-                      disabled={!form.getState().valid}
+                      // disabled={!form.getState().valid}
                       type="submit"
                       className="flex h-14 rounded-none bg-butternut px-20 uppercase"
                     >

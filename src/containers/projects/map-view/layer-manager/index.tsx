@@ -5,9 +5,9 @@ import { Source, Layer } from 'react-map-gl';
 import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer } from 'mapbox-gl';
 import { useRecoilValue } from 'recoil';
 
-import { ActionTypes, Pathways, Project } from '@/types/project';
 import { PROJECTS } from 'data/projects';
 import { filtersAtom } from 'store';
+import { ActionTypes, Pathways, Project } from 'types/project';
 
 const LayerManager = () => {
   const filters = useRecoilValue(filtersAtom);
