@@ -97,7 +97,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       </Wrapper>
       <section id="goals" className="flex">
         <div className="flex w-1/2 justify-end bg-indigo">
-          <div className="flex flex-col space-y-3 py-20 pl-10 pr-20 text-white">
+          <div className="flex max-w-2xl flex-col space-y-3 py-20 pl-10 pr-20 text-white">
             <h4 className="font-serif text-4xl font-medium">Goals</h4>
             <p className="font-sans text-xl leading-9">{data?.project_goal}</p>
           </div>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import { Source, Layer } from 'react-map-gl';
 
@@ -7,43 +7,15 @@ import { useRecoilValue } from 'recoil';
 
 import { PROJECTS } from 'data/projects';
 import { filtersAtom } from 'store';
-import { ActionTypes, Pathways, Project } from 'types/project';
 
 const LayerManager = () => {
   const filters = useRecoilValue(filtersAtom);
-
-  const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
   const { pathways, project_phase, action_types, project_category } = filters;
-
-  useEffect(() => {
-    const activedFilters = Object.values(filters).some((f) => f.length > 0);
-    const dataFinalFiltered = () => {
-      return PROJECTS.filter((project) => {
-        if (!!pathways.length) {
-          if (!pathways.some((pw: Pathways) => project.pathways.includes(pw))) return false;
-        }
-        if (!!project_phase.length) {
-          if (!project_phase.includes(project.project_phase)) return false;
-        }
-        if (!!action_types.length) {
-          if (!action_types.some((at: ActionTypes) => project.action_types.includes(at)))
-            return false;
-        }
-        if (!!project_category.length) {
-          if (!project_category.includes(project.project_category)) return false;
-        }
-        return true;
-      });
-    };
-
-    if (activedFilters) return setDataFiltered(dataFinalFiltered());
-
-    if (!activedFilters) return setDataFiltered(PROJECTS);
-  }, [filters, pathways, project_phase, action_types, project_category]);
+  const activedFilters = Object.values(filters).some((f) => f.length > 0);
 
   const GEOJSON = {
     type: 'FeatureCollection',
-    features: dataFiltered.map((project) => ({
+    features: PROJECTS.map((project) => ({
       type: 'Feature',
       geometry: {
         type: 'Point',
@@ -67,18 +39,51 @@ const LayerManager = () => {
     return {
       id: 'projects-layer',
       type: 'circle',
-      // ...(activedFilters &&
-      //   {
-      // filter: [
-      //   'any',
-      //   ...pathways.map((id) => {
-      //     return ['in', id, ['get', 'pathways']];
-      //   }),
-      //   ...project_phase.map((id) => {
-      //     return ['in', id, ['get', 'project_phase']];
-      //   }),
-      // ],
-      // }),
+      ...(activedFilters && {
+        filter: [
+          'all',
+          ...(!!pathways.length
+            ? [
+                [
+                  'any',
+                  ...pathways.map((id) => {
+                    return ['in', id, ['get', 'pathways']];
+                  }),
+                ],
+              ]
+            : []),
+          ...(!!project_phase.length
+            ? [
+                [
+                  'any',
+                  ...project_phase.map((id) => {
+                    return ['in', id, ['get', 'project_phase']];
+                  }),
+                ],
+              ]
+            : []),
+          ...(!!action_types.length
+            ? [
+                [
+                  'any',
+                  ...action_types.map((id) => {
+                    return ['in', id, ['get', 'action_types']];
+                  }),
+                ],
+              ]
+            : []),
+          ...(!!project_category.length
+            ? [
+                [
+                  'any',
+                  ...project_category.map((id) => {
+                    return ['in', id, ['get', 'project_category']];
+                  }),
+                ],
+              ]
+            : []),
+        ],
+      }),
       paint: {
         'circle-color': '#1F51FF',
         'circle-opacity': 0.5,
@@ -88,8 +93,7 @@ const LayerManager = () => {
         visibility: 'visible',
       },
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters]);
+  }, [pathways, project_phase, project_category, action_types, activedFilters]);
 
   return (
     <Source {...SOURCE}>
