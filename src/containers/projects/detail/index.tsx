@@ -95,21 +95,23 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </a>
         </div>
       </Wrapper>
-      <section id="goals" className="flex">
-        <div className="flex w-1/2 justify-end bg-indigo">
-          <div className="flex max-w-2xl flex-col space-y-3 py-20 pl-10 pr-20 text-white">
-            <h4 className="font-serif text-4xl font-medium">Goals</h4>
-            <p className="font-sans text-xl leading-9">{data?.project_goal}</p>
+      <section id="goals" className="h-[449px] bg-indigo">
+        <Wrapper>
+          <div className="flex w-1/2 justify-end">
+            <div className="flex max-w-2xl flex-col space-y-3 py-20 pr-20 text-white">
+              <h4 className="font-serif text-4xl font-medium">Goals</h4>
+              <p className="font-sans text-xl leading-9">{data?.project_goal}</p>
+            </div>
           </div>
-        </div>
-        <Image
-          src="/images/projects/goals_placeholder.png"
-          alt="Goals"
-          height={300}
-          width={600}
-          style={{ objectFit: 'cover' }}
-          className="w-1/2"
-        />
+          <Image
+            src="/images/projects/goals_placeholder.png"
+            alt="Goals"
+            height={280}
+            width={500}
+            style={{ objectFit: 'contain' }}
+            className="absolute right-0 w-1/2"
+          />
+        </Wrapper>
       </section>
 
       <section className="py-16">
