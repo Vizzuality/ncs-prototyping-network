@@ -10,9 +10,11 @@ import Icon from 'components/icon';
 import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
 
-import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
-import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
-import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
+import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
+import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
+import HUMAN_HEALTH_WELLBEING_SVG from 'svgs/co-benefits/human_health_wellbeing.svg?sprite';
+import LIVELIHOODS_ECONOMIC_SVG from 'svgs/co-benefits/livelihoods_economic.svg?sprite';
+import RESILIENCE_AND_ADAPTATION_SVG from 'svgs/co-benefits/resilience_and_adaptation.svg?sprite';
 import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 
 import Card from '../card';
@@ -234,7 +236,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             {data?.cb_biodiversity && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
-                  <Icon icon={AGROFORESTRY_SVG} className="h-7 w-7" />
+                  <Icon icon={BIODIVERSITY_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Biodiversity</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_biodiversity}</p>
@@ -243,7 +245,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             {data?.cb_ecosystem_services && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
-                  <Icon icon={AGROFORESTRY_SVG} className="h-7 w-7" />
+                  <Icon icon={ECOSYSTEM_SERVICES_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Ecosystem Services</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_ecosystem_services}</p>
@@ -252,7 +254,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             {data?.cb_livelihood_econ && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
-                  <Icon icon={PEATLANDS_SVG} className="h-7 w-7" />
+                  <Icon icon={LIVELIHOODS_ECONOMIC_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Livelihoods & Economics</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_livelihood_econ}</p>
@@ -261,7 +263,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             {data?.cb_health_well_being && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
-                  <Icon icon={COASTAL_WETLANDS_SVG} className="h-7 w-7" />
+                  <Icon icon={HUMAN_HEALTH_WELLBEING_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Health & Well-being</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_health_well_being}</p>
@@ -270,7 +272,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             {data?.cb_resilience_adapt && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
-                  <Icon icon={COASTAL_WETLANDS_SVG} className="h-7 w-7" />
+                  <Icon icon={RESILIENCE_AND_ADAPTATION_SVG} className="h-7 w-7" />
                   <p className="text-xl font-light">Resilience & Adaptation</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_resilience_adapt}</p>

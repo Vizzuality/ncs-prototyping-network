@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Agroforestry'],
     action_types: ['Restore', 'Protect'],
-    co_benefits: ['Ecosystem Services', 'Reslience and adaptation'],
+    co_benefits: ['Ecosystem Services', 'Resilience and adaptation'],
     carbon_mitigation: 24000,
     hectares_impacted: 300,
     people_supported: 1050,
@@ -87,7 +87,7 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Agroforestry', 'Coastal Wetlands (Restoration)'],
     action_types: ['Restore', 'Protect'],
-    co_benefits: ['Ecosystem Services', 'Reslience and adaptation'],
+    co_benefits: ['Ecosystem Services', 'Resilience and adaptation'],
     carbon_mitigation: 2000,
     hectares_impacted: 900,
     people_supported: 15000,
@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Coastal Wetlands (Restoration)'],
     action_types: ['Manage'],
-    co_benefits: ['Ecosystem Services', 'Human Health/Well-Being'],
+    co_benefits: ['Ecosystem Services', 'Human Health/Well-Being', 'Resilience and adaptation'],
     carbon_mitigation: 21000,
     hectares_impacted: 520,
     people_supported: 2000,
@@ -195,7 +195,8 @@ export const PROJECTS: Project[] = [
       'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_resilience_adapt:
       'As climate change progresses we can expect more drought and higher temperatures resulting in incresed fires and lack of water for crops. If re-wetting is done properly it can help reduce the instance of fires in an area and raise the water table providing a more stable source of water for farmers .',
-    cb_health_well_being: '',
+    cb_health_well_being:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_livelihood_econ: '',
     callout:
       'The potential of peatlands to reduce greenhouse gas emissions in Indonesia is exceptionally high: avoided peat impacts and peat restoration combined have the potential fulfill a significant portion of the country’s climate goals by 2030. This project will address significantlarge data gaps to ensure that the climate and other benefits of these diverse ecosystems are properly quantified and integrated into national monitoring systems and policy',
@@ -237,7 +238,13 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Peatlands (Avoided Impacts)', 'Coastal Wetlands (Avoided Impacts)'],
     action_types: ['Protect'],
-    co_benefits: ['Livelihoods/Economic', 'Reslience and adaptation', 'Human Health/Well-Being'],
+    co_benefits: [
+      'Biodiversity',
+      'Livelihoods/Economic',
+      'Resilience and adaptation',
+      'Human Health/Well-Being',
+      'Ecosystem Services',
+    ],
     carbon_mitigation: 19000,
     hectares_impacted: 500,
     people_supported: 1000,
@@ -265,13 +272,16 @@ export const PROJECTS: Project[] = [
     lesson_3:
       'We learned from one of our sites that it is important to conduct FPIC at the beginning of the project to ensure the success and sustain of the project.  For example we discovered engaging the community early and having buy in and consent in the canal construction process helped maintain the canal when it was built, ensuring it´s longevity.',
     lesson_3_category: 'Community engagement and equity',
-    cb_biodiversity: '',
+    cb_biodiversity:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_ecosystem_services:
       'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_resilience_adapt:
       'As climate change progresses we can expect more drought and higher temperatures resulting in incresed fires and lack of water for crops. If re-wetting is done properly it can help reduce the instance of fires in an area and raise the water table providing a more stable source of water for farmers .',
-    cb_health_well_being: '',
-    cb_livelihood_econ: '',
+    cb_health_well_being:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
+    cb_livelihood_econ:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     callout:
       'The potential of peatlands to reduce greenhouse gas emissions in Indonesia is exceptionally high: avoided peat impacts and peat restoration combined have the potential fulfill a significant portion of the country’s climate goals by 2030. This project will address significantlarge data gaps to ensure that the climate and other benefits of these diverse ecosystems are properly quantified and integrated into national monitoring systems and policy',
     whats_next:
@@ -308,11 +318,11 @@ export const PROJECTS: Project[] = [
     public_contact_name: 'Nisa Novita',
     public_contact_email: 'nisa.novita@tnc.org',
     region: 'Asia Pacific',
-    country: 'Gabon',
+    country: 'Egypt',
     biome: 'Wetlands',
     pathways: ['Peatlands (Restoration)'],
     action_types: ['Restore', 'Manage'],
-    co_benefits: ['Ecosystem Services', 'Reslience and adaptation'],
+    co_benefits: ['Ecosystem Services', 'Resilience and adaptation'],
     carbon_mitigation: 20000,
     hectares_impacted: 500,
     people_supported: 1000,
@@ -369,8 +379,8 @@ export const PROJECTS: Project[] = [
     graphic_1_caption: 'Factsheet of NCS Project in West Kalimantan',
     graphic_2: 'https://app.box.com/folder/197130302681',
     graphic_2_caption: 'Interview with Scientist for NCS Project',
-    centroid_lat: 31.016249,
-    centroid_long: 27.050816,
+    centroid_lat: 30.065932,
+    centroid_long: 27.089947,
     project_site_description:
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
@@ -387,7 +397,13 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Agroforestry'],
     action_types: ['Protect'],
-    co_benefits: ['Ecosystem Services', 'Reslience and adaptation'],
+    co_benefits: [
+      'Biodiversity',
+      'Livelihoods/Economic',
+      'Resilience and adaptation',
+      'Human Health/Well-Being',
+      'Ecosystem Services',
+    ],
     carbon_mitigation: 20000,
     hectares_impacted: 500,
     people_supported: 1000,
@@ -415,13 +431,16 @@ export const PROJECTS: Project[] = [
     lesson_3:
       'We learned from one of our sites that it is important to conduct FPIC at the beginning of the project to ensure the success and sustain of the project.  For example we discovered engaging the community early and having buy in and consent in the canal construction process helped maintain the canal when it was built, ensuring it´s longevity.',
     lesson_3_category: 'Community engagement and equity',
-    cb_biodiversity: '',
+    cb_biodiversity:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_ecosystem_services:
       'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_resilience_adapt:
       'As climate change progresses we can expect more drought and higher temperatures resulting in incresed fires and lack of water for crops. If re-wetting is done properly it can help reduce the instance of fires in an area and raise the water table providing a more stable source of water for farmers .',
-    cb_health_well_being: '',
-    cb_livelihood_econ: '',
+    cb_health_well_being:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
+    cb_livelihood_econ:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     callout:
       'The potential of peatlands to reduce greenhouse gas emissions in Indonesia is exceptionally high: avoided peat impacts and peat restoration combined have the potential fulfill a significant portion of the country’s climate goals by 2030. This project will address significantlarge data gaps to ensure that the climate and other benefits of these diverse ecosystems are properly quantified and integrated into national monitoring systems and policy',
     whats_next:
@@ -463,7 +482,7 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Peatlands (Restoration)'],
     action_types: ['Manage'],
-    co_benefits: ['Ecosystem Services', 'Reslience and adaptation'],
+    co_benefits: ['Ecosystem Services', 'Resilience and adaptation', 'Biodiversity'],
     carbon_mitigation: 20000,
     hectares_impacted: 500,
     people_supported: 1000,
@@ -491,7 +510,8 @@ export const PROJECTS: Project[] = [
     lesson_3:
       'We learned from one of our sites that it is important to conduct FPIC at the beginning of the project to ensure the success and sustain of the project.  For example we discovered engaging the community early and having buy in and consent in the canal construction process helped maintain the canal when it was built, ensuring it´s longevity.',
     lesson_3_category: 'Community engagement and equity',
-    cb_biodiversity: '',
+    cb_biodiversity:
+      'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_ecosystem_services:
       'The canal blocking establishment aims to maintain water table, which could provide climate benefits from emission reduction. It also provides water source for the surrounding community for fire prevention and daily water supply.',
     cb_resilience_adapt:

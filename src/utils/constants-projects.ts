@@ -28,7 +28,7 @@ export const PROJECT_CATEGORIES = {
 export const CO_BENEFITS = {
   Biodiversity: 'Biodiversity',
   EcosystemServices: 'Ecosystem Services',
-  ReslienceAndAdaptation: 'Reslience and adaptation',
+  ResilienceAndAdaptation: 'Resilience and adaptation',
   HumanHealthWellBeing: 'Human Health/Well-Being',
   LivelihoodsEconomic: 'Livelihoods/Economic',
 };

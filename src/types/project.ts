@@ -3,7 +3,7 @@ export type ActionTypes = 'Restore' | 'Protect' | 'Manage';
 export type CoBenefits =
   | 'Biodiversity'
   | 'Ecosystem Services'
-  | 'Reslience and adaptation'
+  | 'Resilience and adaptation'
   | 'Human Health/Well-Being'
   | 'Cultural Heritage'
   | 'Livelihoods/Economic';

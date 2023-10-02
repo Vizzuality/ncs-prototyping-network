@@ -132,9 +132,11 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                     <td>{project.people_supported}</td>
                     <td className="bg-background">{project.carbon_mitigation}</td>
                     <td>
-                      {project.co_benefits.map((cb) => {
-                        return <Icon icon={CO_BENEFITS_ICONS[cb]} className="h-7 w-7" key={cb} />;
-                      })}
+                      <div className="grid grid-cols-2 gap-3">
+                        {project.co_benefits.map((cb) => {
+                          return <Icon icon={CO_BENEFITS_ICONS[cb]} className="h-7 w-7" key={cb} />;
+                        })}
+                      </div>
                     </td>
                   </tr>
                 );

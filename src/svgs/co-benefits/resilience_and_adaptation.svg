@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_400" data-name="Rectangle 400" width="30" height="30" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Icon-Resilience" transform="translate(-2 -7)">
+    <g id="Group_547" data-name="Group 547" transform="translate(2 7)" clip-path="url(#clip-path)">
+      <path id="Path_432" data-name="Path 432" d="M17.316,11.207c-2.125.663-5.6,3.843-6.3,9.292" fill="none" stroke="#828282" stroke-linecap="round" stroke-width="1.5"/>
+      <path id="Path_433" data-name="Path 433" d="M14.316,17.967s7.377-.875,5.9-8.774c0,0-4.989-1.213-7.974,2.461a5.267,5.267,0,0,0-.49,5.829" fill="none" stroke="#828282" stroke-linecap="round" stroke-width="1.5"/>
+      <path id="Path_434" data-name="Path 434" d="M15,1.6A13.75,13.75,0,0,1,3.275,6.763s.861,9.482,2.8,12.612c3.589,5.8,8.313,6.02,8.929,9.031.663-2.956,5.34-3.227,8.929-9.031,1.934-3.13,2.8-12.612,2.8-12.612C19.165,7.747,15,1.6,15,1.6Z" fill="none" stroke="#828282" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

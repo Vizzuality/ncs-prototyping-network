@@ -1,8 +1,10 @@
 import { CO_BENEFITS } from 'utils/constants-projects';
 
-import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
-import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
-import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
+import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
+import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
+import HUMAN_HEALTH_WELLBEING_SVG from 'svgs/co-benefits/human_health_wellbeing.svg?sprite';
+import LIVELIHOODS_ECONOMIC_SVG from 'svgs/co-benefits/livelihoods_economic.svg?sprite';
+import RESILIENCE_AND_ADAPTATION_SVG from 'svgs/co-benefits/resilience_and_adaptation.svg?sprite';
 
 export const COLUMNS = [
   {
@@ -53,9 +55,9 @@ export const COLUMNS = [
 ];
 
 export const CO_BENEFITS_ICONS = {
-  [CO_BENEFITS.Biodiversity]: AGROFORESTRY_SVG,
-  [CO_BENEFITS.EcosystemServices]: COASTAL_WETLANDS_SVG,
-  [CO_BENEFITS.ReslienceAndAdaptation]: PEATLANDS_SVG,
-  [CO_BENEFITS.HumanHealthWellBeing]: PEATLANDS_SVG,
-  [CO_BENEFITS.LivelihoodsEconomic]: AGROFORESTRY_SVG,
+  [CO_BENEFITS.Biodiversity]: BIODIVERSITY_SVG,
+  [CO_BENEFITS.EcosystemServices]: ECOSYSTEM_SERVICES_SVG,
+  [CO_BENEFITS.ResilienceAndAdaptation]: RESILIENCE_AND_ADAPTATION_SVG,
+  [CO_BENEFITS.HumanHealthWellBeing]: HUMAN_HEALTH_WELLBEING_SVG,
+  [CO_BENEFITS.LivelihoodsEconomic]: LIVELIHOODS_ECONOMIC_SVG,
 };
