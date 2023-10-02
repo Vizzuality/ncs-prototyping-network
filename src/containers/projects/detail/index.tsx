@@ -9,6 +9,7 @@ import Wrapper from 'containers/wrapper';
 import Icon from 'components/icon';
 import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
+import { cn } from 'utils/cn';
 
 import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
 import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
@@ -73,7 +74,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         </div>
       </Wrapper>
       <Wrapper>
-        <div className="flex justify-between border-t py-4 text-text ">
+        <div className="flex justify-between border-t py-4 px-28 text-text">
           <a className="hover:text-butternut" href="#goals">
             Overview
           </a>
@@ -96,13 +97,13 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       </Wrapper>
       <section id="goals" className="flex">
         <div className="flex w-1/2 justify-end bg-indigo">
-          <div className="flex flex-col space-y-3 p-20 text-white">
+          <div className="flex flex-col space-y-3 py-20 pl-10 pr-20 text-white">
             <h4 className="font-serif text-4xl font-medium">Goals</h4>
-            <p className="max-w-xl font-sans text-xl leading-9">{data?.project_goal}</p>
+            <p className="font-sans text-xl leading-9">{data?.project_goal}</p>
           </div>
         </div>
         <Image
-          src="/images/home/lessons/logistics.png"
+          src="/images/projects/goals_placeholder.png"
           alt="Goals"
           height={300}
           width={600}
@@ -138,7 +139,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               Project Phase: {data.project_phase}
             </p>
 
-            <p className="w-2/3 pt-4 font-sans text-m leading-9 text-text">
+            <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
               {data?.project_summary}
             </p>
           </div>
@@ -216,10 +217,39 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             </div>
           </Wrapper>
         </div>
-        <Wrapper>
-          <div className="flex w-3/4 flex-col space-y-6 py-16">
-            <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
-            <p className="font-sans text-m leading-6 text-text">{data?.project_summary}</p>
+        <Wrapper className="flex w-full flex-row space-x-20 py-16">
+          <div className="flex w-3/4 flex-col space-y-10">
+            <div className="flex-col space-y-6">
+              <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
+              <p className="font-sans text-m font-light leading-7 text-text">
+                {data?.project_summary}
+              </p>
+            </div>
+            <div className="flex flex-col space-y-4">
+              <h5 className="text-lg font-light uppercase">CITATIONS</h5>
+              <div className="space-y-2 text-2xs font-light">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua.
+                </p>
+                <p>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                  ex ea commodo consequat.{' '}
+                </p>
+                <p>
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                  fugiat nulla pariatur.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex w-1/4 flex-col space-y-6">
+            <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
+            <div className="flex flex-col font-sans text-xl font-light leading-9 text-text">
+              <p>Download Fact Sheet</p>
+              <p>Download 2</p>
+              <p>Download 3</p>
+            </div>
           </div>
         </Wrapper>
       </section>
@@ -232,12 +262,12 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </Wrapper>
         </div>
         <Wrapper>
-          <div className="py-16">
+          <div className="w-3/4 py-10 font-light">
             {data?.cb_biodiversity && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={BIODIVERSITY_SVG} className="h-7 w-7" />
-                  <p className="text-xl font-light">Biodiversity</p>
+                  <p className="text-xl">Biodiversity</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_biodiversity}</p>
               </div>
@@ -246,7 +276,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={ECOSYSTEM_SERVICES_SVG} className="h-7 w-7" />
-                  <p className="text-xl font-light">Ecosystem Services</p>
+                  <p className="text-xl">Ecosystem Services</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_ecosystem_services}</p>
               </div>
@@ -255,7 +285,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={LIVELIHOODS_ECONOMIC_SVG} className="h-7 w-7" />
-                  <p className="text-xl font-light">Livelihoods & Economics</p>
+                  <p className="text-xl">Livelihoods & Economics</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_livelihood_econ}</p>
               </div>
@@ -264,7 +294,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={HUMAN_HEALTH_WELLBEING_SVG} className="h-7 w-7" />
-                  <p className="text-xl font-light">Health & Well-being</p>
+                  <p className="text-xl">Health & Well-being</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_health_well_being}</p>
               </div>
@@ -273,25 +303,11 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={RESILIENCE_AND_ADAPTATION_SVG} className="h-7 w-7" />
-                  <p className="text-xl font-light">Resilience & Adaptation</p>
+                  <p className="text-xl">Resilience & Adaptation</p>
                 </div>
                 <p className="text-m leading-6">{data?.cb_resilience_adapt}</p>
               </div>
             )}
-          </div>
-        </Wrapper>
-      </section>
-      <section className="pb-16">
-        <Wrapper>
-          <div className="space-y-4 border-t-[2px] py-8">
-            <h4 className="font-serif text-3xl font-medium text-indigo">Partners</h4>
-            <div className="flex flex-wrap font-light leading-8 text-text">
-              {data?.primary_partners.split(/[,]+/).map((partner) => (
-                <p key={partner} className="mr-8">
-                  {partner}
-                </p>
-              ))}
-            </div>
           </div>
         </Wrapper>
       </section>
@@ -304,10 +320,43 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </div>
         </Wrapper>
       </section>
+      <section>
+        <Wrapper>
+          <div className="space-y-4 border-b-[2px] py-14">
+            <h4 className="font-serif text-3xl font-medium text-indigo">Partners</h4>
+            <div
+              className={cn({
+                'font-light leading-8 text-text': true,
+                'grid grid-cols-2': data?.primary_partners.split(/[,]+/).length > 5,
+              })}
+            >
+              {data?.primary_partners.split(/[,]+/).map((partner) => (
+                <p key={partner} className="mr-8">
+                  {partner}
+                </p>
+              ))}
+            </div>
+          </div>
+        </Wrapper>
+      </section>
+
       <section className="py-16">
-        <Wrapper className="space-y-6">
-          <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
-          <p className="font-sans text-m text-text">{data.whats_next}</p>
+        <Wrapper className="flex flex-row space-x-20">
+          <div className="w-3/4 space-y-6">
+            <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
+            <p className="font-sans text-m font-light leading-7 text-text">{data.whats_next}</p>
+          </div>
+
+          {!!(data.public_contact_name || data.public_contact_email) && (
+            <div className="w-1/4 space-y-6 pt-16 ">
+              <h5 className="font-serif text-2xl font-medium text-indigo">Contact Info</h5>
+              <div className="text-m font-light">
+                <p>MAIN CONTACT:</p>
+                <p>{data.public_contact_name}</p>
+                <p>{data.public_contact_email}</p>
+              </div>
+            </div>
+          )}
         </Wrapper>
       </section>
 
