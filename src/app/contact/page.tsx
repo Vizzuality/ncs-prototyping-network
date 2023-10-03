@@ -10,6 +10,7 @@ import { useSaveContact } from 'hooks/contact';
 import Wrapper from 'containers/wrapper';
 
 import { composeValidators } from 'components/forms/validations';
+import Button from 'components/ui/button';
 import { useToast } from 'components/ui/use-toast';
 import { cn } from 'utils/cn';
 
@@ -213,12 +214,9 @@ const Contact: NextPage = () => {
                   </div>
 
                   <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-16 text-white transition-colors hover:bg-background hover:text-butternut"
-                    >
+                    <Button type="submit">
                       <p className="text-base font-bold uppercase">Send</p>
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </form>

@@ -11,6 +11,7 @@ import { VscQuote } from 'react-icons/vsc';
 import Wrapper from 'containers/wrapper';
 
 import Icon from 'components/icon';
+import Button from 'components/ui/button';
 import Video from 'components/video';
 import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
@@ -201,13 +202,9 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               </p>
 
               <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={() => setPlaying(true)}
-                  className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-10 text-white transition-colors hover:bg-background hover:text-butternut"
-                >
+                <Button onClick={() => setPlaying(true)}>
                   <p className="text-base font-bold uppercase">Watch video</p>
-                </button>
+                </Button>
               </div>
             </div>
           </div>
