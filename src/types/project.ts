@@ -124,4 +124,5 @@ export interface Project {
   project_site_description: string;
   project_size_ha: number;
   project_site_attribution: string;
+  footer_img: string;
 }

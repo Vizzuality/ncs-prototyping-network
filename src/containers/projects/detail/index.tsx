@@ -1,8 +1,11 @@
+import { useMemo } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
+import { VscQuote } from 'react-icons/vsc';
 
 import Wrapper from 'containers/wrapper';
 
@@ -27,6 +30,13 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       transition: { duration: 0.25, bounce: 0 },
     },
   };
+
+  const similarProjects = useMemo(() => {
+    return PROJECTS.filter((project) => {
+      if (!project.pathways.some((pathway) => data.pathways.includes(pathway))) return false;
+      return true;
+    }).slice(0, 3);
+  }, [data]);
 
   return (
     <>
@@ -314,8 +324,9 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         </Wrapper>
       </section>
       <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
-        <Wrapper>
-          <div className="flex justify-center py-20">
+        <Wrapper className="flex flex-col items-center space-y-6 py-20">
+          <VscQuote className="fill-butternut" size={40} />
+          <div className="flex justify-center">
             <p className="max-w-3xl text-center font-sans text-xl font-light leading-9 text-white">
               {data?.callout}
             </p>
@@ -382,8 +393,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       <section className="py-16">
         <Wrapper className="space-y-6">
           <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
-          <div className="flex justify-between">
-            {PROJECTS.slice(0, 3).map((project, idx) => (
+          <div className="flex justify-start space-x-6 2xl:space-x-10">
+            {similarProjects.map((project, idx) => (
               <Card key={idx} data={project} />
             ))}
           </div>

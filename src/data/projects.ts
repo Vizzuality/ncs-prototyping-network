@@ -75,6 +75,7 @@ export const PROJECTS: Project[] = [
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
     project_site_attribution: 'MOEF-> Ministry of Enviroment and Forestry',
+    footer_img: '',
   },
   {
     id: 2,
@@ -150,6 +151,7 @@ export const PROJECTS: Project[] = [
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
     project_site_attribution: 'MOEF-> Ministry of Enviroment and Forestry',
+    footer_img: '',
   },
   {
     id: 3,
@@ -226,6 +228,7 @@ export const PROJECTS: Project[] = [
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
     project_site_attribution: 'MOEF-> Ministry of Enviroment and Forestry',
+    footer_img: '',
   },
   {
     id: 4,
@@ -310,6 +313,7 @@ export const PROJECTS: Project[] = [
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
     project_site_attribution: 'MOEF-> Ministry of Enviroment and Forestry',
+    footer_img: '',
   },
   {
     id: 5,
@@ -385,6 +389,7 @@ export const PROJECTS: Project[] = [
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
     project_site_attribution: 'MOEF-> Ministry of Enviroment and Forestry',
+    footer_img: '',
   },
   {
     id: 6,
@@ -469,6 +474,7 @@ export const PROJECTS: Project[] = [
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
     project_site_attribution: 'MOEF-> Ministry of Enviroment and Forestry',
+    footer_img: '',
   },
 
   {
@@ -546,5 +552,6 @@ export const PROJECTS: Project[] = [
       'Peatland restoration indicative areas from BRGM for Kubu Raya Regency',
     project_size_ha: 298954,
     project_site_attribution: 'MOEF-> Ministry of Enviroment and Forestry',
+    footer_img: '',
   },
 ];

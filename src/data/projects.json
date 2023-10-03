@@ -65,7 +65,8 @@
      "centroid_long": 40.4168,
      "project_site_description": "Peatland restoration indicative areas from BRGM for Kubu Raya Regency",
      "project_size_ha": 298954,
-     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry"
+     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry",
+     "footer_img": ""
    },
    {
      "id": 2,
@@ -134,7 +135,8 @@
      "centroid_long": -15.792457,
      "project_site_description": "Peatland restoration indicative areas from BRGM for Kubu Raya Regency",
      "project_size_ha": 298954,
-     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry"
+     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry",
+     "footer_img": ""
    },
    {
      "id": 3,
@@ -202,7 +204,8 @@
      "centroid_long": -5.149085,
      "project_site_description": "Peatland restoration indicative areas from BRGM for Kubu Raya Regency",
      "project_size_ha": 298954,
-     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry"
+     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry",
+     "footer_img": ""
    },
    {
      "id": 4,
@@ -273,7 +276,8 @@
      "centroid_long": 6.200457,
      "project_site_description": "Peatland restoration indicative areas from BRGM for Kubu Raya Regency",
      "project_size_ha": 298954,
-     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry"
+     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry",
+     "footer_img": ""
    },
    {
      "id": 5,
@@ -341,7 +345,8 @@
      "centroid_long": 27.089947,
      "project_site_description": "Peatland restoration indicative areas from BRGM for Kubu Raya Regency",
      "project_size_ha": 298954,
-     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry"
+     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry",
+     "footer_img": ""
    },
    {
      "id": 6,
@@ -411,7 +416,8 @@
      "centroid_long": -0.373049,
      "project_site_description": "Peatland restoration indicative areas from BRGM for Kubu Raya Regency",
      "project_size_ha": 298954,
-     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry"
+     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry",
+     "footer_img": ""
    },
    {
      "id": 7,
@@ -479,7 +485,8 @@
      "centroid_long": -20.139037,
      "project_site_description": "Peatland restoration indicative areas from BRGM for Kubu Raya Regency",
      "project_size_ha": 298954,
-     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry"
+     "project_site_attribution": "MOEF-> Ministry of Enviroment and Forestry",
+     "footer_img": ""
    }
  ]
 
