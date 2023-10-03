@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +9,7 @@ import { VscQuote } from 'react-icons/vsc';
 
 import Wrapper from 'containers/wrapper';
 
+import Video from '@/components/video';
 import Icon from 'components/icon';
 import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
@@ -24,6 +25,8 @@ import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 import Card from '../card';
 
 const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
+  const [playing, setPlaying] = useState(false);
+
   const arrowAnimation = {
     hover: {
       x: -10,
@@ -105,23 +108,21 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </a>
         </div>
       </Wrapper>
-      <section id="goals" className="h-[449px] bg-indigo">
-        <Wrapper>
-          <div className="flex w-1/2 justify-end">
-            <div className="flex max-w-2xl flex-col space-y-3 py-20 pr-20 text-white">
-              <h4 className="font-serif text-4xl font-medium">Goals</h4>
-              <p className="font-sans text-xl leading-9">{data?.project_goal}</p>
-            </div>
+      <section id="goals" className="flex bg-indigo">
+        <div className="flex w-1/2 justify-end">
+          <div className="flex max-w-2xl flex-col space-y-3 py-20 pr-20 text-white">
+            <h4 className="font-serif text-4xl font-medium">Goals</h4>
+            <p className="font-sans text-xl leading-9">{data?.project_goal}</p>
           </div>
-          <Image
-            src="/images/projects/goals_placeholder.png"
-            alt="Goals"
-            height={280}
-            width={500}
-            style={{ objectFit: 'contain' }}
-            className="absolute right-0 w-1/2"
-          />
-        </Wrapper>
+        </div>
+        <Image
+          src="/images/projects/goals_placeholder.png"
+          alt="Goals"
+          height={280}
+          width={500}
+          style={{ objectFit: 'contain' }}
+          className="w-1/2"
+        />
       </section>
 
       <section className="py-16">
@@ -169,15 +170,33 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       </section>
       <section className="bg-background py-16">
         <Wrapper>
-          <div className="flex w-full">
-            <div className="w-2/3">Video</div>
-            <div className="w-1/3">
+          <div className="flex w-full space-x-16">
+            <div className="aspect-video w-2/3">
+              <Video
+                playing={playing}
+                loop
+                url="https://youtu.be/shGJFJ1lgGY"
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <div className="w-1/3 space-y-4 py-4">
               <h4 className="font-serif text-2xl font-medium text-indigo">{data.video_caption}</h4>
               {/* //TODO: Use correct data here */}
               <p className="text-m text-text">
                 Indigenous Women are becoming leaders for Thriving Ecosystem and we are proud to
                 help enable that.
               </p>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={() => setPlaying(true)}
+                  className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-10 text-white transition-colors hover:bg-background hover:text-butternut"
+                >
+                  <p className="text-base font-bold uppercase">Watch video</p>
+                </button>
+              </div>
             </div>
           </div>
         </Wrapper>
