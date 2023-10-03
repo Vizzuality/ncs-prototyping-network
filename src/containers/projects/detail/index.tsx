@@ -9,8 +9,8 @@ import { VscQuote } from 'react-icons/vsc';
 
 import Wrapper from 'containers/wrapper';
 
-import Video from '@/components/video';
 import Icon from 'components/icon';
+import Video from 'components/video';
 import { PROJECTS } from 'data/projects';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
@@ -280,6 +280,88 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               <p>Download Fact Sheet</p>
               <p>Download 2</p>
               <p>Download 3</p>
+            </div>
+          </div>
+        </Wrapper>
+      </section>
+      <section className="bg-background py-16">
+        <Wrapper>
+          <div className="w-2/3 space-y-6">
+            <p className="font-serif text-2xl font-medium text-indigo">
+              West Kalimantan NCS Project Location
+            </p>
+            <Image
+              src="/images/mockup/project_location.png"
+              alt="Project Location"
+              height={700}
+              width={700}
+              style={{ objectFit: 'contain' }}
+              className="w-full"
+            />
+          </div>
+        </Wrapper>
+      </section>
+      <section className="bg-white py-16">
+        <Wrapper>
+          <div className="grid grid-cols-3 gap-8">
+            <div className="flex flex-col space-y-4">
+              <p className="font-serif text-2xl font-medium text-indigo">Project Extent</p>
+              <Image
+                src="/images/mockup/extent.png"
+                alt="Project Extent"
+                height={360}
+                width={360}
+                style={{ objectFit: 'contain' }}
+                className="w-full"
+              />
+              <p className="font-sans text-m font-light text-text">
+                The extent was based on the peatland restoration indicative areas from BRGM for Kubu
+                Raya Regency.
+                <br />
+                <br />
+                NOTE: Only non-forested/degraded peatland areas were considered as indicative areas.
+                <br />
+                <br />
+                Total project extent areas: 298,954 ha.
+              </p>
+            </div>
+            <div className="flex flex-col space-y-4">
+              <p className="font-serif text-2xl font-medium text-indigo">Area of Interest</p>
+              <Image
+                src="/images/mockup/extent.png"
+                alt="Area of Interest"
+                height={360}
+                width={360}
+                style={{ objectFit: 'contain' }}
+                className="w-full"
+              />
+              <p className="space-y-2 font-sans text-m font-light text-text">
+                The extent was based on the peatland restoration indicative areas from BRGM for West
+                Kalimantan Province.
+                <br />
+                <br />
+                NOTE: All peatlands were considered as restoration indicative areas.
+                <br />
+                <br />
+                Total ROI extent areas: 726,514 ha.
+              </p>
+            </div>
+            <div className="flex flex-col space-y-4">
+              <p className="font-serif text-2xl font-medium text-indigo">Area of Influence</p>
+              <Image
+                src="/images/mockup/extent.png"
+                alt="Area of Influence"
+                height={360}
+                width={360}
+                style={{ objectFit: 'contain' }}
+                className="w-full"
+              />
+              <p className="font-sans text-m font-light text-text">
+                Total Broader impact extent areas: 6,228,080 ha.
+                <br />
+                <br />
+                Total Indonesia Peatland areas (2021): 13,446,100 ha.
+              </p>
             </div>
           </div>
         </Wrapper>
