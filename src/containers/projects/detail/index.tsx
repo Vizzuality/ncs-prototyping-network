@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { useMemo, useState } from 'react';
 
 import Image from 'next/image';
@@ -40,6 +41,17 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
       return true;
     }).slice(0, 3);
   }, [data]);
+
+  const onDownload = async (resource: string, fileName: string) => {
+    const blob = await fetch(resource).then((r) => r.blob());
+    const url = window.URL.createObjectURL(new Blob([blob]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `${fileName}`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
 
   return (
     <>
@@ -276,10 +288,29 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </div>
           <div className="flex w-1/4 flex-col space-y-6">
             <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
-            <div className="flex flex-col font-sans text-xl font-light leading-9 text-text">
-              <p>Download Fact Sheet</p>
-              <p>Download 2</p>
-              <p>Download 3</p>
+            {/* // TODO: Use correct data here */}
+            <div className="flex flex-col items-start font-sans text-xl font-light leading-9 text-text">
+              <button
+                type="button"
+                className="hover:font-medium"
+                onClick={() => onDownload(data?.resources[0], 'Fact Sheet')}
+              >
+                <p>Download Fact Sheet</p>
+              </button>
+              <button
+                type="button"
+                className="hover:font-medium"
+                onClick={() => onDownload(data?.resources[1], 'Download 2')}
+              >
+                <p>Download 2</p>
+              </button>
+              <button
+                type="button"
+                className="hover:font-medium"
+                onClick={() => onDownload(data?.resources[2], 'Download 3')}
+              >
+                <p>Download 3</p>
+              </button>
             </div>
           </div>
         </Wrapper>
