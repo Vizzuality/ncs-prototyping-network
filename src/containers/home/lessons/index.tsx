@@ -51,7 +51,7 @@ const Lessons = (): JSX.Element => {
                 <div key={point} className="flex items-start space-x-3">
                   <Icon icon={ARROW_SVG} className="mt-2 h-6 w-8 stroke-butternut stroke-2" />
 
-                  <p className="w-5/6 font-sans text-lg font-normal leading-9 text-text">{point}</p>
+                  <p className="w-5/6 font-sans text-lg font-light leading-9 text-text">{point}</p>
                 </div>
               ))}
             </div>
