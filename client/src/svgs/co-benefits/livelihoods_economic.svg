@@ -1,0 +1,11 @@
+<svg id="Icon-Economic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_403" data-name="Rectangle 403" width="30" height="30" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_553" data-name="Group 553" clip-path="url(#clip-path)">
+    <path id="Path_439" data-name="Path 439" d="M27.5,15A12.5,12.5,0,1,1,15,2.515,12.493,12.493,0,0,1,27.5,15Z" fill="none" stroke="#828282" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_440" data-name="Path 440" d="M14.232,24.27V21.989A6.573,6.573,0,0,1,10.778,21l.542-1.513a6.016,6.016,0,0,0,3.251.971c1.6,0,2.687-.925,2.687-2.212,0-1.242-.88-2.011-2.552-2.687-2.3-.9-3.726-1.942-3.726-3.908a3.705,3.705,0,0,1,3.411-3.635V5.731h1.4v2.19a6.031,6.031,0,0,1,2.936.79l-.565,1.49a5.468,5.468,0,0,0-2.845-.767c-1.739,0-2.393,1.039-2.393,1.942,0,1.174.835,1.761,2.8,2.574,2.327.948,3.5,2.123,3.5,4.133a3.928,3.928,0,0,1-3.567,3.839V24.27Z" fill="#828282"/>
+  </g>
+</svg>
