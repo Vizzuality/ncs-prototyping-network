@@ -1,0 +1,11 @@
+<svg id="Icon-Ecosystem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_399" data-name="Rectangle 399" width="30" height="30" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_545" data-name="Group 545" clip-path="url(#clip-path)">
+    <path id="Path_430" data-name="Path 430" d="M16.081,2.9c-.22-.5-.52-.887-1.026-.887s-.829.309-1.041.878c0,0-3.47,7.953-4.8,9.8l-.026.038c-2.5,4.273-2.729,7.127-2.718,7.508a6.872,6.872,0,0,0,4.369,6.681A9.326,9.326,0,0,0,15,27.832a9.426,9.426,0,0,0,4.164-.909,6.873,6.873,0,0,0,4.37-6.68c.01-.381-.155-3.236-2.717-7.506C20.776,12.67,16.081,2.9,16.081,2.9Z" fill="none" stroke="#828282" stroke-width="1.5"/>
+    <path id="Path_431" data-name="Path 431" d="M11.285,18.608s-1.058,3.771,2.786,4.706" fill="none" stroke="#828282" stroke-linecap="round" stroke-width="1.5"/>
+  </g>
+</svg>

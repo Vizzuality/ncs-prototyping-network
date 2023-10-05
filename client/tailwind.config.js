@@ -3,17 +3,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const forms = require('@tailwindcss/forms');
 const lineClamp = require('@tailwindcss/line-clamp');
-const typography = require('@tailwindcss/typography');
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   darkMode: ['class'],
   content: [
-    './src/pages/**/*.{ts,tsx}',
+    './src/app/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',
-    './src/layouts/**/*.@(tsx|ts)',
     './src/containers/**/*.@(tsx|ts)',
-    // Remove this line if the documentation is not used
-    './src/doc-containers/**/*.@(tsx|ts)',
   ],
   theme: {
     container: {
@@ -24,40 +21,29 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-ubuntu)', ...fontFamily.sans],
+        serif: ['var(--font-lora)', ...fontFamily.serif],
+      },
+      fontSize: {
+        '2xs': '0.813rem',
+        m: '1.063rem',
+      },
       colors: {
+        butternut: '#e29717',
+        spring: '#a0c04d',
+        indigo: '#23487a',
+        midnight: '#1C3038',
+        text: '#454545',
+        accents: '#d8d8d8',
+        background: '#f2f2f2',
+        rust: '#c85c19',
+        cirrus: '#3a89b4',
+        iris: '#46166b',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -80,5 +66,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), forms, lineClamp, typography],
+  plugins: [require('tailwindcss-animate'), forms, lineClamp],
 };
