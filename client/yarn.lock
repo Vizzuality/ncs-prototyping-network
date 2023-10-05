@@ -4498,67 +4498,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"front-end-scaffold@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "front-end-scaffold@workspace:."
-  dependencies:
-    "@artsy/fresnel": 6.1.0
-    "@dnd-kit/core": 6.0.8
-    "@dnd-kit/modifiers": 6.0.1
-    "@dnd-kit/sortable": 7.0.2
-    "@egjs/react-flicking": 4.10.9
-    "@mdx-js/loader": 2.3.0
-    "@mdx-js/react": 2.3.0
-    "@next/mdx": 13.2.4
-    "@radix-ui/react-slot": ^1.0.2
-    "@t3-oss/env-nextjs": ^0.6.1
-    "@tailwindcss/forms": 0.5.3
-    "@tailwindcss/line-clamp": 0.4.2
-    "@tailwindcss/typography": 0.5.9
-    "@tanstack/react-query": 4.26.1
-    "@types/google.analytics": 0.0.42
-    "@types/node": 18.15.0
-    "@types/react": 18.0.28
-    "@types/react-dom": 18.0.11
-    "@typescript-eslint/eslint-plugin": 6.2.1
-    "@typescript-eslint/parser": 6.2.1
-    autoprefixer: 10.4.14
-    axios: 1.3.4
-    class-variance-authority: ^0.6.1
-    clsx: ^1.2.1
-    eslint: 8.32.0
-    eslint-config-next: 13.2.4
-    eslint-config-prettier: 8.6.0
-    eslint-plugin-prettier: 4.2.1
-    framer-motion: 10.12.16
-    husky: ^8.0.3
-    lucide-react: ^0.257.0
-    mapbox-gl: "npm:empty-npm-package@1.0.0"
-    maplibre-gl: 2.1.9
-    next: 13.2.4
-    orval: ^6.17.0
-    pino: ^8.15.0
-    pino-http: ^8.4.0
-    pino-pretty: ^10.2.0
-    postcss: 8.4.21
-    prettier: 2.8.3
-    prettier-plugin-tailwindcss: 0.2.1
-    react: 18.2.0
-    react-dom: 18.2.0
-    react-map-gl: 7.0.25
-    start-server-and-test: 1.12.1
-    svg-sprite-loader: 6.0.11
-    svgo: 3.0.2
-    svgo-loader: 3.0.3
-    tailwind-merge: ^1.13.2
-    tailwindcss: 3.2.7
-    tailwindcss-animate: ^1.0.6
-    typescript: 5.0.4
-    usehooks-ts: 2.9.1
-    zod: 3.21.4
-  languageName: unknown
-  linkType: soft
-
 "fs-extra@npm:^10.0.0, fs-extra@npm:^10.1.0":
   version: 10.1.0
   resolution: "fs-extra@npm:10.1.0"
@@ -7145,6 +7084,67 @@ __metadata:
   checksum: 23ad088b08f898fc9b53011d7bb78ec48e79de7627e01ab5518e806033861bef68d5b0cd0e2205c2f36690ac9571ff6bcb05eb777ced2eeda8d4ac5b44592c3d
   languageName: node
   linkType: hard
+
+"ncs-prototyping-network@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ncs-prototyping-network@workspace:."
+  dependencies:
+    "@artsy/fresnel": 6.1.0
+    "@dnd-kit/core": 6.0.8
+    "@dnd-kit/modifiers": 6.0.1
+    "@dnd-kit/sortable": 7.0.2
+    "@egjs/react-flicking": 4.10.9
+    "@mdx-js/loader": 2.3.0
+    "@mdx-js/react": 2.3.0
+    "@next/mdx": 13.2.4
+    "@radix-ui/react-slot": ^1.0.2
+    "@t3-oss/env-nextjs": ^0.6.1
+    "@tailwindcss/forms": 0.5.3
+    "@tailwindcss/line-clamp": 0.4.2
+    "@tailwindcss/typography": 0.5.9
+    "@tanstack/react-query": 4.26.1
+    "@types/google.analytics": 0.0.42
+    "@types/node": 18.15.0
+    "@types/react": 18.0.28
+    "@types/react-dom": 18.0.11
+    "@typescript-eslint/eslint-plugin": 6.2.1
+    "@typescript-eslint/parser": 6.2.1
+    autoprefixer: 10.4.14
+    axios: 1.3.4
+    class-variance-authority: ^0.6.1
+    clsx: ^1.2.1
+    eslint: 8.32.0
+    eslint-config-next: 13.2.4
+    eslint-config-prettier: 8.6.0
+    eslint-plugin-prettier: 4.2.1
+    framer-motion: 10.12.16
+    husky: ^8.0.3
+    lucide-react: ^0.257.0
+    mapbox-gl: "npm:empty-npm-package@1.0.0"
+    maplibre-gl: 2.1.9
+    next: 13.2.4
+    orval: ^6.17.0
+    pino: ^8.15.0
+    pino-http: ^8.4.0
+    pino-pretty: ^10.2.0
+    postcss: 8.4.21
+    prettier: 2.8.3
+    prettier-plugin-tailwindcss: 0.2.1
+    react: 18.2.0
+    react-dom: 18.2.0
+    react-map-gl: 7.0.25
+    start-server-and-test: 1.12.1
+    svg-sprite-loader: 6.0.11
+    svgo: 3.0.2
+    svgo-loader: 3.0.3
+    tailwind-merge: ^1.13.2
+    tailwindcss: 3.2.7
+    tailwindcss-animate: ^1.0.6
+    typescript: 5.0.4
+    usehooks-ts: 2.9.1
+    zod: 3.21.4
+  languageName: unknown
+  linkType: soft
 
 "negotiator@npm:^0.6.3":
   version: 0.6.3
