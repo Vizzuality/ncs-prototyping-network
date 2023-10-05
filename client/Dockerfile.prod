@@ -13,10 +13,14 @@ COPY .yarn ./.yarn
 COPY public ./public
 COPY src ./src
 
-COPY .yarnrc.yml \
+COPY .browserlistrc \
+     .lintstagedrc.js \
+     .yarnrc.yml \
      components.json \
      entrypoint.sh \
      index.js \
+     LICENSE.md \
+     local.d.ts \
      logger.js \
      next.config.js \
      package.json \
