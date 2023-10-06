@@ -2,10 +2,10 @@
 
 ## Env variables
 
-| Variable name                   | Description                                                      | Default value |
-|---------------------------------|------------------------------------------------------------------|--------------:|
-| SENDGRID_API_KEY_SUBSCRIPTION   | Key to authenticate access to SendGrid e-mail platform services. |               |
-| NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN | Token to use Mapbox services.                                    |               |
+| Variable name           | Description                                                             |  Default value                      |
+|-------------------------|-------------------------------------------------------------------------|------------------------------------:|
+| SENDGRID_API_KEY_SUBSCRIPTION  | Key to authenticate access to SendGrid e-mail platform services.  |    |
+| NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN  |  Token to use Mapbox services.  |    |
 
 
 

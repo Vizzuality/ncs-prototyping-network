@@ -1,37 +1,52 @@
-FROM node:18.15-bullseye-slim
-RUN apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y libc6  && \
-    apt-get clean
-
+# Install dependencies only when needed
+FROM node:18.15-bullseye AS deps
 WORKDIR /app
-
 COPY .yarn ./.yarn
-COPY public ./public
-COPY src ./src
+COPY package.json yarn.lock .yarnrc.yml ./
+RUN yarn install --immutable
 
-COPY .yarnrc.yml \
-     components.json \
-     entrypoint.sh \
-     index.js \
-     logger.js \
-     next.config.js \
-     package.json \
-     postcss.config.js \
-     README.md \
-     tailwind.config.js \
-     tsconfig.json \
-     yarn.lock \
-     .env.local \
-     ./
+# If using npm with a `package-lock.json` comment out above and use below instead
+# COPY package.json package-lock.json ./
+# RUN npm ci
 
-RUN yarn install
+# Rebuild the source code only when needed
+FROM node:18.15-bullseye AS builder
+WORKDIR /app
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
 
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN chown -R node:node /app
-USER node
+RUN yarn build
+
+# Production image, copy all the files and run next
+FROM node:18.15-bullseye AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+# Uncomment the following line in case you want to disable telemetry during runtime.
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# You only need to copy next.config.js if you are NOT using the default configuration
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
 
 EXPOSE 3000
+
 ENV PORT 3000
-ENTRYPOINT ["/app/entrypoint.sh"]
+
+CMD ["node", "server.js"]

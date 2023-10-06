@@ -1,11 +1,9 @@
 import { FC } from 'react';
 
 import cx from 'clsx';
-
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Icon from 'components/icon';
-
 import LOADING_SVG from 'svgs/ui/loading.svg?sprite';
 
 import type { LoadingProps } from './types';
