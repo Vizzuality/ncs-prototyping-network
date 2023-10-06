@@ -47,6 +47,7 @@ yarn-error.log*
 # Yarn
 .pnp.*
 .yarn/*
+!.yarn/releases
 
 
 # TypeScript
