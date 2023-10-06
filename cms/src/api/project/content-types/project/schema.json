@@ -4,15 +4,111 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
+    "project_name": {
+      "type": "string",
+      "required": true
+    },
+    "long_title": {
+      "type": "text"
+    },
+    "public_contact_name": {
+      "type": "text"
+    },
+    "public_contact_email": {
+      "type": "email"
+    },
+    "carbon_mitigation": {
+      "type": "integer"
+    },
+    "hectares_impacted": {
+      "type": "integer"
+    },
+    "people_supported": {
+      "type": "integer"
+    },
+    "project_goal": {
+      "type": "text"
+    },
+    "project_summary": {
+      "type": "text"
+    },
+    "why_content": {
+      "type": "text"
+    },
+    "key_activities": {
+      "type": "text"
+    },
+    "successes": {
+      "type": "text"
+    },
+    "lesson_1": {
+      "type": "text"
+    },
+    "lesson_2": {
+      "type": "text"
+    },
+    "lesson_3": {
+      "type": "text"
+    },
+    "cb_biodiversity": {
+      "type": "text"
+    },
+    "cb_ecosystem_services": {
+      "type": "text"
+    },
+    "cb_resilience_adapt": {
+      "type": "text"
+    },
+    "cb_health_well_being": {
+      "type": "text"
+    },
+    "cb_livelihood_econ": {
+      "type": "text"
+    },
+    "callout": {
+      "type": "text"
+    },
+    "whats_next": {
+      "type": "text"
+    },
+    "abstract": {
+      "type": "text"
+    },
+    "citations": {
+      "type": "text"
+    },
+    "resources": {
+      "type": "text"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "graphic": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
