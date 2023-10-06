@@ -1,5 +1,5 @@
 module.exports = {
-  hrt: {
+  "tnc-protodash": {
     output: {
       mode: 'tags',
       client: 'react-query',
