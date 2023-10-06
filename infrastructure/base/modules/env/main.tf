@@ -3,7 +3,7 @@ module "ecr" {
 
   project     = var.project
   environment = var.environment
-  tags = {
+  tags        = {
     project     = var.project,
     environment = var.environment
   }
@@ -49,6 +49,12 @@ module "postgresql" {
   vpc_cidr_block              = var.vpc.cidr_block
   availability_zones          = var.availability_zones
   database_name               = var.project
+}
+
+module "data_bucket" {
+  source      = "../bucket"
+  bucket_name = "${var.project}-${var.environment}-assets-bucket"
+  domain      = var.domain
 }
 
 module "beanstalk" {

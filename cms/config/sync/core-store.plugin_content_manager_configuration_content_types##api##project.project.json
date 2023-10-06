@@ -7,8 +7,8 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "project_name",
+      "defaultSortBy": "project_name",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,18 +20,673 @@
           "sortable": true
         }
       },
-      "name": {
+      "project_name": {
         "edit": {
-          "label": "name",
+          "label": "project_name",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
+          "label": "project_name",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "long_title": {
+        "edit": {
+          "label": "long_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "long_title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "public_contact_name": {
+        "edit": {
+          "label": "public_contact_name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "public_contact_name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "public_contact_email": {
+        "edit": {
+          "label": "public_contact_email",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "public_contact_email",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "carbon_mitigation": {
+        "edit": {
+          "label": "carbon_mitigation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "carbon_mitigation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "hectares_impacted": {
+        "edit": {
+          "label": "hectares_impacted",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "hectares_impacted",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "people_supported": {
+        "edit": {
+          "label": "people_supported",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "people_supported",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "project_goal": {
+        "edit": {
+          "label": "project_goal",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "project_goal",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "project_summary": {
+        "edit": {
+          "label": "project_summary",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "project_summary",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "why_content": {
+        "edit": {
+          "label": "why_content",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "why_content",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "key_activities": {
+        "edit": {
+          "label": "key_activities",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activities",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "successes": {
+        "edit": {
+          "label": "successes",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "successes",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lesson_1": {
+        "edit": {
+          "label": "lesson_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lesson_1",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lesson_2": {
+        "edit": {
+          "label": "lesson_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lesson_2",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lesson_3": {
+        "edit": {
+          "label": "lesson_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lesson_3",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "cb_biodiversity": {
+        "edit": {
+          "label": "cb_biodiversity",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cb_biodiversity",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "cb_ecosystem_services": {
+        "edit": {
+          "label": "cb_ecosystem_services",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cb_ecosystem_services",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "cb_resilience_adapt": {
+        "edit": {
+          "label": "cb_resilience_adapt",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cb_resilience_adapt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "cb_health_well_being": {
+        "edit": {
+          "label": "cb_health_well_being",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cb_health_well_being",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "cb_livelihood_econ": {
+        "edit": {
+          "label": "cb_livelihood_econ",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cb_livelihood_econ",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "callout": {
+        "edit": {
+          "label": "callout",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "callout",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "whats_next": {
+        "edit": {
+          "label": "whats_next",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "whats_next",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "abstract": {
+        "edit": {
+          "label": "abstract",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "abstract",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "citations": {
+        "edit": {
+          "label": "citations",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "citations",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "resources": {
+        "edit": {
+          "label": "resources",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "resources",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "photos": {
+        "edit": {
+          "label": "photos",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "photos",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "video": {
+        "edit": {
+          "label": "video",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "video",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "graphic": {
+        "edit": {
+          "label": "graphic",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "graphic",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "region": {
+        "edit": {
+          "label": "region",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "region",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "country": {
+        "edit": {
+          "label": "country",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "country",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "biome": {
+        "edit": {
+          "label": "biome",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "biome",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "pathways": {
+        "edit": {
+          "label": "pathways",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "pathways",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "action_types": {
+        "edit": {
+          "label": "action_types",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "action_types",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "cobenefits": {
+        "edit": {
+          "label": "cobenefits",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "cobenefits",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "project_phase": {
+        "edit": {
+          "label": "project_phase",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "project_phase",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "project_category": {
+        "edit": {
+          "label": "project_category",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "project_category",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "keywords": {
+        "edit": {
+          "label": "keywords",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "keywords",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "primary_partners": {
+        "edit": {
+          "label": "primary_partners",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "primary_partners",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lesson_1_category": {
+        "edit": {
+          "label": "lesson_1_category",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "lesson_1_category",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lesson_2_category": {
+        "edit": {
+          "label": "lesson_2_category",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "lesson_2_category",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lesson_3_category": {
+        "edit": {
+          "label": "lesson_3_category",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "lesson_3_category",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "centroid_lat": {
+        "edit": {
+          "label": "centroid_lat",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "centroid_lat",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "centroid_long": {
+        "edit": {
+          "label": "centroid_long",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "centroid_long",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "project_site_description": {
+        "edit": {
+          "label": "project_site_description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "project_site_description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "project_size_ha": {
+        "edit": {
+          "label": "project_size_ha",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "project_size_ha",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "project_site_attribution": {
+        "edit": {
+          "label": "project_site_attribution",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "project_site_attribution",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "footer": {
+        "edit": {
+          "label": "footer",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "footer",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -66,14 +721,242 @@
     "layouts": {
       "list": [
         "id",
-        "name",
         "createdAt",
-        "updatedAt"
+        "updatedAt",
+        "project_name"
       ],
       "edit": [
         [
           {
-            "name": "name",
+            "name": "project_name",
+            "size": 6
+          },
+          {
+            "name": "long_title",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "public_contact_name",
+            "size": 6
+          },
+          {
+            "name": "public_contact_email",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "carbon_mitigation",
+            "size": 4
+          },
+          {
+            "name": "hectares_impacted",
+            "size": 4
+          },
+          {
+            "name": "people_supported",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "project_goal",
+            "size": 6
+          },
+          {
+            "name": "project_summary",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "why_content",
+            "size": 6
+          },
+          {
+            "name": "key_activities",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "successes",
+            "size": 6
+          },
+          {
+            "name": "lesson_1",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "lesson_2",
+            "size": 6
+          },
+          {
+            "name": "lesson_3",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cb_biodiversity",
+            "size": 6
+          },
+          {
+            "name": "cb_ecosystem_services",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cb_resilience_adapt",
+            "size": 6
+          },
+          {
+            "name": "cb_health_well_being",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cb_livelihood_econ",
+            "size": 6
+          },
+          {
+            "name": "callout",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "whats_next",
+            "size": 6
+          },
+          {
+            "name": "abstract",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "citations",
+            "size": 6
+          },
+          {
+            "name": "resources",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "photos",
+            "size": 6
+          },
+          {
+            "name": "video",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "graphic",
+            "size": 6
+          },
+          {
+            "name": "region",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "country",
+            "size": 6
+          },
+          {
+            "name": "biome",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "pathways",
+            "size": 6
+          },
+          {
+            "name": "action_types",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cobenefits",
+            "size": 6
+          },
+          {
+            "name": "project_phase",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "project_category",
+            "size": 6
+          },
+          {
+            "name": "keywords",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "primary_partners",
+            "size": 6
+          },
+          {
+            "name": "lesson_1_category",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "lesson_2_category",
+            "size": 6
+          },
+          {
+            "name": "lesson_3_category",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "centroid_lat",
+            "size": 4
+          },
+          {
+            "name": "centroid_long",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "project_site_description",
+            "size": 6
+          },
+          {
+            "name": "project_size_ha",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "project_site_attribution",
+            "size": 6
+          },
+          {
+            "name": "footer",
             "size": 6
           }
         ]

@@ -5,10 +5,374 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::action-type.action-type",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::action-type.action-type",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::action-type.action-type",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::action-type.action-type",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::biome.biome",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::biome.biome",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::biome.biome",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::biome.biome",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::cobenefit.cobenefit",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::cobenefit.cobenefit",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::cobenefit.cobenefit",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::cobenefit.cobenefit",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::country.country",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::country.country",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::country.country",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::country.country",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::lesson-category.lesson-category",
+      "properties": {
+        "fields": [
+          "name",
+          "projects_1",
+          "projects_2",
+          "projects_3"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::lesson-category.lesson-category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::lesson-category.lesson-category",
+      "properties": {
+        "fields": [
+          "name",
+          "projects_1",
+          "projects_2",
+          "projects_3"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::lesson-category.lesson-category",
+      "properties": {
+        "fields": [
+          "name",
+          "projects_1",
+          "projects_2",
+          "projects_3"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::pathway.pathway",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::pathway.pathway",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::pathway.pathway",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::pathway.pathway",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::project-category.project-category",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::project-category.project-category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::project-category.project-category",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::project-category.project-category",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::project-phase.project-phase",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::project-phase.project-phase",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::project-phase.project-phase",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::project-phase.project-phase",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::project.project",
       "properties": {
         "fields": [
-          "name"
+          "project_name",
+          "long_title",
+          "public_contact_name",
+          "public_contact_email",
+          "carbon_mitigation",
+          "hectares_impacted",
+          "people_supported",
+          "project_goal",
+          "project_summary",
+          "why_content",
+          "key_activities",
+          "successes",
+          "lesson_1",
+          "lesson_2",
+          "lesson_3",
+          "cb_biodiversity",
+          "cb_ecosystem_services",
+          "cb_resilience_adapt",
+          "cb_health_well_being",
+          "cb_livelihood_econ",
+          "callout",
+          "whats_next",
+          "abstract",
+          "citations",
+          "resources",
+          "photos",
+          "video",
+          "graphic",
+          "region",
+          "country",
+          "biome",
+          "pathways",
+          "action_types",
+          "cobenefits",
+          "project_phase",
+          "project_category",
+          "keywords",
+          "primary_partners",
+          "lesson_1_category",
+          "lesson_2_category",
+          "lesson_3_category",
+          "centroid_lat",
+          "centroid_long",
+          "project_site_description",
+          "project_size_ha",
+          "project_site_attribution",
+          "footer"
         ]
       },
       "conditions": []
@@ -30,7 +394,53 @@
       "subject": "api::project.project",
       "properties": {
         "fields": [
-          "name"
+          "project_name",
+          "long_title",
+          "public_contact_name",
+          "public_contact_email",
+          "carbon_mitigation",
+          "hectares_impacted",
+          "people_supported",
+          "project_goal",
+          "project_summary",
+          "why_content",
+          "key_activities",
+          "successes",
+          "lesson_1",
+          "lesson_2",
+          "lesson_3",
+          "cb_biodiversity",
+          "cb_ecosystem_services",
+          "cb_resilience_adapt",
+          "cb_health_well_being",
+          "cb_livelihood_econ",
+          "callout",
+          "whats_next",
+          "abstract",
+          "citations",
+          "resources",
+          "photos",
+          "video",
+          "graphic",
+          "region",
+          "country",
+          "biome",
+          "pathways",
+          "action_types",
+          "cobenefits",
+          "project_phase",
+          "project_category",
+          "keywords",
+          "primary_partners",
+          "lesson_1_category",
+          "lesson_2_category",
+          "lesson_3_category",
+          "centroid_lat",
+          "centroid_long",
+          "project_site_description",
+          "project_size_ha",
+          "project_site_attribution",
+          "footer"
         ]
       },
       "conditions": []
@@ -40,7 +450,92 @@
       "subject": "api::project.project",
       "properties": {
         "fields": [
-          "name"
+          "project_name",
+          "long_title",
+          "public_contact_name",
+          "public_contact_email",
+          "carbon_mitigation",
+          "hectares_impacted",
+          "people_supported",
+          "project_goal",
+          "project_summary",
+          "why_content",
+          "key_activities",
+          "successes",
+          "lesson_1",
+          "lesson_2",
+          "lesson_3",
+          "cb_biodiversity",
+          "cb_ecosystem_services",
+          "cb_resilience_adapt",
+          "cb_health_well_being",
+          "cb_livelihood_econ",
+          "callout",
+          "whats_next",
+          "abstract",
+          "citations",
+          "resources",
+          "photos",
+          "video",
+          "graphic",
+          "region",
+          "country",
+          "biome",
+          "pathways",
+          "action_types",
+          "cobenefits",
+          "project_phase",
+          "project_category",
+          "keywords",
+          "primary_partners",
+          "lesson_1_category",
+          "lesson_2_category",
+          "lesson_3_category",
+          "centroid_lat",
+          "centroid_long",
+          "project_site_description",
+          "project_size_ha",
+          "project_site_attribution",
+          "footer"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::region.region",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::region.region",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::region.region",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::region.region",
+      "properties": {
+        "fields": [
+          "name",
+          "projects"
         ]
       },
       "conditions": []

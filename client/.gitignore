@@ -19,7 +19,6 @@ dist-ssr
 node_modules
 /.pnp
 .pnp.js
-.husky
 
 # next.js
 .next/

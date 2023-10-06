@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "biomes",
+  "info": {
+    "singularName": "biome",
+    "pluralName": "biomes",
+    "displayName": "Biome",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "biome"
+    }
+  }
+}

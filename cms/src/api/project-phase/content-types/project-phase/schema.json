@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_phases",
+  "info": {
+    "singularName": "project-phase",
+    "pluralName": "project-phases",
+    "displayName": "Project Phase"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "project_phase"
+    }
+  }
+}

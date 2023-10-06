@@ -104,6 +104,8 @@ locals {
     DATABASE_SSL                     = true
     DATABASE_SSL_REJECT_UNAUTHORIZED = false
 
+    AWS_BUCKET = module.staging.assets_bucket_name
+
   }
   staging_client_env = {
     NEXT_PUBLIC_URL            = "https://${var.staging_domain}"
