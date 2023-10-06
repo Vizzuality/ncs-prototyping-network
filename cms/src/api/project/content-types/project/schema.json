@@ -97,18 +97,116 @@
       ]
     },
     "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "graphic": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "projects"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "projects"
+    },
+    "biome": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::biome.biome",
+      "inversedBy": "projects"
+    },
+    "pathways": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pathway.pathway",
+      "inversedBy": "projects"
+    },
+    "action_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::action-type.action-type",
+      "inversedBy": "projects"
+    },
+    "cobenefits": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cobenefit.cobenefit",
+      "inversedBy": "projects"
+    },
+    "project_phase": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-phase.project-phase",
+      "inversedBy": "projects"
+    },
+    "project_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-category.project-category",
+      "inversedBy": "projects"
+    },
+    "keywords": {
+      "type": "customField",
+      "customField": "global::input"
+    },
+    "primary_partners": {
+      "type": "customField",
+      "customField": "global::input"
+    },
+    "lesson_1_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lesson-category.lesson-category",
+      "inversedBy": "projects_1"
+    },
+    "lesson_2_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lesson-category.lesson-category",
+      "inversedBy": "projects_2"
+    },
+    "lesson_3_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lesson-category.lesson-category",
+      "inversedBy": "projects_3"
+    },
+    "centroid_lat": {
+      "type": "decimal"
+    },
+    "centroid_long": {
+      "type": "decimal"
+    },
+    "project_site_description": {
+      "type": "text"
+    },
+    "project_size_ha": {
+      "type": "integer"
+    },
+    "project_site_attribution": {
+      "type": "text"
+    },
+    "footer": {
       "allowedTypes": [
         "images"
       ],
       "type": "media",
-      "multiple": true
+      "multiple": false
     }
   }
 }

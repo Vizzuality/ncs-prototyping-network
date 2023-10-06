@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lesson_categories",
+  "info": {
+    "singularName": "lesson-category",
+    "pluralName": "lesson-categories",
+    "displayName": "Lesson Category"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects_1": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "lesson_1_category"
+    },
+    "projects_2": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "lesson_2_category"
+    },
+    "projects_3": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "lesson_3_category"
+    }
+  }
+}

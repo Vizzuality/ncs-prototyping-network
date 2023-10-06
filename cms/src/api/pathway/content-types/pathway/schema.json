@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pathways",
+  "info": {
+    "singularName": "pathway",
+    "pluralName": "pathways",
+    "displayName": "Pathway",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "pathways"
+    }
+  }
+}

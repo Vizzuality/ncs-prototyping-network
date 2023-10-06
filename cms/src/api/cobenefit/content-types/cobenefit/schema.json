@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cobenefits",
+  "info": {
+    "singularName": "cobenefit",
+    "pluralName": "cobenefits",
+    "displayName": "Cobenefit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "cobenefits"
+    }
+  }
+}

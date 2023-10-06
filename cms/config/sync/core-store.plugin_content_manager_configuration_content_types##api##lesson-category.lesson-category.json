@@ -1,0 +1,145 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::lesson-category.lesson-category",
+  "value": {
+    "uid": "api::lesson-category.lesson-category",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "name",
+      "defaultSortBy": "name",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "name": {
+        "edit": {
+          "label": "name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "projects_1": {
+        "edit": {
+          "label": "projects_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "project_name"
+        },
+        "list": {
+          "label": "projects_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "projects_2": {
+        "edit": {
+          "label": "projects_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "project_name"
+        },
+        "list": {
+          "label": "projects_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "projects_3": {
+        "edit": {
+          "label": "projects_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "project_name"
+        },
+        "list": {
+          "label": "projects_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "name",
+        "createdAt",
+        "updatedAt"
+      ],
+      "edit": [
+        [
+          {
+            "name": "name",
+            "size": 6
+          },
+          {
+            "name": "projects_1",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "projects_2",
+            "size": 6
+          },
+          {
+            "name": "projects_3",
+            "size": 6
+          }
+        ]
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
