@@ -105,6 +105,7 @@ locals {
     DATABASE_SSL_REJECT_UNAUTHORIZED = false
 
     AWS_BUCKET = module.staging.assets_bucket_name
+    AWS_REGION = var.aws_region
 
   }
   staging_client_env = {
