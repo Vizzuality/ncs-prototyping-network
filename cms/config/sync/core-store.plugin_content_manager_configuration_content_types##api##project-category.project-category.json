@@ -22,7 +22,7 @@
       },
       "name": {
         "edit": {
-          "label": "name",
+          "label": "Name",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -79,23 +79,17 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "name",
-        "createdAt",
-        "updatedAt"
-      ],
       "edit": [
         [
           {
             "name": "name",
             "size": 6
-          },
-          {
-            "name": "projects",
-            "size": 6
           }
         ]
+      ],
+      "list": [
+        "id",
+        "name"
       ]
     }
   },
