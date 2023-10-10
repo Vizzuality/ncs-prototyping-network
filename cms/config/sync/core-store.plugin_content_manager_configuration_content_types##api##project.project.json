@@ -134,7 +134,7 @@
       },
       "why_this_why_now": {
         "edit": {
-          "label": "why_this_why_now",
+          "label": "Why This Why Now",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -430,7 +430,7 @@
       },
       "biomes": {
         "edit": {
-          "label": "biomes",
+          "label": "Biomes",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -490,7 +490,7 @@
       },
       "project_phases": {
         "edit": {
-          "label": "project_phases",
+          "label": "Project Phases",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -505,7 +505,7 @@
       },
       "project_categories": {
         "edit": {
-          "label": "project_categories",
+          "label": "Project Categories",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -677,7 +677,7 @@
       },
       "metric": {
         "edit": {
-          "label": "metric",
+          "label": "Metric",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -691,7 +691,7 @@
       },
       "project_code": {
         "edit": {
-          "label": "project_code",
+          "label": "Project Code",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -705,7 +705,7 @@
       },
       "people_supported": {
         "edit": {
-          "label": "people_supported",
+          "label": "People Supported",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -719,7 +719,7 @@
       },
       "why_this_why_now_callout": {
         "edit": {
-          "label": "why_this_why_now_callout",
+          "label": "Why This Why Now Callout",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -761,12 +761,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "project_name",
-        "biomes",
-        "project_phases"
-      ],
       "edit": [
         [
           {
@@ -1024,6 +1018,12 @@
             "size": 6
           }
         ]
+      ],
+      "list": [
+        "id",
+        "project_name",
+        "biomes",
+        "project_phases"
       ]
     }
   },
