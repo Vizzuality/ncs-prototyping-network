@@ -46,6 +46,23 @@ resource "aws_s3_bucket_cors_configuration" "bucket_cors_configuration" {
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "s3_object_ownership_owner_preferred" {
+  bucket = aws_s3_bucket.bucket.id
+
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "s3_bucket_public_access" {
+  bucket = aws_s3_bucket.bucket.id
+
+  block_public_acls       = false
+  block_public_policy     = true
+  ignore_public_acls      = false
+  restrict_public_buckets = true
+}
+
 data "aws_caller_identity" "current" {}
 
 data "aws_iam_policy_document" "allow_access_from_account" {
