@@ -26,13 +26,10 @@
       "type": "email"
     },
     "carbon_mitigation": {
-      "type": "integer"
+      "type": "decimal"
     },
     "hectares_impacted": {
-      "type": "integer"
-    },
-    "people_supported": {
-      "type": "integer"
+      "type": "decimal"
     },
     "project_goal": {
       "type": "text"
@@ -40,7 +37,7 @@
     "project_summary": {
       "type": "text"
     },
-    "why_content": {
+    "why_this_why_now": {
       "type": "text"
     },
     "key_activities": {
@@ -124,9 +121,9 @@
       "target": "api::country.country",
       "inversedBy": "projects"
     },
-    "biome": {
+    "biomes": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::biome.biome",
       "inversedBy": "projects"
     },
@@ -148,15 +145,15 @@
       "target": "api::cobenefit.cobenefit",
       "inversedBy": "projects"
     },
-    "project_phase": {
+    "project_phases": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::project-phase.project-phase",
       "inversedBy": "projects"
     },
-    "project_category": {
+    "project_categories": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::project-category.project-category",
       "inversedBy": "projects"
     },
@@ -196,17 +193,30 @@
       "type": "text"
     },
     "project_size_ha": {
-      "type": "integer"
+      "type": "decimal"
     },
     "project_site_attribution": {
       "type": "text"
     },
     "footer": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "metric": {
+      "type": "string"
+    },
+    "project_code": {
+      "type": "string"
+    },
+    "people_supported": {
+      "type": "text"
+    },
+    "why_this_why_now_callout": {
+      "type": "text"
     }
   }
 }

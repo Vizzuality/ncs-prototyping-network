@@ -104,20 +104,6 @@
           "sortable": true
         }
       },
-      "people_supported": {
-        "edit": {
-          "label": "People Supported",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "people_supported",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "project_goal": {
         "edit": {
           "label": "Project Goal",
@@ -146,16 +132,16 @@
           "sortable": true
         }
       },
-      "why_content": {
+      "why_this_why_now": {
         "edit": {
-          "label": "Why Content",
+          "label": "why_this_why_now",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "why_content",
+          "label": "why_this_why_now",
           "searchable": true,
           "sortable": true
         }
@@ -442,9 +428,9 @@
           "sortable": true
         }
       },
-      "biome": {
+      "biomes": {
         "edit": {
-          "label": "Biome",
+          "label": "biomes",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -452,9 +438,9 @@
           "mainField": "name"
         },
         "list": {
-          "label": "biome",
-          "searchable": true,
-          "sortable": true
+          "label": "biomes",
+          "searchable": false,
+          "sortable": false
         }
       },
       "pathways": {
@@ -502,9 +488,9 @@
           "sortable": false
         }
       },
-      "project_phase": {
+      "project_phases": {
         "edit": {
-          "label": "Project Phase",
+          "label": "project_phases",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -512,14 +498,14 @@
           "mainField": "name"
         },
         "list": {
-          "label": "project_phase",
-          "searchable": true,
-          "sortable": true
+          "label": "project_phases",
+          "searchable": false,
+          "sortable": false
         }
       },
-      "project_category": {
+      "project_categories": {
         "edit": {
-          "label": "Project Category",
+          "label": "project_categories",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -527,9 +513,9 @@
           "mainField": "name"
         },
         "list": {
-          "label": "project_category",
-          "searchable": true,
-          "sortable": true
+          "label": "project_categories",
+          "searchable": false,
+          "sortable": false
         }
       },
       "keywords": {
@@ -689,6 +675,62 @@
           "sortable": false
         }
       },
+      "metric": {
+        "edit": {
+          "label": "metric",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "metric",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "project_code": {
+        "edit": {
+          "label": "project_code",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "project_code",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "people_supported": {
+        "edit": {
+          "label": "people_supported",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "people_supported",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "why_this_why_now_callout": {
+        "edit": {
+          "label": "why_this_why_now_callout",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "why_this_why_now_callout",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -719,6 +761,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "project_name",
+        "biomes",
+        "project_phases"
+      ],
       "edit": [
         [
           {
@@ -748,10 +796,6 @@
           {
             "name": "hectares_impacted",
             "size": 4
-          },
-          {
-            "name": "people_supported",
-            "size": 4
           }
         ],
         [
@@ -765,10 +809,6 @@
           }
         ],
         [
-          {
-            "name": "why_content",
-            "size": 6
-          },
           {
             "name": "key_activities",
             "size": 6
@@ -878,12 +918,6 @@
         ],
         [
           {
-            "name": "biome",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "pathways",
             "size": 6
           },
@@ -893,16 +927,6 @@
           }
         ],
         [
-          {
-            "name": "project_phase",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "project_category",
-            "size": 6
-          },
           {
             "name": "keywords",
             "size": 6
@@ -959,11 +983,47 @@
             "name": "footer",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "biomes",
+            "size": 6
+          },
+          {
+            "name": "project_phases",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "project_categories",
+            "size": 6
+          },
+          {
+            "name": "metric",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "project_code",
+            "size": 6
+          },
+          {
+            "name": "people_supported",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "why_this_why_now",
+            "size": 6
+          },
+          {
+            "name": "why_this_why_now_callout",
+            "size": 6
+          }
         ]
-      ],
-      "list": [
-        "id",
-        "project_name"
       ]
     }
   },

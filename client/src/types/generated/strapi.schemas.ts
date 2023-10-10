@@ -168,10 +168,9 @@ export type RegionProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -192,12 +191,12 @@ export type RegionProjectsDataItemAttributes = {
   graphic?: RegionProjectsDataItemAttributesGraphic;
   region?: RegionProjectsDataItemAttributesRegion;
   country?: RegionProjectsDataItemAttributesCountry;
-  biome?: RegionProjectsDataItemAttributesBiome;
+  biomes?: RegionProjectsDataItemAttributesBiomes;
   pathways?: RegionProjectsDataItemAttributesPathways;
   action_types?: RegionProjectsDataItemAttributesActionTypes;
   cobenefits?: RegionProjectsDataItemAttributesCobenefits;
-  project_phase?: RegionProjectsDataItemAttributesProjectPhase;
-  project_category?: RegionProjectsDataItemAttributesProjectCategory;
+  project_phases?: RegionProjectsDataItemAttributesProjectPhases;
+  project_categories?: RegionProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: RegionProjectsDataItemAttributesLesson1Category;
@@ -209,6 +208,10 @@ export type RegionProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: RegionProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -445,117 +448,112 @@ export type RegionProjectsDataItemAttributesLesson1CategoryDataAttributesProject
   data?: RegionProjectsDataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
 };
 
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributes = {
-  name?: string;
-  projects?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
-  createdAt?: string;
-  updatedAt?: string;
-  createdBy?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryData = {
-  id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectCategoryDataAttributes;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategory = {
-  data?: RegionProjectsDataItemAttributesProjectCategoryData;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
-};
-
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem = {
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+  attributes?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type RegionProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: RegionProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy = {
+  data?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
 };
 
-export type RegionProjectsDataItemAttributesProjectPhase = {
-  data?: RegionProjectsDataItemAttributesProjectPhaseData;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes = {
-  [key: string]: any;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
-  id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
-};
-
-export type RegionProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: RegionProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type RegionProjectsDataItemAttributesProjectPhaseData = {
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: RegionProjectsDataItemAttributesProjectPhaseDataAttributes;
+  attributes?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
+};
+
+export type RegionProjectsDataItemAttributesProjectCategories = {
+  data?: RegionProjectsDataItemAttributesProjectCategoriesDataItem[];
+};
+
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData = {
+  id?: number;
+  attributes?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
+};
+
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy = {
+  data?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
+};
+
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem = {
+  id?: number;
+  attributes?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
+};
+
+export type RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: RegionProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
+};
+
+export type RegionProjectsDataItemAttributesProjectPhases = {
+  data?: RegionProjectsDataItemAttributesProjectPhasesDataItem[];
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
+  { [key: string]: any };
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData = {
+  id?: number;
+  attributes?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData = {
+  id?: number;
+  attributes?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem = {
+  id?: number;
+  attributes?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
+  name?: string;
+  projects?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
+  createdAt?: string;
+  updatedAt?: string;
+  createdBy?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
+};
+
+export type RegionProjectsDataItemAttributesProjectPhasesDataItem = {
+  id?: number;
+  attributes?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributes;
 };
 
 export type RegionProjectsDataItemAttributesCobenefitsDataItem = {
@@ -727,61 +725,61 @@ export type RegionProjectsDataItemAttributesPathwaysDataItemAttributes = {
   updatedBy?: RegionProjectsDataItemAttributesPathwaysDataItemAttributesUpdatedBy;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributes = {
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: RegionProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: RegionProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: RegionProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: RegionProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: RegionProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: RegionProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
-export type RegionProjectsDataItemAttributesBiomeData = {
+export type RegionProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: RegionProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: RegionProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type RegionProjectsDataItemAttributesBiome = {
-  data?: RegionProjectsDataItemAttributesBiomeData;
+export type RegionProjectsDataItemAttributesBiomes = {
+  data?: RegionProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: RegionProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+  attributes?: RegionProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: RegionProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: RegionProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: RegionProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+  attributes?: RegionProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: RegionProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: RegionProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes = {
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes = {
   [key: string]: any;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: RegionProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: RegionProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type RegionProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: RegionProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type RegionProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: RegionProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
 export type RegionProjectsDataItemAttributesCountryData = {
@@ -1584,10 +1582,9 @@ export type ProjectPhaseProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -1608,12 +1605,12 @@ export type ProjectPhaseProjectsDataItemAttributes = {
   graphic?: ProjectPhaseProjectsDataItemAttributesGraphic;
   region?: ProjectPhaseProjectsDataItemAttributesRegion;
   country?: ProjectPhaseProjectsDataItemAttributesCountry;
-  biome?: ProjectPhaseProjectsDataItemAttributesBiome;
+  biomes?: ProjectPhaseProjectsDataItemAttributesBiomes;
   pathways?: ProjectPhaseProjectsDataItemAttributesPathways;
   action_types?: ProjectPhaseProjectsDataItemAttributesActionTypes;
   cobenefits?: ProjectPhaseProjectsDataItemAttributesCobenefits;
-  project_phase?: ProjectPhaseProjectsDataItemAttributesProjectPhase;
-  project_category?: ProjectPhaseProjectsDataItemAttributesProjectCategory;
+  project_phases?: ProjectPhaseProjectsDataItemAttributesProjectPhases;
+  project_categories?: ProjectPhaseProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: ProjectPhaseProjectsDataItemAttributesLesson1Category;
@@ -1625,6 +1622,10 @@ export type ProjectPhaseProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: ProjectPhaseProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -1834,112 +1835,116 @@ export type ProjectPhaseProjectsDataItemAttributesLesson1CategoryDataAttributes 
   updatedBy?: ProjectPhaseProjectsDataItemAttributesLesson1CategoryDataAttributesUpdatedBy;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryData = {
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategory = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoryData;
+export type ProjectPhaseProjectsDataItemAttributesProjectCategories = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData =
+  {
+    id?: number;
+    attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
+  };
+
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
-};
-
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributes = {
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
-};
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData =
+  {
+    id?: number;
+    attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
+  };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem = {
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
+  };
+
+export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
+};
+
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItem = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
+export type ProjectPhaseProjectsDataItemAttributesProjectPhases = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItem[];
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseData = {
-  id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributes;
-};
-
-export type ProjectPhaseProjectsDataItemAttributesProjectPhase = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectPhaseData;
-};
-
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes =
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes =
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
-  id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
-};
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
+  };
 
-export type ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: ProjectPhaseProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
 };
 
 export type ProjectPhaseProjectsDataItemAttributesCobenefitsDataItemAttributes = {
@@ -2104,61 +2109,58 @@ export type ProjectPhaseProjectsDataItemAttributesPathwaysDataItemAttributesProj
   data?: ProjectPhaseProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeData = {
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiome = {
-  data?: ProjectPhaseProjectsDataItemAttributesBiomeData;
+export type ProjectPhaseProjectsDataItemAttributesBiomes = {
+  data?: ProjectPhaseProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes =
+  { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes = {
-  [key: string]: any;
-};
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
-export type ProjectPhaseProjectsDataItemAttributesBiomeDataAttributes = {
+export type ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: ProjectPhaseProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectPhaseProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
 export type ProjectPhaseProjectsDataItemAttributesCountryData = {
@@ -2959,10 +2961,9 @@ export type ProjectCategoryProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -2983,12 +2984,12 @@ export type ProjectCategoryProjectsDataItemAttributes = {
   graphic?: ProjectCategoryProjectsDataItemAttributesGraphic;
   region?: ProjectCategoryProjectsDataItemAttributesRegion;
   country?: ProjectCategoryProjectsDataItemAttributesCountry;
-  biome?: ProjectCategoryProjectsDataItemAttributesBiome;
+  biomes?: ProjectCategoryProjectsDataItemAttributesBiomes;
   pathways?: ProjectCategoryProjectsDataItemAttributesPathways;
   action_types?: ProjectCategoryProjectsDataItemAttributesActionTypes;
   cobenefits?: ProjectCategoryProjectsDataItemAttributesCobenefits;
-  project_phase?: ProjectCategoryProjectsDataItemAttributesProjectPhase;
-  project_category?: ProjectCategoryProjectsDataItemAttributesProjectCategory;
+  project_phases?: ProjectCategoryProjectsDataItemAttributesProjectPhases;
+  project_categories?: ProjectCategoryProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: ProjectCategoryProjectsDataItemAttributesLesson1Category;
@@ -3000,6 +3001,10 @@ export type ProjectCategoryProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: ProjectCategoryProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -3213,113 +3218,120 @@ export type ProjectCategoryProjectsDataItemAttributesLesson1CategoryDataAttribut
   updatedBy?: ProjectCategoryProjectsDataItemAttributesLesson1CategoryDataAttributesUpdatedBy;
 };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryData = {
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectCategory = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectCategoryData;
+export type ProjectCategoryProjectsDataItemAttributesProjectCategories = {
+  data?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributes = {
-  name?: string;
-  projects?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
-  createdAt?: string;
-  updatedAt?: string;
-  createdBy?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
-  { [key: string]: any };
-
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
-  { [key: string]: any };
-
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem =
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData =
   {
     id?: number;
-    attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+    attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
   };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
-};
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy =
+  {
+    data?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
+  };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseData = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributes;
-};
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData =
+  {
+    id?: number;
+    attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
+  };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectPhase = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectPhaseData;
-};
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy =
+  {
+    data?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
+  };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes =
-  { [key: string]: any };
-
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes =
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
+  };
+
+export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
 };
 
-export type ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: ProjectCategoryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItem = {
+  id?: number;
+  attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributes;
+};
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhases = {
+  data?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItem[];
+};
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
+  { [key: string]: any };
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData =
+  {
+    id?: number;
+    attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
+  };
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
+};
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
+  name?: string;
+  projects?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
+  createdAt?: string;
+  updatedAt?: string;
+  createdBy?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
+};
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData =
+  {
+    id?: number;
+    attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
+  };
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
+};
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
+  };
+
+export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
 };
 
 export type ProjectCategoryProjectsDataItemAttributesCobenefitsDataItemAttributes = {
@@ -3486,60 +3498,58 @@ export type ProjectCategoryProjectsDataItemAttributesPathwaysDataItemAttributesP
   data?: ProjectCategoryProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type ProjectCategoryProjectsDataItemAttributesBiomeData = {
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type ProjectCategoryProjectsDataItemAttributesBiome = {
-  data?: ProjectCategoryProjectsDataItemAttributesBiomeData;
+export type ProjectCategoryProjectsDataItemAttributesBiomes = {
+  data?: ProjectCategoryProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
-};
-
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes =
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type ProjectCategoryProjectsDataItemAttributesBiomeDataAttributes = {
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
+  id?: number;
+  attributes?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
+};
+
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
+};
+
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
+  id?: number;
+  attributes?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
+};
+
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
+};
+
+export type ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: ProjectCategoryProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectCategoryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
 export type ProjectCategoryProjectsDataItemAttributesCountryData = {
@@ -4294,10 +4304,9 @@ export interface Project {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -4318,12 +4327,12 @@ export interface Project {
   graphic?: ProjectGraphic;
   region?: ProjectRegion;
   country?: ProjectCountry;
-  biome?: ProjectBiome;
+  biomes?: ProjectBiomes;
   pathways?: ProjectPathways;
   action_types?: ProjectActionTypes;
   cobenefits?: ProjectCobenefits;
-  project_phase?: ProjectProjectPhase;
-  project_category?: ProjectProjectCategory;
+  project_phases?: ProjectProjectPhases;
+  project_categories?: ProjectProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: ProjectLesson1Category;
@@ -4335,6 +4344,10 @@ export interface Project {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: ProjectFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -4463,26 +4476,26 @@ export type ProjectLesson1Category = {
   data?: ProjectLesson1CategoryData;
 };
 
-export type ProjectProjectCategoryDataAttributes = { [key: string]: any };
+export type ProjectProjectCategoriesDataItemAttributes = { [key: string]: any };
 
-export type ProjectProjectCategoryData = {
+export type ProjectProjectCategoriesDataItem = {
   id?: number;
-  attributes?: ProjectProjectCategoryDataAttributes;
+  attributes?: ProjectProjectCategoriesDataItemAttributes;
 };
 
-export type ProjectProjectCategory = {
-  data?: ProjectProjectCategoryData;
+export type ProjectProjectCategories = {
+  data?: ProjectProjectCategoriesDataItem[];
 };
 
-export type ProjectProjectPhaseDataAttributes = { [key: string]: any };
+export type ProjectProjectPhasesDataItemAttributes = { [key: string]: any };
 
-export type ProjectProjectPhaseData = {
+export type ProjectProjectPhasesDataItem = {
   id?: number;
-  attributes?: ProjectProjectPhaseDataAttributes;
+  attributes?: ProjectProjectPhasesDataItemAttributes;
 };
 
-export type ProjectProjectPhase = {
-  data?: ProjectProjectPhaseData;
+export type ProjectProjectPhases = {
+  data?: ProjectProjectPhasesDataItem[];
 };
 
 export type ProjectCobenefitsDataItemAttributes = { [key: string]: any };
@@ -4518,15 +4531,15 @@ export type ProjectPathways = {
   data?: ProjectPathwaysDataItem[];
 };
 
-export type ProjectBiomeDataAttributes = { [key: string]: any };
+export type ProjectBiomesDataItemAttributes = { [key: string]: any };
 
-export type ProjectBiomeData = {
+export type ProjectBiomesDataItem = {
   id?: number;
-  attributes?: ProjectBiomeDataAttributes;
+  attributes?: ProjectBiomesDataItemAttributes;
 };
 
-export type ProjectBiome = {
-  data?: ProjectBiomeData;
+export type ProjectBiomes = {
+  data?: ProjectBiomesDataItem[];
 };
 
 export type ProjectCountryDataAttributes = { [key: string]: any };
@@ -4587,10 +4600,9 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -4611,12 +4623,12 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributes = {
   graphic?: ProjectRegionDataAttributesProjectsDataItemAttributesGraphic;
   region?: ProjectRegionDataAttributesProjectsDataItemAttributesRegion;
   country?: ProjectRegionDataAttributesProjectsDataItemAttributesCountry;
-  biome?: ProjectRegionDataAttributesProjectsDataItemAttributesBiome;
+  biomes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomes;
   pathways?: ProjectRegionDataAttributesProjectsDataItemAttributesPathways;
   action_types?: ProjectRegionDataAttributesProjectsDataItemAttributesActionTypes;
   cobenefits?: ProjectRegionDataAttributesProjectsDataItemAttributesCobenefits;
-  project_phase?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhase;
-  project_category?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategory;
+  project_phases?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhases;
+  project_categories?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: ProjectRegionDataAttributesProjectsDataItemAttributesLesson1Category;
@@ -4628,6 +4640,10 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: ProjectRegionDataAttributesProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -4870,124 +4886,125 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributesLesson1Category
     data?: ProjectRegionDataAttributesProjectsDataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryData = {
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategory = {
-  data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryData;
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategories = {
+  data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy =
   {
-    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy =
   {
-    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesProjects =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects =
   {
-    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributes = {
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributes =
+  {
+    name?: string;
+    projects?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
+    createdAt?: string;
+    updatedAt?: string;
+    createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+    updatedBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
+  };
+
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributes = {
-  name?: string;
-  projects?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
-  createdAt?: string;
-  updatedAt?: string;
-  createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
-};
-
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseData = {
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItem = {
   id?: number;
-  attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributes;
+  attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributes;
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhase = {
-  data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseData;
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhases = {
+  data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItem[];
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy =
   {
-    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy =
   {
-    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesProjects =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects =
   {
-    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
   };
 
 export type ProjectRegionDataAttributesProjectsDataItemAttributesCobenefitsDataItem = {
@@ -5170,62 +5187,65 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributesPathwaysDataIte
     data?: ProjectRegionDataAttributesProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributes = {
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeData = {
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiome = {
-  data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeData;
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomes = {
+  data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesUpdatedByData =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
-};
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy =
+  {
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
+  };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesCreatedByData =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
-};
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy =
+  {
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
+  };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem =
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem =
   {
     id?: number;
-    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+    attributes?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
   };
 
-export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
-};
+export type ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesProjects =
+  {
+    data?: ProjectRegionDataAttributesProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
+  };
 
 export type ProjectRegionDataAttributesProjectsDataItemAttributesCountryDataAttributes = {
   name?: string;
@@ -6142,9 +6162,9 @@ export type ProjectRequestDataLesson2Category = number | string;
 
 export type ProjectRequestDataLesson1Category = number | string;
 
-export type ProjectRequestDataProjectCategory = number | string;
+export type ProjectRequestDataProjectCategoriesItem = number | string;
 
-export type ProjectRequestDataProjectPhase = number | string;
+export type ProjectRequestDataProjectPhasesItem = number | string;
 
 export type ProjectRequestDataCobenefitsItem = number | string;
 
@@ -6152,7 +6172,7 @@ export type ProjectRequestDataActionTypesItem = number | string;
 
 export type ProjectRequestDataPathwaysItem = number | string;
 
-export type ProjectRequestDataBiome = number | string;
+export type ProjectRequestDataBiomesItem = number | string;
 
 export type ProjectRequestDataCountry = number | string;
 
@@ -6171,10 +6191,9 @@ export type ProjectRequestData = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -6195,12 +6214,12 @@ export type ProjectRequestData = {
   graphic?: ProjectRequestDataGraphicItem[];
   region?: ProjectRequestDataRegion;
   country?: ProjectRequestDataCountry;
-  biome?: ProjectRequestDataBiome;
+  biomes?: ProjectRequestDataBiomesItem[];
   pathways?: ProjectRequestDataPathwaysItem[];
   action_types?: ProjectRequestDataActionTypesItem[];
   cobenefits?: ProjectRequestDataCobenefitsItem[];
-  project_phase?: ProjectRequestDataProjectPhase;
-  project_category?: ProjectRequestDataProjectCategory;
+  project_phases?: ProjectRequestDataProjectPhasesItem[];
+  project_categories?: ProjectRequestDataProjectCategoriesItem[];
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: ProjectRequestDataLesson1Category;
@@ -6212,6 +6231,10 @@ export type ProjectRequestData = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: ProjectRequestDataFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
 };
 
 export type PathwayResponseMeta = { [key: string]: any };
@@ -6284,10 +6307,9 @@ export type PathwayProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -6308,12 +6330,12 @@ export type PathwayProjectsDataItemAttributes = {
   graphic?: PathwayProjectsDataItemAttributesGraphic;
   region?: PathwayProjectsDataItemAttributesRegion;
   country?: PathwayProjectsDataItemAttributesCountry;
-  biome?: PathwayProjectsDataItemAttributesBiome;
+  biomes?: PathwayProjectsDataItemAttributesBiomes;
   pathways?: PathwayProjectsDataItemAttributesPathways;
   action_types?: PathwayProjectsDataItemAttributesActionTypes;
   cobenefits?: PathwayProjectsDataItemAttributesCobenefits;
-  project_phase?: PathwayProjectsDataItemAttributesProjectPhase;
-  project_category?: PathwayProjectsDataItemAttributesProjectCategory;
+  project_phases?: PathwayProjectsDataItemAttributesProjectPhases;
+  project_categories?: PathwayProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: PathwayProjectsDataItemAttributesLesson1Category;
@@ -6325,6 +6347,10 @@ export type PathwayProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: PathwayProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -6530,114 +6556,112 @@ export type PathwayProjectsDataItemAttributesLesson1CategoryDataAttributesProjec
   data?: PathwayProjectsDataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategory = {
-  data?: PathwayProjectsDataItemAttributesProjectCategoryData;
+export type PathwayProjectsDataItemAttributesProjectCategories = {
+  data?: PathwayProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
+  attributes?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy = {
+  data?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
+  attributes?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy = {
+  data?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem = {
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+  attributes?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryDataAttributes = {
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type PathwayProjectsDataItemAttributesProjectCategoryData = {
+export type PathwayProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: PathwayProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesProjectPhaseData = {
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItem = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributes;
+  attributes?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesProjectPhase = {
-  data?: PathwayProjectsDataItemAttributesProjectPhaseData;
+export type PathwayProjectsDataItemAttributesProjectPhases = {
+  data?: PathwayProjectsDataItemAttributesProjectPhasesDataItem[];
 };
 
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
-};
-
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
-};
-
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
-};
-
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
-};
-
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
+  attributes?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
 };
 
-export type PathwayProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData = {
+  id?: number;
+  attributes?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
+};
+
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
+};
+
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem = {
+  id?: number;
+  attributes?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
+};
+
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
+};
+
+export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: PathwayProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
 export type PathwayProjectsDataItemAttributesCobenefitsDataItem = {
@@ -6806,61 +6830,61 @@ export type PathwayProjectsDataItemAttributesPathwaysDataItemAttributesProjects 
   data?: PathwayProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type PathwayProjectsDataItemAttributesBiomeData = {
+export type PathwayProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: PathwayProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesBiome = {
-  data?: PathwayProjectsDataItemAttributesBiomeData;
+export type PathwayProjectsDataItemAttributesBiomes = {
+  data?: PathwayProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+  attributes?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: PathwayProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributes = {
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: PathwayProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: PathwayProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: PathwayProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+  attributes?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: PathwayProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes = {
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes = {
   [key: string]: any;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: PathwayProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type PathwayProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: PathwayProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type PathwayProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: PathwayProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
 export type PathwayProjectsDataItemAttributesCountryDataAttributes = {
@@ -7736,10 +7760,9 @@ export type LessonCategoryProjects1DataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -7760,12 +7783,12 @@ export type LessonCategoryProjects1DataItemAttributes = {
   graphic?: LessonCategoryProjects1DataItemAttributesGraphic;
   region?: LessonCategoryProjects1DataItemAttributesRegion;
   country?: LessonCategoryProjects1DataItemAttributesCountry;
-  biome?: LessonCategoryProjects1DataItemAttributesBiome;
+  biomes?: LessonCategoryProjects1DataItemAttributesBiomes;
   pathways?: LessonCategoryProjects1DataItemAttributesPathways;
   action_types?: LessonCategoryProjects1DataItemAttributesActionTypes;
   cobenefits?: LessonCategoryProjects1DataItemAttributesCobenefits;
-  project_phase?: LessonCategoryProjects1DataItemAttributesProjectPhase;
-  project_category?: LessonCategoryProjects1DataItemAttributesProjectCategory;
+  project_phases?: LessonCategoryProjects1DataItemAttributesProjectPhases;
+  project_categories?: LessonCategoryProjects1DataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: LessonCategoryProjects1DataItemAttributesLesson1Category;
@@ -7777,6 +7800,10 @@ export type LessonCategoryProjects1DataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: LessonCategoryProjects1DataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -7944,113 +7971,120 @@ export type LessonCategoryProjects1DataItemAttributesLesson1CategoryDataAttribut
   data?: LessonCategoryProjects1DataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributes = {
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryData = {
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributes;
+  attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectCategory = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectCategoryData;
+export type LessonCategoryProjects1DataItemAttributesProjectCategories = {
+  data?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
-};
-
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesUpdatedByData;
-};
-
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
-  { [key: string]: any };
-
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
-};
-
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesCreatedByData;
-};
-
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
-  { [key: string]: any };
-
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesProjectsDataItem =
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData =
   {
     id?: number;
-    attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+    attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
   };
 
-export type LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
-};
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy =
+  {
+    data?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
+  };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseData = {
-  id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributes;
-};
-
-export type LessonCategoryProjects1DataItemAttributesProjectPhase = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectPhaseData;
-};
-
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes =
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesCreatedByData =
+  {
+    id?: number;
+    attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
+  };
+
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesCreatedBy =
+  {
+    data?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
+  };
+
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
+  };
+
+export type LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: LessonCategoryProjects1DataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
+};
+
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItem = {
   id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
+  attributes?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributes;
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesUpdatedByData;
+export type LessonCategoryProjects1DataItemAttributesProjectPhases = {
+  data?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItem[];
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributes = {
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
+  { [key: string]: any };
+
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesUpdatedByData =
+  {
+    id?: number;
+    attributes?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
+  };
+
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
+};
+
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes =
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesCreatedByData =
+  {
+    id?: number;
+    attributes?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
+  };
+
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
 };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesCreatedByData;
-};
-
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
-  id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
-};
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
+  };
 
-export type LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: LessonCategoryProjects1DataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
 };
 
 export type LessonCategoryProjects1DataItemAttributesCobenefitsDataItemAttributes = {
@@ -8217,60 +8251,58 @@ export type LessonCategoryProjects1DataItemAttributesPathwaysDataItemAttributesP
   data?: LessonCategoryProjects1DataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributes = {
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesProjects;
+  projects?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
-export type LessonCategoryProjects1DataItemAttributesBiomeData = {
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributes;
+  attributes?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributes;
 };
 
-export type LessonCategoryProjects1DataItemAttributesBiome = {
-  data?: LessonCategoryProjects1DataItemAttributesBiomeData;
+export type LessonCategoryProjects1DataItemAttributesBiomes = {
+  data?: LessonCategoryProjects1DataItemAttributesBiomesDataItem[];
 };
 
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
-};
-
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesUpdatedByData;
-};
-
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
-};
-
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesCreatedByData;
-};
-
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesProjectsDataItemAttributes =
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type LessonCategoryProjects1DataItemAttributesBiomeDataAttributesProjects = {
-  data?: LessonCategoryProjects1DataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesUpdatedByData;
+};
+
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesCreatedByData = {
+  id?: number;
+  attributes?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
+};
+
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesCreatedByData;
+};
+
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
+  id?: number;
+  attributes?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
+};
+
+export type LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: LessonCategoryProjects1DataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
 export type LessonCategoryProjects1DataItemAttributesCountryDataAttributesUpdatedByData = {
@@ -9115,10 +9147,9 @@ export type CountryProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -9139,12 +9170,12 @@ export type CountryProjectsDataItemAttributes = {
   graphic?: CountryProjectsDataItemAttributesGraphic;
   region?: CountryProjectsDataItemAttributesRegion;
   country?: CountryProjectsDataItemAttributesCountry;
-  biome?: CountryProjectsDataItemAttributesBiome;
+  biomes?: CountryProjectsDataItemAttributesBiomes;
   pathways?: CountryProjectsDataItemAttributesPathways;
   action_types?: CountryProjectsDataItemAttributesActionTypes;
   cobenefits?: CountryProjectsDataItemAttributesCobenefits;
-  project_phase?: CountryProjectsDataItemAttributesProjectPhase;
-  project_category?: CountryProjectsDataItemAttributesProjectCategory;
+  project_phases?: CountryProjectsDataItemAttributesProjectPhases;
+  project_categories?: CountryProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: CountryProjectsDataItemAttributesLesson1Category;
@@ -9156,6 +9187,10 @@ export type CountryProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: CountryProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -9317,114 +9352,112 @@ export type CountryProjectsDataItemAttributesLesson1CategoryDataAttributesProjec
   data?: CountryProjectsDataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributes = {
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryData = {
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type CountryProjectsDataItemAttributesProjectCategory = {
-  data?: CountryProjectsDataItemAttributesProjectCategoryData;
+export type CountryProjectsDataItemAttributesProjectCategories = {
+  data?: CountryProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
+  attributes?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy = {
+  data?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
+  attributes?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy = {
+  data?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem = {
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+  attributes?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type CountryProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: CountryProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
+export type CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: CountryProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
 };
 
-export type CountryProjectsDataItemAttributesProjectPhase = {
-  data?: CountryProjectsDataItemAttributesProjectPhaseData;
+export type CountryProjectsDataItemAttributesProjectPhases = {
+  data?: CountryProjectsDataItemAttributesProjectPhasesDataItem[];
 };
 
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
-};
-
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
-};
-
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
-};
-
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
-};
-
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
+  attributes?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
 };
 
-export type CountryProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData = {
+  id?: number;
+  attributes?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
+};
+
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
+};
+
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem = {
+  id?: number;
+  attributes?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
+};
+
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
+};
+
+export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: CountryProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
-export type CountryProjectsDataItemAttributesProjectPhaseData = {
+export type CountryProjectsDataItemAttributesProjectPhasesDataItem = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesProjectPhaseDataAttributes;
+  attributes?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributes;
 };
 
 export type CountryProjectsDataItemAttributesCobenefitsDataItem = {
@@ -9593,61 +9626,61 @@ export type CountryProjectsDataItemAttributesPathwaysDataItemAttributesProjects 
   data?: CountryProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributes = {
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: CountryProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: CountryProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: CountryProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: CountryProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: CountryProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: CountryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
-export type CountryProjectsDataItemAttributesBiomeData = {
+export type CountryProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: CountryProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type CountryProjectsDataItemAttributesBiome = {
-  data?: CountryProjectsDataItemAttributesBiomeData;
+export type CountryProjectsDataItemAttributesBiomes = {
+  data?: CountryProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+  attributes?: CountryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: CountryProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: CountryProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+  attributes?: CountryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: CountryProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: CountryProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes = {
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes = {
   [key: string]: any;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: CountryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: CountryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type CountryProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: CountryProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type CountryProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: CountryProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
 export type CountryProjectsDataItemAttributesCountryDataAttributesUpdatedBy = {
@@ -10495,10 +10528,9 @@ export type CobenefitProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -10519,12 +10551,12 @@ export type CobenefitProjectsDataItemAttributes = {
   graphic?: CobenefitProjectsDataItemAttributesGraphic;
   region?: CobenefitProjectsDataItemAttributesRegion;
   country?: CobenefitProjectsDataItemAttributesCountry;
-  biome?: CobenefitProjectsDataItemAttributesBiome;
+  biomes?: CobenefitProjectsDataItemAttributesBiomes;
   pathways?: CobenefitProjectsDataItemAttributesPathways;
   action_types?: CobenefitProjectsDataItemAttributesActionTypes;
   cobenefits?: CobenefitProjectsDataItemAttributesCobenefits;
-  project_phase?: CobenefitProjectsDataItemAttributesProjectPhase;
-  project_category?: CobenefitProjectsDataItemAttributesProjectCategory;
+  project_phases?: CobenefitProjectsDataItemAttributesProjectPhases;
+  project_categories?: CobenefitProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: CobenefitProjectsDataItemAttributesLesson1Category;
@@ -10536,6 +10568,10 @@ export type CobenefitProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: CobenefitProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -10701,114 +10737,113 @@ export type CobenefitProjectsDataItemAttributesLesson1CategoryDataAttributesProj
   data?: CobenefitProjectsDataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributes = {
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryData = {
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategory = {
-  data?: CobenefitProjectsDataItemAttributesProjectCategoryData;
+export type CobenefitProjectsDataItemAttributesProjectCategories = {
+  data?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy = {
+  data?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy = {
+  data?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem = {
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
+  };
+
+export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
+};
+
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItem = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: CobenefitProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
+export type CobenefitProjectsDataItemAttributesProjectPhases = {
+  data?: CobenefitProjectsDataItemAttributesProjectPhasesDataItem[];
 };
 
-export type CobenefitProjectsDataItemAttributesProjectPhaseData = {
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
+  { [key: string]: any };
+
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectPhase = {
-  data?: CobenefitProjectsDataItemAttributesProjectPhaseData;
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
-};
-
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
-};
-
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
-};
-
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
-};
-
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: CobenefitProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
+};
+
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
+
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem = {
+  id?: number;
+  attributes?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
+};
+
+export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
 };
 
 export type CobenefitProjectsDataItemAttributesCobenefitsDataItemAttributes = {
@@ -10975,61 +11010,60 @@ export type CobenefitProjectsDataItemAttributesPathwaysDataItemAttributesProject
   data?: CobenefitProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributes = {
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: CobenefitProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: CobenefitProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: CobenefitProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeData = {
+export type CobenefitProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesBiome = {
-  data?: CobenefitProjectsDataItemAttributesBiomeData;
+export type CobenefitProjectsDataItemAttributesBiomes = {
+  data?: CobenefitProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: CobenefitProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: CobenefitProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes = {
-  [key: string]: any;
-};
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: CobenefitProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type CobenefitProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: CobenefitProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type CobenefitProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: CobenefitProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
 export type CobenefitProjectsDataItemAttributesCountryDataAttributesUpdatedByDataAttributes = {
@@ -11872,10 +11906,9 @@ export type BiomeProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -11896,12 +11929,12 @@ export type BiomeProjectsDataItemAttributes = {
   graphic?: BiomeProjectsDataItemAttributesGraphic;
   region?: BiomeProjectsDataItemAttributesRegion;
   country?: BiomeProjectsDataItemAttributesCountry;
-  biome?: BiomeProjectsDataItemAttributesBiome;
+  biomes?: BiomeProjectsDataItemAttributesBiomes;
   pathways?: BiomeProjectsDataItemAttributesPathways;
   action_types?: BiomeProjectsDataItemAttributesActionTypes;
   cobenefits?: BiomeProjectsDataItemAttributesCobenefits;
-  project_phase?: BiomeProjectsDataItemAttributesProjectPhase;
-  project_category?: BiomeProjectsDataItemAttributesProjectCategory;
+  project_phases?: BiomeProjectsDataItemAttributesProjectPhases;
+  project_categories?: BiomeProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: BiomeProjectsDataItemAttributesLesson1Category;
@@ -11913,6 +11946,10 @@ export type BiomeProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: BiomeProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -12081,117 +12118,112 @@ export type BiomeProjectsDataItemAttributesLesson1CategoryDataAttributesProjects
   data?: BiomeProjectsDataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
 };
 
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributes = {
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type BiomeProjectsDataItemAttributesProjectCategoryData = {
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesProjectCategory = {
-  data?: BiomeProjectsDataItemAttributesProjectCategoryData;
+export type BiomeProjectsDataItemAttributesProjectCategories = {
+  data?: BiomeProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
-  id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
-};
-
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
-};
-
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
-
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
-  id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
-};
-
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
-};
-
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem = {
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+  attributes?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: BiomeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy = {
+  data?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseData = {
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
+
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributes;
+  attributes?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhase = {
-  data?: BiomeProjectsDataItemAttributesProjectPhaseData;
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy = {
+  data?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes = {
-  [key: string]: any;
-};
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
+  attributes?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
+export type BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: BiomeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItem = {
+  id?: number;
+  attributes?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributes;
+};
+
+export type BiomeProjectsDataItemAttributesProjectPhases = {
+  data?: BiomeProjectsDataItemAttributesProjectPhasesDataItem[];
+};
+
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
+  { [key: string]: any };
+
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData = {
+  id?: number;
+  attributes?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
+};
+
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
+};
+
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes = {
-  [key: string]: any;
-};
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
+  { [key: string]: any };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
+  attributes?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes = {
-  [key: string]: any;
-};
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
+  attributes?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: BiomeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
 };
 
 export type BiomeProjectsDataItemAttributesCobenefitsDataItemAttributes = {
@@ -12363,61 +12395,61 @@ export type BiomeProjectsDataItemAttributesPathwaysDataItemAttributesProjects = 
   data?: BiomeProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributes = {
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: BiomeProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: BiomeProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: BiomeProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeData = {
+export type BiomeProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: BiomeProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesBiome = {
-  data?: BiomeProjectsDataItemAttributesBiomeData;
+export type BiomeProjectsDataItemAttributesBiomes = {
+  data?: BiomeProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+  attributes?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: BiomeProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+  attributes?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: BiomeProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes = {
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes = {
   [key: string]: any;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: BiomeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type BiomeProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: BiomeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type BiomeProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: BiomeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
 export type BiomeProjectsDataItemAttributesCountryDataAttributesUpdatedByDataAttributes = {
@@ -13218,10 +13250,9 @@ export type ActionTypeProjectsDataItemAttributes = {
   public_contact_email?: string;
   carbon_mitigation?: number;
   hectares_impacted?: number;
-  people_supported?: number;
   project_goal?: string;
   project_summary?: string;
-  why_content?: string;
+  why_this_why_now?: string;
   key_activities?: string;
   successes?: string;
   lesson_1?: string;
@@ -13242,12 +13273,12 @@ export type ActionTypeProjectsDataItemAttributes = {
   graphic?: ActionTypeProjectsDataItemAttributesGraphic;
   region?: ActionTypeProjectsDataItemAttributesRegion;
   country?: ActionTypeProjectsDataItemAttributesCountry;
-  biome?: ActionTypeProjectsDataItemAttributesBiome;
+  biomes?: ActionTypeProjectsDataItemAttributesBiomes;
   pathways?: ActionTypeProjectsDataItemAttributesPathways;
   action_types?: ActionTypeProjectsDataItemAttributesActionTypes;
   cobenefits?: ActionTypeProjectsDataItemAttributesCobenefits;
-  project_phase?: ActionTypeProjectsDataItemAttributesProjectPhase;
-  project_category?: ActionTypeProjectsDataItemAttributesProjectCategory;
+  project_phases?: ActionTypeProjectsDataItemAttributesProjectPhases;
+  project_categories?: ActionTypeProjectsDataItemAttributesProjectCategories;
   keywords?: string;
   primary_partners?: string;
   lesson_1_category?: ActionTypeProjectsDataItemAttributesLesson1Category;
@@ -13259,6 +13290,10 @@ export type ActionTypeProjectsDataItemAttributes = {
   project_size_ha?: number;
   project_site_attribution?: string;
   footer?: ActionTypeProjectsDataItemAttributesFooter;
+  metric?: string;
+  project_code?: string;
+  people_supported?: string;
+  why_this_why_now_callout?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -13468,112 +13503,113 @@ export type ActionTypeProjectsDataItemAttributesLesson1CategoryDataAttributesPro
   data?: ActionTypeProjectsDataItemAttributesLesson1CategoryDataAttributesProjects1DataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryData = {
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItem = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategory = {
-  data?: ActionTypeProjectsDataItemAttributesProjectCategoryData;
+export type ActionTypeProjectsDataItemAttributesProjectCategories = {
+  data?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes =
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData = {
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy = {
-  data?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedByData;
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy = {
+  data?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedByData;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes =
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData = {
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy = {
-  data?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedByData;
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy = {
+  data?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedByData;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes =
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem = {
-  id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItemAttributes;
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem =
+  {
+    id?: number;
+    attributes?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItemAttributes;
+  };
+
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects = {
+  data?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjectsDataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesProjects = {
-  data?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesProjectsDataItem[];
-};
-
-export type ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributes = {
+export type ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributes = {
   name?: string;
-  projects?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesProjects;
+  projects?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesCreatedBy;
-  updatedBy?: ActionTypeProjectsDataItemAttributesProjectCategoryDataAttributesUpdatedBy;
+  createdBy?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesCreatedBy;
+  updatedBy?: ActionTypeProjectsDataItemAttributesProjectCategoriesDataItemAttributesUpdatedBy;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseData = {
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItem = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhase = {
-  data?: ActionTypeProjectsDataItemAttributesProjectPhaseData;
+export type ActionTypeProjectsDataItemAttributesProjectPhases = {
+  data?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes =
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes =
   { [key: string]: any };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData = {
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy = {
-  data?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedByData;
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy = {
+  data?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedByData;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes =
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes =
   { [key: string]: any };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData = {
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy = {
-  data?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedByData;
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy = {
+  data?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedByData;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes =
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes =
   { [key: string]: any };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem = {
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItemAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesProjects = {
-  data?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesProjectsDataItem[];
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects = {
+  data?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjectsDataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributes = {
+export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
-  projects?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesProjects;
+  projects?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesCreatedBy;
-  updatedBy?: ActionTypeProjectsDataItemAttributesProjectPhaseDataAttributesUpdatedBy;
+  createdBy?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
+  updatedBy?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdatedBy;
 };
 
 export type ActionTypeProjectsDataItemAttributesCobenefitsDataItem = {
@@ -13738,61 +13774,60 @@ export type ActionTypeProjectsDataItemAttributesPathwaysDataItemAttributesProjec
   data?: ActionTypeProjectsDataItemAttributesPathwaysDataItemAttributesProjectsDataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeData = {
+export type ActionTypeProjectsDataItemAttributesBiomesDataItem = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesBiomeDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiome = {
-  data?: ActionTypeProjectsDataItemAttributesBiomeData;
+export type ActionTypeProjectsDataItemAttributesBiomes = {
+  data?: ActionTypeProjectsDataItemAttributesBiomesDataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes = {
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesUpdatedByData = {
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesUpdatedByDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByDataAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesUpdatedBy = {
-  data?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesUpdatedByData;
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy = {
+  data?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedByData;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes = {
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes = {
   [key: string]: any;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesCreatedByData = {
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesCreatedByDataAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByDataAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesCreatedBy = {
-  data?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesCreatedByData;
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy = {
+  data?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesCreatedByData;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes = {
-  [key: string]: any;
-};
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes =
+  { [key: string]: any };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem = {
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem = {
   id?: number;
-  attributes?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItemAttributes;
+  attributes?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItemAttributes;
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributesProjects = {
-  data?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesProjectsDataItem[];
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesProjects = {
+  data?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesProjectsDataItem[];
 };
 
-export type ActionTypeProjectsDataItemAttributesBiomeDataAttributes = {
+export type ActionTypeProjectsDataItemAttributesBiomesDataItemAttributes = {
   name?: string;
-  projects?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesProjects;
+  projects?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesProjects;
   createdAt?: string;
   updatedAt?: string;
-  createdBy?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesCreatedBy;
-  updatedBy?: ActionTypeProjectsDataItemAttributesBiomeDataAttributesUpdatedBy;
+  createdBy?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesCreatedBy;
+  updatedBy?: ActionTypeProjectsDataItemAttributesBiomesDataItemAttributesUpdatedBy;
 };
 
 export type ActionTypeProjectsDataItemAttributesCountryData = {
