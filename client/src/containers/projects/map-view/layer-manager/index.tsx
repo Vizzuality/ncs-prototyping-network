@@ -1,21 +1,51 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { Source, Layer } from 'react-map-gl';
 
-import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer } from 'mapbox-gl';
-import { useRecoilValue } from 'recoil';
+import bbox from '@turf/bbox';
+import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer, LngLatBoundsLike } from 'mapbox-gl';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { PROJECTS } from 'data/projects';
-import { filtersAtom } from 'store';
+import { filteredBboxAtom, filtersAtom } from 'store';
+import { ActionTypes, Pathways, Project } from 'types/project';
 
 const LayerManager = () => {
+  const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
+
   const filters = useRecoilValue(filtersAtom);
-  const { pathways, project_phase, action_types, project_category } = filters;
-  const activedFilters = Object.values(filters).some((f) => f.length > 0);
+  const setFilteredBbox = useSetRecoilState(filteredBboxAtom);
+
+  useEffect(() => {
+    const activedFilters = Object.values(filters).some((f) => f.length > 0);
+    const dataFinalFiltered = () => {
+      const data = PROJECTS.filter((project) => {
+        if (filters.pathways.length > 0) {
+          if (!filters.pathways.some((pw: Pathways) => project.pathways.includes(pw))) return false;
+        }
+        if (filters.project_phase.length > 0) {
+          if (!filters.project_phase.includes(project.project_phase)) return false;
+        }
+        if (filters.action_types.length > 0) {
+          if (!filters.action_types.some((at: ActionTypes) => project.action_types.includes(at)))
+            return false;
+        }
+        if (filters.project_category.length > 0) {
+          if (!filters.project_category.includes(project.project_category)) return false;
+        }
+        return true;
+      });
+      return data;
+    };
+
+    if (activedFilters) return setDataFiltered(dataFinalFiltered());
+
+    if (!activedFilters) return setDataFiltered(PROJECTS);
+  }, [filters]);
 
   const GEOJSON = {
     type: 'FeatureCollection',
-    features: PROJECTS.map((project) => ({
+    features: dataFiltered.map((project) => ({
       type: 'Feature',
       geometry: {
         type: 'Point',
@@ -30,6 +60,12 @@ const LayerManager = () => {
     })),
   } as GeoJSON.FeatureCollection;
 
+  useEffect(() => {
+    const bboxTurf = bbox(GEOJSON) as LngLatBoundsLike;
+    setFilteredBbox(bboxTurf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dataFiltered, setFilteredBbox]);
+
   const SOURCE: GeoJSONSourceRaw & GeoJSONSourceOptions = {
     type: 'geojson',
     data: GEOJSON,
@@ -39,51 +75,51 @@ const LayerManager = () => {
     return {
       id: 'projects-layer',
       type: 'circle',
-      ...(activedFilters && {
-        filter: [
-          'all',
-          ...(!!pathways.length
-            ? [
-                [
-                  'any',
-                  ...pathways.map((id) => {
-                    return ['in', id, ['get', 'pathways']];
-                  }),
-                ],
-              ]
-            : []),
-          ...(!!project_phase.length
-            ? [
-                [
-                  'any',
-                  ...project_phase.map((id) => {
-                    return ['in', id, ['get', 'project_phase']];
-                  }),
-                ],
-              ]
-            : []),
-          ...(!!action_types.length
-            ? [
-                [
-                  'any',
-                  ...action_types.map((id) => {
-                    return ['in', id, ['get', 'action_types']];
-                  }),
-                ],
-              ]
-            : []),
-          ...(!!project_category.length
-            ? [
-                [
-                  'any',
-                  ...project_category.map((id) => {
-                    return ['in', id, ['get', 'project_category']];
-                  }),
-                ],
-              ]
-            : []),
-        ],
-      }),
+      // ...(activedFilters && {
+      //   filter: [
+      //     'all',
+      //     ...(!!pathways.length
+      //       ? [
+      //           [
+      //             'any',
+      //             ...pathways.map((id) => {
+      //               return ['in', id, ['get', 'pathways']];
+      //             }),
+      //           ],
+      //         ]
+      //       : []),
+      //     ...(!!project_phase.length
+      //       ? [
+      //           [
+      //             'any',
+      //             ...project_phase.map((id) => {
+      //               return ['in', id, ['get', 'project_phase']];
+      //             }),
+      //           ],
+      //         ]
+      //       : []),
+      //     ...(!!action_types.length
+      //       ? [
+      //           [
+      //             'any',
+      //             ...action_types.map((id) => {
+      //               return ['in', id, ['get', 'action_types']];
+      //             }),
+      //           ],
+      //         ]
+      //       : []),
+      //     ...(!!project_category.length
+      //       ? [
+      //           [
+      //             'any',
+      //             ...project_category.map((id) => {
+      //               return ['in', id, ['get', 'project_category']];
+      //             }),
+      //           ],
+      //         ]
+      //       : []),
+      //   ],
+      // }),
       paint: {
         'circle-color': '#1F51FF',
         'circle-opacity': 0.5,
@@ -93,7 +129,7 @@ const LayerManager = () => {
         visibility: 'visible',
       },
     };
-  }, [pathways, project_phase, project_category, action_types, activedFilters]);
+  }, []);
 
   return (
     <Source {...SOURCE}>

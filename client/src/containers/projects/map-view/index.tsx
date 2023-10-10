@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useMap } from 'react-map-gl';
 
@@ -17,7 +17,7 @@ import Card from 'containers/projects/card';
 import { SORT_OPTIONS } from 'containers/projects/map-view/constants';
 import LayerManager from 'containers/projects/map-view/layer-manager';
 import Tabs from 'containers/projects/map-view/tabs';
-import { basemapAtom } from 'store';
+import { basemapAtom, filteredBboxAtom } from 'store';
 import { Project } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
@@ -44,6 +44,7 @@ const DEFAULT_PROPS = {
 const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   const mapRef = useRef(null);
   const [sortedBy, setSortedBy] = useState<string>('country');
+  const filteredBbox = useRecoilValue(filteredBboxAtom);
 
   const basemap = useRecoilValue(basemapAtom);
 
@@ -53,9 +54,16 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
 
-  const handleViewState = useCallback(() => {
+  // This effect will update bounds when filtering projectss
+  useEffect(() => {
     if (map) {
       console.info('map', map);
+      map.fitBounds(filteredBbox, { padding: 50 });
+    }
+  }, [filteredBbox, map]);
+
+  const handleViewState = useCallback(() => {
+    if (map) {
       // console.log('map', map.getStyle().layers);
     }
   }, [map]);
