@@ -3,11 +3,11 @@ import { type AxiosResponse } from 'axios';
 
 import { Project } from '@/types/project';
 
-import API from 'services/api';
+import { JSONAPI } from 'services/api';
 
 export function useProjects(): UseQueryResult<Project[], unknown> {
   const fetchProjects = () =>
-    API.request({
+    JSONAPI.request({
       method: 'GET',
       url: '/projects',
     }).then((response: AxiosResponse) => response.data);

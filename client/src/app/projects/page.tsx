@@ -20,6 +20,7 @@ import { ActionTypes, Pathways, Project } from 'types/project';
 import { getEspecificPathwayName } from 'utils/pathways';
 
 const Projects: NextPage = () => {
+  const projectsQuery = useProjects();
   const projectsView = useRecoilValue(projectsViewAtom);
 
   const [filters, setFilters] = useRecoilState(filtersAtom);
@@ -28,9 +29,6 @@ const Projects: NextPage = () => {
   const pathway = searchParams.get('pathway');
 
   const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
-
-  const projectsQuery = useProjects();
-  console.log('projectsQuery', projectsQuery);
 
   useEffect(() => {
     if (pathway) {
