@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, CreateAxiosDefaults, isAxiosError } from 'axios';
+import axios, { AxiosError, AxiosResponse, CreateAxiosDefaults, isAxiosError } from 'axios';
 import Jsona from 'jsona';
 
 const dataFormatter = new Jsona();
@@ -44,5 +44,7 @@ const APIInstances = {
   JSONAPI,
   API,
 };
+
+export type ErrorType<Error> = AxiosError<Error>;
 
 export default APIInstances;

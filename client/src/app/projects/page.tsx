@@ -21,6 +21,7 @@ import { getEspecificPathwayName } from 'utils/pathways';
 
 const Projects: NextPage = () => {
   const projectsQuery = useProjects();
+  console.log({ projectsQuery });
   const projectsView = useRecoilValue(projectsViewAtom);
 
   const [filters, setFilters] = useRecoilState(filtersAtom);
