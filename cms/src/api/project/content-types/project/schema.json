@@ -23,7 +23,7 @@
       "type": "text"
     },
     "public_contact_email": {
-      "type": "email"
+      "type": "text"
     },
     "carbon_mitigation": {
       "type": "decimal"

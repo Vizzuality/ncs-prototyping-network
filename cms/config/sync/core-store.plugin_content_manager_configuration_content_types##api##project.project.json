@@ -8,7 +8,7 @@
       "searchable": true,
       "pageSize": 10,
       "mainField": "project_name",
-      "defaultSortBy": "project_name",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -498,7 +498,7 @@
           "mainField": "name"
         },
         "list": {
-          "label": "project_phases",
+          "label": "Project Phases",
           "searchable": false,
           "sortable": false
         }
@@ -698,7 +698,7 @@
           "editable": true
         },
         "list": {
-          "label": "project_code",
+          "label": "Project Code",
           "searchable": true,
           "sortable": true
         }
@@ -1021,8 +1021,8 @@
       ],
       "list": [
         "id",
+        "project_code",
         "project_name",
-        "biomes",
         "project_phases"
       ]
     }
