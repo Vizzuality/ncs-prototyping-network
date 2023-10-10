@@ -7,6 +7,8 @@ import { useSearchParams } from 'next/navigation';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
 
+import { useProjects } from '@/hooks/projects';
+
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
 import MetricsView from 'containers/projects/metrics-view';
@@ -26,6 +28,9 @@ const Projects: NextPage = () => {
   const pathway = searchParams.get('pathway');
 
   const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
+
+  const projectsQuery = useProjects();
+  console.log('projectsQuery', projectsQuery);
 
   useEffect(() => {
     if (pathway) {
