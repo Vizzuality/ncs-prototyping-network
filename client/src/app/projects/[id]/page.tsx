@@ -9,7 +9,7 @@ import { useProject } from 'hooks/projects';
 
 const Project: NextPage = ({ params }: { params: { id: string } }) => {
   const projectQuery = useProject({ projectId: params.id });
-  console.log({ projectQuery: projectQuery.data });
+  console.log({ projectQuery });
   const data = PROJECTS.find((p) => `${p.id}` === params.id);
 
   if (!data) {
