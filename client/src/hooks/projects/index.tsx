@@ -33,10 +33,10 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
       lesson_3_category: project.lesson_3_category.data.attributes.name,
       pathways: project.pathways.data.map((pathway) => pathway.attributes.name),
       project_categories: project.project_categories.data.map(
-        (project_category) => project_category.attributes.name
+        (project_categories) => project_categories.attributes.name
       ),
       project_phases: project.project_phases.data.map(
-        (project_phase) => project_phase.attributes.name
+        (project_phases) => project_phases.attributes.name
       ),
       region: project.region.data?.attributes.name,
     }));
@@ -78,10 +78,10 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
       lesson_3_category: data.lesson_3_category.data.attributes.name,
       pathways: data.pathways.data.map((pathway) => pathway.attributes.name),
       project_categories: data.project_categories.data.map(
-        (project_category) => project_category.attributes.name
+        (project_categories) => project_categories.attributes.name
       ),
       project_phases: data.project_phases.data.map(
-        (project_phase) => project_phase.attributes.name
+        (project_phases) => project_phases.attributes.name
       ),
       region: data.region.data?.attributes.name,
     };

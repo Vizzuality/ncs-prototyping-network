@@ -10,7 +10,7 @@ import { getGeneralPathwayName } from 'utils/pathways';
 import { COLORS, ICONS } from './constants';
 
 const Card = ({ data }: { data: Project }): JSX.Element => {
-  const { country, long_title, pathways, carbon_mitigation, project_phase, hectares_impacted, id } =
+  const { country, long_title, pathways, carbon_mitigation, project_phases, hectares_impacted, id } =
     data;
 
   return (
@@ -48,7 +48,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
           </p>
           <p className="max-w-xs font-sans text-2xs font-light text-text">
             <span className="font-medium uppercase">Project phase:</span> {''}
-            {project_phase}
+            {project_phases}
           </p>
           <p className="max-w-xs font-sans text-2xs font-light text-text">
             <span className="font-medium uppercase">Area impacted:</span> {''}

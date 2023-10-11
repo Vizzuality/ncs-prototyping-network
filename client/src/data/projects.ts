@@ -12,12 +12,12 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Agroforestry'],
     action_types: ['Restore', 'Protect'],
-    co_benefits: ['Ecosystem Services', 'Resilience and adaptation'],
+    cobenefits: ['Ecosystem Services', 'Resilience and adaptation'],
     carbon_mitigation: 24000,
     hectares_impacted: 300,
     people_supported: 1050,
-    project_phase: 'Piloting',
-    project_category: 'Community based',
+    project_phases: ['Piloting'],
+    project_categories: ['Community based'],
     project_goal:
       '1) To quantify the impact of peat rewetting through canal blocking in GHG emissions reduction; 2) To improve the implementation of peat restoration more effectively and efficiently',
     project_summary:
@@ -88,12 +88,12 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Agroforestry', 'Coastal Wetlands (Restoration)'],
     action_types: ['Restore', 'Protect'],
-    co_benefits: ['Ecosystem Services', 'Resilience and adaptation'],
+    cobenefits: ['Ecosystem Services', 'Resilience and adaptation'],
     carbon_mitigation: 2000,
     hectares_impacted: 900,
     people_supported: 15000,
-    project_phase: 'Implementing',
-    project_category: 'Community based',
+    project_phases: ['Implementing'],
+    project_categories: ['Community based'],
     project_goal:
       '1) To quantify the impact of peat rewetting through canal blocking in GHG emissions reduction; 2) To improve the implementation of peat restoration more effectively and efficiently',
     project_summary:
@@ -164,12 +164,12 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Coastal Wetlands (Restoration)'],
     action_types: ['Manage'],
-    co_benefits: ['Ecosystem Services', 'Human Health/Well-Being', 'Resilience and adaptation'],
+    cobenefits: ['Ecosystem Services', 'Human Health/Well-Being', 'Resilience and adaptation'],
     carbon_mitigation: 21000,
     hectares_impacted: 520,
     people_supported: 2000,
-    project_phase: 'Scaling',
-    project_category: 'Goverment led',
+    project_phases: ['Scaling'],
+    project_categories: ['Goverment led'],
     project_goal:
       '1) To quantify the impact of peat rewetting through canal blocking in GHG emissions reduction; 2) To improve the implementation of peat restoration more effectively and efficiently',
     project_summary:
@@ -241,7 +241,7 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Peatlands (Avoided Impacts)', 'Coastal Wetlands (Avoided Impacts)'],
     action_types: ['Protect'],
-    co_benefits: [
+    cobenefits: [
       'Biodiversity',
       'Livelihoods/Economic',
       'Resilience and adaptation',
@@ -251,8 +251,8 @@ export const PROJECTS: Project[] = [
     carbon_mitigation: 19000,
     hectares_impacted: 500,
     people_supported: 1000,
-    project_phase: 'Piloting',
-    project_category: 'Community based',
+    project_phases: ['Piloting'],
+    project_categories: ['Community based'],
     project_goal:
       '1) To quantify the impact of peat rewetting through canal blocking in GHG emissions reduction; 2) To improve the implementation of peat restoration more effectively and efficiently',
     project_summary:
@@ -326,12 +326,12 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Peatlands (Restoration)'],
     action_types: ['Restore', 'Manage'],
-    co_benefits: ['Ecosystem Services', 'Resilience and adaptation'],
+    cobenefits: ['Ecosystem Services', 'Resilience and adaptation'],
     carbon_mitigation: 20000,
     hectares_impacted: 500,
     people_supported: 1000,
-    project_phase: 'Piloting',
-    project_category: 'Goverment led',
+    project_phases: ['Piloting'],
+    project_categories: ['Goverment led'],
     project_goal:
       '1) To quantify the impact of peat rewetting through canal blocking in GHG emissions reduction; 2) To improve the implementation of peat restoration more effectively and efficiently',
     project_summary:
@@ -402,7 +402,7 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Agroforestry'],
     action_types: ['Protect'],
-    co_benefits: [
+    cobenefits: [
       'Biodiversity',
       'Livelihoods/Economic',
       'Resilience and adaptation',
@@ -412,8 +412,8 @@ export const PROJECTS: Project[] = [
     carbon_mitigation: 20000,
     hectares_impacted: 500,
     people_supported: 1000,
-    project_phase: 'Implementing',
-    project_category: 'Carbon project',
+    project_phases: ['Implementing'],
+    project_categories: ['Carbon project'],
     project_goal:
       '1) To quantify the impact of peat rewetting through canal blocking in GHG emissions reduction; 2) To improve the implementation of peat restoration more effectively and efficiently',
     project_summary:
@@ -488,12 +488,12 @@ export const PROJECTS: Project[] = [
     biome: 'Wetlands',
     pathways: ['Peatlands (Restoration)'],
     action_types: ['Manage'],
-    co_benefits: ['Ecosystem Services', 'Resilience and adaptation', 'Biodiversity'],
+    cobenefits: ['Ecosystem Services', 'Resilience and adaptation', 'Biodiversity'],
     carbon_mitigation: 20000,
     hectares_impacted: 500,
     people_supported: 1000,
-    project_phase: 'Scaling',
-    project_category: 'Policy project',
+    project_phases: ['Scaling'],
+    project_categories: ['Policy project'],
     project_goal:
       '1) To quantify the impact of peat rewetting through canal blocking in GHG emissions reduction; 2) To improve the implementation of peat restoration more effectively and efficiently',
     project_summary:

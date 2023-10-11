@@ -6,8 +6,8 @@ export type Basemap = 'light' | 'satellite';
 export type Filters = {
   pathways: string[];
   action_types: string[];
-  project_phase: string[];
-  project_category: string[];
+  project_phases: string[];
+  project_categories: string[];
 };
 
 export const basemapAtom = atom<Basemap>({
@@ -25,8 +25,8 @@ export const filtersAtom = atom<Filters>({
   default: {
     pathways: [],
     action_types: [],
-    project_phase: [],
-    project_category: [],
+    project_phases: [],
+    project_categories: [],
   },
 });
 

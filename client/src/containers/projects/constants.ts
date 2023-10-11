@@ -22,12 +22,12 @@ export const COLUMNS = [
     sorting: false,
   },
   {
-    id: 'project_phase',
+    id: 'project_phases',
     label: 'Project Phase',
     sorting: true,
   },
   {
-    id: 'project_category',
+    id: 'project_categories',
     label: 'Project Category',
     sorting: false,
   },

@@ -34,17 +34,17 @@ const Filters = (): JSX.Element => {
         <MultiSelect
           id="phase"
           placeholder="Project phase"
-          values={filters.project_phase}
+          values={filters.project_phases}
           options={P_PHASE_OPTIONS}
-          onSelect={(v) => setFilters({ ...filters, project_phase: v })}
+          onSelect={(v) => setFilters({ ...filters, project_phases: v })}
         />
 
         <MultiSelect
           id="category"
           placeholder="Project category"
-          values={filters.project_category}
+          values={filters.project_categories}
           options={P_CATEGORY_OPTIONS}
-          onSelect={(v) => setFilters({ ...filters, project_category: v })}
+          onSelect={(v) => setFilters({ ...filters, project_categories: v })}
         />
       </div>
     </div>

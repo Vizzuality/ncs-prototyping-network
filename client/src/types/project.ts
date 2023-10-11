@@ -1,6 +1,8 @@
-export type ActionTypes = 'Restore' | 'Protect' | 'Manage';
+export type ActionType = 'Restore' | 'Protect' | 'Manage';
 
-export type CoBenefits =
+export type Category = 'Policy project' | 'Carbon project' | 'Goverment led' | 'Community based';
+
+export type CoBenefit =
   | 'Biodiversity'
   | 'Ecosystem Services'
   | 'Resilience and adaptation'
@@ -8,7 +10,7 @@ export type CoBenefits =
   | 'Cultural Heritage'
   | 'Livelihoods/Economic';
 
-export type Pathways =
+export type Pathway =
   | 'Agroforestry'
   | 'Coastal Wetlands (Avoided Impacts)'
   | 'Coastal Wetlands (Restoration)'
@@ -74,14 +76,14 @@ export interface Project {
   region: string;
   country: string;
   biome: string;
-  pathways: Pathways[];
-  action_types: ActionTypes[];
-  co_benefits: CoBenefits[];
+  pathways: Pathway[];
+  action_types: ActionType[];
+  cobenefits: CoBenefit[];
   carbon_mitigation: number;
   hectares_impacted: number;
   people_supported: number;
-  project_phase: Phase;
-  project_category: string;
+  project_phases: Phase[];
+  project_categories: Category[];
   project_goal: string;
   project_summary: string;
   key_words: string;

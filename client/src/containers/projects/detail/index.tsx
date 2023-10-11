@@ -173,7 +173,7 @@ const ProjectDetail = ({ params }: { params: { id: string } }): JSX.Element => {
           <div>
             <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
             <p className="pt-6 font-sans text-lg font-light text-text">
-              Project Phase: {projectQuery.data.project_phase}
+              Project Phase: {projectQuery.data.project_phases}
             </p>
 
             <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
