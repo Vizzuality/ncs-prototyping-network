@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound, useParams } from 'next/navigation';
 
 import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
@@ -24,10 +25,15 @@ import { cn } from 'utils/cn';
 
 import Card from '../card';
 
-const ProjectDetail = ({ params }: { params: { id: string } }): JSX.Element => {
-  const projectQuery = useProject({ projectId: params.id });
+const ProjectDetail = (): JSX.Element => {
+  const params = useParams();
+  const projectQuery = useProject({ projectId: `${params.id}` });
 
   const projectsQuery = useProjects();
+
+  if (!projectQuery.data) {
+    notFound();
+  }
 
   const [playing, setPlaying] = useState(false);
 

@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
             pathname.startsWith('/projects') && projectsView === 'map',
           "bg-[url('/images/projects/metrics/footer.png')]":
             pathname.startsWith('/projects') && projectsView === 'metrics',
-          "bg-[url('/images/contact/footer.png')]": pathname === '/contact',
+          "bg-[url('/images/contact/footer.jpg')]": pathname === '/contact',
         })}
         style={{
           backgroundImage: `url(${
