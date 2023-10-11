@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client';
 import { useMemo, useState } from 'react';
 
@@ -42,7 +41,7 @@ const ProjectDetail = ({ params }: { params: { id: string } }): JSX.Element => {
   const similarProjects = useMemo(() => {
     return projectsQuery.data
       ?.filter((project) => {
-        if (!project.pathways.some((pathway) => projectQuery.data?.pathways.includes(pathway)))
+        if (!project.pathways.some((pathway) => projectQuery.data?.pathways?.includes(pathway)))
           return false;
         return true;
       })
