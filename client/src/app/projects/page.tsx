@@ -15,7 +15,7 @@ import Wrapper from 'containers/wrapper';
 import { useProjects } from 'hooks/projects';
 import { filtersAtom, projectsViewAtom } from 'store';
 import { ActionType, Category, Pathway, Phase, Project } from 'types/project';
-import { getEspecificPathwayName } from 'utils/pathways';
+import { getSpecificPathwayName } from 'utils/pathways';
 
 const Projects: NextPage = () => {
   const projectsQuery = useProjects();
@@ -31,7 +31,7 @@ const Projects: NextPage = () => {
 
   useEffect(() => {
     if (pathway) {
-      setFilters({ ...filters, pathways: getEspecificPathwayName(pathway) });
+      setFilters({ ...filters, pathways: getSpecificPathwayName(pathway) });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

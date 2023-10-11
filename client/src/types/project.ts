@@ -129,3 +129,9 @@ export interface Project {
   project_site_attribution: string;
   footer_img: string;
 }
+
+export type Total = {
+  total_people_supported: number;
+  total_area_ha_impacted: number;
+  total_carbon_mitigation: number;
+};

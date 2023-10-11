@@ -22,25 +22,33 @@ const Footer: React.FC = () => {
 
   const projectsView = useRecoilValue(projectsViewAtom);
 
+  const getBackground = () => {
+    if (id && projectQuery.data?.footer_photo) {
+      return `url(${projectQuery.data?.footer_photo})`;
+    }
+    if (pathname === '/') {
+      return `url('/images/home/footer.png')`;
+    }
+    if (pathname.startsWith('/projects') && projectsView === 'map') {
+      return `url('/images/projects/map/footer.png')`;
+    }
+    if (pathname.startsWith('/projects') && projectsView === 'metrics') {
+      return `url('/images/projects/metrics/footer.png')`;
+    }
+    if (pathname === '/contact') {
+      return `url('/images/contact/footer.jpg')`;
+    }
+  };
+
   return (
     <div className="relative">
       <div
         className={cn({
           "mt-auto  bg-cover bg-no-repeat after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
             true,
-          "bg-[url('/images/home/footer.png')] bg-bottom": pathname === '/',
-          "bg-[url('/images/projects/map/footer.png')]":
-            pathname.startsWith('/projects') && projectsView === 'map',
-          "bg-[url('/images/projects/metrics/footer.png')]":
-            pathname.startsWith('/projects') && projectsView === 'metrics',
-          "bg-[url('/images/contact/footer.jpg')]": pathname === '/contact',
         })}
         style={{
-          backgroundImage: `url(${
-            pathname.startsWith('/projects/') && projectQuery.data?.footer_photo
-              ? projectQuery.data?.footer_photo
-              : ''
-          })`,
+          backgroundImage: getBackground(),
         }}
       >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">

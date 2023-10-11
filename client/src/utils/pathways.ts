@@ -15,7 +15,7 @@ export const getGeneralPathwayName = (pathway: Pathway) => {
   }
 };
 
-export const getEspecificPathwayName = (pathway) => {
+export const getSpecificPathwayName = (pathway) => {
   switch (pathway) {
     case 'Agroforestry':
       return ['Agroforestry'];

@@ -30,7 +30,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
           width={330}
           height={130}
         />
-        <div className="absolute top-2 left-2 z-10 flex flex-wrap">
+        <div className="absolute top-2 left-2 z-10 flex flex-wrap gap-1">
           {pathways.map((pathway, idx) => (
             <div
               key={idx}
