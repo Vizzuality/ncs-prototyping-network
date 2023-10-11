@@ -10,8 +10,15 @@ import { getGeneralPathwayName } from 'utils/pathways';
 import { COLORS, ICONS } from './constants';
 
 const Card = ({ data }: { data: Project }): JSX.Element => {
-  const { country, long_title, pathways, carbon_mitigation, project_phases, hectares_impacted, id } =
-    data;
+  const {
+    country,
+    long_title,
+    pathways,
+    carbon_mitigation,
+    project_phases,
+    hectares_impacted,
+    id,
+  } = data;
 
   return (
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
@@ -39,17 +46,19 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col space-y-2 p-[18px]">
+        <div className="flex flex-col space-y-2 bg-white p-[18px]">
           <p className="font-serif text-2xl font-semibold text-indigo">{country}</p>
-          <p className="max-w-xs font-sans text-2xs font-light text-text">{long_title}</p>
+          <p className="h-10 max-w-xs font-sans text-2xs font-light text-text line-clamp-2">
+            {long_title}
+          </p>
           <p className="max-w-xs font-sans text-2xs font-light text-text">
             <span className="font-medium uppercase">Mitigation potencial:</span> {''}
             {carbon_mitigation}
           </p>
-          <p className="max-w-xs font-sans text-2xs font-light text-text">
+          <div className="max-w-xs font-sans text-2xs font-light text-text">
             <span className="font-medium uppercase">Project phase:</span> {''}
-            {project_phases}
-          </p>
+            {project_phases.join(', ')}
+          </div>
           <p className="max-w-xs font-sans text-2xs font-light text-text">
             <span className="font-medium uppercase">Area impacted:</span> {''}
             {hectares_impacted}
