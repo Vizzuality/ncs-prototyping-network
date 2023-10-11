@@ -23,3 +23,28 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
     data,
   } as typeof query;
 }
+
+export function useProject({
+  projectId,
+}: {
+  projectId: string;
+}): UseQueryResult<Project[], unknown> {
+  const fetchProject = () =>
+    JSONAPI.request({
+      method: 'GET',
+      url: `/projects/${projectId}`,
+    }).then((response: AxiosResponse) => response.data);
+
+  const query = useQuery(['project'], fetchProject, {
+    placeholderData: [],
+  });
+
+  const {
+    data: { data },
+  } = query;
+
+  return {
+    ...query,
+    data,
+  } as typeof query;
+}
