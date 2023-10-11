@@ -350,9 +350,8 @@
           "abstract",
           "citations",
           "resources",
-          "photos",
           "video",
-          "graphic",
+          "graphic_1",
           "region",
           "country",
           "biomes",
@@ -371,11 +370,15 @@
           "project_site_description",
           "project_size_ha",
           "project_site_attribution",
-          "footer",
           "metric",
           "project_code",
           "people_supported",
-          "why_this_why_now_callout"
+          "why_this_why_now_callout",
+          "header_photo",
+          "footer_photo",
+          "goals_photo",
+          "fallback_photo",
+          "graphic_2"
         ]
       },
       "conditions": []
@@ -421,9 +424,8 @@
           "abstract",
           "citations",
           "resources",
-          "photos",
           "video",
-          "graphic",
+          "graphic_1",
           "region",
           "country",
           "biomes",
@@ -442,11 +444,15 @@
           "project_site_description",
           "project_size_ha",
           "project_site_attribution",
-          "footer",
           "metric",
           "project_code",
           "people_supported",
-          "why_this_why_now_callout"
+          "why_this_why_now_callout",
+          "header_photo",
+          "footer_photo",
+          "goals_photo",
+          "fallback_photo",
+          "graphic_2"
         ]
       },
       "conditions": []
@@ -480,9 +486,8 @@
           "abstract",
           "citations",
           "resources",
-          "photos",
           "video",
-          "graphic",
+          "graphic_1",
           "region",
           "country",
           "biomes",
@@ -501,11 +506,15 @@
           "project_site_description",
           "project_size_ha",
           "project_site_attribution",
-          "footer",
           "metric",
           "project_code",
           "people_supported",
-          "why_this_why_now_callout"
+          "why_this_why_now_callout",
+          "header_photo",
+          "footer_photo",
+          "goals_photo",
+          "fallback_photo",
+          "graphic_2"
         ]
       },
       "conditions": []

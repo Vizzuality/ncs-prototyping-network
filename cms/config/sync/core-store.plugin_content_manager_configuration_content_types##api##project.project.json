@@ -356,20 +356,6 @@
           "sortable": true
         }
       },
-      "photos": {
-        "edit": {
-          "label": "Photos",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "photos",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "video": {
         "edit": {
           "label": "Video",
@@ -384,16 +370,16 @@
           "sortable": false
         }
       },
-      "graphic": {
+      "graphic_1": {
         "edit": {
-          "label": "Graphic",
+          "label": "Graphic 1",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "graphic",
+          "label": "graphic_1",
           "searchable": false,
           "sortable": false
         }
@@ -661,20 +647,6 @@
           "sortable": true
         }
       },
-      "footer": {
-        "edit": {
-          "label": "Footer",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "footer",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "metric": {
         "edit": {
           "label": "Metric",
@@ -729,6 +701,76 @@
           "label": "why_this_why_now_callout",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "header_photo": {
+        "edit": {
+          "label": "Header Photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "header_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "footer_photo": {
+        "edit": {
+          "label": "Footer Photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "footer_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "goals_photo": {
+        "edit": {
+          "label": "Goals Photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "goals_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "fallback_photo": {
+        "edit": {
+          "label": "Fallback Photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "fallback_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "graphic_2": {
+        "edit": {
+          "label": "Graphic 2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "graphic_2",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -960,26 +1002,6 @@
         ],
         [
           {
-            "name": "photos",
-            "size": 6
-          },
-          {
-            "name": "graphic",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "video",
-            "size": 6
-          },
-          {
-            "name": "footer",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "biomes",
             "size": 6
           },
@@ -1015,6 +1037,42 @@
           },
           {
             "name": "why_this_why_now_callout",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "video",
+            "size": 8
+          }
+        ],
+        [
+          {
+            "name": "graphic_1",
+            "size": 6
+          },
+          {
+            "name": "graphic_2",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "header_photo",
+            "size": 6
+          },
+          {
+            "name": "footer_photo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "goals_photo",
+            "size": 6
+          },
+          {
+            "name": "fallback_photo",
             "size": 6
           }
         ]

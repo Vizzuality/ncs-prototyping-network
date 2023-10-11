@@ -85,14 +85,6 @@
     "resources": {
       "type": "text"
     },
-    "photos": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "video": {
       "type": "media",
       "multiple": false,
@@ -101,9 +93,9 @@
         "videos"
       ]
     },
-    "graphic": {
+    "graphic_1": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images"
@@ -198,14 +190,6 @@
     "project_site_attribution": {
       "type": "text"
     },
-    "footer": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "metric": {
       "type": "string"
     },
@@ -217,6 +201,41 @@
     },
     "why_this_why_now_callout": {
       "type": "text"
+    },
+    "header_photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "footer_photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "goals_photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "fallback_photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "graphic_2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
