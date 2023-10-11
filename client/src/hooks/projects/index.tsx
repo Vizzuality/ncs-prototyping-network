@@ -1,3 +1,4 @@
+'use client';
 import { useMemo } from 'react';
 
 import { useQuery, type UseQueryResult } from '@tanstack/react-query';
@@ -47,11 +48,7 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
   } as typeof query;
 }
 
-export function useProject({
-  projectId,
-}: {
-  projectId: string;
-}): UseQueryResult<Project[], unknown> {
+export function useProject({ projectId }: { projectId: string }): UseQueryResult<Project, unknown> {
   const fetchProject = () =>
     JSONAPI.request({
       method: 'GET',
@@ -67,9 +64,12 @@ export function useProject({
   } = query;
 
   const parsedData = useMemo(() => {
+    if (!data) {
+      return {};
+    }
     return {
       ...data,
-      action_types: data?.action_types.data.map((action_type) => action_type.attributes.name),
+      action_types: data.action_types.data.map((action_type) => action_type.attributes.name),
       biomes: data.biomes.data.map((biome) => biome.attributes.name),
       country: data.country.data.attributes.name,
       cobenefits: data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
