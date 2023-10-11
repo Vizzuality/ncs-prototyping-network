@@ -59,31 +59,30 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
     placeholderData: [],
   });
 
-  const {
-    data: { data },
-  } = query;
+  const { data } = query;
 
   const parsedData = useMemo(() => {
-    if (!data) {
+    if (!data?.data) {
       return {};
     }
     return {
-      ...data,
-      action_types: data.action_types.data.map((action_type) => action_type.attributes.name),
-      biomes: data.biomes.data.map((biome) => biome.attributes.name),
-      country: data.country.data.attributes.name,
-      cobenefits: data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
-      lesson_1_category: data.lesson_1_category.data.attributes.name,
-      lesson_2_category: data.lesson_2_category.data.attributes.name,
-      lesson_3_category: data.lesson_3_category.data.attributes.name,
-      pathways: data.pathways.data.map((pathway) => pathway.attributes.name),
-      project_categories: data.project_categories.data.map(
+      ...data.data,
+      action_types: data.data.action_types.data.map((action_type) => action_type.attributes.name),
+      biomes: data.data.biomes.data.map((biome) => biome.attributes.name),
+      country: data.data.country.data.attributes.name,
+      cobenefits: data.data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
+      footer_photo: data.data.footer_photo.data.attributes.url,
+      lesson_1_category: data.data.lesson_1_category.data.attributes.name,
+      lesson_2_category: data.data.lesson_2_category.data.attributes.name,
+      lesson_3_category: data.data.lesson_3_category.data.attributes.name,
+      pathways: data.data.pathways.data.map((pathway) => pathway.attributes.name),
+      project_categories: data.data.project_categories.data.map(
         (project_categories) => project_categories.attributes.name
       ),
-      project_phases: data.project_phases.data.map(
+      project_phases: data.data.project_phases.data.map(
         (project_phases) => project_phases.attributes.name
       ),
-      region: data.region.data?.attributes.name,
+      region: data.data.region.data?.attributes.name,
     };
   }, [data]);
 

@@ -81,6 +81,7 @@ export interface Project {
   cobenefits: CoBenefit[];
   carbon_mitigation: number;
   hectares_impacted: number;
+  footer_photo: string;
   people_supported: number;
   project_phases: Phase[];
   project_categories: Category[];

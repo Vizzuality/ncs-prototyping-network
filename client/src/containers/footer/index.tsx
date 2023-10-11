@@ -4,18 +4,22 @@ import React from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams } from 'next/navigation';
 
 import { useRecoilValue } from 'recoil';
 
-import { projectsViewAtom } from '@/store';
-
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
+import { useProject } from 'hooks/projects';
+import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
 
 const Footer: React.FC = () => {
+  const { id } = useParams();
   const pathname = usePathname();
+
+  const projectQuery = useProject({ projectId: `${id}` });
+
   const projectsView = useRecoilValue(projectsViewAtom);
 
   return (
@@ -30,8 +34,14 @@ const Footer: React.FC = () => {
           "bg-[url('/images/projects/metrics/footer.png')]":
             pathname.startsWith('/projects') && projectsView === 'metrics',
           "bg-[url('/images/contact/footer.png')]": pathname === '/contact',
-          "bg-[url('/images/projects/detail/footer.png')]": pathname.startsWith('/projects/'),
         })}
+        style={{
+          backgroundImage: `url(${
+            pathname.startsWith('/projects/') && projectQuery.data?.footer_photo
+              ? projectQuery.data?.footer_photo
+              : ''
+          })`,
+        }}
       >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
           <Link className="items-left flex cursor-pointer" href="/">
