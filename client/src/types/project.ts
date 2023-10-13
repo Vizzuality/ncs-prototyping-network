@@ -135,3 +135,16 @@ export type Total = {
   total_area_ha_impacted: number;
   total_carbon_mitigation: number;
 };
+
+export type PopUp = {
+  popup: number[];
+  popupInfo: {
+    id: number;
+    name: string;
+    pathways: Pathway[];
+    action_types: ActionType[];
+    project_phases: Phase[];
+    project_categories: Category[];
+  };
+  popUpPosition: { x: number; y: number };
+};

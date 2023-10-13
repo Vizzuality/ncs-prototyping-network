@@ -60,6 +60,8 @@ const LayerManager = () => {
         coordinates: [project.centroid_lat, project.centroid_long],
       },
       properties: {
+        id: project.id,
+        name: project.project_name,
         pathways: project.pathways,
         action_types: project.action_types,
         project_phases: project.project_phases,
@@ -83,57 +85,24 @@ const LayerManager = () => {
     return {
       id: 'projects-layer',
       type: 'circle',
-      // ...(activedFilters && {
-      //   filter: [
-      //     'all',
-      //     ...(!!pathways.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...pathways.map((id) => {
-      //               return ['in', id, ['get', 'pathways']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //     ...(!!project_phases.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...project_phases.map((id) => {
-      //               return ['in', id, ['get', 'project_phases']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //     ...(!!action_types.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...action_types.map((id) => {
-      //               return ['in', id, ['get', 'action_types']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //     ...(!!project_categories.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...project_categories.map((id) => {
-      //               return ['in', id, ['get', 'project_categories']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //   ],
-      // }),
       paint: {
         'circle-color': '#1F51FF',
         'circle-opacity': 0.5,
         'circle-radius': 10,
       },
+      // images: [
+      //   {
+      //     id: 'airport',
+      //     src: '/images/avatar.png',
+      //     options: {},
+      //   },
+      // ],
+
       layout: {
+        // 'icon-image': 'airport',
+        // 'icon-ignore-placement': true,
+        // 'icon-allow-overlap': true,
+        // 'icon-size': ['interpolate', ['linear'], ['zoom'], 0.18, 0.15, 0.2, 0.1],
         visibility: 'visible',
       },
     };
