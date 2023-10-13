@@ -8,12 +8,12 @@ import bbox from '@turf/bbox';
 import { GeoJSONSourceRaw, GeoJSONSourceOptions, LngLatBoundsLike } from 'mapbox-gl';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 
-import BASEMAPS from '@/utils/basemaps';
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
 import ZoomControl from 'components/map/controls/zoom';
 import { CustomMapProps } from 'components/map/types';
+import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
 
 const initialViewState: MapboxProps['initialViewState'] = {
@@ -70,7 +70,7 @@ const ExtentMap = ({ extent }): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    if (map) {
+    if (map && extent) {
       const bboxTurf = bbox(extent) as LngLatBoundsLike;
       map.fitBounds(bboxTurf, { padding: 100 });
     }
