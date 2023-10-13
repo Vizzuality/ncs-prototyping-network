@@ -19,52 +19,39 @@ export type Pathway =
 
 export type Phase = 'Piloting' | 'Implementing' | 'Scaling';
 
-//TODO: Type correctly
-export type Media = {
-  id: number;
-  ext: '.png';
-  url: string;
+type Format = {
+  ext: string;
   hash: string;
-  mime: 'image/png';
-  name: string;
-  size: number;
-  type: 'asset';
-  width: number;
-  folder: null;
   height: number;
+  mime: string;
+  name: string;
+  path: null;
+  size: number;
+  url: string;
+  width: number;
+};
+
+export type Media = {
+  alternativeText: string;
   caption: string;
+  createdAt: string;
+  ext: string;
   formats: {
-    small: {
-      ext: '.png';
-      url: string;
-      hash: string;
-      mime: 'image/png';
-      name: string;
-      path: null;
-      size: number;
-      width: number;
-      height: number;
-    };
-    thumbnail: {
-      ext: '.png';
-      url: string;
-      hash: string;
-      mime: 'image/png';
-      name: string;
-      path: null;
-      size: number;
-      width: number;
-      height: number;
-    };
+    small: Format;
+    medium: Format;
+    thumbnail: Format;
   };
-  provider: 'local';
-  createdAt: Date;
-  updatedAt: Date;
-  folderPath: string;
-  previewUrl: string | null;
-  isSelectable: boolean;
-  alternativeText: string | null;
-  provider_metadata: null;
+  hash: string;
+  height: number;
+  mime: string;
+  name: string;
+  previewUrl: string;
+  provider: string;
+  provider_metadata: string;
+  size: number;
+  updatedAt: string;
+  url: string;
+  width: number;
 };
 
 export interface Project {
@@ -81,7 +68,8 @@ export interface Project {
   cobenefits: CoBenefit[];
   carbon_mitigation: number;
   hectares_impacted: number;
-  footer_photo: string;
+  fallback_photo: Media;
+  footer_photo: Media;
   people_supported: number;
   project_phases: Phase[];
   project_categories: Category[];

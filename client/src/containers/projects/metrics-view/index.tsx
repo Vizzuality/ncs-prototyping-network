@@ -95,15 +95,19 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                     <td className="w-3/12 !pl-0">
                       <Link href={`/projects/${project.id}`} className="group flex space-x-3">
                         <Image
-                          alt={project.photo_2_caption}
-                          // !TODO: Change to photo_2 when we have media upload
-                          src="https://dummyimage.com/330x290/000/fff&text=+"
-                          width={100}
+                          alt={project.fallback_photo?.caption}
+                          src={
+                            project.fallback_photo?.url ||
+                            'https://dummyimage.com/100x100/000/fff&text=+'
+                          }
+                          style={{ objectFit: 'cover', height: '100px', width: '100px' }}
                           height={100}
+                          width={100}
                         />
+
                         <div className="flex flex-col">
-                          <p className="font-serif text-2xl font-semibold text-indigo group-hover:underline">
-                            {project.country}
+                          <p className="-mt-1 font-serif text-2xl font-semibold text-indigo group-hover:underline">
+                            {project.project_name}
                           </p>
                           <p className="max-w-sm text-2xs text-text group-hover:opacity-80">
                             {project.long_title}

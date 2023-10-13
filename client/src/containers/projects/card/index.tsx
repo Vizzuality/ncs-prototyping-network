@@ -5,13 +5,13 @@ import Link from 'next/link';
 import Icon from 'components/icon';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
-import { getGeneralPathwayName } from 'utils/pathways';
 
 import { COLORS, ICONS } from './constants';
 
 const Card = ({ data }: { data: Project }): JSX.Element => {
   const {
     country,
+    fallback_photo,
     long_title,
     pathways,
     carbon_mitigation,
@@ -24,13 +24,14 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
       <Link href={`/projects/${id}`}>
         <Image
-          alt={long_title}
-          src="https://dummyimage.com/700x300/000/fff&text=+"
-          style={{ objectFit: 'cover' }}
-          width={330}
-          height={130}
+          alt={fallback_photo?.caption}
+          src={fallback_photo?.url || 'https://dummyimage.com/700x300/000/fff&text=+'}
+          style={{ objectFit: 'cover', height: '140px', width: '360px' }}
+          height={140}
+          width={360}
         />
-        <div className="absolute top-2 left-2 z-10 flex flex-wrap gap-1">
+
+        <div className="absolute top-2 left-2 z-20 flex flex-wrap gap-1">
           {pathways.map((pathway, idx) => (
             <div
               key={idx}
@@ -41,7 +42,8 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
             >
               <Icon icon={ICONS[pathway]} className="h-6 w-6" />
               <p className="font-serif text-xs uppercase text-white">
-                {getGeneralPathwayName(pathway)}
+                {/* {getGeneralPathwayName(pathway)} */}
+                {pathway}
               </p>
             </div>
           ))}

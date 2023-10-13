@@ -23,8 +23,8 @@ const Footer: React.FC = () => {
   const projectsView = useRecoilValue(projectsViewAtom);
 
   const getBackground = () => {
-    if (id && projectQuery.data?.footer_photo) {
-      return `url(${projectQuery.data?.footer_photo})`;
+    if (id && projectQuery.data?.footer_photo?.url) {
+      return `url(${projectQuery.data?.footer_photo?.url})`;
     }
     if (pathname === '/') {
       return `url('/images/home/footer.png')`;
