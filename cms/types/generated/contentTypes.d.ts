@@ -1005,6 +1005,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     goals_photo: Attribute.Media;
     fallback_photo: Attribute.Media;
     graphic_2: Attribute.Media;
+    extent: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

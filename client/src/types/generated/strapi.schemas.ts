@@ -264,6 +264,7 @@ export type RegionProjectsDataItemAttributes = {
   goals_photo?: RegionProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: RegionProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: RegionProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -1882,6 +1883,7 @@ export type ProjectPhaseProjectsDataItemAttributes = {
   goals_photo?: ProjectPhaseProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: ProjectPhaseProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: ProjectPhaseProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -3555,6 +3557,7 @@ export type ProjectCategoryProjectsDataItemAttributes = {
   goals_photo?: ProjectCategoryProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: ProjectCategoryProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: ProjectCategoryProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -5140,6 +5143,7 @@ export interface Project {
   goals_photo?: ProjectGoalsPhoto;
   fallback_photo?: ProjectFallbackPhoto;
   graphic_2?: ProjectGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -5712,6 +5716,7 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributes = {
   goals_photo?: ProjectRegionDataAttributesProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: ProjectRegionDataAttributesProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: ProjectRegionDataAttributesProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -7487,6 +7492,7 @@ export type ProjectRequestData = {
   goals_photo?: ProjectRequestDataGoalsPhoto;
   fallback_photo?: ProjectRequestDataFallbackPhoto;
   graphic_2?: ProjectRequestDataGraphic2;
+  extent?: unknown;
 };
 
 export type PathwayResponseMeta = { [key: string]: any };
@@ -7577,6 +7583,7 @@ export type PathwayProjectsDataItemAttributes = {
   goals_photo?: PathwayProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: PathwayProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: PathwayProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -9804,6 +9811,7 @@ export type LessonCategoryProjects1DataItemAttributes = {
   goals_photo?: LessonCategoryProjects1DataItemAttributesGoalsPhoto;
   fallback_photo?: LessonCategoryProjects1DataItemAttributesFallbackPhoto;
   graphic_2?: LessonCategoryProjects1DataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -10884,6 +10892,7 @@ export type CountryProjectsDataItemAttributes = {
   goals_photo?: CountryProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: CountryProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: CountryProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -12515,6 +12524,7 @@ export type CobenefitProjectsDataItemAttributes = {
   goals_photo?: CobenefitProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: CobenefitProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: CobenefitProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -14148,6 +14158,7 @@ export type BiomeProjectsDataItemAttributes = {
   goals_photo?: BiomeProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: BiomeProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: BiomeProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -15826,6 +15837,7 @@ export type ActionTypeProjectsDataItemAttributes = {
   goals_photo?: ActionTypeProjectsDataItemAttributesGoalsPhoto;
   fallback_photo?: ActionTypeProjectsDataItemAttributesFallbackPhoto;
   graphic_2?: ActionTypeProjectsDataItemAttributesGraphic2;
+  extent?: unknown;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;

@@ -410,7 +410,8 @@
           "footer_photo",
           "goals_photo",
           "fallback_photo",
-          "graphic_2"
+          "graphic_2",
+          "extent"
         ]
       },
       "conditions": [],
@@ -487,7 +488,8 @@
           "footer_photo",
           "goals_photo",
           "fallback_photo",
-          "graphic_2"
+          "graphic_2",
+          "extent"
         ]
       },
       "conditions": [],
@@ -550,7 +552,8 @@
           "footer_photo",
           "goals_photo",
           "fallback_photo",
-          "graphic_2"
+          "graphic_2",
+          "extent"
         ]
       },
       "conditions": [],

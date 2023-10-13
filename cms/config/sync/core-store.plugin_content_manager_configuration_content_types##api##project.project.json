@@ -773,6 +773,20 @@
           "sortable": false
         }
       },
+      "extent": {
+        "edit": {
+          "label": "Extent",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "extent",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -833,12 +847,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
-      ],
       "edit": [
         [
           {
@@ -1111,7 +1119,19 @@
             "name": "fallback_photo",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "extent",
+            "size": 12
+          }
         ]
+      ],
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
       ]
     }
   },
