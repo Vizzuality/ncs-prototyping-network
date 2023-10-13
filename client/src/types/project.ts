@@ -1,3 +1,5 @@
+import { GeoJSONSourceOptions, GeoJSONSourceRaw } from 'mapbox-gl';
+
 export type ActionType = 'Restore' | 'Protect' | 'Manage';
 
 export type Category = 'Policy project' | 'Carbon project' | 'Goverment led' | 'Community based';
@@ -63,6 +65,7 @@ export interface Project {
   region: string;
   country: string;
   biome: string;
+  extent: GeoJSONSourceRaw & GeoJSONSourceOptions;
   pathways: Pathway[];
   action_types: ActionType[];
   cobenefits: CoBenefit[];

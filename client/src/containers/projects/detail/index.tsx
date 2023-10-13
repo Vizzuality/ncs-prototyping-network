@@ -25,6 +25,8 @@ import { cn } from 'utils/cn';
 
 import Card from '../card';
 
+import ExtentMap from './extent-map';
+
 const ProjectDetail = (): JSX.Element => {
   const params = useParams();
   const projectQuery = useProject({ projectId: `${params.id}` });
@@ -68,7 +70,7 @@ const ProjectDetail = (): JSX.Element => {
   return (
     <>
       <div className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat" />
-      <Wrapper className="relative flex w-full flex-row">
+      <Wrapper className="relative flex w-full flex-row justify-between">
         <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
           <motion.div whileHover="hover">
             <Link href="/projects" className="flex items-center space-x-1 pb-8">
@@ -107,13 +109,9 @@ const ProjectDetail = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="absolute -right-16 -top-1/3 w-1/3">
-          <Image
-            src="/images/projects/detail/extent_map.png"
-            alt="Project Detail"
-            height={486}
-            width={300}
-          />
+
+        <div className="-mt-36">
+          <ExtentMap extent={projectQuery.data?.extent} />
         </div>
       </Wrapper>
       <Wrapper>

@@ -90,19 +90,8 @@ const LayerManager = () => {
         'circle-opacity': 0.5,
         'circle-radius': 10,
       },
-      // images: [
-      //   {
-      //     id: 'airport',
-      //     src: '/images/avatar.png',
-      //     options: {},
-      //   },
-      // ],
 
       layout: {
-        // 'icon-image': 'airport',
-        // 'icon-ignore-placement': true,
-        // 'icon-allow-overlap': true,
-        // 'icon-size': ['interpolate', ['linear'], ['zoom'], 0.18, 0.15, 0.2, 0.1],
         visibility: 'visible',
       },
     };
