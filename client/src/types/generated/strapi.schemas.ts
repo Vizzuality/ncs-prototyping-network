@@ -1576,6 +1576,7 @@ export type RegionProjectsDataItemAttributesVideoDataAttributesFolderDataAttribu
 export type RegionProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -3198,6 +3199,7 @@ export type ProjectPhaseProjectsDataItemAttributesVideoDataAttributesFolderDataA
 export type ProjectPhaseProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -4892,6 +4894,7 @@ export type ProjectCategoryProjectsDataItemAttributesVideoDataAttributesFolderDa
 export type ProjectCategoryProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -7211,6 +7214,7 @@ export type ProjectVideoDataAttributesFolderDataAttributesFilesDataItemAttribute
 export type ProjectVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -8931,6 +8935,7 @@ export type PathwayProjectsDataItemAttributesVideoDataAttributesFolderDataAttrib
 export type PathwayProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -10605,6 +10610,7 @@ export type LessonCategoryProjects1DataItemAttributesVideoDataAttributesFolderDa
 export type LessonCategoryProjects1DataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -12289,6 +12295,7 @@ export type CountryProjectsDataItemAttributesVideoDataAttributesFolderDataAttrib
 export type CountryProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -13921,6 +13928,7 @@ export type CobenefitProjectsDataItemAttributesVideoDataAttributesFolderDataAttr
 export type CobenefitProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -15558,6 +15566,7 @@ export type BiomeProjectsDataItemAttributesVideoDataAttributesFolderDataAttribut
 export type BiomeProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
@@ -17187,6 +17196,7 @@ export type ActionTypeProjectsDataItemAttributesVideoDataAttributesFolderDataAtt
 export type ActionTypeProjectsDataItemAttributesVideoDataAttributesFolderDataAttributesFilesDataItemAttributesCreatedByDataAttributesRolesDataItemAttributesPermissionsDataItemAttributes =
   {
     action?: string;
+    actionParameters?: unknown;
     subject?: string;
     properties?: unknown;
     conditions?: unknown;
