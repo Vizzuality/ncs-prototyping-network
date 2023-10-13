@@ -1,6 +1,6 @@
-import { Pathways } from 'types/project';
+import { Pathway } from 'types/project';
 
-export const getGeneralPathwayName = (pathway: Pathways) => {
+export const getGeneralPathwayName = (pathway: Pathway) => {
   switch (pathway) {
     case 'Agroforestry':
       return 'Agroforestry';
@@ -15,7 +15,7 @@ export const getGeneralPathwayName = (pathway: Pathways) => {
   }
 };
 
-export const getEspecificPathwayName = (pathway) => {
+export const getSpecificPathwayName = (pathway) => {
   switch (pathway) {
     case 'Agroforestry':
       return ['Agroforestry'];

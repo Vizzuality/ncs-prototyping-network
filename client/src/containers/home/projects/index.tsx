@@ -6,10 +6,12 @@ import Image from 'next/image';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
+import { useProjects } from '@/hooks/projects';
+
 import Wrapper from 'containers/wrapper';
-import { PROJECTS } from 'data/projects';
 
 const HomeProjects = (): JSX.Element => {
+  const projectsQuery = useProjects();
   const SampleNextArrow = ({ onClick }: { onClick?: MouseEventHandler<HTMLButtonElement> }) => {
     return (
       <button
@@ -56,7 +58,7 @@ const HomeProjects = (): JSX.Element => {
         </div>
         <div className="">
           <Slider {...settings}>
-            {PROJECTS.map((project) => (
+            {projectsQuery.data?.map((project) => (
               <div key={project.id} className="relative">
                 <Image
                   alt={project.photo_2_caption}

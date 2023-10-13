@@ -4,19 +4,41 @@ import React from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams } from 'next/navigation';
 
 import { useRecoilValue } from 'recoil';
 
-import { projectsViewAtom } from '@/store';
-
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
+import { useProject } from 'hooks/projects';
+import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
 
 const Footer: React.FC = () => {
+  const { id } = useParams();
   const pathname = usePathname();
+
+  const projectQuery = useProject({ projectId: `${id}` });
+
   const projectsView = useRecoilValue(projectsViewAtom);
+
+  const getBackground = () => {
+    if (id && projectQuery.data?.footer_photo) {
+      return `url(${projectQuery.data?.footer_photo})`;
+    }
+    if (pathname === '/') {
+      return `url('/images/home/footer.png')`;
+    }
+    if (pathname.startsWith('/projects') && projectsView === 'map') {
+      return `url('/images/projects/map/footer.png')`;
+    }
+    if (pathname.startsWith('/projects') && projectsView === 'metrics') {
+      return `url('/images/projects/metrics/footer.png')`;
+    }
+    if (pathname === '/contact') {
+      return `url('/images/contact/footer.jpg')`;
+    }
+  };
 
   return (
     <div className="relative">
@@ -24,14 +46,10 @@ const Footer: React.FC = () => {
         className={cn({
           "mt-auto  bg-cover bg-no-repeat after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
             true,
-          "bg-[url('/images/home/footer.png')] bg-bottom": pathname === '/',
-          "bg-[url('/images/projects/map/footer.png')]":
-            pathname.startsWith('/projects') && projectsView === 'map',
-          "bg-[url('/images/projects/metrics/footer.png')]":
-            pathname.startsWith('/projects') && projectsView === 'metrics',
-          "bg-[url('/images/contact/footer.png')]": pathname === '/contact',
-          "bg-[url('/images/projects/detail/footer.png')]": pathname.startsWith('/projects/'),
         })}
+        style={{
+          backgroundImage: getBackground(),
+        }}
       >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
           <Link className="items-left flex cursor-pointer" href="/">

@@ -12,12 +12,14 @@ import MapView from 'containers/projects/map-view';
 import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
-import { PROJECTS } from 'data/projects';
+import { useProjects } from 'hooks/projects';
 import { filtersAtom, projectsViewAtom } from 'store';
-import { ActionTypes, Pathways, Project } from 'types/project';
-import { getEspecificPathwayName } from 'utils/pathways';
+import { ActionType, Category, Pathway, Phase, Project } from 'types/project';
+import { getSpecificPathwayName } from 'utils/pathways';
 
 const Projects: NextPage = () => {
+  const projectsQuery = useProjects();
+
   const projectsView = useRecoilValue(projectsViewAtom);
 
   const [filters, setFilters] = useRecoilState(filtersAtom);
@@ -25,11 +27,11 @@ const Projects: NextPage = () => {
 
   const pathway = searchParams.get('pathway');
 
-  const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
+  const [dataFiltered, setDataFiltered] = useState<Project[]>(projectsQuery.data || []);
 
   useEffect(() => {
     if (pathway) {
-      setFilters({ ...filters, pathways: getEspecificPathwayName(pathway) });
+      setFilters({ ...filters, pathways: getSpecificPathwayName(pathway) });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -37,19 +39,25 @@ const Projects: NextPage = () => {
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
     const dataFinalFiltered = () => {
-      const data = PROJECTS.filter((project) => {
+      const data = projectsQuery.data?.filter((project) => {
         if (filters.pathways.length > 0) {
-          if (!filters.pathways.some((pw: Pathways) => project.pathways.includes(pw))) return false;
+          if (!filters.pathways.some((pw: Pathway) => project.pathways.includes(pw))) return false;
         }
-        if (filters.project_phase.length > 0) {
-          if (!filters.project_phase.includes(project.project_phase)) return false;
-        }
-        if (filters.action_types.length > 0) {
-          if (!filters.action_types.some((at: ActionTypes) => project.action_types.includes(at)))
+        if (filters.project_phases.length > 0) {
+          if (!filters.project_phases.some((pp: Phase) => project.project_phases.includes(pp)))
             return false;
         }
-        if (filters.project_category.length > 0) {
-          if (!filters.project_category.includes(project.project_category)) return false;
+        if (filters.action_types.length > 0) {
+          if (!filters.action_types.some((at: ActionType) => project.action_types.includes(at)))
+            return false;
+        }
+        if (filters.project_categories.length > 0) {
+          if (
+            !filters.project_categories.some((pc: Category) =>
+              project.project_categories.includes(pc)
+            )
+          )
+            return false;
         }
         return true;
       });
@@ -58,8 +66,8 @@ const Projects: NextPage = () => {
 
     if (activedFilters) return setDataFiltered(dataFinalFiltered());
 
-    if (!activedFilters) return setDataFiltered(PROJECTS);
-  }, [filters]);
+    if (!activedFilters) return setDataFiltered(projectsQuery.data || []);
+  }, [filters, projectsQuery.data]);
 
   return (
     <Wrapper>

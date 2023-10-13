@@ -1,27 +1,50 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosResponse, CreateAxiosDefaults, isAxiosError } from 'axios';
+import Jsona from 'jsona';
 
-import env from '@/env.mjs';
+const dataFormatter = new Jsona();
 
-export const AXIOS_INSTANCE: AxiosInstance = Axios.create({ baseURL: env.NEXT_PUBLIC_API_URL });
+const APIConfig: CreateAxiosDefaults<unknown> = {
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api`,
+  headers: { 'Content-Type': 'application/json' },
+} satisfies CreateAxiosDefaults;
 
-export const API = <T>(config: AxiosRequestConfig): Promise<T> => {
-  const source = Axios.CancelToken.source();
-  const promise: Promise<T> = AXIOS_INSTANCE({ ...config, cancelToken: source.token }).then(
-    ({ data }) => data
-  );
+export const JSONAPI = axios.create({
+  ...APIConfig,
+  transformResponse: (data) => {
+    try {
+      const parsedData = JSON.parse(data);
+      return {
+        data: dataFormatter.deserialize(parsedData),
+        meta: parsedData.meta,
+      };
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        throw new Error(error.response.statusText);
+      }
+      throw error;
+    }
+  },
+});
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  promise.cancel = () => {
-    source.cancel('Query was cancelled');
-  };
+const onResponseSuccess = (response: AxiosResponse<unknown>) => response;
 
-  return promise;
+const onResponseError = (error: unknown) => {
+  return Promise.reject(error);
 };
 
-// In some case with react-query and swr you want to be able to override the return error type so you can also do it here like this
+JSONAPI.interceptors.response.use(onResponseSuccess, onResponseError);
+
+export const API = axios.create({
+  ...APIConfig,
+});
+
+API.interceptors.response.use(onResponseSuccess, onResponseError);
+
+const APIInstances = {
+  JSONAPI,
+  API,
+};
+
 export type ErrorType<Error> = AxiosError<Error>;
 
-export default API;
+export default APIInstances;

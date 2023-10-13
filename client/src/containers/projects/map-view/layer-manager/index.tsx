@@ -6,12 +6,14 @@ import bbox from '@turf/bbox';
 import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer, LngLatBoundsLike } from 'mapbox-gl';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
-import { PROJECTS } from 'data/projects';
+import { useProjects } from '@/hooks/projects';
+
 import { filteredBboxAtom, filtersAtom } from 'store';
-import { ActionTypes, Pathways, Project } from 'types/project';
+import { ActionType, Category, Pathway, Phase, Project } from 'types/project';
 
 const LayerManager = () => {
-  const [dataFiltered, setDataFiltered] = useState<Project[]>(PROJECTS);
+  const projectsQuery = useProjects();
+  const [dataFiltered, setDataFiltered] = useState<Project[]>(projectsQuery.data || []);
 
   const filters = useRecoilValue(filtersAtom);
   const setFilteredBbox = useSetRecoilState(filteredBboxAtom);
@@ -19,19 +21,25 @@ const LayerManager = () => {
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
     const dataFinalFiltered = () => {
-      const data = PROJECTS.filter((project) => {
+      const data = projectsQuery.data?.filter((project) => {
         if (filters.pathways.length > 0) {
-          if (!filters.pathways.some((pw: Pathways) => project.pathways.includes(pw))) return false;
+          if (!filters.pathways.some((pw: Pathway) => project.pathways.includes(pw))) return false;
         }
-        if (filters.project_phase.length > 0) {
-          if (!filters.project_phase.includes(project.project_phase)) return false;
-        }
-        if (filters.action_types.length > 0) {
-          if (!filters.action_types.some((at: ActionTypes) => project.action_types.includes(at)))
+        if (filters.project_phases.length > 0) {
+          if (!filters.project_phases.some((pp: Phase) => project.project_phases.includes(pp)))
             return false;
         }
-        if (filters.project_category.length > 0) {
-          if (!filters.project_category.includes(project.project_category)) return false;
+        if (filters.action_types.length > 0) {
+          if (!filters.action_types.some((at: ActionType) => project.action_types.includes(at)))
+            return false;
+        }
+        if (filters.project_categories.length > 0) {
+          if (
+            !filters.project_categories.some((pc: Category) =>
+              project.project_categories.includes(pc)
+            )
+          )
+            return false;
         }
         return true;
       });
@@ -40,8 +48,8 @@ const LayerManager = () => {
 
     if (activedFilters) return setDataFiltered(dataFinalFiltered());
 
-    if (!activedFilters) return setDataFiltered(PROJECTS);
-  }, [filters]);
+    if (!activedFilters) return setDataFiltered(projectsQuery.data || []);
+  }, [filters, projectsQuery.data]);
 
   const GEOJSON = {
     type: 'FeatureCollection',
@@ -54,8 +62,8 @@ const LayerManager = () => {
       properties: {
         pathways: project.pathways,
         action_types: project.action_types,
-        project_phase: project.project_phase,
-        project_category: project.project_category,
+        project_phases: project.project_phases,
+        project_categories: project.project_categories,
       },
     })),
   } as GeoJSON.FeatureCollection;
@@ -88,12 +96,12 @@ const LayerManager = () => {
       //           ],
       //         ]
       //       : []),
-      //     ...(!!project_phase.length
+      //     ...(!!project_phases.length
       //       ? [
       //           [
       //             'any',
-      //             ...project_phase.map((id) => {
-      //               return ['in', id, ['get', 'project_phase']];
+      //             ...project_phases.map((id) => {
+      //               return ['in', id, ['get', 'project_phases']];
       //             }),
       //           ],
       //         ]
@@ -108,12 +116,12 @@ const LayerManager = () => {
       //           ],
       //         ]
       //       : []),
-      //     ...(!!project_category.length
+      //     ...(!!project_categories.length
       //       ? [
       //           [
       //             'any',
-      //             ...project_category.map((id) => {
-      //               return ['in', id, ['get', 'project_category']];
+      //             ...project_categories.map((id) => {
+      //               return ['in', id, ['get', 'project_categories']];
       //             }),
       //           ],
       //         ]

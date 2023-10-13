@@ -60,7 +60,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                   >
                     <div
                       className={cn({
-                        'mb-2 flex items-end font-sans text-m font-normal leading-6 text-text':
+                        'mb-2 flex items-end font-sans text-m font-normal leading-4 text-text':
                           true,
                         'text-indigo': column.sorting,
                       })}
@@ -70,13 +70,13 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                       {column.sorting && (
                         <span>
                           {sortedBy === column.id && direction === 'asc' && (
-                            <HiChevronUp className="fill-butternut" size={25} />
+                            <HiChevronUp className="-mb-1 fill-butternut" size={25} />
                           )}
                           {sortedBy === column.id && direction === 'desc' && (
-                            <HiChevronDown className="fill-butternut" size={25} />
+                            <HiChevronDown className="-mb-1 fill-butternut" size={25} />
                           )}
                           {sortedBy !== column.id && (
-                            <HiChevronUp className="fill-butternut" size={25} />
+                            <HiChevronUp className="-mb-1 fill-butternut" size={25} />
                           )}
                         </span>
                       )}
@@ -111,12 +111,10 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                         </div>
                       </Link>
                     </td>
-                    <td className="bg-background">
-                      <div>
-                        {project.pathways.map((pathway, idx) => (
-                          <p key={idx}>{pathway}</p>
-                        ))}
-                      </div>
+                    <td className="space-y-1 bg-background">
+                      {project.pathways.map((pathway, idx) => (
+                        <p key={idx}>{pathway}</p>
+                      ))}
                     </td>
                     <td>
                       <div>
@@ -125,14 +123,22 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                         ))}
                       </div>
                     </td>
-                    <td className="bg-background">{project.project_phase}</td>
-                    <td>{project.project_category}</td>
+                    <td className="space-y-1 bg-background">
+                      {project.project_phases.map((phase, idx) => (
+                        <p key={idx}>{phase}</p>
+                      ))}
+                    </td>
+                    <td className="space-y-1">
+                      {project.project_categories.map((category, idx) => (
+                        <p key={idx}>{category}</p>
+                      ))}
+                    </td>
                     <td className="bg-background">{project.hectares_impacted}</td>
                     <td>{project.people_supported}</td>
                     <td className="bg-background">{project.carbon_mitigation}</td>
                     <td>
                       <div className="grid grid-cols-2 gap-3">
-                        {project.co_benefits.map((cb) => {
+                        {project.cobenefits.map((cb) => {
                           return <Icon icon={CO_BENEFITS_ICONS[cb]} className="h-7 w-7" key={cb} />;
                         })}
                       </div>

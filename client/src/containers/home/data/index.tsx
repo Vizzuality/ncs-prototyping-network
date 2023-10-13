@@ -7,6 +7,7 @@ const Data = (): JSX.Element => {
     <section className="bg-background">
       <Wrapper>
         <div className="mx-20 flex justify-between py-7">
+          {/* // !TODO: add real data */}
           {DATA.map((d) => (
             <div key={d.id} className="flex flex-col items-center space-y-2">
               <p className="font-sans text-4xl font-bold text-spring">{d.quantity}</p>

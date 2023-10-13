@@ -6323,6 +6323,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsona@npm:1.12.1":
+  version: 1.12.1
+  resolution: "jsona@npm:1.12.1"
+  dependencies:
+    tslib: ^2.4.1
+  checksum: b27d275ee6c9f572e81c40966d66a8e336e8e2609636a3c98faa222810ddad83282806df3c3347e4da623db46a8e37d4b076df6f244b622ad0c8be318a13e27a
+  languageName: node
+  linkType: hard
+
 "jsonc-parser@npm:~2.2.1":
   version: 2.2.1
   resolution: "jsonc-parser@npm:2.2.1"
@@ -7619,6 +7628,7 @@ __metadata:
     final-form: 4.20.10
     framer-motion: 10.12.16
     husky: 8.0.3
+    jsona: 1.12.1
     mapbox-gl: 2.15.0
     next: 13.5.4
     orval: 6.18.1
@@ -10361,7 +10371,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.5.0, tslib@npm:^2.6.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.4.1, tslib@npm:^2.5.0, tslib@npm:^2.6.0":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad

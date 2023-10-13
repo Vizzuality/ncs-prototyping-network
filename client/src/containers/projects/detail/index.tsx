@@ -1,30 +1,40 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
+'use client';
 import { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound, useParams } from 'next/navigation';
 
 import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
 
+import { useProject, useProjects } from '@/hooks/projects';
+
 import Icon from 'components/icon';
 import Button from 'components/ui/button';
 import Video from 'components/video';
 import Wrapper from 'containers/wrapper';
-import { PROJECTS } from 'data/projects';
 import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
 import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
 import HUMAN_HEALTH_WELLBEING_SVG from 'svgs/co-benefits/human_health_wellbeing.svg?sprite';
 import LIVELIHOODS_ECONOMIC_SVG from 'svgs/co-benefits/livelihoods_economic.svg?sprite';
 import RESILIENCE_AND_ADAPTATION_SVG from 'svgs/co-benefits/resilience_and_adaptation.svg?sprite';
 import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
-import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
 import Card from '../card';
 
-const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
+const ProjectDetail = (): JSX.Element => {
+  const params = useParams();
+  const projectQuery = useProject({ projectId: `${params.id}` });
+
+  const projectsQuery = useProjects();
+
+  if (!projectQuery.data) {
+    notFound();
+  }
+
   const [playing, setPlaying] = useState(false);
 
   const arrowAnimation = {
@@ -35,11 +45,14 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
   };
 
   const similarProjects = useMemo(() => {
-    return PROJECTS.filter((project) => {
-      if (!project.pathways.some((pathway) => data.pathways.includes(pathway))) return false;
-      return true;
-    }).slice(0, 3);
-  }, [data]);
+    return projectsQuery.data
+      ?.filter((project) => {
+        if (!project.pathways.some((pathway) => projectQuery.data?.pathways?.includes(pathway)))
+          return false;
+        return true;
+      })
+      .slice(0, 3);
+  }, [projectsQuery.data, projectQuery.data]);
 
   const onDownload = async (resource: string, fileName: string) => {
     const blob = await fetch(resource).then((r) => r.blob());
@@ -67,22 +80,28 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </motion.div>
           <div className="flex flex-col items-center">
             <h2 className="mb-16 max-w-3xl font-serif text-[35px] font-medium leading-9 text-indigo">
-              {data?.long_title}
+              {projectQuery.data?.long_title}
             </h2>
             <div className="flex space-x-20 font-sans">
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">{data?.carbon_mitigation}</p>
+                <p className="pb-2 text-4xl font-bold text-spring">
+                  {projectQuery.data?.carbon_mitigation}
+                </p>
                 <div className="flex flex-col items-center text-m font-medium leading-6 text-text">
                   <p>Tons of Carbon</p>
                   <p>Mitigation Potential</p>
                 </div>
               </div>
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">{data?.hectares_impacted}</p>
+                <p className="pb-2 text-4xl font-bold text-spring">
+                  {projectQuery.data?.hectares_impacted}
+                </p>
                 <p className="text-m font-medium text-text">Hectares Impacted</p>
               </div>
               <div className="flex flex-col items-center">
-                <p className="pb-2 text-4xl font-bold text-spring">{data?.people_supported}</p>
+                <p className="pb-2 text-4xl font-bold text-spring">
+                  {projectQuery.data?.people_supported}
+                </p>
                 <p className="text-m font-medium text-text">People Supported</p>
               </div>
             </div>
@@ -90,7 +109,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         </div>
         <div className="absolute -right-16 -top-1/3 w-1/3">
           <Image
-            src="/images/projects/project_detail.png"
+            src="/images/projects/detail/extent_map.png"
             alt="Project Detail"
             height={486}
             width={300}
@@ -123,7 +142,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         <div className="flex w-1/2 justify-end">
           <div className="flex max-w-2xl flex-col space-y-3 py-20 pr-20 text-white">
             <h4 className="font-serif text-4xl font-medium">Goals</h4>
-            <p className="font-sans text-xl leading-9">{data?.project_goal}</p>
+            <p className="font-sans text-xl leading-9">{projectQuery.data?.project_goal}</p>
           </div>
         </div>
         <Image
@@ -135,14 +154,13 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           className="w-1/2"
         />
       </section>
-
       <section className="py-16">
         <Wrapper className="space-y-10">
           <div>
             <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
             <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-              {data?.key_activities
-                .split(/[.]+/)
+              {projectQuery.data?.key_activities
+                ?.split(/\r?\n/)
                 .filter((el, index) => {
                   return index % 2 === 1;
                 })
@@ -160,11 +178,11 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           <div>
             <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
             <p className="pt-6 font-sans text-lg font-light text-text">
-              Project Phase: {data.project_phase}
+              Project Phase: {projectQuery.data.project_phases}
             </p>
 
             <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
-              {data?.project_summary}
+              {projectQuery.data?.project_summary}
             </p>
           </div>
         </Wrapper>
@@ -174,7 +192,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           <div className="flex flex-col items-center space-y-4 py-16 text-white">
             <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
             <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
-              {data?.why_content}
+              {projectQuery.data?.why_content}
             </p>
           </div>
         </Wrapper>
@@ -192,8 +210,10 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
               />
             </div>
             <div className="w-1/3 space-y-4 py-4">
-              <h4 className="font-serif text-2xl font-medium text-indigo">{data.video_caption}</h4>
-              {/* //TODO: Use correct data here */}
+              <h4 className="font-serif text-2xl font-medium text-indigo">
+                {projectQuery.data?.video_caption}
+              </h4>
+
               <p className="text-m text-text">
                 Indigenous Women are becoming leaders for Thriving Ecosystem and we are proud to
                 help enable that.
@@ -221,26 +241,26 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             <tbody>
               <tr className="border-b-[2px] [&>*]:py-10">
                 <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                  {data?.lesson_1_category}
+                  {projectQuery.data?.lesson_1_category}
                 </td>
                 <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                  {data?.lesson_1}
+                  {projectQuery.data?.lesson_1}
                 </td>
               </tr>
               <tr className="border-b-[2px] [&>*]:py-10">
                 <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
-                  {data?.lesson_2_category}
+                  {projectQuery.data?.lesson_2_category}
                 </td>
                 <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                  {data?.lesson_2}
+                  {projectQuery.data?.lesson_2}
                 </td>
               </tr>
               <tr className="[&>*]:py-10">
                 <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                  {data?.lesson_3_category}
+                  {projectQuery.data?.lesson_3_category}
                 </td>
                 <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                  {data?.lesson_3}
+                  {projectQuery.data?.lesson_3}
                 </td>
               </tr>
             </tbody>
@@ -260,7 +280,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             <div className="flex-col space-y-6">
               <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
               <p className="font-sans text-m font-light leading-7 text-text">
-                {data?.project_summary}
+                {projectQuery.data?.project_summary}
               </p>
             </div>
             <div className="flex flex-col space-y-4">
@@ -283,26 +303,26 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </div>
           <div className="flex w-1/4 flex-col space-y-6">
             <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
-            {/* // TODO: Use correct data here */}
+
             <div className="flex flex-col items-start font-sans text-xl font-light leading-9 text-text">
               <button
                 type="button"
                 className="hover:font-medium"
-                onClick={() => onDownload(data?.resources[0], 'Fact Sheet')}
+                onClick={() => onDownload(projectQuery.data?.resources[0], 'Fact Sheet')}
               >
                 <p>Download Fact Sheet</p>
               </button>
               <button
                 type="button"
                 className="hover:font-medium"
-                onClick={() => onDownload(data?.resources[1], 'Download 2')}
+                onClick={() => onDownload(projectQuery.data?.resources[1], 'Download 2')}
               >
                 <p>Download 2</p>
               </button>
               <button
                 type="button"
                 className="hover:font-medium"
-                onClick={() => onDownload(data?.resources[2], 'Download 3')}
+                onClick={() => onDownload(projectQuery.data?.resources[2], 'Download 3')}
               >
                 <p>Download 3</p>
               </button>
@@ -327,7 +347,8 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </div>
         </Wrapper>
       </section>
-      <section className="bg-white py-16">
+      {/* //TODO: Add this section on phase 2 */}
+      {/* <section className="bg-white py-16">
         <Wrapper>
           <div className="grid grid-cols-3 gap-8">
             <div className="flex flex-col space-y-4">
@@ -391,7 +412,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             </div>
           </div>
         </Wrapper>
-      </section>
+      </section> */}
       <section id="co-benefits" className="flex flex-col">
         <div className="bg-indigo py-6">
           <Wrapper>
@@ -402,49 +423,50 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         </div>
         <Wrapper>
           <div className="w-3/4 py-10 font-light">
-            {data?.cb_biodiversity && (
+            {projectQuery.data?.cb_biodiversity && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={BIODIVERSITY_SVG} className="h-7 w-7" />
                   <p className="text-xl">Biodiversity</p>
                 </div>
-                <p className="text-m leading-6">{data?.cb_biodiversity}</p>
+                <p className="text-m leading-6">{projectQuery.data?.cb_biodiversity}</p>
               </div>
             )}
-            {data?.cb_ecosystem_services && (
+
+            {projectQuery.data?.cb_ecosystem_services && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={ECOSYSTEM_SERVICES_SVG} className="h-7 w-7" />
                   <p className="text-xl">Ecosystem Services</p>
                 </div>
-                <p className="text-m leading-6">{data?.cb_ecosystem_services}</p>
+                <p className="text-m leading-6">{projectQuery.data?.cb_ecosystem_services}</p>
               </div>
             )}
-            {data?.cb_livelihood_econ && (
+            {projectQuery.data?.cb_livelihood_econ && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={LIVELIHOODS_ECONOMIC_SVG} className="h-7 w-7" />
                   <p className="text-xl">Livelihoods & Economics</p>
                 </div>
-                <p className="text-m leading-6">{data?.cb_livelihood_econ}</p>
+                <p className="text-m leading-6">{projectQuery.data?.cb_livelihood_econ}</p>
               </div>
             )}
-            {data?.cb_health_well_being && (
+            {projectQuery.data?.cb_health_well_being && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={HUMAN_HEALTH_WELLBEING_SVG} className="h-7 w-7" />
                   <p className="text-xl">Health & Well-being</p>
                 </div>
-                <p className="text-m leading-6">{data?.cb_health_well_being}</p>
+                <p className="text-m leading-6">{projectQuery.data?.cb_health_well_being}</p>
               </div>
             )}
-            {data?.cb_resilience_adapt && (
+            {projectQuery.data?.cb_resilience_adapt && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
                   <Icon icon={RESILIENCE_AND_ADAPTATION_SVG} className="h-7 w-7" />
                   <p className="text-xl">Resilience & Adaptation</p>
                 </div>
-                <p className="text-m leading-6">{data?.cb_resilience_adapt}</p>
+                <p className="text-m leading-6">{projectQuery.data?.cb_resilience_adapt}</p>
               </div>
             )}
           </div>
@@ -455,7 +477,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           <VscQuote className="fill-butternut" size={40} />
           <div className="flex justify-center">
             <p className="max-w-3xl text-center font-sans text-xl font-light leading-9 text-white">
-              {data?.callout}
+              {projectQuery.data?.callout}
             </p>
           </div>
         </Wrapper>
@@ -467,10 +489,10 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
             <div
               className={cn({
                 'font-light leading-8 text-text': true,
-                'grid grid-cols-2': data?.primary_partners.split(/[,]+/).length > 5,
+                'grid grid-cols-2': projectQuery.data?.primary_partners?.split(/\r?\n/).length > 5,
               })}
             >
-              {data?.primary_partners.split(/[,]+/).map((partner) => (
+              {projectQuery.data?.primary_partners?.split(/\r?\n/).map((partner) => (
                 <p key={partner} className="mr-8">
                   {partner}
                 </p>
@@ -479,27 +501,29 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
           </div>
         </Wrapper>
       </section>
-
       <section className="py-16">
         <Wrapper className="flex flex-row space-x-20">
           <div className="w-3/4 space-y-6">
             <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
-            <p className="font-sans text-m font-light leading-7 text-text">{data.whats_next}</p>
+            <p className="font-sans text-m font-light leading-7 text-text">
+              {projectQuery.data?.whats_next}
+            </p>
           </div>
 
-          {!!(data.public_contact_name || data.public_contact_email) && (
+          {!!(
+            projectQuery.data?.public_contact_name || projectQuery.data?.public_contact_email
+          ) && (
             <div className="w-1/4 space-y-6 pt-16 ">
               <h5 className="font-serif text-2xl font-medium text-indigo">Contact Info</h5>
               <div className="text-m font-light">
                 <p>MAIN CONTACT:</p>
-                <p>{data.public_contact_name}</p>
-                <p>{data.public_contact_email}</p>
+                <p>{projectQuery.data?.public_contact_name}</p>
+                <p>{projectQuery.data?.public_contact_email}</p>
               </div>
             </div>
           )}
         </Wrapper>
       </section>
-
       <section id="contact" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
         <Wrapper>
           <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
@@ -521,7 +545,7 @@ const ProjectDetail = ({ data }: { data: Project }): JSX.Element => {
         <Wrapper className="space-y-6">
           <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
           <div className="flex justify-start space-x-6 2xl:space-x-10">
-            {similarProjects.map((project, idx) => (
+            {similarProjects?.map((project, idx) => (
               <Card key={idx} data={project} />
             ))}
           </div>
