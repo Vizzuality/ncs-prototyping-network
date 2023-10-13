@@ -4,17 +4,16 @@ import { useEffect, useMemo, useRef } from 'react';
 import { Source, Layer, LayerProps } from 'react-map-gl';
 import { useMap } from 'react-map-gl';
 
-import { GeoJSONSourceRaw, GeoJSONSourceOptions } from 'mapbox-gl';
+import bbox from '@turf/bbox';
+import { GeoJSONSourceRaw, GeoJSONSourceOptions, LngLatBoundsLike } from 'mapbox-gl';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
-import { useRecoilValue } from 'recoil';
 
+import BASEMAPS from '@/utils/basemaps';
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
 import ZoomControl from 'components/map/controls/zoom';
 import { CustomMapProps } from 'components/map/types';
-import { basemapAtom, filteredBboxAtom } from 'store';
-import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
 
 const initialViewState: MapboxProps['initialViewState'] = {
@@ -39,12 +38,7 @@ const DEFAULT_PROPS = {
 const ExtentMap = ({ extent }): JSX.Element => {
   const mapRef = useRef(null);
 
-  const filteredBbox = useRecoilValue(filteredBboxAtom);
-  const basemap = useRecoilValue(basemapAtom);
-
   const { ['detail-map']: map } = useMap();
-
-  const selectedBasemap = useMemo(() => BASEMAPS.find((b) => b.id === basemap).url, [basemap]);
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
 
@@ -75,12 +69,12 @@ const ExtentMap = ({ extent }): JSX.Element => {
     ];
   }, []);
 
-  // This effect will update bounds when filtering projectss
   useEffect(() => {
     if (map) {
-      map.fitBounds(filteredBbox, { padding: 50 });
+      const bboxTurf = bbox(extent) as LngLatBoundsLike;
+      map.fitBounds(bboxTurf, { padding: 100 });
     }
-  }, [filteredBbox, map]);
+  }, [map, extent]);
 
   const bounds: CustomMapProps['bounds'] = {
     bbox: [-237.65625, -78.836065, 238.007813, 78.767792],
@@ -98,7 +92,7 @@ const ExtentMap = ({ extent }): JSX.Element => {
     <div className="relative h-[485px] w-[376px]" ref={mapRef}>
       <Map
         id="detail-map"
-        mapStyle={selectedBasemap}
+        mapStyle={BASEMAPS[0].url}
         minZoom={minZoom}
         maxZoom={maxZoom}
         initialViewState={initialViewState}
@@ -120,7 +114,7 @@ const ExtentMap = ({ extent }): JSX.Element => {
               })}
             >
               <div className="flex flex-col space-y-2">
-                <ZoomControl mapId="projects-map" />
+                <ZoomControl mapId="detail-map" />
               </div>
             </Controls>
           </>
