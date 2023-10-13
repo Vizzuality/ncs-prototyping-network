@@ -1,15 +1,3 @@
-module "ecr" {
-  source = "../ecr"
-
-  project     = var.project
-  environment = var.environment
-  tags        = {
-    project     = var.project,
-    environment = var.environment
-  }
-}
-
-
 resource "aws_security_group" "postgresql_access" {
   vpc_id      = var.vpc.id
   description = "SG allowing access to the Postgres SG"
@@ -29,6 +17,17 @@ resource "aws_security_group_rule" "port_forward_postgres" {
   protocol                 = "-1"
   source_security_group_id = module.postgresql.security_group_id
   security_group_id        = aws_security_group.postgresql_access.id
+}
+
+module "email" {
+  source = "../email"
+
+  domain = var.domain
+  region = var.aws_region
+}
+
+resource "aws_iam_access_key" "email_user_access_key" {
+  user = module.email.iam_user.name
 }
 
 module "postgresql" {
@@ -75,36 +74,4 @@ module "beanstalk" {
   rds_security_group_id   = aws_security_group.postgresql_access.id
   domain                  = var.domain
   acm_certificate         = aws_acm_certificate.acm_certificate
-}
-
-resource "aws_iam_policy" "policy" {
-  name        = "${title(var.project)}${title(var.environment)}AssetsBucketWriter"
-  path        = "/"
-  description = "Allows read access to the data layer bucket"
-
-  policy = jsonencode({
-    Version   = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "s3:PutObject",
-          "s3:GetObject",
-          "s3:ListBucket",
-          "s3:DeleteObject",
-          "s3:PutObjectAcl"
-        ]
-        Effect   = "Allow"
-        Resource = [
-          "arn:aws:s3:::${module.data_bucket.bucket_name}/*",
-          "arn:aws:s3:::${module.data_bucket.bucket_name}"
-        ]
-      },
-    ]
-  })
-}
-
-resource "aws_iam_policy_attachment" "beanstalk_ec2_worker" {
-  name       = "${var.project}-${var.environment}-s3-data-writer"
-  roles      = [module.beanstalk.eb_role_id]
-  policy_arn = aws_iam_policy.policy.arn
 }

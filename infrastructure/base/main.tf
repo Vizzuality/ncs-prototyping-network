@@ -104,9 +104,11 @@ locals {
     DATABASE_SSL                     = true
     DATABASE_SSL_REJECT_UNAUTHORIZED = false
 
+    AWS_REGION                = var.aws_region
+    AWS_SES_DOMAIN            = var.staging_domain
+    AWS_SES_ACCESS_KEY_ID     = module.staging.email_iam_user_access_key_id
+    AWS_SES_ACCESS_KEY_SECRET = module.staging.email_iam_user_access_key_secret
     AWS_BUCKET = module.staging.assets_bucket_name
-    AWS_REGION = var.aws_region
-
   }
   staging_client_env = {
     NEXT_PUBLIC_URL            = "https://${var.staging_domain}"
@@ -123,6 +125,8 @@ module "github_values" {
   secret_map = {
     PIPELINE_USER_ACCESS_KEY_ID     = module.iam.pipeline_user_access_key_id
     PIPELINE_USER_SECRET_ACCESS_KEY = module.iam.pipeline_user_access_key_secret
+    CMS_REPOSITORY_NAME             = module.cms_ecr.repository_name
+    CLIENT_REPOSITORY_NAME          = module.client_ecr.repository_name
     STAGING_CMS_ENV_FILE            = join("\n", [for key, value in local.staging_cms_env : "${key}=${value}"])
     STAGING_CLIENT_ENV_FILE         = join("\n", [for key, value in local.staging_client_env : "${key}=${value}"])
     STAGING_DOMAIN                  = var.staging_domain
@@ -132,6 +136,19 @@ module "github_values" {
   }
 }
 
+module "cms_ecr" {
+  source = "./modules/ecr"
+
+  project_name = var.project_name
+  repo_name    = "cms"
+}
+
+module "client_ecr" {
+  source = "./modules/ecr"
+
+  project_name = var.project_name
+  repo_name    = "client"
+}
 
 module "staging" {
   source             = "./modules/env"
