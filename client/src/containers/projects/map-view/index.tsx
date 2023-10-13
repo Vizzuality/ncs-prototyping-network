@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useMap, Popup } from 'react-map-gl';
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -245,11 +246,13 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                     </Controls>
                     {!!projectsPopUp?.popup?.length && (
                       <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
-                        <div className="px-2 py-1">
-                          <p className="font-sans text-2xs text-gray-800">
-                            {projectsPopUp.popupInfo.name}
-                          </p>
-                        </div>
+                        <Link href={`/projects/${projectsPopUp.popupInfo.id}`}>
+                          <div className="px-2 py-1">
+                            <p className="font-sans text-2xs text-gray-800">
+                              {projectsPopUp.popupInfo.name}
+                            </p>
+                          </div>
+                        </Link>
                       </Popup>
                     )}
                   </>

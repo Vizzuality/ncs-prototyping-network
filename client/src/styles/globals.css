@@ -122,14 +122,13 @@ html {
 }
 
 /* MAPBOX POPUP */
-
 .mapboxgl-popup {
   border-radius: none !important;
   cursor: pointer !important;
 }
 
-.mapboxgl-popup-content-wrapper {
-  border-radius: none !important;
+.mapboxgl-popup-content {
+  border-radius: 4px !important;
 }
 
 .mapboxgl-popup-tip {
