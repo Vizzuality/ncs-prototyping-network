@@ -154,7 +154,6 @@ const ProjectDetail = (): JSX.Element => {
           className="w-1/2"
         />
       </section>
-
       <section className="py-16">
         <Wrapper className="space-y-10">
           <div>
@@ -348,7 +347,8 @@ const ProjectDetail = (): JSX.Element => {
           </div>
         </Wrapper>
       </section>
-      <section className="bg-white py-16">
+      {/* //TODO: Add this section on phase 2 */}
+      {/* <section className="bg-white py-16">
         <Wrapper>
           <div className="grid grid-cols-3 gap-8">
             <div className="flex flex-col space-y-4">
@@ -412,7 +412,7 @@ const ProjectDetail = (): JSX.Element => {
             </div>
           </div>
         </Wrapper>
-      </section>
+      </section> */}
       <section id="co-benefits" className="flex flex-col">
         <div className="bg-indigo py-6">
           <Wrapper>
@@ -432,6 +432,7 @@ const ProjectDetail = (): JSX.Element => {
                 <p className="text-m leading-6">{projectQuery.data?.cb_biodiversity}</p>
               </div>
             )}
+
             {projectQuery.data?.cb_ecosystem_services && (
               <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                 <div className="flex items-center space-x-2">
@@ -500,7 +501,6 @@ const ProjectDetail = (): JSX.Element => {
           </div>
         </Wrapper>
       </section>
-
       <section className="py-16">
         <Wrapper className="flex flex-row space-x-20">
           <div className="w-3/4 space-y-6">
@@ -524,7 +524,6 @@ const ProjectDetail = (): JSX.Element => {
           )}
         </Wrapper>
       </section>
-
       <section id="contact" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
         <Wrapper>
           <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
