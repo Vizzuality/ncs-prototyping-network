@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Source, Layer } from 'react-map-gl';
 
 import bbox from '@turf/bbox';
-import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer, LngLatBoundsLike } from 'mapbox-gl';
+import { GeoJSONSourceRaw, GeoJSONSourceOptions, LngLatBoundsLike, SymbolLayer } from 'mapbox-gl';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useProjects } from '@/hooks/projects';
@@ -81,18 +81,16 @@ const LayerManager = () => {
     data: GEOJSON,
   };
 
-  const LAYER: CircleLayer = useMemo(() => {
+  const LAYER: SymbolLayer = useMemo(() => {
     return {
       id: 'projects-layer',
-      type: 'circle',
-      paint: {
-        'circle-color': '#1F51FF',
-        'circle-opacity': 0.5,
-        'circle-radius': 10,
-      },
-
+      type: 'symbol',
+      paint: {},
       layout: {
-        visibility: 'visible',
+        'icon-size': 0.1,
+        'icon-image': 'projects',
+        'icon-ignore-placement': true,
+        'icon-allow-overlap': true,
       },
     };
   }, []);
