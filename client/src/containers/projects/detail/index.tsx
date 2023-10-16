@@ -224,7 +224,7 @@ const ProjectDetail = (): JSX.Element => {
                 </div>
                 <div className="w-1/3 space-y-4 py-4">
                   <h4 className="font-serif text-2xl font-medium text-indigo">
-                    {projectQuery.data?.video.caption}
+                    {projectQuery.data?.video?.caption}
                   </h4>
 
                   <p className="text-m text-text">
@@ -343,7 +343,7 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          {projectQuery.data?.graphic_1.url && (
+          {projectQuery.data?.graphic_1 && (
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="w-2/3 space-y-6">

@@ -24,7 +24,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
       <Link href={`/projects/${id}`}>
         <Image
-          alt={fallback_photo?.caption}
+          alt={fallback_photo?.caption || 'Project image'}
           src={fallback_photo?.url || 'https://dummyimage.com/700x300/000/fff&text=+'}
           style={{ objectFit: 'cover', height: '140px', width: '360px' }}
           height={140}

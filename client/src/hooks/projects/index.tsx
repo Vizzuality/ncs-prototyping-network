@@ -52,14 +52,18 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
 }
 
 export function useProject({ projectId }: { projectId: string }): UseQueryResult<Project, unknown> {
+  console.log({ projectId });
   const fetchProject = () =>
     JSONAPI.request({
       method: 'GET',
       url: `/projects/${projectId}?populate=*`,
-    }).then((response: AxiosResponse) => response.data);
+    }).then((response: AxiosResponse) => {
+      return response.data;
+    });
 
-  const query = useQuery(['project'], fetchProject, {
+  const query = useQuery(['project', projectId], fetchProject, {
     placeholderData: [],
+    enabled: !!projectId,
   });
 
   const { data } = query;
