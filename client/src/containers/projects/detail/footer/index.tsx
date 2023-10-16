@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 import Image from 'next/image';
@@ -26,7 +24,7 @@ const DetailFooter: React.FC = () => {
     <div className="relative">
       <div
         className={cn({
-          "mt-auto  bg-cover bg-no-repeat after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
+          "mt-auto bg-cover bg-no-repeat after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
             true,
         })}
         style={{

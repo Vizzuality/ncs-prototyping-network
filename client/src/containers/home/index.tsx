@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
+import Footer from 'containers/footer';
 import Data from 'containers/home/data';
 import Facts from 'containers/home/facts';
 import Hero from 'containers/home/hero';
@@ -27,6 +28,7 @@ const HomePage = (): JSX.Element => {
           <Objectives />
           <Lessons />
           <Pathways />
+          <Footer />
         </motion.div>
       </AnimatePresence>
     </>
