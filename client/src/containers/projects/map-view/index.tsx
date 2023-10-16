@@ -76,7 +76,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
     if (map) {
       map.fitBounds(filteredBbox, { padding: 50 });
     }
-  }, [filteredBbox, map]);
+  }, [filteredBbox, map, basemap]);
 
   // const handleViewState = useCallback(() => {
   //   if (map) {

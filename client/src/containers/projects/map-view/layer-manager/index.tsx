@@ -85,12 +85,14 @@ const LayerManager = () => {
     return {
       id: 'projects-layer',
       type: 'symbol',
+      metadata: {
+        position: 'top',
+      },
       paint: {},
       layout: {
         'icon-size': 0.75,
         'icon-image': 'marker',
-        'icon-ignore-placement': true,
-        'icon-allow-overlap': true,
+        'icon-keep-upright': true,
       },
     };
   }, []);

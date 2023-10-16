@@ -224,7 +224,7 @@ const ProjectDetail = (): JSX.Element => {
                 </div>
                 <div className="w-1/3 space-y-4 py-4">
                   <h4 className="font-serif text-2xl font-medium text-indigo">
-                    {projectQuery.data?.video_caption}
+                    {projectQuery.data?.video.caption}
                   </h4>
 
                   <p className="text-m text-text">
@@ -343,23 +343,26 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          <section className="bg-background py-16">
-            <Wrapper>
-              <div className="w-2/3 space-y-6">
-                <p className="font-serif text-2xl font-medium text-indigo">
-                  West Kalimantan NCS Project Location
-                </p>
-                <Image
-                  src="/images/mockup/project_location.png"
-                  alt="Project Location"
-                  height={700}
-                  width={700}
-                  style={{ objectFit: 'contain' }}
-                  className="w-full"
-                />
-              </div>
-            </Wrapper>
-          </section>
+          {projectQuery.data?.graphic_1.url && (
+            <section className="bg-background py-16">
+              <Wrapper>
+                <div className="w-2/3 space-y-6">
+                  <p className="font-serif text-2xl font-medium text-indigo">
+                    {projectQuery.data?.graphic_1.caption}
+                  </p>
+                  <Image
+                    // src="/images/mockup/project_location.png"
+                    src={projectQuery.data?.graphic_1.url}
+                    alt={projectQuery.data?.graphic_1.caption}
+                    height={700}
+                    width={700}
+                    style={{ objectFit: 'contain' }}
+                    className="w-full"
+                  />
+                </div>
+              </Wrapper>
+            </section>
+          )}
           {/* //TODO: Add this section on phase 2 */}
           {/* <section className="bg-white py-16">
         <Wrapper>
@@ -528,8 +531,8 @@ const ProjectDetail = (): JSX.Element => {
                 projectQuery.data?.public_contact_name || projectQuery.data?.public_contact_email
               ) && (
                 <div className="w-1/4 space-y-6 pt-16 ">
-                  <h5 className="font-serif text-2xl font-medium text-indigo">Contact Info</h5>
-                  <div className="text-m font-light">
+                  <h5 className="font-serif text-2xl font-medium text-indigo ">Contact Info</h5>
+                  <div className="text-m font-light text-gray-800">
                     <p>MAIN CONTACT:</p>
                     <p>{projectQuery.data?.public_contact_name}</p>
                     <p>{projectQuery.data?.public_contact_email}</p>

@@ -29,7 +29,7 @@ export const MapImage = ({
         map.addImage(id, image, options);
       };
     }
-  }, [map, id, src, options]);
+  }, [id, map, src, options]);
   return null;
 };
 
