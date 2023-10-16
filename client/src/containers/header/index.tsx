@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           pathname === '/projects' || pathname === '/contact',
       })}
     >
-      <Wrapper className="h-18 flex w-full flex-row items-center justify-between self-start">
+      <Wrapper className="h-18 relative z-50 flex w-full flex-row items-center justify-between self-start">
         <Link className="flex cursor-pointer" href="/">
           <h1 className="font-sans text-2xl uppercase text-white">NCS Prototyping Network</h1>
         </Link>

@@ -6,9 +6,8 @@ import Image from 'next/image';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
-import { useProjects } from '@/hooks/projects';
-
 import Wrapper from 'containers/wrapper';
+import { useProjects } from 'hooks/projects';
 
 const HomeProjects = (): JSX.Element => {
   const projectsQuery = useProjects();
@@ -61,8 +60,7 @@ const HomeProjects = (): JSX.Element => {
             {projectsQuery.data?.map((project) => (
               <div key={project.id} className="relative">
                 <Image
-                  alt={project.photo_2_caption}
-                  // !TODO: Change to photo_2 when we have media upload
+                  alt="Project sample photo"
                   src="https://dummyimage.com/330x290/000/fff&text=+"
                   width={333}
                   height={200}

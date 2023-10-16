@@ -4,7 +4,6 @@ import Head from 'next/head';
 
 import Providers from 'app/layout-providers';
 import { Toaster } from 'components/ui/toaster';
-import Footer from 'containers/footer';
 import Header from 'containers/header';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -21,8 +20,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header />
 
             {children}
-
-            <Footer />
           </main>
         </body>
       </html>

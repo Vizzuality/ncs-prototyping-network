@@ -21,7 +21,11 @@ const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   images: {
-    domains: ['dummyimage.com', 'placebear.com'],
+    domains: [
+      'dummyimage.com',
+      'placebear.com',
+      'tnc-protodash-staging-assets-bucket.s3.eu-west-3.amazonaws.com',
+    ],
   },
   webpack(config) {
     config.module.rules.push({

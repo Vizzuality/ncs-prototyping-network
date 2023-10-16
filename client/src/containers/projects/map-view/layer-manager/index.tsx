@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Source, Layer } from 'react-map-gl';
 
 import bbox from '@turf/bbox';
-import { GeoJSONSourceRaw, GeoJSONSourceOptions, CircleLayer, LngLatBoundsLike } from 'mapbox-gl';
+import { GeoJSONSourceRaw, GeoJSONSourceOptions, LngLatBoundsLike, SymbolLayer } from 'mapbox-gl';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useProjects } from '@/hooks/projects';
@@ -60,6 +60,8 @@ const LayerManager = () => {
         coordinates: [project.centroid_lat, project.centroid_long],
       },
       properties: {
+        id: project.id,
+        name: project.project_name,
         pathways: project.pathways,
         action_types: project.action_types,
         project_phases: project.project_phases,
@@ -79,62 +81,18 @@ const LayerManager = () => {
     data: GEOJSON,
   };
 
-  const LAYER: CircleLayer = useMemo(() => {
+  const LAYER: SymbolLayer = useMemo(() => {
     return {
       id: 'projects-layer',
-      type: 'circle',
-      // ...(activedFilters && {
-      //   filter: [
-      //     'all',
-      //     ...(!!pathways.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...pathways.map((id) => {
-      //               return ['in', id, ['get', 'pathways']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //     ...(!!project_phases.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...project_phases.map((id) => {
-      //               return ['in', id, ['get', 'project_phases']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //     ...(!!action_types.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...action_types.map((id) => {
-      //               return ['in', id, ['get', 'action_types']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //     ...(!!project_categories.length
-      //       ? [
-      //           [
-      //             'any',
-      //             ...project_categories.map((id) => {
-      //               return ['in', id, ['get', 'project_categories']];
-      //             }),
-      //           ],
-      //         ]
-      //       : []),
-      //   ],
-      // }),
-      paint: {
-        'circle-color': '#1F51FF',
-        'circle-opacity': 0.5,
-        'circle-radius': 10,
+      type: 'symbol',
+      metadata: {
+        position: 'top',
       },
+      paint: {},
       layout: {
-        visibility: 'visible',
+        'icon-size': 0.75,
+        'icon-image': 'marker',
+        'icon-keep-upright': true,
       },
     };
   }, []);

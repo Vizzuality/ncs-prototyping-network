@@ -121,6 +121,24 @@ html {
   }
 }
 
+/* MAPBOX POPUP */
+.mapboxgl-popup {
+  border-radius: none !important;
+  cursor: pointer !important;
+}
+
+.mapboxgl-popup-content {
+  border-radius: 4px !important;
+}
+
+.mapboxgl-popup-tip {
+  display: none !important;
+}
+
+.mapboxgl-popup-close-button {
+  display: none !important;
+}
+
 /* CAROUSEL */
 
 .slick-slider {

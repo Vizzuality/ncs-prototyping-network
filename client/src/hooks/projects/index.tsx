@@ -30,6 +30,7 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
       biomes: project.biomes.data.map((biome) => biome.attributes.name),
       country: project.country.data.attributes.name,
       cobenefits: project.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
+      fallback_photo: project.fallback_photo.data?.attributes,
       lesson_1_category: project.lesson_1_category.data.attributes.name,
       lesson_2_category: project.lesson_2_category.data.attributes.name,
       lesson_3_category: project.lesson_3_category.data.attributes.name,
@@ -55,10 +56,13 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
     JSONAPI.request({
       method: 'GET',
       url: `/projects/${projectId}?populate=*`,
-    }).then((response: AxiosResponse) => response.data);
+    }).then((response: AxiosResponse) => {
+      return response.data;
+    });
 
-  const query = useQuery(['project'], fetchProject, {
+  const query = useQuery(['project', projectId], fetchProject, {
     placeholderData: [],
+    enabled: !!projectId,
   });
 
   const { data } = query;
@@ -73,7 +77,9 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
       biomes: data.data.biomes.data.map((biome) => biome.attributes.name),
       country: data.data.country.data.attributes.name,
       cobenefits: data.data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
-      footer_photo: data.data.footer_photo.data?.attributes.url,
+      footer_photo: data.data.footer_photo.data?.attributes,
+      graphic_1: data.data.graphic_1.data?.attributes,
+      graphic_2: data.data.graphic_2.data?.attributes,
       lesson_1_category: data.data.lesson_1_category.data.attributes.name,
       lesson_2_category: data.data.lesson_2_category.data.attributes.name,
       lesson_3_category: data.data.lesson_3_category.data.attributes.name,

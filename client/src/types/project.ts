@@ -1,3 +1,5 @@
+import { GeoJSONSourceOptions, GeoJSONSourceRaw } from 'mapbox-gl';
+
 export type ActionType = 'Restore' | 'Protect' | 'Manage';
 
 export type Category = 'Policy project' | 'Carbon project' | 'Goverment led' | 'Community based';
@@ -19,52 +21,39 @@ export type Pathway =
 
 export type Phase = 'Piloting' | 'Implementing' | 'Scaling';
 
-//TODO: Type correctly
-export type Media = {
-  id: number;
-  ext: '.png';
-  url: string;
+type Format = {
+  ext: string;
   hash: string;
-  mime: 'image/png';
-  name: string;
-  size: number;
-  type: 'asset';
-  width: number;
-  folder: null;
   height: number;
+  mime: string;
+  name: string;
+  path: null;
+  size: number;
+  url: string;
+  width: number;
+};
+
+export type Media = {
+  alternativeText: string;
   caption: string;
+  createdAt: string;
+  ext: string;
   formats: {
-    small: {
-      ext: '.png';
-      url: string;
-      hash: string;
-      mime: 'image/png';
-      name: string;
-      path: null;
-      size: number;
-      width: number;
-      height: number;
-    };
-    thumbnail: {
-      ext: '.png';
-      url: string;
-      hash: string;
-      mime: 'image/png';
-      name: string;
-      path: null;
-      size: number;
-      width: number;
-      height: number;
-    };
+    small: Format;
+    medium: Format;
+    thumbnail: Format;
   };
-  provider: 'local';
-  createdAt: Date;
-  updatedAt: Date;
-  folderPath: string;
-  previewUrl: string | null;
-  isSelectable: boolean;
-  alternativeText: string | null;
-  provider_metadata: null;
+  hash: string;
+  height: number;
+  mime: string;
+  name: string;
+  previewUrl: string;
+  provider: string;
+  provider_metadata: string;
+  size: number;
+  updatedAt: string;
+  url: string;
+  width: number;
 };
 
 export interface Project {
@@ -76,12 +65,14 @@ export interface Project {
   region: string;
   country: string;
   biome: string;
+  extent: GeoJSONSourceRaw & GeoJSONSourceOptions;
   pathways: Pathway[];
   action_types: ActionType[];
   cobenefits: CoBenefit[];
   carbon_mitigation: number;
   hectares_impacted: number;
-  footer_photo: string;
+  fallback_photo: Media;
+  footer_photo: Media;
   people_supported: number;
   project_phases: Phase[];
   project_categories: Category[];
@@ -108,19 +99,9 @@ export interface Project {
   abstract: string;
   citations: string;
   resources: string;
-  photo_1: 'https://app.box.com/folder/197132655122?s=wjmy8olrr5wgl4rgil0dyvb4an5af9sw';
-  photo_1_caption: string;
-  photo_2: 'https://app.box.com/folder/197130022488?s=85dqv97zumu69kjsh39mydlbprbpvuo4';
-  photo_2_caption: string;
-  photo_3: 'https://app.box.com/folder/197129292575';
-  photo_3_caption: string;
-  photo_4: string;
-  photo_4_caption: string;
-  video: 'https://app.box.com/folder/197132405895';
-  video_caption: string;
-  graphic_1: 'https://app.box.com/folder/197129650615?s=c746noi3vo5gccju2mcoqhltyfx1gblt';
-  graphic_1_caption: string;
-  graphic_2: 'https://app.box.com/folder/197130302681';
+  video: Media;
+  graphic_1: Media;
+  graphic_2: Media;
   graphic_2_caption: string;
   centroid_lat: number;
   centroid_long: number;
@@ -134,4 +115,17 @@ export type Total = {
   total_people_supported: number;
   total_area_ha_impacted: number;
   total_carbon_mitigation: number;
+};
+
+export type PopUp = {
+  popup: number[];
+  popupInfo: {
+    id: number;
+    name: string;
+    pathways: Pathway[];
+    action_types: ActionType[];
+    project_phases: Phase[];
+    project_categories: Category[];
+  };
+  popUpPosition: { x: number; y: number };
 };

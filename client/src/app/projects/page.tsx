@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
 
+import Footer from 'containers/footer';
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
 import MetricsView from 'containers/projects/metrics-view';
@@ -70,14 +71,17 @@ const Projects: NextPage = () => {
   }, [filters, projectsQuery.data]);
 
   return (
-    <Wrapper>
-      <div className="mt-6 mb-10 flex items-center space-x-6">
-        <Tabs />
-        <Filters />
-      </div>
-      {projectsView === 'map' && <MapView data={dataFiltered} />}
-      {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
-    </Wrapper>
+    <>
+      <Wrapper>
+        <div className="mt-6 mb-10 flex items-center space-x-6">
+          <Tabs />
+          <Filters />
+        </div>
+        {projectsView === 'map' && <MapView data={dataFiltered} />}
+        {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
+      </Wrapper>
+      <Footer />
+    </>
   );
 };
 
