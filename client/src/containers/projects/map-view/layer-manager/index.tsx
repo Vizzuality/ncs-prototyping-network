@@ -87,8 +87,8 @@ const LayerManager = () => {
       type: 'symbol',
       paint: {},
       layout: {
-        'icon-size': 0.1,
-        'icon-image': 'projects',
+        'icon-size': 0.75,
+        'icon-image': 'marker',
         'icon-ignore-placement': true,
         'icon-allow-overlap': true,
       },

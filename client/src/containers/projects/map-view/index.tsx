@@ -240,7 +240,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                 {() => (
                   <>
                     <LayerManager />
-                    <MapImage id="projects" mapId="projects-map" src="/images/airplane.svg" />
+                    <MapImage id="marker" mapId="projects-map" src="/images/marker.svg" />
 
                     <Controls
                       className={cn({
