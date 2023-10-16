@@ -12,12 +12,11 @@ import { useRecoilValue } from 'recoil';
 
 import { useTotalData } from '@/hooks/projects';
 
-import MapImage from '@/components/map/image';
-
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
 import ZoomControl from 'components/map/controls/zoom';
+import MapImage from 'components/map/image';
 import { CustomMapProps } from 'components/map/types';
 import Select from 'components/ui/select';
 import Card from 'containers/projects/card';
@@ -241,7 +240,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                 {() => (
                   <>
                     <LayerManager />
-                    <MapImage id="projects" src="/images/airplane.svg" options={{}} />
+                    <MapImage id="projects" mapId="projects-map" src="/images/airplane.svg" />
 
                     <Controls
                       className={cn({
