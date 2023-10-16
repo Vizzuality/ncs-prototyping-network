@@ -52,7 +52,6 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
 }
 
 export function useProject({ projectId }: { projectId: string }): UseQueryResult<Project, unknown> {
-  console.log({ projectId });
   const fetchProject = () =>
     JSONAPI.request({
       method: 'GET',

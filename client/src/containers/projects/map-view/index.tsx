@@ -71,7 +71,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
 
-  // This effect will update bounds when filtering projectss
+  // This effect will update bounds when filtering projects
   useEffect(() => {
     if (map) {
       map.fitBounds(filteredBbox, { padding: 50 });
