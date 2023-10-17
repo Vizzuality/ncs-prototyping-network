@@ -1,10 +1,15 @@
-'use client';
 import 'styles/globals.css';
+import { Metadata } from 'next';
+
 import Head from 'next/head';
 
 import Providers from 'app/layout-providers';
 import { Toaster } from 'components/ui/toaster';
 import Header from 'containers/header';
+
+export const metadata: Metadata = {
+  viewport: 'width=1024',
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,9 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
         <body className="font-notes min-h-screen w-screen">
           <Head>
-            <title>TNC Prototype Dashboard</title>
             <link rel="icon" href="/favicon.ico" />
-            <meta name="viewport" content="width=1024" />
           </Head>
 
           <main className="flex min-h-screen flex-col">
