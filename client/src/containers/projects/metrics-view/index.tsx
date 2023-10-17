@@ -109,11 +109,10 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                         />
 
                         <div className="flex w-[100px] flex-col xl:w-auto">
-                          <p className="-mt-1 font-serif text-lg font-semibold text-indigo group-hover:underline xl:text-2xl">
+                          <p className="-mt-1 font-serif text-lg font-semibold leading-6 text-indigo group-hover:underline xl:text-2xl xl:leading-7">
                             {project.project_name}
                           </p>
-                          {/* max-w-sm overflow-hidden  */}
-                          <p className="text-2xs text-text group-hover:opacity-80">
+                          <p className="overflow-hidden text-2xs text-text group-hover:opacity-80">
                             {project.long_title}
                           </p>
                         </div>
