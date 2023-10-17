@@ -21,7 +21,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
     <Head>
       {title && <title>{title}</title>}
       <link rel="icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=600"></meta>
+      <meta name="viewport" content="width=1400" />
       {name && <meta property="og:site_name" content={name} key="name" />}
       {description && <meta name="description" content={description} />}
       {title && <meta property="og:title" content={title} key="title" />}
