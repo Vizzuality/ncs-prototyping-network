@@ -91,13 +91,13 @@ const ProjectDetail = (): JSX.Element => {
                 <h2 className="mb-16 max-w-3xl font-serif text-[35px] font-medium leading-9 text-indigo">
                   {projectQuery.data?.long_title}
                 </h2>
-                <div className="flex space-x-20 font-sans">
+                <div className="flex space-x-10 font-sans xl:space-x-20">
                   {!!projectQuery.data?.carbon_mitigation && (
                     <div className="flex flex-col items-center">
                       <p className="pb-2 text-4xl font-bold text-spring">
                         {projectQuery.data?.carbon_mitigation}
                       </p>
-                      <div className="flex flex-col items-center text-m font-medium leading-6 text-text">
+                      <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
                         <p>Tons of Carbon</p>
                         <p>Mitigation Potential</p>
                       </div>
@@ -105,11 +105,11 @@ const ProjectDetail = (): JSX.Element => {
                   )}
 
                   {!!projectQuery.data?.hectares_impacted && (
-                    <div className="flex flex-col items-center border">
+                    <div className="flex flex-col items-center">
                       <p className="pb-2 text-4xl font-bold text-spring">
                         {projectQuery.data?.hectares_impacted}
                       </p>
-                      <p className="text-m font-medium text-text">Hectares Impacted</p>
+                      <p className="text-center text-m font-medium text-text">Hectares Impacted</p>
                     </div>
                   )}
 
@@ -118,7 +118,7 @@ const ProjectDetail = (): JSX.Element => {
                       <p className="pb-2 text-4xl font-bold text-spring">
                         {projectQuery.data?.people_supported}
                       </p>
-                      <p className="text-m font-medium text-text">People Supported</p>
+                      <p className="text-center text-m font-medium text-text">People Supported</p>
                     </div>
                   )}
                 </div>
