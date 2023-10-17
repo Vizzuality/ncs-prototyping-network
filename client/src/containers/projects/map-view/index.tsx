@@ -209,7 +209,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                   </>
                 )}
               </div>
-              <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
                 {sortedData.map((project) => (
                   <div key={project.id}>
                     <Card data={project} />
