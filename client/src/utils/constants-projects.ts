@@ -4,6 +4,11 @@ export const PATHWAYS = {
   CoastalWetlandsRestoration: 'Coastal Wetlands (Restoration)',
   PeatlandsAvoidedImpacts: 'Peatlands (Avoided Impacts)',
   PeatlandsRestoration: 'Peatlands (Restoration)',
+  AvoidedDeforestation: 'Avoided Deforestation',
+  Reforestation: 'Reforestation',
+  Silvopasture: 'Silvopasture',
+  AvoidedPeatImpacts: 'Avoided Peat Impacts',
+  GrasslandManagement: 'Grassland Management',
 };
 
 export const ACTION_TYPES = {

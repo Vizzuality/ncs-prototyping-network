@@ -1,9 +1,16 @@
+import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import Button from 'components/ui/button';
 import Wrapper from 'containers/wrapper';
 
 const Facts = (): JSX.Element => {
+  const arrowAnimation = {
+    hover: {
+      x: 15,
+      transition: { duration: 0.25, bounce: 0 },
+    },
+  };
   return (
     <section className="bg-midnight">
       <Wrapper>
@@ -13,12 +20,14 @@ const Facts = (): JSX.Element => {
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
-          <div>
-            <Button className="mt-6 flex h-12 space-x-6 bg-transparent px-6 text-white hover:bg-transparent">
+          <motion.div whileHover="hover">
+            <Button className="mt-6 flex h-12 space-x-6 bg-transparent px-6 text-white hover:bg-transparent hover:text-white">
               <p className="font-light uppercase">Learn more facts</p>
-              <HiArrowNarrowRight color="white" size={20} />
+              <motion.div variants={arrowAnimation}>
+                <HiArrowNarrowRight color="white" size={20} />
+              </motion.div>
             </Button>
-          </div>{' '}
+          </motion.div>
         </div>
       </Wrapper>
     </section>

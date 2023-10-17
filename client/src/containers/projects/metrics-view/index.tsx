@@ -92,24 +92,27 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                     key={project.id}
                     className="text-2xs text-text [&>*]:border-b-[2px] [&>*]:px-4 [&>*]:py-4"
                   >
-                    <td className="w-3/12 !pl-0">
-                      <Link href={`/projects/${project.id}`} className="group flex space-x-3">
+                    <td className="max-w-[140px]  !pl-0 xl:w-3/12 xl:max-w-0">
+                      <Link
+                        href={`/projects/${project.id}`}
+                        className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
+                      >
                         <Image
                           alt={project.fallback_photo?.caption}
                           src={
                             project.fallback_photo?.url ||
-                            'https://dummyimage.com/100x100/000/fff&text=+'
+                            'https://dummyimage.com/110x110/000/fff&text=+'
                           }
                           style={{ objectFit: 'cover', height: '100px', width: '100px' }}
-                          height={100}
-                          width={100}
+                          height={110}
+                          width={110}
                         />
 
-                        <div className="flex flex-col">
-                          <p className="-mt-1 font-serif text-2xl font-semibold text-indigo group-hover:underline">
+                        <div className="flex w-[100px] flex-col xl:w-auto">
+                          <p className="-mt-1 font-serif text-lg font-semibold leading-6 text-indigo group-hover:underline xl:text-2xl xl:leading-7">
                             {project.project_name}
                           </p>
-                          <p className="max-w-sm text-2xs text-text group-hover:opacity-80">
+                          <p className="overflow-hidden text-2xs text-text group-hover:opacity-80">
                             {project.long_title}
                           </p>
                         </div>

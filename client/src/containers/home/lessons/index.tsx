@@ -42,7 +42,7 @@ const Lessons = (): JSX.Element => {
               '-order-1 justify-end': lesson.id % 2 === 0,
             })}
           >
-            <div className="min-w-xl flex flex-col space-y-3 p-16 text-xl leading-9">
+            <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
               <h5 className="pb-4 font-serif text-2xl font-semibold text-indigo">{lesson.title}</h5>
 
               {lesson.points.map((point) => (

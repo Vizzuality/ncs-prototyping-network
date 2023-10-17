@@ -9,6 +9,11 @@ export const COLORS = {
   [PATHWAYS.CoastalWetlandsRestoration]: 'bg-rust',
   [PATHWAYS.PeatlandsAvoidedImpacts]: 'bg-cirrus',
   [PATHWAYS.PeatlandsRestoration]: 'bg-cirrus',
+  [PATHWAYS.Reforestation]: 'bg-spring',
+  [PATHWAYS.Silvopasture]: 'bg-midnight',
+  [PATHWAYS.AvoidedDeforestation]: 'bg-iris',
+  [PATHWAYS.AvoidedPeatImpacts]: 'bg-spring',
+  [PATHWAYS.GrasslandManagement]: 'bg-midnight',
 };
 
 export const ICONS = {
