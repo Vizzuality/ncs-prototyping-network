@@ -105,7 +105,7 @@ const ProjectDetail = (): JSX.Element => {
                   )}
 
                   {!!projectQuery.data?.hectares_impacted && (
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center border">
                       <p className="pb-2 text-4xl font-bold text-spring">
                         {projectQuery.data?.hectares_impacted}
                       </p>

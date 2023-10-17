@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
 
             <div className="flex flex-col space-y-6">
               <div className="flex h-20 items-center space-x-6">
-                <p className="uppercase">Visit our partner sites:</p>
+                <p className="hidden uppercase xl:block">Visit our partner sites:</p>
                 <a href="https://www.naturebase.org" className="w-44">
                   <Image src="/images/logos/naturbase.png" alt="Logo" width={150} height={20} />
                 </a>
