@@ -3,6 +3,8 @@ import React, { useCallback, useMemo, useRef } from 'react';
 
 import { Form, Field, FormProps } from 'react-final-form';
 
+import { Toaster } from '@/components/ui/toaster';
+
 import { composeValidators } from 'components/forms/validations';
 import Button from 'components/ui/button';
 import { useToast } from 'components/ui/use-toast';
@@ -64,8 +66,8 @@ const ContactPage = (): JSX.Element => {
   );
 
   return (
-    <Wrapper>
-      <div className="mx-auto max-w-4xl py-20">
+    <>
+      <Wrapper className="mx-auto max-w-4xl py-20">
         <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">Contact Us</h4>
         <p className="pt-3 text-xl font-light leading-8 text-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -219,8 +221,9 @@ const ContactPage = (): JSX.Element => {
             );
           }}
         </Form>
-      </div>
-    </Wrapper>
+      </Wrapper>
+      <Toaster />
+    </>
   );
 };
 
