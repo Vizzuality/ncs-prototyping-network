@@ -153,9 +153,11 @@ const ProjectDetail = (): JSX.Element => {
           </Wrapper>
           <section id="goals" className="flex bg-indigo">
             <div className="flex w-1/2 justify-end">
-              <div className="flex max-w-2xl flex-col space-y-3 py-20 pr-20 text-white">
-                <h4 className="font-serif text-4xl font-medium">Goals</h4>
-                <p className="font-sans text-xl leading-9">{projectQuery.data?.project_goal}</p>
+              <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
+                <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
+                <p className="font-sans text-base leading-7 xl:text-xl xl:leading-9">
+                  {projectQuery.data?.project_goal}
+                </p>
               </div>
             </div>
             <Image
@@ -569,6 +571,11 @@ const ProjectDetail = (): JSX.Element => {
             </Wrapper>
           </section>
         </>
+      )}
+      {projectQuery.isFetching && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
+        </div>
       )}
     </>
   );
