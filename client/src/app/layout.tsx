@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Head>
 
           <main className="flex min-h-screen flex-col">
-            <Toaster />
+            {/* <Toaster /> */}
             <Header />
 
             {children}
