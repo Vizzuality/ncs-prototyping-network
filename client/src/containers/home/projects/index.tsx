@@ -67,7 +67,9 @@ const HomeProjects = (): JSX.Element => {
                 />
                 <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4 text-white">
                   <h3 className="font-serif text-xs font-bold uppercase">{project.project_name}</h3>
-                  <p className="font-sans text-lg font-light leading-6">{project.long_title}</p>
+                  <p className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">
+                    {project.long_title}
+                  </p>
                 </div>
               </div>
             ))}

@@ -55,7 +55,10 @@ const Pathways = (): JSX.Element => {
                   </p>
                 </div>
 
-                <motion.div className="flex h-full w-32 justify-center" variants={arrowAnimation}>
+                <motion.div
+                  className="flex h-full w-32 items-center justify-center"
+                  variants={arrowAnimation}
+                >
                   <Icon
                     icon={ARROW_SVG}
                     className={cn({

@@ -194,7 +194,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                 </div>
               </section>
 
-              <div className="flex h-10 items-center justify-end space-x-6">
+              <div className="flex h-10 items-center justify-end space-x-3">
                 {sortedData.length > 1 && (
                   <>
                     <p className="font-sans text-xs text-text">SORT BY:</p>
