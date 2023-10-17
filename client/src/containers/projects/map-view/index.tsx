@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useMap, Popup } from 'react-map-gl';
 
@@ -78,11 +78,11 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
     }
   }, [filteredBbox, map, basemap]);
 
-  // const handleViewState = useCallback(() => {
-  //   if (map) {
-  //     console.log('map', map.getStyle().layers);
-  //   }
-  // }, [map]);
+  const handleViewState = useCallback(() => {
+    if (map) {
+      console.log('map', map.getStyle().layers);
+    }
+  }, [map]);
 
   const bounds: CustomMapProps['bounds'] = {
     bbox: [-237.65625, -78.836065, 238.007813, 78.767792],
@@ -134,7 +134,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
     const projectsFeature = e?.features?.find(({ layer }) => layer.id === 'projects-layer');
     if (projectsFeature) {
-      push(`/projects/${projectsPopUp.popupInfo.id}`);
+      push(`/projects/${projectsPopUp.popupInfo?.id}`);
     }
   };
 
@@ -230,7 +230,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                 initialViewState={initialViewState}
                 interactiveLayerIds={['projects-layer']}
                 mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
-                // onMapViewStateChange={handleViewState}
+                onMapViewStateChange={handleViewState}
                 bounds={bounds}
                 onClick={onClickHandler}
                 onMouseEnter={onMouseEnterHandler}
@@ -239,8 +239,8 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
               >
                 {() => (
                   <>
-                    <MapImage id="marker" mapId="projects-map" src="/images/marker.svg" />
                     <LayerManager />
+                    <MapImage id="marker" mapId="projects-map" src="/images/marker.svg" />
 
                     <Controls
                       className={cn({
@@ -253,7 +253,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                     </Controls>
                     {!!projectsPopUp?.popup?.length && (
                       <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
-                        <Link href={`/projects/${projectsPopUp.popupInfo.id}`}>
+                        <Link href={`/projects/${projectsPopUp.popupInfo?.id}`}>
                           <div className="px-2 py-1">
                             <p className="font-sans text-2xs text-gray-800">
                               {projectsPopUp.popupInfo.name}
