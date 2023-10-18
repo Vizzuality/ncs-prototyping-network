@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useMap, Popup } from 'react-map-gl';
 
@@ -78,11 +78,11 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
     }
   }, [filteredBbox, map, basemap]);
 
-  const handleViewState = useCallback(() => {
-    if (map) {
-      console.log('map', map.getStyle().layers);
-    }
-  }, [map]);
+  // const handleViewState = useCallback(() => {
+  //   if (map) {
+  //     console.log('map', map.getStyle().layers);
+  //   }
+  // }, [map]);
 
   const bounds: CustomMapProps['bounds'] = {
     bbox: [-237.65625, -78.836065, 238.007813, 78.767792],
@@ -230,7 +230,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                 initialViewState={initialViewState}
                 interactiveLayerIds={['projects-layer']}
                 mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
-                onMapViewStateChange={handleViewState}
+                // onMapViewStateChange={handleViewState}
                 bounds={bounds}
                 onClick={onClickHandler}
                 onMouseEnter={onMouseEnterHandler}
