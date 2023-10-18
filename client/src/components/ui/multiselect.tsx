@@ -111,7 +111,7 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
                     'bg-transparent': !!open,
                   })}
                 >
-                  <span className="block truncate">{SELECTED}</span>
+                  <span className="block truncate pr-6">{SELECTED}</span>
                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
                     <Loading
                       visible={loading}

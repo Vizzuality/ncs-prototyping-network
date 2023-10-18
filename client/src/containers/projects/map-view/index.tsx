@@ -31,7 +31,7 @@ import { cn } from 'utils/cn';
 const initialViewState: MapboxProps['initialViewState'] = {
   bounds: WORLD_BOUNDS,
   fitBoundsOptions: {
-    padding: 50,
+    padding: 100,
   },
 };
 
@@ -74,7 +74,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   // This effect will update bounds when filtering projects
   useEffect(() => {
     if (map) {
-      map.fitBounds(filteredBbox, { padding: 50 });
+      map.fitBounds(filteredBbox, { padding: 100 });
     }
   }, [filteredBbox, map, basemap]);
 
@@ -134,7 +134,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
     const projectsFeature = e?.features?.find(({ layer }) => layer.id === 'projects-layer');
     if (projectsFeature) {
-      push(`/projects/${projectsPopUp.popupInfo.id}`);
+      push(`/projects/${projectsPopUp.popupInfo?.id}`);
     }
   };
 
@@ -239,8 +239,8 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
               >
                 {() => (
                   <>
-                    <MapImage id="marker" mapId="projects-map" src="/images/marker.svg" />
                     <LayerManager />
+                    <MapImage id="marker" mapId="projects-map" src="/images/marker.svg" />
 
                     <Controls
                       className={cn({
@@ -253,7 +253,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
                     </Controls>
                     {!!projectsPopUp?.popup?.length && (
                       <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
-                        <Link href={`/projects/${projectsPopUp.popupInfo.id}`}>
+                        <Link href={`/projects/${projectsPopUp.popupInfo?.id}`}>
                           <div className="px-2 py-1">
                             <p className="font-sans text-2xs text-gray-800">
                               {projectsPopUp.popupInfo.name}
