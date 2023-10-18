@@ -31,7 +31,7 @@ import { cn } from 'utils/cn';
 const initialViewState: MapboxProps['initialViewState'] = {
   bounds: WORLD_BOUNDS,
   fitBoundsOptions: {
-    padding: 50,
+    padding: 100,
   },
 };
 
@@ -74,7 +74,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
   // This effect will update bounds when filtering projects
   useEffect(() => {
     if (map) {
-      map.fitBounds(filteredBbox, { padding: 50 });
+      map.fitBounds(filteredBbox, { padding: 100 });
     }
   }, [filteredBbox, map, basemap]);
 
