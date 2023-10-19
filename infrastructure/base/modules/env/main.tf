@@ -76,3 +76,35 @@ module "beanstalk" {
   acm_certificate                               = aws_acm_certificate.acm_certificate
   elasticbeanstalk_iam_service_linked_role_name = var.elasticbeanstalk_iam_service_linked_role_name
 }
+
+resource "aws_iam_policy" "policy" {
+  name        = "${title(var.project)}${title(var.environment)}AssetsBucketWriter"
+  path        = "/"
+  description = "Allows read access to the data layer bucket"
+
+  policy = jsonencode({
+    Version   = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:ListBucket",
+          "s3:DeleteObject",
+          "s3:PutObjectAcl"
+        ]
+        Effect   = "Allow"
+        Resource = [
+          "arn:aws:s3:::${module.data_bucket.bucket_name}/*",
+          "arn:aws:s3:::${module.data_bucket.bucket_name}"
+        ]
+      },
+    ]
+  })
+}
+
+resource "aws_iam_policy_attachment" "beanstalk_ec2_worker" {
+  name       = "${var.project}-${var.environment}-s3-data-writer"
+  roles      = [module.beanstalk.eb_role_id]
+  policy_arn = aws_iam_policy.policy.arn
+}
