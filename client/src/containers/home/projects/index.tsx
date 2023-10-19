@@ -50,9 +50,11 @@ const HomeProjects = (): JSX.Element => {
             NCS Prototyping Projects
           </h4>
           <p className="pt-2 text-lg font-light leading-7 text-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            The NCS Prototyping Network strengthens the bridge between global NCS science and local
+            NCS implementation. The network provides a cross-project community of learning and
+            collaboration, and facilitates a constant feedback loop to improve implementation
+            through adaptive management. Additional data and case studies from around the world are
+            available through naturebase.
           </p>
         </div>
         <div className="">

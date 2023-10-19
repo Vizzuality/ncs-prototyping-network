@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
-import Button from 'components/ui/button';
 import Wrapper from 'containers/wrapper';
 
 const Facts = (): JSX.Element => {
@@ -14,19 +13,26 @@ const Facts = (): JSX.Element => {
   return (
     <section className="bg-midnight">
       <Wrapper>
-        <div className="my-20 flex flex-col items-center space-y-4 font-sans text-xl  text-white">
+        <div className="my-20 flex flex-col items-center space-y-4 font-sans text-xl text-white">
           <p className="max-w-4xl text-center leading-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Employed at a global scale, cost-effective Natural Climate Solutions have the{' '}
+            <span className="font-semibold">
+              potential to mitigate a third of greenhouse gas emissions needed to stabilize the
+              climate,
+            </span>{' '}
+            or approximately 11 gigatons annually (in carbon dioxide equivalents).
           </p>
           <motion.div whileHover="hover">
-            <Button className="mt-6 flex h-12 space-x-6 bg-transparent px-6 text-white hover:bg-transparent hover:text-white">
-              <p className="font-light uppercase">Learn more facts</p>
+            <a
+              href="https://www.nature.org/en-us/what-we-do/our-insights/perspectives/natural-climate-solutions/"
+              className="flex h-12 items-center space-x-6 px-6 text-white hover:bg-transparent hover:text-white"
+              target="_blank"
+            >
+              <p className="text-base font-light uppercase">Learn more facts</p>
               <motion.div variants={arrowAnimation}>
                 <HiArrowNarrowRight color="white" size={20} />
               </motion.div>
-            </Button>
+            </a>
           </motion.div>
         </div>
       </Wrapper>
