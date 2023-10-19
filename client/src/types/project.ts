@@ -69,11 +69,11 @@ export interface Project {
   pathways: Pathway[];
   action_types: ActionType[];
   cobenefits: CoBenefit[];
-  carbon_mitigation: number;
-  hectares_impacted: number;
+  carbon_mitigation: string;
+  hectares_impacted: string;
   fallback_photo: Media;
   footer_photo: Media;
-  people_supported: number;
+  people_supported: string;
   project_phases: Phase[];
   project_categories: Category[];
   project_goal: string;
@@ -114,12 +114,9 @@ export interface Project {
 }
 
 export type Total = {
-  countries: number;
-  partners: number;
-  projects: number;
-  total_people_supported: number;
-  total_hectares_impacted: number;
-  total_carbon_mitigation: number;
+  total_people_supported: string;
+  total_hectares_impacted: string;
+  total_carbon_mitigation: string;
 };
 
 export type PopUp = {

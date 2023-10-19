@@ -1,17 +1,38 @@
 import Wrapper from 'containers/wrapper';
-import { useTotalData } from 'hooks/projects';
+import { useProjects } from 'hooks/projects';
 
 const Data = (): JSX.Element => {
-  const totalDataQuery = useTotalData({});
+  const projectsQuery = useProjects();
+
+  const countriesArray = projectsQuery.data?.map((project) => project.country);
+  const countries = countriesArray.filter((c, idx) => countriesArray.indexOf(c) === idx).length;
+
+  const partnersArray = projectsQuery?.data?.map((project) => project.primary_partners);
+  const partners = partnersArray.filter((c, idx) => partnersArray.indexOf(c) === idx).length;
+
+  const total_people_supported = projectsQuery.data?.reduce(
+    (acc, p) => acc + parseInt(p.people_supported),
+    0
+  );
+
+  const total_hectares_impacted = projectsQuery.data?.reduce(
+    (acc, p) => acc + parseInt(p.hectares_impacted),
+    0
+  );
+
+  const total_carbon_mitigation = projectsQuery.data?.reduce(
+    (acc, p) => acc + parseInt(p.carbon_mitigation),
+    0
+  );
 
   return (
     <section className="bg-background">
       <Wrapper>
         <div className="mx-6 flex justify-between py-7 xl:mx-20">
-          {totalDataQuery.data?.projects && (
+          {!!projectsQuery?.data.length && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                {totalDataQuery.data?.projects}
+                {projectsQuery?.data.length}
               </p>
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                 Projects to Date
@@ -19,32 +40,28 @@ const Data = (): JSX.Element => {
             </div>
           )}
 
-          {totalDataQuery.data?.countries && (
+          {countries && (
             <div className="flex flex-col items-center space-y-2">
-              <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                {totalDataQuery.data?.countries}
-              </p>
+              <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">{countries}</p>
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                 Countries Across the World
               </p>
             </div>
           )}
 
-          {totalDataQuery.data?.partners && (
+          {partners && (
             <div className="flex flex-col items-center space-y-2">
-              <p className="xl:4xl font-sans text-3xl font-bold text-spring">
-                {totalDataQuery.data?.partners}
-              </p>
+              <p className="xl:4xl font-sans text-3xl font-bold text-spring">{partners}</p>
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                 Partners Working Together
               </p>
             </div>
           )}
 
-          {totalDataQuery.data?.total_people_supported && (
+          {total_people_supported && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                {totalDataQuery.data?.total_people_supported}
+                {Intl.NumberFormat('en-IN').format(total_people_supported)}
               </p>
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                 People Supported
@@ -52,10 +69,10 @@ const Data = (): JSX.Element => {
             </div>
           )}
 
-          {totalDataQuery.data?.total_area_ha_impacted && (
+          {total_hectares_impacted && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                {totalDataQuery.data?.total_area_ha_impacted}
+                {Intl.NumberFormat('en-IN').format(total_hectares_impacted)}
               </p>
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                 Hectares Impacted
@@ -63,10 +80,10 @@ const Data = (): JSX.Element => {
             </div>
           )}
 
-          {totalDataQuery.data?.total_carbon_mitigation && (
+          {total_carbon_mitigation && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                {totalDataQuery.data?.total_carbon_mitigation}
+                {Intl.NumberFormat('en-IN').format(total_carbon_mitigation)}
               </p>
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                 Million Tons of Carbon Sequestered

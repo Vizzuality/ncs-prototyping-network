@@ -101,56 +101,28 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
   } as typeof query;
 }
 
-export function useTotalData({
-  dataFiltered,
-}: {
-  dataFiltered?: Project[];
-}): UseQueryResult<Total, unknown> {
-  const fetchProjects = () =>
-    JSONAPI.request({
-      method: 'GET',
-      url: '/projects?populate=*',
-    }).then((response: AxiosResponse) => response.data);
-
-  const query = useQuery(['total-data'], fetchProjects, {
-    placeholderData: [],
-  });
-
-  const { data } = query;
-
-  const sumData = useMemo(() => {
-    const projects = dataFiltered ? dataFiltered : data?.data;
-
-    if (!data?.data) {
+export function useTotalData({ dataFiltered }: { dataFiltered?: Project[] }) {
+  const data = useMemo(() => {
+    if (!dataFiltered) {
       return [];
     }
 
-    const total_people_supported = projects?.reduce(
-      (acc, p) => acc + parseInt(p.people_supported || 0),
+    const total_people_supported = dataFiltered?.reduce(
+      (acc, p) => acc + parseInt(p.people_supported),
       0
     );
 
-    const total_hectares_impacted = projects?.reduce(
-      (acc, p) => acc + parseInt(p.hectares_impacted || 0),
+    const total_hectares_impacted = dataFiltered?.reduce(
+      (acc, p) => acc + parseInt(p.hectares_impacted),
       0
     );
 
-    const total_carbon_mitigation = projects?.reduce(
-      (acc, p) => acc + parseInt(p.carbon_mitigation || 0),
+    const total_carbon_mitigation = dataFiltered?.reduce(
+      (acc, p) => acc + parseInt(p.carbon_mitigation),
       0
     );
-
-    const countriesArray = data.data?.map((project) => project.country.data.attributes.name);
-
-    const countries = countriesArray.filter((c, idx) => countriesArray.indexOf(c) === idx).length;
-
-    const partnersArray = data?.data?.map((project) => project.primary_partners);
-    const partners = partnersArray.filter((c, idx) => partnersArray.indexOf(c) === idx).length;
 
     return {
-      countries,
-      partners,
-      projects: data?.data?.length,
       total_people_supported: Intl.NumberFormat('en-IN').format(total_people_supported),
       total_hectares_impacted: Intl.NumberFormat('en-IN').format(total_hectares_impacted),
       total_carbon_mitigation: Intl.NumberFormat('en-IN').format(total_carbon_mitigation),
@@ -158,9 +130,8 @@ export function useTotalData({
   }, [dataFiltered]);
 
   return {
-    ...query,
-    data: sumData,
-  } as typeof query;
+    ...data,
+  } as Total;
 }
 
 export function usePathways(): UseQueryResult<Project['pathways'], unknown> {
