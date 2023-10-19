@@ -6,6 +6,8 @@ import Image from 'next/image';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
+import { Project } from '@/types/project';
+
 import Wrapper from 'containers/wrapper';
 import { useProjects } from 'hooks/projects';
 
@@ -42,6 +44,10 @@ const HomeProjects = (): JSX.Element => {
     prevArrow: <SamplePrevArrow />,
   };
 
+  const shuffleProjects = (array: Project[]) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
   return (
     <Wrapper>
       <section className="flex flex-col space-y-12 py-14">
@@ -59,7 +65,7 @@ const HomeProjects = (): JSX.Element => {
         </div>
         <div className="">
           <Slider {...settings}>
-            {projectsQuery.data?.map((project) => (
+            {shuffleProjects(projectsQuery.data)?.map((project) => (
               <div key={project.id} className="relative">
                 <Image
                   alt="Project sample photo"
