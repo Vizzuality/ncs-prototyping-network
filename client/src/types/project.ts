@@ -114,6 +114,9 @@ export interface Project {
 }
 
 export type Total = {
+  countries: number;
+  partners: number;
+  projects: number;
   total_people_supported: number;
   total_area_ha_impacted: number;
   total_carbon_mitigation: number;

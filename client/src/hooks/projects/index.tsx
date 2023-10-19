@@ -105,7 +105,7 @@ export function useTotalData(): UseQueryResult<Total, unknown> {
   const fetchProjects = () =>
     JSONAPI.request({
       method: 'GET',
-      url: '/projects',
+      url: '/projects?populate=*',
     }).then((response: AxiosResponse) => response.data);
 
   const query = useQuery(['total-data'], fetchProjects, {
@@ -132,10 +132,20 @@ export function useTotalData(): UseQueryResult<Total, unknown> {
       (acc, p) => acc + parseInt(p.carbon_mitigation || 0),
       0
     );
+
+    const countriesArray = data?.data?.map((project) => project.country.data.attributes.name);
+    const countries = countriesArray.filter((c, idx) => countriesArray.indexOf(c) === idx).length;
+
+    const partnersArray = data?.data?.map((project) => project.primary_partners);
+    const partners = partnersArray.filter((c, idx) => partnersArray.indexOf(c) === idx).length;
+
     return {
-      total_people_supported,
-      total_area_ha_impacted,
-      total_carbon_mitigation,
+      countries,
+      partners,
+      projects: data?.data?.length,
+      total_people_supported: Intl.NumberFormat('en-IN').format(total_people_supported),
+      total_area_ha_impacted: Intl.NumberFormat('en-IN').format(total_area_ha_impacted),
+      total_carbon_mitigation: Intl.NumberFormat('en-IN').format(total_carbon_mitigation),
     };
   }, [data]);
 
