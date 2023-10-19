@@ -79,7 +79,7 @@ export interface Project {
   project_goal: string;
   project_summary: string;
   key_words: string;
-  why_content: string;
+  why_this_why_now: string;
   key_activities: string;
   primary_partners: string;
   successes: string;
@@ -109,6 +109,7 @@ export interface Project {
   project_size_ha: number;
   project_site_attribution: string;
   footer_img: string;
+  why_this_why_now_callout: string;
 }
 
 export type Total = {

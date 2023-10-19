@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
@@ -33,10 +33,6 @@ const ProjectDetail = (): JSX.Element => {
   const projectQuery = useProject({ projectId: `${params.id}` });
 
   const projectsQuery = useProjects();
-
-  if (!projectQuery.data) {
-    notFound();
-  }
 
   const [playing, setPlaying] = useState(false);
 
@@ -71,7 +67,7 @@ const ProjectDetail = (): JSX.Element => {
   return (
     <>
       <div className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat" />
-      {projectQuery.isFetched && (
+      {projectQuery.isFetched && !!Object.keys(projectQuery.data).length && (
         <>
           <Wrapper className="relative flex w-full flex-row justify-between">
             <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
@@ -174,20 +170,19 @@ const ProjectDetail = (): JSX.Element => {
               <div>
                 <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
                 <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                  {projectQuery.data?.key_activities
-                    ?.split(/\r?\n/)
-                    .filter((el, index) => {
-                      return index % 2 === 1;
-                    })
-                    .map((activity, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
-                      >
-                        <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
-                        <p className="mt-2 font-sans text-xl font-light text-text">{activity}</p>
-                      </div>
-                    ))}
+                  {projectQuery.data?.key_activities?.split(/\r?\n/).map((activity, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
+                    >
+                      <span className="text-4xl font-bold text-butternut">
+                        {activity.split(/([0-9]+.)/)[1]}
+                      </span>
+                      <p className="mt-2 font-sans text-xl font-light text-text">
+                        {activity.split(/([0-9]+.)/)[2]}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div>
@@ -202,12 +197,13 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
+
           <section id="why" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
             <Wrapper>
               <div className="flex flex-col items-center space-y-4 py-16 text-white">
                 <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
                 <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
-                  {projectQuery.data?.why_content}
+                  {projectQuery.data?.why_this_why_now}
                 </p>
               </div>
             </Wrapper>
@@ -490,36 +486,41 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
-            <Wrapper className="flex flex-col items-center space-y-6 py-20">
-              <VscQuote className="fill-butternut" size={40} />
-              <div className="flex justify-center">
-                <p className="max-w-3xl text-center font-sans text-xl font-light leading-9 text-white">
-                  {projectQuery.data?.callout}
-                </p>
-              </div>
-            </Wrapper>
-          </section>
-          <section>
-            <Wrapper>
-              <div className="space-y-4 border-b-[2px] py-14">
-                <h4 className="font-serif text-3xl font-medium text-indigo">Partners</h4>
-                <div
-                  className={cn({
-                    'font-light leading-8 text-text': true,
-                    'grid grid-cols-2':
-                      projectQuery.data?.primary_partners?.split(/\r?\n/).length > 5,
-                  })}
-                >
-                  {projectQuery.data?.primary_partners?.split(/\r?\n/).map((partner) => (
-                    <p key={partner} className="mr-8">
-                      {partner}
-                    </p>
-                  ))}
+          {projectQuery.data?.why_this_why_now_callout && (
+            <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
+              <Wrapper className="flex flex-col items-center space-y-6 py-20">
+                <VscQuote className="fill-butternut" size={40} />
+                <div className="flex justify-center">
+                  <p className="max-w-3xl text-center font-sans text-xl font-light leading-9 text-white">
+                    {projectQuery.data?.why_this_why_now_callout}
+                  </p>
                 </div>
-              </div>
-            </Wrapper>
-          </section>
+              </Wrapper>
+            </section>
+          )}
+          {projectQuery.data?.primary_partners && (
+            <section>
+              <Wrapper>
+                <div className="space-y-4 border-b-[2px] py-14">
+                  <h4 className="font-serif text-3xl font-medium text-indigo">Partners</h4>
+                  <div
+                    className={cn({
+                      'font-light leading-8 text-text': true,
+                      'grid grid-cols-2':
+                        projectQuery.data?.primary_partners?.split(/\r?\n/).length > 5,
+                    })}
+                  >
+                    {projectQuery.data?.primary_partners?.split(/\r?\n/).map((partner) => (
+                      <p key={partner} className="mr-8">
+                        {partner}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </Wrapper>
+            </section>
+          )}
+
           <section className="py-16">
             <Wrapper className="flex flex-row space-x-20">
               <div className="w-3/4 space-y-6">
@@ -571,6 +572,11 @@ const ProjectDetail = (): JSX.Element => {
             </Wrapper>
           </section>
         </>
+      )}
+      {projectQuery.isFetched && Object.keys(projectQuery.data).length === 0 && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">No data available</p>
+        </div>
       )}
       {projectQuery.isFetching && (
         <div className="flex h-64 w-full items-center justify-center">
