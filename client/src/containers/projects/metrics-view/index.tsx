@@ -6,14 +6,32 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
+import { useCobenefits } from '@/hooks/projects';
+
 import Icon from 'components/icon';
-import { COLUMNS, CO_BENEFITS_ICONS } from 'containers/projects/constants';
+import { COLUMNS } from 'containers/projects/constants';
+import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
+import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
+import HUMAN_HEALTH_WELLBEING_SVG from 'svgs/co-benefits/human_health_wellbeing.svg?sprite';
+import LIVELIHOODS_ECONOMIC_SVG from 'svgs/co-benefits/livelihoods_economic.svg?sprite';
+import RESILIENCE_AND_ADAPTATION_SVG from 'svgs/co-benefits/resilience_and_adaptation.svg?sprite';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
 type Direction = 'asc' | 'desc';
 
 const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
+  const cobenefitsQuery = useCobenefits();
+
+  // TODO: add one mor ecobenefit icon
+  const CO_BENEFITS_ICONS = {
+    [cobenefitsQuery.data[0]]: ECOSYSTEM_SERVICES_SVG,
+    [cobenefitsQuery.data[1]]: BIODIVERSITY_SVG,
+    [cobenefitsQuery.data[2]]: LIVELIHOODS_ECONOMIC_SVG,
+    [cobenefitsQuery.data[3]]: HUMAN_HEALTH_WELLBEING_SVG,
+    [cobenefitsQuery.data[4]]: RESILIENCE_AND_ADAPTATION_SVG,
+  };
+
   const [sortedBy, setSortedBy] = useState<string>('country');
 
   const [direction, setDirection] = useState<Direction>('asc');

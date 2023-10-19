@@ -101,7 +101,11 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
   } as typeof query;
 }
 
-export function useTotalData(): UseQueryResult<Total, unknown> {
+export function useTotalData({
+  dataFiltered,
+}: {
+  dataFiltered?: Project[];
+}): UseQueryResult<Total, unknown> {
   const fetchProjects = () =>
     JSONAPI.request({
       method: 'GET',
@@ -115,25 +119,29 @@ export function useTotalData(): UseQueryResult<Total, unknown> {
   const { data } = query;
 
   const sumData = useMemo(() => {
+    const projects = dataFiltered ? dataFiltered : data?.data;
+
     if (!data?.data) {
       return [];
     }
 
-    const total_people_supported = data?.data?.reduce(
+    const total_people_supported = projects?.reduce(
       (acc, p) => acc + parseInt(p.people_supported || 0),
       0
     );
 
-    const total_area_ha_impacted = data?.data?.reduce(
-      (acc, p) => acc + parseInt(p.area_ha_impacted || 0),
+    const total_hectares_impacted = projects?.reduce(
+      (acc, p) => acc + parseInt(p.hectares_impacted || 0),
       0
     );
-    const total_carbon_mitigation = data?.data?.reduce(
+
+    const total_carbon_mitigation = projects?.reduce(
       (acc, p) => acc + parseInt(p.carbon_mitigation || 0),
       0
     );
 
-    const countriesArray = data?.data?.map((project) => project.country.data.attributes.name);
+    const countriesArray = data.data?.map((project) => project.country.data.attributes.name);
+
     const countries = countriesArray.filter((c, idx) => countriesArray.indexOf(c) === idx).length;
 
     const partnersArray = data?.data?.map((project) => project.primary_partners);
@@ -144,13 +152,143 @@ export function useTotalData(): UseQueryResult<Total, unknown> {
       partners,
       projects: data?.data?.length,
       total_people_supported: Intl.NumberFormat('en-IN').format(total_people_supported),
-      total_area_ha_impacted: Intl.NumberFormat('en-IN').format(total_area_ha_impacted),
+      total_hectares_impacted: Intl.NumberFormat('en-IN').format(total_hectares_impacted),
       total_carbon_mitigation: Intl.NumberFormat('en-IN').format(total_carbon_mitigation),
     };
-  }, [data]);
+  }, [dataFiltered]);
 
   return {
     ...query,
     data: sumData,
+  } as typeof query;
+}
+
+export function usePathways(): UseQueryResult<Project['pathways'], unknown> {
+  const fetchPathways = () =>
+    JSONAPI.request({
+      method: 'GET',
+      url: '/pathways',
+    }).then((response: AxiosResponse) => response.data);
+
+  const query = useQuery(['pathways'], fetchPathways, {
+    placeholderData: [],
+  });
+
+  const { data } = query;
+
+  const parsedData = useMemo(() => {
+    if (!data?.data) {
+      return [];
+    }
+    return data?.data.map((p) => p.name);
+  }, [data]);
+
+  return {
+    ...query,
+    data: parsedData,
+  } as typeof query;
+}
+
+export function usePhases(): UseQueryResult<Project['project_phases'], unknown> {
+  const fetchPhases = () =>
+    JSONAPI.request({
+      method: 'GET',
+      url: '/project-phases',
+    }).then((response: AxiosResponse) => response.data);
+
+  const query = useQuery(['phases'], fetchPhases, {
+    placeholderData: [],
+  });
+
+  const { data } = query;
+
+  const parsedData = useMemo(() => {
+    if (!data?.data) {
+      return [];
+    }
+    return data?.data.map((p) => p.name);
+  }, [data]);
+
+  return {
+    ...query,
+    data: parsedData,
+  } as typeof query;
+}
+
+export function useCategories(): UseQueryResult<Project['project_categories'], unknown> {
+  const fetchCategories = () =>
+    JSONAPI.request({
+      method: 'GET',
+      url: '/project-categories',
+    }).then((response: AxiosResponse) => response.data);
+
+  const query = useQuery(['categories'], fetchCategories, {
+    placeholderData: [],
+  });
+
+  const { data } = query;
+
+  const parsedData = useMemo(() => {
+    if (!data?.data) {
+      return [];
+    }
+    return data?.data.map((p) => p.name);
+  }, [data]);
+
+  return {
+    ...query,
+    data: parsedData,
+  } as typeof query;
+}
+
+export function useActionTypes(): UseQueryResult<Project['action_types'], unknown> {
+  const fetchActionTypes = () =>
+    JSONAPI.request({
+      method: 'GET',
+      url: '/action-types',
+    }).then((response: AxiosResponse) => response.data);
+
+  const query = useQuery(['action-types'], fetchActionTypes, {
+    placeholderData: [],
+  });
+
+  const { data } = query;
+
+  const parsedData = useMemo(() => {
+    if (!data?.data) {
+      return [];
+    }
+    return data?.data.map((p) => p.name);
+  }, [data]);
+
+  return {
+    ...query,
+    data: parsedData,
+  } as typeof query;
+}
+
+export function useCobenefits(): UseQueryResult<Project['cobenefits'], unknown> {
+  const fetchCobenefits = () =>
+    JSONAPI.request({
+      method: 'GET',
+      url: '/cobenefits',
+    }).then((response: AxiosResponse) => response.data);
+
+  const query = useQuery(['cobenefits'], fetchCobenefits, {
+    placeholderData: [],
+  });
+
+  const { data } = query;
+
+  const parsedData = useMemo(() => {
+    if (!data?.data) {
+      return [];
+    }
+    return data?.data.map((p) => p.name);
+  }, [data]);
+
+  return {
+    ...query,
+    data: parsedData,
   } as typeof query;
 }

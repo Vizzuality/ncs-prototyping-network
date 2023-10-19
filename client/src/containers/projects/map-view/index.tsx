@@ -10,8 +10,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
 
-import { useTotalData } from '@/hooks/projects';
-
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
@@ -23,6 +21,7 @@ import Card from 'containers/projects/card';
 import { SORT_OPTIONS } from 'containers/projects/map-view/constants';
 import LayerManager from 'containers/projects/map-view/layer-manager';
 import Tabs from 'containers/projects/map-view/tabs';
+import Total from 'containers/projects/map-view/total';
 import { basemapAtom, filteredBboxAtom } from 'store';
 import { Project, PopUp } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
@@ -48,7 +47,6 @@ const DEFAULT_PROPS = {
 };
 
 const MapView = ({ data }: { data: Project[] }): JSX.Element => {
-  const totalDataQuery = useTotalData();
   const { push } = useRouter();
 
   const mapRef = useRef(null);
@@ -165,34 +163,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
         {!!sortedData.length && (
           <div className="flex space-x-6">
             <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
-              <section className="bg-background">
-                <div className="mx-6 flex justify-between py-7 xl:mx-20">
-                  <div className="flex flex-col items-center space-y-2">
-                    <p className="xl:text-4x font-sans text-3xl font-bold text-spring">
-                      {totalDataQuery.data?.total_people_supported}
-                    </p>
-                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                      People Supported
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-center space-y-2">
-                    <p className="xl:text-4x font-sans text-3xl font-bold text-spring">
-                      {totalDataQuery.data?.total_area_ha_impacted}
-                    </p>
-                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                      Hectares Impacted
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-center space-y-2">
-                    <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                      {totalDataQuery.data?.total_carbon_mitigation}
-                    </p>
-                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                      Million Tons of Carbon Sequestered
-                    </p>
-                  </div>
-                </div>
-              </section>
+              <Total />
 
               <div className="flex h-10 items-center justify-end space-x-3">
                 {sortedData.length > 1 && (

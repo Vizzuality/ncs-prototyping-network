@@ -118,7 +118,7 @@ export type Total = {
   partners: number;
   projects: number;
   total_people_supported: number;
-  total_area_ha_impacted: number;
+  total_hectares_impacted: number;
   total_carbon_mitigation: number;
 };
 
