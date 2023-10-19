@@ -78,6 +78,7 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
       country: data.data.country.data.attributes.name,
       cobenefits: data.data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
       footer_photo: data.data.footer_photo.data?.attributes,
+      goals_photo: data.data.goals_photo.data?.attributes,
       graphic_1: data.data.graphic_1.data?.attributes,
       graphic_2: data.data.graphic_2.data?.attributes,
       lesson_1_category: data.data.lesson_1_category.data.attributes.name,

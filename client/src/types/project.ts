@@ -100,6 +100,7 @@ export interface Project {
   citations: string;
   resources: string;
   video: Media;
+  goals_photo: Media;
   graphic_1: Media;
   graphic_2: Media;
   graphic_2_caption: string;

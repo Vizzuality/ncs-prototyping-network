@@ -156,58 +156,65 @@ const ProjectDetail = (): JSX.Element => {
                 </p>
               </div>
             </div>
+
             <Image
-              src="/images/projects/goals_placeholder.png"
-              alt="Goals"
+              src={projectQuery.data?.goals_photo?.url || '/images/projects/goals_placeholder.png'}
+              alt={projectQuery.data?.goals_photo?.caption || 'Goals'}
               height={280}
               width={500}
               style={{ objectFit: 'cover' }}
               className="w-1/2"
             />
           </section>
-          <section className="py-16">
-            <Wrapper className="space-y-10">
-              <div>
-                <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
-                <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                  {projectQuery.data?.key_activities?.split(/\r?\n/).map((activity, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
-                    >
-                      <span className="text-4xl font-bold text-butternut">
-                        {activity.split(/([0-9]+.)/)[1]}
-                      </span>
-                      <p className="mt-2 font-sans text-xl font-light text-text">
-                        {activity.split(/([0-9]+.)/)[2]}
-                      </p>
-                    </div>
-                  ))}
+
+          {projectQuery.data?.key_activities && (
+            <section className="py-16">
+              <Wrapper className="space-y-10">
+                <div>
+                  <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
+                  <div className="flex flex-col space-y-2 py-6 font-sans text-text">
+                    {projectQuery.data?.key_activities?.split(/\r?\n/).map((activity, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
+                      >
+                        <span className="text-4xl font-bold text-butternut">
+                          {activity.split(/([0-9]+.)/)[1]}
+                        </span>
+                        <p className="mt-2 font-sans text-xl font-light text-text">
+                          {activity.split(/([0-9]+.)/)[2]}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
-                <p className="pt-6 font-sans text-lg font-light text-text">
-                  Project Phase: {projectQuery.data.project_phases}
-                </p>
+                <div>
+                  <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
+                  <p className="pt-6 font-sans text-lg font-light text-text">
+                    Project Phase: {projectQuery.data.project_phases}
+                  </p>
 
-                <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
-                  {projectQuery.data?.project_summary}
-                </p>
-              </div>
-            </Wrapper>
-          </section>
+                  <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
+                    {projectQuery.data?.project_summary}
+                  </p>
+                </div>
+              </Wrapper>
+            </section>
+          )}
 
-          <section id="why" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
-            <Wrapper>
-              <div className="flex flex-col items-center space-y-4 py-16 text-white">
-                <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
-                <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
-                  {projectQuery.data?.why_this_why_now}
-                </p>
-              </div>
-            </Wrapper>
-          </section>
+          {projectQuery.data?.why_this_why_now && (
+            <section id="why" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
+              <Wrapper>
+                <div className="flex flex-col items-center space-y-4 py-16 text-white">
+                  <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
+                  <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
+                    {projectQuery.data?.why_this_why_now}
+                  </p>
+                </div>
+              </Wrapper>
+            </section>
+          )}
+
           <section className="bg-background py-16">
             <Wrapper>
               <div className="flex w-full space-x-16">
@@ -250,30 +257,37 @@ const ProjectDetail = (): JSX.Element => {
             <Wrapper>
               <table>
                 <tbody>
-                  <tr className="border-b-[2px] [&>*]:py-10">
-                    <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                      {projectQuery.data?.lesson_1_category}
-                    </td>
-                    <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                      {projectQuery.data?.lesson_1}
-                    </td>
-                  </tr>
-                  <tr className="border-b-[2px] [&>*]:py-10">
-                    <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
-                      {projectQuery.data?.lesson_2_category}
-                    </td>
-                    <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                      {projectQuery.data?.lesson_2}
-                    </td>
-                  </tr>
-                  <tr className="[&>*]:py-10">
-                    <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                      {projectQuery.data?.lesson_3_category}
-                    </td>
-                    <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                      {projectQuery.data?.lesson_3}
-                    </td>
-                  </tr>
+                  {projectQuery.data?.lesson_1 && (
+                    <tr className="border-b-[2px] [&>*]:py-10">
+                      <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
+                        {projectQuery.data?.lesson_1_category}
+                      </td>
+                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                        {projectQuery.data?.lesson_1}
+                      </td>
+                    </tr>
+                  )}
+
+                  {projectQuery.data?.lesson_2 && (
+                    <tr className="border-b-[2px] [&>*]:py-10">
+                      <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
+                        {projectQuery.data?.lesson_2_category}
+                      </td>
+                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                        {projectQuery.data?.lesson_2}
+                      </td>
+                    </tr>
+                  )}
+                  {projectQuery.data?.lesson_3 && (
+                    <tr className="[&>*]:py-10">
+                      <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
+                        {projectQuery.data?.lesson_3_category}
+                      </td>
+                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                        {projectQuery.data?.lesson_3}
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </Wrapper>
