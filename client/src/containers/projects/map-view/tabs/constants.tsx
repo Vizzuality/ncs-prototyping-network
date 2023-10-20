@@ -6,6 +6,6 @@ type Tab = {
 };
 
 export const TABS: Tab[] = [
-  { id: 'light', label: 'Map' },
+  { id: 'outdoors', label: 'Map' },
   { id: 'satellite', label: 'Satellite' },
 ];

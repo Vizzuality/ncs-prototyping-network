@@ -1,4 +1,4 @@
-export type BasemapId = 'light' | 'satellite';
+export type BasemapId = 'outdoors' | 'satellite';
 
 type BasemapTypes = {
   id: BasemapId;
@@ -9,10 +9,10 @@ type BasemapTypes = {
 
 const BASEMAPS = [
   {
-    id: 'light',
+    id: 'outdoors',
     type: 'basemap',
-    name: 'Light',
-    url: 'mapbox://styles/mapbox/light-v10',
+    name: 'Outdoors',
+    url: 'mapbox://styles/mapbox/outdoors-v10',
   },
   {
     id: 'satellite',

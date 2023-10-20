@@ -2,7 +2,7 @@ import { LngLatBoundsLike } from 'mapbox-gl';
 import { atom } from 'recoil';
 
 import { WORLD_BOUNDS } from '@/components/map/constants';
-export type Basemap = 'light' | 'satellite';
+export type Basemap = 'outdoors' | 'satellite';
 export type Filters = {
   pathways: string[];
   action_types: string[];
@@ -12,7 +12,7 @@ export type Filters = {
 
 export const basemapAtom = atom<Basemap>({
   key: 'basemap',
-  default: 'light',
+  default: 'outdoors',
 });
 
 export const projectsViewAtom = atom<string>({
