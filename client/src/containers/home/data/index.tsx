@@ -58,7 +58,7 @@ const Data = (): JSX.Element => {
             </div>
           )}
 
-          {total_people_supported && (
+          {!isNaN(total_people_supported) && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                 {Intl.NumberFormat('en-IN').format(total_people_supported)}
@@ -69,7 +69,7 @@ const Data = (): JSX.Element => {
             </div>
           )}
 
-          {total_hectares_impacted && (
+          {!isNaN(total_hectares_impacted) && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                 {Intl.NumberFormat('en-IN').format(total_hectares_impacted)}
@@ -80,7 +80,7 @@ const Data = (): JSX.Element => {
             </div>
           )}
 
-          {total_carbon_mitigation && (
+          {!isNaN(total_carbon_mitigation) && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                 {Intl.NumberFormat('en-IN').format(total_carbon_mitigation)}
