@@ -1,9 +1,12 @@
 'use client';
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { Form, Field, FormProps } from 'react-final-form';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useSetRecoilState } from 'recoil';
+
+import { headerStyleAtom } from '@/store';
 
 import { Toaster } from '@/components/ui/toaster';
 
@@ -24,6 +27,12 @@ interface FormValues {
 }
 
 const ContactPage = (): JSX.Element => {
+  const setHeaderStyle = useSetRecoilState(headerStyleAtom);
+
+  useEffect(() => {
+    setHeaderStyle('default');
+  }, [setHeaderStyle]);
+
   const formRef = useRef(null);
   const { toast } = useToast();
 
@@ -75,7 +84,7 @@ const ContactPage = (): JSX.Element => {
         exit={{ opacity: 0 }}
         transition={{ delay: 0.25, duration: 0.3 }}
       >
-        <Wrapper className="mx-auto max-w-4xl py-20">
+        <Wrapper className="!px-56 py-20">
           <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">Contact Us</h4>
           <p className="pt-3 text-xl font-light leading-8 text-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

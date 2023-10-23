@@ -1,14 +1,17 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
+import { useSetRecoilState } from 'recoil';
+
+import { headerStyleAtom } from '@/store';
 
 import { useProject, useProjects } from '@/hooks/projects';
 
@@ -30,6 +33,14 @@ import ExtentMap from './extent-map';
 
 const ProjectDetail = (): JSX.Element => {
   const params = useParams();
+  const ref = useRef();
+  const inView = useInView(ref, {
+    once: false,
+    amount: 0.25,
+  });
+
+  const setHeaderStyle = useSetRecoilState(headerStyleAtom);
+
   const projectQuery = useProject({ projectId: `${params.id}` });
 
   const projectsQuery = useProjects();
@@ -64,11 +75,23 @@ const ProjectDetail = (): JSX.Element => {
     link.remove();
   };
 
+  useEffect(() => {
+    if (inView) {
+      setHeaderStyle('default');
+    }
+    if (!inView) {
+      setHeaderStyle('dark');
+    }
+  }, [inView, setHeaderStyle]);
+
   return (
     <>
-      <div className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat" />
+      <div
+        className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat"
+        ref={ref}
+      />
       {projectQuery.isFetched && !!Object.keys(projectQuery.data).length && (
-        <>
+        <div>
           <Wrapper className="relative flex w-full flex-row justify-between">
             <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
               <motion.div whileHover="hover">
@@ -585,7 +608,7 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-        </>
+        </div>
       )}
       {projectQuery.isFetched && Object.keys(projectQuery.data).length === 0 && (
         <div className="flex h-64 w-full items-center justify-center">

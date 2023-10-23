@@ -2,7 +2,11 @@ import { LngLatBoundsLike } from 'mapbox-gl';
 import { atom } from 'recoil';
 
 import { WORLD_BOUNDS } from '@/components/map/constants';
+
 export type Basemap = 'outdoors' | 'satellite';
+
+export type HeaderStyle = 'default' | 'light' | 'dark';
+
 export type Filters = {
   pathways: string[];
   action_types: string[];
@@ -35,11 +39,17 @@ export const filteredBboxAtom = atom<LngLatBoundsLike>({
   default: WORLD_BOUNDS,
 });
 
+export const headerStyleAtom = atom<HeaderStyle>({
+  key: 'headerStyle',
+  default: 'default',
+});
+
 const store = {
   projectsView: projectsViewAtom,
   filters: filtersAtom,
   basemap: basemapAtom,
   filteredBbox: filteredBboxAtom,
+  headerStyle: headerStyleAtom,
 };
 
 export default store;
