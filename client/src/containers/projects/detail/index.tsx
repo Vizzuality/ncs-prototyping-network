@@ -83,8 +83,8 @@ const ProjectDetail = (): JSX.Element => {
                 </Link>
               </motion.div>
 
-              <div className="flex flex-col items-center">
-                <h2 className="mb-16 max-w-3xl font-serif text-[35px] font-medium leading-9 text-indigo">
+              <div className="flex max-w-2xl flex-col items-center">
+                <h2 className="mb-16  font-serif text-[35px] font-medium leading-9 text-indigo">
                   {projectQuery.data?.long_title}
                 </h2>
                 <div className="flex space-x-10 font-sans xl:space-x-20">
@@ -121,7 +121,7 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="-mt-36">
+            <div className="-mt-20">
               <ExtentMap extent={projectQuery.data?.extent} />
             </div>
           </Wrapper>
