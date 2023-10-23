@@ -151,11 +151,11 @@
     },
     "keywords": {
       "type": "customField",
-      "customField": "global::input"
+      "customField": "plugin::string-array.input"
     },
     "primary_partners": {
       "type": "customField",
-      "customField": "global::input"
+      "customField": "plugin::string-array.input"
     },
     "lesson_1_category": {
       "type": "relation",
@@ -197,7 +197,7 @@
       "type": "string"
     },
     "people_supported": {
-      "type": "text"
+      "type": "decimal"
     },
     "why_this_why_now_callout": {
       "type": "text"

@@ -506,7 +506,7 @@
       },
       "keywords": {
         "edit": {
-          "label": "Keywords",
+          "label": "keywords",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -514,13 +514,13 @@
         },
         "list": {
           "label": "keywords",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "primary_partners": {
         "edit": {
-          "label": "Primary Partners",
+          "label": "primary_partners",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -528,8 +528,8 @@
         },
         "list": {
           "label": "primary_partners",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "lesson_1_category": {
@@ -847,6 +847,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
+      ],
       "edit": [
         [
           {
@@ -1008,18 +1014,6 @@
         ],
         [
           {
-            "name": "keywords",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "primary_partners",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "centroid_lat",
             "size": 4
           },
@@ -1125,13 +1119,19 @@
             "name": "extent",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "keywords",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "primary_partners",
+            "size": 12
+          }
         ]
-      ],
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
       ]
     }
   },

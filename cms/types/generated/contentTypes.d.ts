@@ -974,8 +974,10 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::project-category.project-category'
     >;
-    keywords: Attribute.Text & Attribute.CustomField<'global::input'>;
-    primary_partners: Attribute.Text & Attribute.CustomField<'global::input'>;
+    keywords: Attribute.Text &
+      Attribute.CustomField<'plugin::string-array.input'>;
+    primary_partners: Attribute.Text &
+      Attribute.CustomField<'plugin::string-array.input'>;
     lesson_1_category: Attribute.Relation<
       'api::project.project',
       'manyToOne',
@@ -998,7 +1000,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     project_site_attribution: Attribute.Text;
     metric: Attribute.String;
     project_code: Attribute.String;
-    people_supported: Attribute.Text;
+    people_supported: Attribute.Decimal;
     why_this_why_now_callout: Attribute.Text;
     header_photo: Attribute.Media;
     footer_photo: Attribute.Media;
