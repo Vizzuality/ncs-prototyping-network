@@ -187,9 +187,6 @@
     "project_site_attribution": {
       "type": "text"
     },
-    "metric": {
-      "type": "string"
-    },
     "project_code": {
       "type": "string"
     },

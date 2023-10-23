@@ -1005,7 +1005,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
     project_site_description: Attribute.Text;
     project_size_ha: Attribute.Decimal;
     project_site_attribution: Attribute.Text;
-    metric: Attribute.String;
     project_code: Attribute.String;
     people_supported: Attribute.Decimal;
     why_this_why_now_callout: Attribute.Text;
