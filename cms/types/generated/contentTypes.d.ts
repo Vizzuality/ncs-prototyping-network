@@ -910,8 +910,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
   attributes: {
     project_name: Attribute.String & Attribute.Required;
     long_title: Attribute.Text;
-    public_contact_name: Attribute.Text;
-    public_contact_email: Attribute.Text;
     carbon_mitigation: Attribute.Decimal;
     hectares_impacted: Attribute.Decimal;
     project_goal: Attribute.Text;
@@ -931,7 +929,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
     whats_next: Attribute.Text;
     abstract: Attribute.Text;
     citations: Attribute.Text;
-    resources: Attribute.Text;
     video: Attribute.Media;
     graphic_1: Attribute.Media;
     region: Attribute.Relation<
@@ -975,9 +972,19 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'api::project-category.project-category'
     >;
     keywords: Attribute.Text &
-      Attribute.CustomField<'plugin::string-array.input'>;
+      Attribute.CustomField<
+        'plugin::string-array.input',
+        {
+          separator: 'semicolon';
+        }
+      >;
     primary_partners: Attribute.Text &
-      Attribute.CustomField<'plugin::string-array.input'>;
+      Attribute.CustomField<
+        'plugin::string-array.input',
+        {
+          separator: 'semicolon';
+        }
+      >;
     lesson_1_category: Attribute.Relation<
       'api::project.project',
       'manyToOne',
@@ -1006,8 +1013,26 @@ export interface ApiProjectProject extends Schema.CollectionType {
     footer_photo: Attribute.Media;
     goals_photo: Attribute.Media;
     fallback_photo: Attribute.Media;
-    graphic_2: Attribute.Media;
     extent: Attribute.JSON;
+    resources: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::resource.resource'
+    >;
+    public_contact_name: Attribute.Text &
+      Attribute.CustomField<
+        'plugin::string-array.input',
+        {
+          separator: 'semicolon';
+        }
+      >;
+    public_contact_email: Attribute.Text &
+      Attribute.CustomField<
+        'plugin::string-array.input',
+        {
+          separator: 'semicolon';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1130,6 +1155,43 @@ export interface ApiRegionRegion extends Schema.CollectionType {
   };
 }
 
+export interface ApiResourceResource extends Schema.CollectionType {
+  collectionName: 'resources';
+  info: {
+    singularName: 'resource';
+    pluralName: 'resources';
+    displayName: 'Resource';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    label: Attribute.String;
+    link: Attribute.String;
+    file: Attribute.Media;
+    projects: Attribute.Relation<
+      'api::resource.resource',
+      'manyToMany',
+      'api::project.project'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::resource.resource',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::resource.resource',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1156,6 +1218,7 @@ declare module '@strapi/types' {
       'api::project-category.project-category': ApiProjectCategoryProjectCategory;
       'api::project-phase.project-phase': ApiProjectPhaseProjectPhase;
       'api::region.region': ApiRegionRegion;
+      'api::resource.resource': ApiResourceResource;
     }
   }
 }

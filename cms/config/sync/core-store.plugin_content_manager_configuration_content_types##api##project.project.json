@@ -48,34 +48,6 @@
           "sortable": true
         }
       },
-      "public_contact_name": {
-        "edit": {
-          "label": "Public Contact Name",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "public_contact_name",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "public_contact_email": {
-        "edit": {
-          "label": "Public Contact Email",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "public_contact_email",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "carbon_mitigation": {
         "edit": {
           "label": "Carbon MItigation",
@@ -342,20 +314,6 @@
           "sortable": true
         }
       },
-      "resources": {
-        "edit": {
-          "label": "Resources",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "resources",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "video": {
         "edit": {
           "label": "Video",
@@ -506,7 +464,7 @@
       },
       "keywords": {
         "edit": {
-          "label": "keywords",
+          "label": "Keywords",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -520,7 +478,7 @@
       },
       "primary_partners": {
         "edit": {
-          "label": "primary_partners",
+          "label": "Primary Partners",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -759,20 +717,6 @@
           "sortable": false
         }
       },
-      "graphic_2": {
-        "edit": {
-          "label": "Graphic 2",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "graphic_2",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "extent": {
         "edit": {
           "label": "Extent",
@@ -785,6 +729,49 @@
           "label": "extent",
           "searchable": false,
           "sortable": false
+        }
+      },
+      "resources": {
+        "edit": {
+          "label": "Resources",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "label"
+        },
+        "list": {
+          "label": "resources",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "public_contact_name": {
+        "edit": {
+          "label": "Public Contact Name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "public_contact_name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "public_contact_email": {
+        "edit": {
+          "label": "Public Contact Email",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "public_contact_email",
+          "searchable": true,
+          "sortable": true
         }
       },
       "createdAt": {
@@ -847,12 +834,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
-      ],
       "edit": [
         [
           {
@@ -861,16 +842,6 @@
           },
           {
             "name": "long_title",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "public_contact_name",
-            "size": 6
-          },
-          {
-            "name": "public_contact_email",
             "size": 6
           }
         ],
@@ -986,10 +957,6 @@
           {
             "name": "citations",
             "size": 6
-          },
-          {
-            "name": "resources",
-            "size": 6
           }
         ],
         [
@@ -1009,6 +976,16 @@
           },
           {
             "name": "action_types",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "public_contact_name",
+            "size": 6
+          },
+          {
+            "name": "public_contact_email",
             "size": 6
           }
         ],
@@ -1042,7 +1019,9 @@
           {
             "name": "biomes",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "project_phases",
             "size": 6
@@ -1088,10 +1067,6 @@
           {
             "name": "graphic_1",
             "size": 6
-          },
-          {
-            "name": "graphic_2",
-            "size": 6
           }
         ],
         [
@@ -1131,7 +1106,19 @@
             "name": "primary_partners",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "resources",
+            "size": 6
+          }
         ]
+      ],
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
       ]
     }
   },

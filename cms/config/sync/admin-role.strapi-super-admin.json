@@ -360,8 +360,6 @@
         "fields": [
           "project_name",
           "long_title",
-          "public_contact_name",
-          "public_contact_email",
           "carbon_mitigation",
           "hectares_impacted",
           "project_goal",
@@ -381,7 +379,6 @@
           "whats_next",
           "abstract",
           "citations",
-          "resources",
           "video",
           "graphic_1",
           "region",
@@ -410,8 +407,10 @@
           "footer_photo",
           "goals_photo",
           "fallback_photo",
-          "graphic_2",
-          "extent"
+          "extent",
+          "resources",
+          "public_contact_name",
+          "public_contact_email"
         ]
       },
       "conditions": [],
@@ -438,8 +437,6 @@
         "fields": [
           "project_name",
           "long_title",
-          "public_contact_name",
-          "public_contact_email",
           "carbon_mitigation",
           "hectares_impacted",
           "project_goal",
@@ -459,7 +456,6 @@
           "whats_next",
           "abstract",
           "citations",
-          "resources",
           "video",
           "graphic_1",
           "region",
@@ -488,8 +484,10 @@
           "footer_photo",
           "goals_photo",
           "fallback_photo",
-          "graphic_2",
-          "extent"
+          "extent",
+          "resources",
+          "public_contact_name",
+          "public_contact_email"
         ]
       },
       "conditions": [],
@@ -502,8 +500,6 @@
         "fields": [
           "project_name",
           "long_title",
-          "public_contact_name",
-          "public_contact_email",
           "carbon_mitigation",
           "hectares_impacted",
           "project_goal",
@@ -523,7 +519,6 @@
           "whats_next",
           "abstract",
           "citations",
-          "resources",
           "video",
           "graphic_1",
           "region",
@@ -552,8 +547,10 @@
           "footer_photo",
           "goals_photo",
           "fallback_photo",
-          "graphic_2",
-          "extent"
+          "extent",
+          "resources",
+          "public_contact_name",
+          "public_contact_email"
         ]
       },
       "conditions": [],
@@ -596,6 +593,55 @@
       "properties": {
         "fields": [
           "name",
+          "projects"
+        ]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::resource.resource",
+      "properties": {
+        "fields": [
+          "label",
+          "link",
+          "file",
+          "projects"
+        ]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::resource.resource",
+      "properties": {},
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::resource.resource",
+      "properties": {
+        "fields": [
+          "label",
+          "link",
+          "file",
+          "projects"
+        ]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::resource.resource",
+      "properties": {
+        "fields": [
+          "label",
+          "link",
+          "file",
           "projects"
         ]
       },

@@ -19,12 +19,6 @@
     "long_title": {
       "type": "text"
     },
-    "public_contact_name": {
-      "type": "text"
-    },
-    "public_contact_email": {
-      "type": "text"
-    },
     "carbon_mitigation": {
       "type": "decimal"
     },
@@ -80,9 +74,6 @@
       "type": "text"
     },
     "citations": {
-      "type": "text"
-    },
-    "resources": {
       "type": "text"
     },
     "video": {
@@ -151,11 +142,17 @@
     },
     "keywords": {
       "type": "customField",
-      "customField": "plugin::string-array.input"
+      "customField": "plugin::string-array.input",
+      "options": {
+        "separator": "semicolon"
+      }
     },
     "primary_partners": {
       "type": "customField",
-      "customField": "plugin::string-array.input"
+      "customField": "plugin::string-array.input",
+      "options": {
+        "separator": "semicolon"
+      }
     },
     "lesson_1_category": {
       "type": "relation",
@@ -234,16 +231,28 @@
         "images"
       ]
     },
-    "graphic_2": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "extent": {
       "type": "json"
+    },
+    "resources": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::resource.resource",
+      "inversedBy": "projects"
+    },
+    "public_contact_name": {
+      "type": "customField",
+      "options": {
+        "separator": "semicolon"
+      },
+      "customField": "plugin::string-array.input"
+    },
+    "public_contact_email": {
+      "type": "customField",
+      "options": {
+        "separator": "semicolon"
+      },
+      "customField": "plugin::string-array.input"
     }
   }
 }

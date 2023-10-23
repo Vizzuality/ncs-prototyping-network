@@ -64,6 +64,12 @@
       "action": "api::region.region.findOne"
     },
     {
+      "action": "api::resource.resource.find"
+    },
+    {
+      "action": "api::resource.resource.findOne"
+    },
+    {
       "action": "plugin::users-permissions.auth.callback"
     },
     {
