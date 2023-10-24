@@ -28,7 +28,7 @@ const DetailFooter: React.FC = () => {
       <div className="relative">
         <div
           className={cn({
-            "mt-auto bg-cover bg-top bg-no-repeat after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
+            "mt-auto bg-cover bg-top bg-no-repeat before:absolute before:top-0 before:left-0 before:h-44 before:w-full before:bg-gradient-to-t before:from-transparent before:to-white before:content-[''] after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
               true,
           })}
           style={{

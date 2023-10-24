@@ -64,16 +64,16 @@ const ProjectDetail = (): JSX.Element => {
       .slice(0, 3);
   }, [projectsQuery.data, projectQuery.data]);
 
-  const onDownload = async (resource: string, fileName: string) => {
-    const blob = await fetch(resource).then((r) => r.blob());
-    const url = window.URL.createObjectURL(new Blob([blob]));
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', `${fileName}`);
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  };
+  // const onDownload = async (resource: string, fileName: string) => {
+  //   const blob = await fetch(resource).then((r) => r.blob());
+  //   const url = window.URL.createObjectURL(new Blob([blob]));
+  //   const link = document.createElement('a');
+  //   link.href = url;
+  //   link.setAttribute('download', `${fileName}`);
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   link.remove();
+  // };
 
   useEffect(() => {
     if (inView) {
@@ -89,8 +89,7 @@ const ProjectDetail = (): JSX.Element => {
       <div
         className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            `url(${projectQuery.data?.header_photo?.url})` || 'url(/images/home/hero.png)',
+          backgroundImage: `url(${projectQuery.data?.header_photo?.url})` || '',
         }}
         ref={ref}
       />
@@ -346,33 +345,35 @@ const ProjectDetail = (): JSX.Element => {
                   </div>
                 )}
               </div>
-              <div className="flex w-1/4 flex-col space-y-6">
-                <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
+              {!!projectQuery.data?.resources.length && (
+                <section className="flex w-1/4 flex-col space-y-6">
+                  <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
 
-                <div className="flex flex-col items-start font-sans text-xl font-light leading-9 text-text">
-                  <button
-                    type="button"
-                    className="hover:font-medium"
-                    onClick={() => onDownload(projectQuery.data?.resources[0], 'Fact Sheet')}
-                  >
-                    <p>Download Fact Sheet</p>
-                  </button>
-                  <button
-                    type="button"
-                    className="hover:font-medium"
-                    onClick={() => onDownload(projectQuery.data?.resources[1], 'Download 2')}
-                  >
-                    <p>Download 2</p>
-                  </button>
-                  <button
-                    type="button"
-                    className="hover:font-medium"
-                    onClick={() => onDownload(projectQuery.data?.resources[2], 'Download 3')}
-                  >
-                    <p>Download 3</p>
-                  </button>
-                </div>
-              </div>
+                  <div className="flex flex-col items-start font-sans text-xl font-light leading-9 text-text">
+                    <button
+                      type="button"
+                      className="hover:font-medium"
+                      // onClick={() => onDownload(projectQuery.data?.resources[0], 'Fact Sheet')}
+                    >
+                      <p>Download Fact Sheet</p>
+                    </button>
+                    <button
+                      type="button"
+                      className="hover:font-medium"
+                      // onClick={() => onDownload(projectQuery.data?.resources[1], 'Download 2')}
+                    >
+                      <p>Download 2</p>
+                    </button>
+                    <button
+                      type="button"
+                      className="hover:font-medium"
+                      // onClick={() => onDownload(projectQuery.data?.resources[2], 'Download 3')}
+                    >
+                      <p>Download 3</p>
+                    </button>
+                  </div>
+                </section>
+              )}
             </Wrapper>
           </section>
 
@@ -534,7 +535,7 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          <section className="py-16">
+          <section className="pt-16 pb-28">
             <Wrapper className="space-y-6">
               <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
               <div className="flex justify-start space-x-6 2xl:space-x-10">

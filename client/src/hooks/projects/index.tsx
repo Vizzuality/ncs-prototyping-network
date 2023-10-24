@@ -94,6 +94,7 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
         (project_phases) => project_phases.attributes.name
       ),
       region: data.data.region.data?.attributes.name,
+      resources: data.data.resources.data,
     };
   }, [data]);
 
