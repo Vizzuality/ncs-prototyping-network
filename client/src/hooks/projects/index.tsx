@@ -30,7 +30,7 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
       biomes: project.biomes.data.map((biome) => biome.attributes.name),
       country: project.country.data.attributes.name,
       cobenefits: project.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
-      fallback_photo: project.fallback_photo.data?.attributes,
+      fallback_photo: project.fallback_photo.data?.attributes.formats.small,
       lesson_1_category: project.lesson_1_category.data.attributes.name,
       lesson_2_category: project.lesson_2_category.data.attributes.name,
       lesson_3_category: project.lesson_3_category.data.attributes.name,

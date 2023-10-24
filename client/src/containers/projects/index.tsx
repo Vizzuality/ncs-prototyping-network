@@ -10,7 +10,7 @@ import MapView from 'containers/projects/map-view';
 import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
-import { usePathways, useProjects } from 'hooks/projects';
+import { useProjects } from 'hooks/projects';
 import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
 import { ActionType, Category, Pathway, Phase, Project } from 'types/project';
 
@@ -22,9 +22,6 @@ const ProjectsPage = (): JSX.Element => {
   }, [setHeaderStyle]);
 
   const projectsQuery = useProjects();
-  const pathwaysQuery = usePathways();
-
-  console.log({ pathwaysQuery });
 
   const projectsView = useRecoilValue(projectsViewAtom);
 
@@ -89,7 +86,7 @@ const ProjectsPage = (): JSX.Element => {
 
   return (
     <Wrapper>
-      <div className="mt-24 mb-6 flex items-center space-x-6">
+      <div className="sticky top-16 z-40 mt-16 flex items-center space-x-6 bg-white py-9">
         <Tabs />
         <Filters />
       </div>

@@ -97,7 +97,7 @@ const ProjectDetail = (): JSX.Element => {
       {projectQuery.isFetched && !!Object.keys(projectQuery.data).length && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between">
-            <div className="flex w-2/3 flex-col items-start pt-6 pb-32">
+            <div className="flex w-2/3 flex-col items-start pt-6 pb-24">
               <motion.div whileHover="hover">
                 <Link href="/projects" className="flex items-center space-x-1 pb-8">
                   <motion.div variants={arrowAnimation}>
@@ -114,7 +114,7 @@ const ProjectDetail = (): JSX.Element => {
                 <h2 className="mb-16  font-serif text-[35px] font-medium leading-9 text-indigo">
                   {projectQuery.data?.long_title}
                 </h2>
-                <div className="flex space-x-10 font-sans xl:space-x-20">
+                <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
                   {!!projectQuery.data?.carbon_mitigation && (
                     <div className="flex flex-col items-center">
                       <p className="pb-2 text-4xl font-bold text-spring">
@@ -148,11 +148,13 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="-mt-20">
-              <ExtentMap extent={projectQuery.data?.extent} />
-            </div>
+            {projectQuery.data?.extent && (
+              <div className="-mt-20">
+                <ExtentMap extent={projectQuery.data?.extent} />
+              </div>
+            )}
           </Wrapper>
-          <section className="sticky top-[68px] w-full border-t border-b bg-white">
+          <section className="sticky top-[68px] z-30 w-full border-t border-b bg-white">
             <Wrapper>
               <div className="flex justify-between py-4 px-28 text-text">
                 <a className="hover:text-butternut" href="#goals">
@@ -333,23 +335,16 @@ const ProjectDetail = (): JSX.Element => {
                     {projectQuery.data?.project_summary}
                   </p>
                 </div>
-                <div className="flex flex-col space-y-4">
-                  <h5 className="text-lg font-light uppercase">CITATIONS</h5>
-                  <div className="space-y-2 text-2xs font-light">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <p>
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                      aliquip ex ea commodo consequat.{' '}
-                    </p>
-                    <p>
-                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                      eu fugiat nulla pariatur.
-                    </p>
+                {projectQuery.data?.citations && (
+                  <div className="flex flex-col space-y-4">
+                    <h5 className="text-lg font-light uppercase">CITATIONS</h5>
+                    <div className="space-y-2 text-2xs font-light">
+                      {projectQuery.data?.citations?.split(';').map((citation, idx) => (
+                        <p key={idx}>{citation}</p>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
               <div className="flex w-1/4 flex-col space-y-6">
                 <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
@@ -380,6 +375,7 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
+
           {projectQuery.data?.graphic && (
             <section className="bg-background py-16">
               <Wrapper>
@@ -400,72 +396,7 @@ const ProjectDetail = (): JSX.Element => {
               </Wrapper>
             </section>
           )}
-          {/* //TODO: Add this section on phase 2 */}
-          {/* <section className="bg-white py-16">
-        <Wrapper>
-          <div className="grid grid-cols-3 gap-8">
-            <div className="flex flex-col space-y-4">
-              <p className="font-serif text-2xl font-medium text-indigo">Project Extent</p>
-              <Image
-                src="/images/mockup/extent.png"
-                alt="Project Extent"
-                height={360}
-                width={360}
-                style={{ objectFit: 'contain' }}
-                className="w-full"
-              />
-              <p className="font-sans text-m font-light text-text">
-                The extent was based on the peatland restoration indicative areas from BRGM for Kubu
-                Raya Regency.
-                <br />
-                <br />
-                NOTE: Only non-forested/degraded peatland areas were considered as indicative areas.
-                <br />
-                <br />
-                Total project extent areas: 298,954 ha.
-              </p>
-            </div>
-            <div className="flex flex-col space-y-4">
-              <p className="font-serif text-2xl font-medium text-indigo">Area of Interest</p>
-              <Image
-                src="/images/mockup/extent.png"
-                alt="Area of Interest"
-                height={360}
-                width={360}
-                style={{ objectFit: 'contain' }}
-                className="w-full"
-              />
-              <p className="space-y-2 font-sans text-m font-light text-text">
-                The extent was based on the peatland restoration indicative areas from BRGM for West
-                Kalimantan Province.
-                <br />
-                <br />
-                NOTE: All peatlands were considered as restoration indicative areas.
-                <br />
-                <br />
-                Total ROI extent areas: 726,514 ha.
-              </p>
-            </div>
-            <div className="flex flex-col space-y-4">
-              <p className="font-serif text-2xl font-medium text-indigo">Area of Influence</p>
-              <Image
-                src="/images/mockup/extent.png"
-                alt="Area of Influence"
-                height={360}
-                width={360}
-                style={{ objectFit: 'contain' }}
-                className="w-full"
-              />
-              <p className="font-sans text-m font-light text-text">
-                Total Broader impact extent areas: 6,228,080 ha.
-                <br />
-                <br />
-                Total Indonesia Peatland areas (2021): 13,446,100 ha.
-              </p>
-            </div>
-          </div>
-        </Wrapper>
-      </section> */}
+
           <section id="co-benefits" className="flex scroll-mt-28 flex-col">
             <div className="bg-indigo py-6">
               <Wrapper>

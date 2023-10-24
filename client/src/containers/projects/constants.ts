@@ -9,7 +9,7 @@ export const COLUMNS = [
     id: 'pathways',
     label: 'Pathway',
     sorting: false,
-    width: 130,
+    width: 150,
   },
   {
     id: 'action_types',
@@ -39,13 +39,13 @@ export const COLUMNS = [
     id: 'people_supported',
     label: 'People Supported',
     sorting: true,
-    width: 100,
+    width: 80,
   },
   {
     id: 'carbon_mitigation',
     label: 'Mitigation Potencial',
     sorting: true,
-    width: 100,
+    width: 80,
   },
   {
     id: 'co-benefits',
