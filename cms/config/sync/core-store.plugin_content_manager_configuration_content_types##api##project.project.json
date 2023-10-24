@@ -820,12 +820,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
-      ],
       "edit": [
         [
           {
@@ -1017,9 +1011,7 @@
           {
             "name": "project_phases",
             "size": 6
-          }
-        ],
-        [
+          },
           {
             "name": "project_categories",
             "size": 6
@@ -1101,6 +1093,12 @@
             "size": 6
           }
         ]
+      ],
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
       ]
     }
   },
