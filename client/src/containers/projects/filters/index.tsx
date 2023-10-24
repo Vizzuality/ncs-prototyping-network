@@ -1,17 +1,44 @@
 import { useRecoilState } from 'recoil';
 
+import { useActionTypes, useCategories, usePathways, usePhases } from '@/hooks/projects';
+
 import MultiSelect from 'components/ui/multiselect';
 import { filtersAtom } from 'store';
 
-import {
-  PATHWAYS_OPTIONS,
-  ACTION_TYPES_OPTIONS,
-  P_PHASE_OPTIONS,
-  P_CATEGORY_OPTIONS,
-} from './constants';
-
 const Filters = (): JSX.Element => {
   const [filters, setFilters] = useRecoilState(filtersAtom);
+  const pathwaysQuery = usePathways();
+  const phasesQuery = usePhases();
+  const categoriesQuery = useCategories();
+  const actionTypesQuery = useActionTypes();
+
+  const PATHWAYS_OPTIONS = pathwaysQuery.data.map((p) => {
+    return {
+      label: p,
+      value: p,
+    };
+  });
+
+  const P_PHASE_OPTIONS = phasesQuery.data.map((p) => {
+    return {
+      label: p,
+      value: p,
+    };
+  });
+
+  const P_CATEGORY_OPTIONS = categoriesQuery.data.map((c) => {
+    return {
+      label: c,
+      value: c,
+    };
+  });
+
+  const ACTION_TYPES_OPTIONS = actionTypesQuery.data.map((at) => {
+    return {
+      label: at,
+      value: at,
+    };
+  });
 
   return (
     <div className="flex w-9/12 flex-col space-y-1">

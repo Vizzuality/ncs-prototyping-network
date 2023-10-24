@@ -90,7 +90,7 @@ const LayerManager = () => {
       },
       paint: {},
       layout: {
-        'icon-size': 0.75,
+        'icon-size': 0.85,
         'icon-image': 'marker',
         'icon-keep-upright': true,
       },

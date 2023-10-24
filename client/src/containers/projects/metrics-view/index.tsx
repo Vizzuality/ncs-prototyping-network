@@ -6,14 +6,32 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
+import { useCobenefits } from '@/hooks/projects';
+
 import Icon from 'components/icon';
-import { COLUMNS, CO_BENEFITS_ICONS } from 'containers/projects/constants';
+import { COLUMNS } from 'containers/projects/constants';
+import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
+import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
+import HUMAN_HEALTH_WELLBEING_SVG from 'svgs/co-benefits/human_health_wellbeing.svg?sprite';
+import LIVELIHOODS_ECONOMIC_SVG from 'svgs/co-benefits/livelihoods_economic.svg?sprite';
+import RESILIENCE_AND_ADAPTATION_SVG from 'svgs/co-benefits/resilience_and_adaptation.svg?sprite';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
 type Direction = 'asc' | 'desc';
 
 const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
+  const cobenefitsQuery = useCobenefits();
+
+  // TODO: add one mor ecobenefit icon
+  const CO_BENEFITS_ICONS = {
+    [cobenefitsQuery.data[0]]: ECOSYSTEM_SERVICES_SVG,
+    [cobenefitsQuery.data[1]]: BIODIVERSITY_SVG,
+    [cobenefitsQuery.data[2]]: LIVELIHOODS_ECONOMIC_SVG,
+    [cobenefitsQuery.data[3]]: HUMAN_HEALTH_WELLBEING_SVG,
+    [cobenefitsQuery.data[4]]: RESILIENCE_AND_ADAPTATION_SVG,
+  };
+
   const [sortedBy, setSortedBy] = useState<string>('country');
 
   const [direction, setDirection] = useState<Direction>('asc');
@@ -37,6 +55,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ delay: 0.25, duration: 0.3 }}
+        className="bg-white pt-[28px]"
       >
         {!sortedData.length && (
           <div className="flex h-64 w-full items-center justify-center">
@@ -44,13 +63,14 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
           </div>
         )}
         {!!sortedData.length && (
-          <table className="text-xs">
-            <thead className="h-12">
-              <tr className="border-b border-indigo text-left [&>*]:px-4 [&>*]:py-2">
+          <table className="bg-white text-xs">
+            <thead className="h-12 bg-white">
+              <tr className=" bg-white text-left [&>*]:px-4 [&>*]:py-2">
                 {COLUMNS.map((column) => (
                   <th
                     key={column.id}
-                    className="cursor-pointer"
+                    className="sticky top-[198px] cursor-pointer border-b border-indigo bg-white"
+                    style={{ width: column.width }}
                     onClick={() => {
                       if (column.sorting) {
                         setSortedBy(column.id);
@@ -92,7 +112,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                     key={project.id}
                     className="text-2xs text-text [&>*]:border-b-[2px] [&>*]:px-4 [&>*]:py-4"
                   >
-                    <td className="max-w-[140px]  !pl-0 xl:w-3/12 xl:max-w-0">
+                    <td className="max-w-[140px] !pl-0 xl:w-3/12 xl:max-w-0">
                       <Link
                         href={`/projects/${project.id}`}
                         className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
@@ -103,7 +123,11 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                             project.fallback_photo?.url ||
                             'https://dummyimage.com/110x110/000/fff&text=+'
                           }
-                          style={{ objectFit: 'cover', height: '100px', width: '100px' }}
+                          style={{
+                            objectFit: 'cover',
+                            height: '100px',
+                            minWidth: '100px',
+                          }}
                           height={110}
                           width={110}
                         />

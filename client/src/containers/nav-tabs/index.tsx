@@ -3,12 +3,17 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { useRecoilValue } from 'recoil';
+
+import { headerStyleAtom } from '@/store';
+
 import { cn } from 'utils/cn';
 
 import { NAV_TABS_HEADER, NAV_TABS_FOOTER } from './constants';
 
 const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
   const pathname = usePathname();
+  const headerStyle = useRecoilValue(headerStyleAtom);
 
   const NAV_TABS = section === 'footer' ? NAV_TABS_FOOTER : NAV_TABS_HEADER;
 
@@ -33,6 +38,7 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
             <p
               className={cn({
                 'py-5 font-sans text-xl uppercase text-white': true,
+                'text-indigo': headerStyle === 'light' && section !== 'footer',
                 'font-bold': pathname === tab.href && section !== 'footer',
                 'py-0 text-base font-normal': section === 'footer',
               })}

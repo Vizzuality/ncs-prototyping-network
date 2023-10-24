@@ -67,19 +67,20 @@ export interface Project {
   biome: string;
   extent: GeoJSONSourceRaw & GeoJSONSourceOptions;
   pathways: Pathway[];
+  header_photo: Media;
   action_types: ActionType[];
   cobenefits: CoBenefit[];
-  carbon_mitigation: number;
-  hectares_impacted: number;
+  carbon_mitigation: string;
+  hectares_impacted: string;
   fallback_photo: Media;
   footer_photo: Media;
-  people_supported: number;
+  people_supported: string;
   project_phases: Phase[];
   project_categories: Category[];
   project_goal: string;
   project_summary: string;
   key_words: string;
-  why_content: string;
+  why_this_why_now: string;
   key_activities: string;
   primary_partners: string;
   successes: string;
@@ -99,22 +100,23 @@ export interface Project {
   abstract: string;
   citations: string;
   resources: string;
-  video: Media;
-  graphic_1: Media;
-  graphic_2: Media;
-  graphic_2_caption: string;
+  video: string;
+  video_caption: string;
+  goals_photo: Media;
+  graphic: Media;
   centroid_lat: number;
   centroid_long: number;
   project_site_description: string;
   project_size_ha: number;
   project_site_attribution: string;
   footer_img: string;
+  why_this_why_now_callout: string;
 }
 
 export type Total = {
-  total_people_supported: number;
-  total_area_ha_impacted: number;
-  total_carbon_mitigation: number;
+  total_people_supported: string;
+  total_hectares_impacted: string;
+  total_carbon_mitigation: string;
 };
 
 export type PopUp = {

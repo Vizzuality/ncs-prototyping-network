@@ -15,12 +15,9 @@ const Lessons = (): JSX.Element => {
           <div className="my-10 flex flex-col space-y-4 text-white">
             <h4 className="font-serif text-4xl font-semibold">Lessons Learned</h4>
             <p className="text-xl font-normal leading-9">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit.
+              Scaling NCS effectively and efficiently requires greater understanding of what does
+              and doesn’t work to drive success in different contexts. The NCS Prototyping Network
+              has synthesized lessons to help inform NCS implementation and policy.
             </p>
           </div>
         </Wrapper>
@@ -46,10 +43,10 @@ const Lessons = (): JSX.Element => {
               <h5 className="pb-4 font-serif text-2xl font-semibold text-indigo">{lesson.title}</h5>
 
               {lesson.points.map((point) => (
-                <div key={point} className="flex items-start space-x-3">
+                <div key={point} className="flex items-start space-x-3 space-y-1.5">
                   <Icon icon={ARROW_SVG} className="mt-2 h-6 w-8 stroke-butternut stroke-2" />
 
-                  <p className="w-5/6 font-sans text-lg font-light leading-9 text-text">{point}</p>
+                  <p className="w-5/6 font-sans text-m font-light leading-7 text-text">{point}</p>
                 </div>
               ))}
             </div>

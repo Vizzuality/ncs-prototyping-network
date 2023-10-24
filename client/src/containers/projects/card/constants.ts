@@ -1,25 +1,25 @@
 import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
 import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
 import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
-import { PATHWAYS } from 'utils/constants-projects';
 
+//TODO: Read constants from API
 export const COLORS = {
-  [PATHWAYS.Agroforestry]: 'bg-iris',
-  [PATHWAYS.CoastalWetlandsAvoidedImpacts]: 'bg-rust',
-  [PATHWAYS.CoastalWetlandsRestoration]: 'bg-rust',
-  [PATHWAYS.PeatlandsAvoidedImpacts]: 'bg-cirrus',
-  [PATHWAYS.PeatlandsRestoration]: 'bg-cirrus',
-  [PATHWAYS.Reforestation]: 'bg-spring',
-  [PATHWAYS.Silvopasture]: 'bg-midnight',
-  [PATHWAYS.AvoidedDeforestation]: 'bg-iris',
-  [PATHWAYS.AvoidedPeatImpacts]: 'bg-spring',
-  [PATHWAYS.GrasslandManagement]: 'bg-midnight',
+  Agroforestry: 'bg-iris',
+  'Coastal Wetlands (Avoided Impacts)': 'bg-rust',
+  'Coastal Wetlands (Restoration)': 'bg-rust',
+  'Peatlands (Avoided Impacts)': 'bg-cirrus',
+  'Peatlands (Restoration)': 'bg-cirrus',
+  Reforestation: 'bg-spring',
+  Silvopasture: 'bg-midnight',
+  'Avoided Deforestation': 'bg-iris',
+  'Avoided Peat Impacts': 'bg-spring',
+  'Grassland Management': 'bg-midnight',
 };
 
 export const ICONS = {
-  [PATHWAYS.Agroforestry]: AGROFORESTRY_SVG,
-  [PATHWAYS.CoastalWetlandsAvoidedImpacts]: COASTAL_WETLANDS_SVG,
-  [PATHWAYS.CoastalWetlandsRestoration]: COASTAL_WETLANDS_SVG,
-  [PATHWAYS.PeatlandsAvoidedImpacts]: PEATLANDS_SVG,
-  [PATHWAYS.PeatlandsRestoration]: PEATLANDS_SVG,
+  Agroforestry: AGROFORESTRY_SVG,
+  'Coastal Wetlands (Avoided Impacts)': COASTAL_WETLANDS_SVG,
+  'Coastal Wetlands (Restoration)': COASTAL_WETLANDS_SVG,
+  'Peatlands (Avoided Impacts)': PEATLANDS_SVG,
+  'Peatlands (Restoration)': PEATLANDS_SVG,
 };

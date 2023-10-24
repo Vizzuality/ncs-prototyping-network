@@ -24,10 +24,10 @@ const Pathways = (): JSX.Element => {
         <h4 className="font-serif text-4xl font-semibold text-indigo">
           What we&apos;re field testing
         </h4>
-        <p className="max-w-3xl text-xl font-light leading-7 text-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <p className="max-w-7xl text-xl font-light leading-7 text-text">
+          15 TNC-led projects are filling critical knowledge gaps that contribute to larger-scale
+          expansion of NCS through the design and evaluation of peatland conservation and
+          restoration, coastal wetland conservation and restoration, and agroforestry NCS projects.
         </p>
         <div>
           {PATHWAYS.map(({ id, icon, name, className }) => (

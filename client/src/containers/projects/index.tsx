@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { useSearchParams } from 'next/navigation';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
@@ -11,11 +11,16 @@ import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 import { useProjects } from 'hooks/projects';
-import { filtersAtom, projectsViewAtom } from 'store';
+import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
 import { ActionType, Category, Pathway, Phase, Project } from 'types/project';
-import { getSpecificPathwayName } from 'utils/pathways';
 
 const ProjectsPage = (): JSX.Element => {
+  const setHeaderStyle = useSetRecoilState(headerStyleAtom);
+
+  useEffect(() => {
+    setHeaderStyle('default');
+  }, [setHeaderStyle]);
+
   const projectsQuery = useProjects();
 
   const projectsView = useRecoilValue(projectsViewAtom);
@@ -26,6 +31,18 @@ const ProjectsPage = (): JSX.Element => {
   const pathway = searchParams.get('pathway');
 
   const [dataFiltered, setDataFiltered] = useState<Project[]>(projectsQuery.data || []);
+
+  // TODO: Read from API
+  const getSpecificPathwayName = (pathway) => {
+    switch (pathway) {
+      case 'Agroforestry':
+        return ['Agroforestry'];
+      case 'Peatlands':
+        return ['Peatlands (Restoration)', 'Peatlands (Avoided Impacts)'];
+      case 'Coastal Wetlands':
+        return ['Coastal Wetlands (Restoration)', 'Coastal Wetlands (Avoided Impacts)'];
+    }
+  };
 
   useEffect(() => {
     if (pathway) {
@@ -69,7 +86,7 @@ const ProjectsPage = (): JSX.Element => {
 
   return (
     <Wrapper>
-      <div className="mt-6 mb-10 flex items-center space-x-6">
+      <div className="sticky top-16 z-40 mt-16 flex items-center space-x-6 bg-white py-9">
         <Tabs />
         <Filters />
       </div>

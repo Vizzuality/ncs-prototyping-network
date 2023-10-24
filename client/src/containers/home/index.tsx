@@ -1,5 +1,10 @@
 'use client';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
+import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { useSetRecoilState } from 'recoil';
+
+import { headerStyleAtom } from '@/store';
 
 import Footer from 'containers/footer';
 import Data from 'containers/home/data';
@@ -12,6 +17,20 @@ import Pathways from 'containers/home/pathways';
 import Projects from 'containers/home/projects';
 
 const HomePage = (): JSX.Element => {
+  const ref = useRef();
+  const inView = useInView(ref, {
+    once: false,
+    amount: 0.25,
+  });
+  const setHeaderStyle = useSetRecoilState(headerStyleAtom);
+
+  useEffect(() => {
+    if (inView) {
+      setHeaderStyle('default');
+    }
+    if (!inView) setHeaderStyle('light');
+  }, [inView, setHeaderStyle]);
+
   return (
     <>
       <AnimatePresence>
@@ -21,7 +40,9 @@ const HomePage = (): JSX.Element => {
           exit={{ opacity: 0 }}
           transition={{ delay: 0.25, duration: 0.4 }}
         >
-          <Hero />
+          <div ref={ref}>
+            <Hero />
+          </div>
           <HomeMap />
           <Data />
           <Projects />

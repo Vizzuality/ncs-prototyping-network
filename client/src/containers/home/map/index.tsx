@@ -12,12 +12,11 @@ const HomeMap = (): JSX.Element => {
       <section className="-mt-44 mb-24 flex h-full bg-white py-12 px-16">
         <div className="flex w-1/3 flex-col">
           <p className="text-xs font-light leading-7 text-text xl:text-lg xl:leading-9">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
+            The Nature Conservancy’s NCS Prototyping Network, part of a broader NCS Activation
+            Toolkit funded by the Bezos Earth Fund, is bringing together field staff and scientists
+            from 15 existing TNC projects using NCS interventions in peatlands, coastal wetlands,
+            and agroforestry systems. Each project is a means to field test the impact and efficacy
+            of different approaches.
           </p>
 
           <Link href="/projects">

@@ -41,10 +41,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
               })}
             >
               <Icon icon={ICONS[pathway]} className="h-6 w-6" />
-              <p className="font-serif text-xs uppercase text-white">
-                {/* {getGeneralPathwayName(pathway)} */}
-                {pathway}
-              </p>
+              <p className="font-serif text-xs uppercase text-white">{pathway}</p>
             </div>
           ))}
         </div>
