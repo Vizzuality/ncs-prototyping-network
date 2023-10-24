@@ -67,6 +67,7 @@ export interface Project {
   biome: string;
   extent: GeoJSONSourceRaw & GeoJSONSourceOptions;
   pathways: Pathway[];
+  header_photo: Media;
   action_types: ActionType[];
   cobenefits: CoBenefit[];
   carbon_mitigation: string;
@@ -99,11 +100,10 @@ export interface Project {
   abstract: string;
   citations: string;
   resources: string;
-  video: Media;
+  video: string;
+  video_caption: string;
   goals_photo: Media;
-  graphic_1: Media;
-  graphic_2: Media;
-  graphic_2_caption: string;
+  graphic: Media;
   centroid_lat: number;
   centroid_long: number;
   project_site_description: string;

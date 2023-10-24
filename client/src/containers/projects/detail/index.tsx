@@ -87,13 +87,17 @@ const ProjectDetail = (): JSX.Element => {
   return (
     <>
       <div
-        className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat"
+        className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            `url(${projectQuery.data?.header_photo?.url})` || 'url(/images/home/hero.png)',
+        }}
         ref={ref}
       />
       {projectQuery.isFetched && !!Object.keys(projectQuery.data).length && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between">
-            <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
+            <div className="flex w-2/3 flex-col items-start pt-6 pb-32">
               <motion.div whileHover="hover">
                 <Link href="/projects" className="flex items-center space-x-1 pb-8">
                   <motion.div variants={arrowAnimation}>
@@ -148,29 +152,31 @@ const ProjectDetail = (): JSX.Element => {
               <ExtentMap extent={projectQuery.data?.extent} />
             </div>
           </Wrapper>
-          <Wrapper>
-            <div className="flex justify-between border-t py-4 px-28 text-text">
-              <a className="hover:text-butternut" href="#goals">
-                Overview
-              </a>
-              <a className="hover:text-butternut" href="#why">
-                Why This, Why Now
-              </a>
-              <a className="hover:text-butternut" href="#lessons">
-                Lessons Learned
-              </a>
-              <a className="hover:text-butternut" href="#science">
-                Science
-              </a>
-              <a className="hover:text-butternut" href="#co-benefits">
-                Co-benefits
-              </a>
-              <a className="hover:text-butternut" href="#contact">
-                Contact
-              </a>
-            </div>
-          </Wrapper>
-          <section id="goals" className="flex bg-indigo">
+          <section className="sticky top-16 w-full border-t border-b bg-white">
+            <Wrapper>
+              <div className="flex justify-between py-4 px-28 text-text">
+                <a className="hover:text-butternut" href="#goals">
+                  Overview
+                </a>
+                <a className="hover:text-butternut" href="#why">
+                  Why This, Why Now
+                </a>
+                <a className="hover:text-butternut" href="#lessons">
+                  Lessons Learned
+                </a>
+                <a className="hover:text-butternut" href="#science">
+                  Science
+                </a>
+                <a className="hover:text-butternut" href="#co-benefits">
+                  Co-benefits
+                </a>
+                <a className="hover:text-butternut" href="#contact">
+                  Contact
+                </a>
+              </div>
+            </Wrapper>
+          </section>
+          <section id="goals" className="flex scroll-mt-20 bg-indigo">
             <div className="flex w-1/2 justify-end">
               <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
                 <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
@@ -196,17 +202,13 @@ const ProjectDetail = (): JSX.Element => {
                 <div>
                   <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                    {projectQuery.data?.key_activities?.split(/\r?\n/).map((activity, idx) => (
+                    {projectQuery.data?.key_activities?.split(';').map((activity, idx) => (
                       <div
                         key={idx}
                         className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
                       >
-                        <span className="text-4xl font-bold text-butternut">
-                          {activity.split(/([0-9]+.)/)[1]}
-                        </span>
-                        <p className="mt-2 font-sans text-xl font-light text-text">
-                          {activity.split(/([0-9]+.)/)[2]}
-                        </p>
+                        <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
+                        <p className="mt-2 font-sans text-xl font-light text-text">{activity}</p>
                       </div>
                     ))}
                   </div>
@@ -226,7 +228,10 @@ const ProjectDetail = (): JSX.Element => {
           )}
 
           {projectQuery.data?.why_this_why_now && (
-            <section id="why" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
+            <section
+              id="why"
+              className="scroll-mt-20 bg-gradient-to-r from-midnight via-indigo to-midnight"
+            >
               <Wrapper>
                 <div className="flex flex-col items-center space-y-4 py-16 text-white">
                   <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
@@ -238,38 +243,35 @@ const ProjectDetail = (): JSX.Element => {
             </section>
           )}
 
-          <section className="bg-background py-16">
-            <Wrapper>
-              <div className="flex w-full space-x-16">
-                <div className="aspect-video w-2/3">
-                  <Video
-                    playing={playing}
-                    loop
-                    url="https://youtu.be/shGJFJ1lgGY"
-                    height="100%"
-                    width="100%"
-                  />
-                </div>
-                <div className="w-1/3 space-y-4 py-4">
-                  <h4 className="font-serif text-2xl font-medium text-indigo">
-                    {projectQuery.data?.video?.caption}
-                  </h4>
+          {projectQuery.data?.video && (
+            <section className="bg-background py-16">
+              <Wrapper>
+                <div className="flex w-full space-x-16">
+                  <div className="aspect-video w-2/3">
+                    <Video
+                      playing={playing}
+                      loop
+                      url={projectQuery.data?.video}
+                      height="100%"
+                      width="100%"
+                    />
+                  </div>
+                  <div className="w-1/3 space-y-4 py-4">
+                    <p className="text-m text-text">{projectQuery.data?.video_caption}</p>
 
-                  <p className="text-m text-text">
-                    Indigenous Women are becoming leaders for Thriving Ecosystem and we are proud to
-                    help enable that.
-                  </p>
-
-                  <div className="pt-2">
-                    <Button onClick={() => setPlaying(true)}>
-                      <p className="text-base font-bold uppercase">Watch video</p>
-                    </Button>
+                    <div className="pt-2">
+                      <Button onClick={() => setPlaying(!playing)}>
+                        <p className="text-base font-bold uppercase">
+                          {playing ? 'Pause video' : 'Watch video'}
+                        </p>
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Wrapper>
-          </section>
-          <section id="lessons">
+              </Wrapper>
+            </section>
+          )}
+          <section id="lessons" className="scroll-mt-28">
             <div className="bg-indigo py-6">
               <Wrapper>
                 <div>
@@ -315,7 +317,7 @@ const ProjectDetail = (): JSX.Element => {
               </table>
             </Wrapper>
           </section>
-          <section id="science" className="flex flex-col">
+          <section id="science" className="flex scroll-mt-28 flex-col">
             <div className="bg-indigo py-6">
               <Wrapper>
                 <div>
@@ -378,17 +380,17 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          {projectQuery.data?.graphic_1 && (
+          {projectQuery.data?.graphic && (
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="w-2/3 space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">
-                    {projectQuery.data?.graphic_1.caption}
+                    {projectQuery.data?.graphic.caption}
                   </p>
                   <Image
                     // src="/images/mockup/project_location.png"
-                    src={projectQuery.data?.graphic_1.url}
-                    alt={projectQuery.data?.graphic_1.caption}
+                    src={projectQuery.data?.graphic.url}
+                    alt={projectQuery.data?.graphic.caption}
                     height={700}
                     width={700}
                     style={{ objectFit: 'contain' }}
@@ -464,7 +466,7 @@ const ProjectDetail = (): JSX.Element => {
           </div>
         </Wrapper>
       </section> */}
-          <section id="co-benefits" className="flex flex-col">
+          <section id="co-benefits" className="flex scroll-mt-32 flex-col">
             <div className="bg-indigo py-6">
               <Wrapper>
                 <div>
@@ -544,10 +546,10 @@ const ProjectDetail = (): JSX.Element => {
                     className={cn({
                       'font-light leading-8 text-text': true,
                       'grid grid-cols-2':
-                        projectQuery.data?.primary_partners?.split(/\r?\n/).length > 5,
+                        projectQuery.data?.primary_partners?.split(';').length > 5,
                     })}
                   >
-                    {projectQuery.data?.primary_partners?.split(/\r?\n/).map((partner) => (
+                    {projectQuery.data?.primary_partners?.split(';').map((partner) => (
                       <p key={partner} className="mr-8">
                         {partner}
                       </p>
@@ -570,7 +572,7 @@ const ProjectDetail = (): JSX.Element => {
               {!!(
                 projectQuery.data?.public_contact_name || projectQuery.data?.public_contact_email
               ) && (
-                <div className="w-1/4 space-y-6 pt-16 ">
+                <div className="w-1/4 space-y-6 pt-16">
                   <h5 className="font-serif text-2xl font-medium text-indigo ">Contact Info</h5>
                   <div className="text-m font-light text-gray-800">
                     <p>MAIN CONTACT:</p>
@@ -581,7 +583,10 @@ const ProjectDetail = (): JSX.Element => {
               )}
             </Wrapper>
           </section>
-          <section id="contact" className="bg-gradient-to-r from-midnight via-indigo to-midnight">
+          <section
+            id="contact"
+            className="scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
+          >
             <Wrapper>
               <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
                 <p className="text-2xl">WANT MORE INFORMATION?</p>
