@@ -379,7 +379,6 @@
           "whats_next",
           "abstract",
           "citations",
-          "video",
           "graphic_1",
           "region",
           "country",
@@ -409,7 +408,9 @@
           "extent",
           "resources",
           "public_contact_name",
-          "public_contact_email"
+          "public_contact_email",
+          "video",
+          "video_caption"
         ]
       },
       "conditions": [],
@@ -455,7 +456,6 @@
           "whats_next",
           "abstract",
           "citations",
-          "video",
           "graphic_1",
           "region",
           "country",
@@ -485,7 +485,9 @@
           "extent",
           "resources",
           "public_contact_name",
-          "public_contact_email"
+          "public_contact_email",
+          "video",
+          "video_caption"
         ]
       },
       "conditions": [],
@@ -517,7 +519,6 @@
           "whats_next",
           "abstract",
           "citations",
-          "video",
           "graphic_1",
           "region",
           "country",
@@ -547,7 +548,9 @@
           "extent",
           "resources",
           "public_contact_name",
-          "public_contact_email"
+          "public_contact_email",
+          "video",
+          "video_caption"
         ]
       },
       "conditions": [],

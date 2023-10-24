@@ -314,23 +314,9 @@
           "sortable": true
         }
       },
-      "video": {
-        "edit": {
-          "label": "Video",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "video",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "graphic_1": {
         "edit": {
-          "label": "Graphic 1",
+          "label": "Graphic",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -760,6 +746,34 @@
           "sortable": true
         }
       },
+      "video": {
+        "edit": {
+          "label": "Video",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "video",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "video_caption": {
+        "edit": {
+          "label": "Video Caption",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "video_caption",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -1039,18 +1053,6 @@
         ],
         [
           {
-            "name": "video",
-            "size": 8
-          }
-        ],
-        [
-          {
-            "name": "graphic_1",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "header_photo",
             "size": 6
           },
@@ -1066,6 +1068,22 @@
           },
           {
             "name": "fallback_photo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "video",
+            "size": 6
+          },
+          {
+            "name": "video_caption",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "graphic_1",
             "size": 6
           }
         ],

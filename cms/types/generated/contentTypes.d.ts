@@ -929,7 +929,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
     whats_next: Attribute.Text;
     abstract: Attribute.Text;
     citations: Attribute.Text;
-    video: Attribute.Media;
     graphic_1: Attribute.Media;
     region: Attribute.Relation<
       'api::project.project',
@@ -1032,6 +1031,8 @@ export interface ApiProjectProject extends Schema.CollectionType {
           separator: 'semicolon';
         }
       >;
+    video: Attribute.String;
+    video_caption: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
