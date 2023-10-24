@@ -152,7 +152,7 @@ const ProjectDetail = (): JSX.Element => {
               <ExtentMap extent={projectQuery.data?.extent} />
             </div>
           </Wrapper>
-          <section className="sticky top-16 w-full border-t border-b bg-white">
+          <section className="sticky top-[68px] w-full border-t border-b bg-white">
             <Wrapper>
               <div className="flex justify-between py-4 px-28 text-text">
                 <a className="hover:text-butternut" href="#goals">
@@ -176,7 +176,7 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          <section id="goals" className="flex scroll-mt-20 bg-indigo">
+          <section id="goals" className="flex scroll-mt-28 bg-indigo">
             <div className="flex w-1/2 justify-end">
               <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
                 <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
@@ -230,7 +230,7 @@ const ProjectDetail = (): JSX.Element => {
           {projectQuery.data?.why_this_why_now && (
             <section
               id="why"
-              className="scroll-mt-20 bg-gradient-to-r from-midnight via-indigo to-midnight"
+              className="scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
             >
               <Wrapper>
                 <div className="flex flex-col items-center space-y-4 py-16 text-white">
@@ -466,7 +466,7 @@ const ProjectDetail = (): JSX.Element => {
           </div>
         </Wrapper>
       </section> */}
-          <section id="co-benefits" className="flex scroll-mt-32 flex-col">
+          <section id="co-benefits" className="flex scroll-mt-28 flex-col">
             <div className="bg-indigo py-6">
               <Wrapper>
                 <div>
