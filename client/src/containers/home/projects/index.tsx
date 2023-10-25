@@ -3,6 +3,7 @@ import { MouseEventHandler } from 'react';
 import Slider from 'react-slick';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
@@ -66,8 +67,9 @@ const HomeProjects = (): JSX.Element => {
         <div>
           <Slider {...settings}>
             {shuffleProjects(projectsQuery.data)?.map((project) => (
-              <div
+              <Link
                 key={project.id}
+                href={`/projects/${project.id}`}
                 className="relative before:absolute before:top-0 before:left-0 before:h-[339px] before:min-w-[339px] before:bg-black/25 before:content-['']"
               >
                 <Image
@@ -90,7 +92,7 @@ const HomeProjects = (): JSX.Element => {
                     {project.long_title}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
         </div>

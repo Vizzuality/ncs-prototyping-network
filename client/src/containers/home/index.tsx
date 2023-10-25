@@ -21,6 +21,7 @@ const HomePage = (): JSX.Element => {
   const inView = useInView(ref, {
     once: false,
     amount: 0.25,
+    margin: '-100px 0px',
   });
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 

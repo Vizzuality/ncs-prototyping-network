@@ -29,7 +29,7 @@ const Data = (): JSX.Element => {
     <section className="bg-background">
       <Wrapper>
         <div className="mx-6 flex justify-between py-7 xl:mx-20">
-          {!!projectsQuery?.data.length && (
+          {projectsQuery?.data && !!projectsQuery?.data.length && (
             <div className="flex flex-col items-center space-y-2">
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                 {projectsQuery?.data.length}
