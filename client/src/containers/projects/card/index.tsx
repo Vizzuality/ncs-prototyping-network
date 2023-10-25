@@ -2,13 +2,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { usePathways } from '@/hooks/projects';
+
 import Icon from 'components/icon';
+import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
+import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
+import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
-import { COLORS, ICONS } from './constants';
-
 const Card = ({ data }: { data: Project }): JSX.Element => {
+  const pathwaysQuery = usePathways();
+
   const {
     id,
     project_name,
@@ -19,6 +24,22 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
     project_phases,
     hectares_impacted,
   } = data;
+
+  const COLORS = {
+    [pathwaysQuery.data[0]]: 'bg-iris',
+    [pathwaysQuery.data[1]]: 'bg-rust',
+    [pathwaysQuery.data[2]]: 'bg-rust',
+    [pathwaysQuery.data[3]]: 'bg-cirrus',
+    [pathwaysQuery.data[4]]: 'bg-cirrus',
+  };
+
+  const ICONS = {
+    [pathwaysQuery.data[0]]: AGROFORESTRY_SVG,
+    [pathwaysQuery.data[1]]: COASTAL_WETLANDS_SVG,
+    [pathwaysQuery.data[2]]: COASTAL_WETLANDS_SVG,
+    [pathwaysQuery.data[3]]: PEATLANDS_SVG,
+    [pathwaysQuery.data[4]]: PEATLANDS_SVG,
+  };
 
   return (
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">

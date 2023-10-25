@@ -10,7 +10,7 @@ import MapView from 'containers/projects/map-view';
 import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
-import { useProjects } from 'hooks/projects';
+import { usePathways, useProjects } from 'hooks/projects';
 import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
 import { ActionType, Category, Pathway, Phase, Project } from 'types/project';
 
@@ -22,6 +22,7 @@ const ProjectsPage = (): JSX.Element => {
   }, [setHeaderStyle]);
 
   const projectsQuery = useProjects();
+  const pathwaysQuery = usePathways();
 
   const projectsView = useRecoilValue(projectsViewAtom);
 
@@ -32,15 +33,14 @@ const ProjectsPage = (): JSX.Element => {
 
   const [dataFiltered, setDataFiltered] = useState<Project[]>(projectsQuery.data || []);
 
-  // TODO: Read from API
   const getSpecificPathwayName = (pathway) => {
     switch (pathway) {
       case 'Agroforestry':
-        return ['Agroforestry'];
-      case 'Peatlands':
-        return ['Peatlands (Restoration)', 'Peatlands (Avoided Impacts)'];
+        return [pathwaysQuery.data[0]];
       case 'Coastal Wetlands':
-        return ['Coastal Wetlands (Restoration)', 'Coastal Wetlands (Avoided Impacts)'];
+        return [pathwaysQuery.data[1], pathwaysQuery.data[2]];
+      case 'Peatlands':
+        return [pathwaysQuery.data[3], pathwaysQuery.data[4]];
     }
   };
 
