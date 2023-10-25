@@ -30,11 +30,11 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
   };
 
   const ICONS = {
-    [pathwaysQuery.data[0]]: 'images/icons/pathways/agroforestry.svg',
-    [pathwaysQuery.data[1]]: 'images/icons/pathways/coastal-wetlands.svg',
-    [pathwaysQuery.data[2]]: 'images/icons/pathways/coastal-wetlands.svg',
-    [pathwaysQuery.data[3]]: 'images/icons/pathways/peatlands.svg',
-    [pathwaysQuery.data[4]]: 'images/icons/pathways/peatlands.svg',
+    [pathwaysQuery.data[0]]: '/images/icons/pathways/agroforestry.svg',
+    [pathwaysQuery.data[1]]: '/images/icons/pathways/coastal-wetlands.svg',
+    [pathwaysQuery.data[2]]: '/images/icons/pathways/coastal-wetlands.svg',
+    [pathwaysQuery.data[3]]: '/images/icons/pathways/peatlands.svg',
+    [pathwaysQuery.data[4]]: '/images/icons/pathways/peatlands.svg',
   };
 
   return (
