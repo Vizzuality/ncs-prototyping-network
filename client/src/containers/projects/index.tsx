@@ -49,7 +49,7 @@ const ProjectsPage = (): JSX.Element => {
       setFilters({ ...filters, pathways: getSpecificPathwayName(pathway) });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pathwaysQuery.data]);
 
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
