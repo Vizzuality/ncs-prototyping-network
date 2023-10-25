@@ -63,16 +63,27 @@ const HomeProjects = (): JSX.Element => {
             available through naturebase.
           </p>
         </div>
-        <div className="">
+        <div>
           <Slider {...settings}>
             {shuffleProjects(projectsQuery.data)?.map((project) => (
-              <div key={project.id} className="relative">
+              <div
+                key={project.id}
+                className="relative before:absolute before:top-0 before:left-0 before:h-[339px] before:min-w-[339px] before:bg-black/25 before:content-['']"
+              >
                 <Image
                   alt="Project sample photo"
-                  src="https://dummyimage.com/330x290/000/fff&text=+"
-                  width={333}
-                  height={200}
+                  src={
+                    project.fallback_photo?.url || 'https://dummyimage.com/330x290/000/fff&text=+'
+                  }
+                  width={600}
+                  height={600}
+                  style={{
+                    objectFit: 'cover',
+                    height: '339px',
+                    minWidth: '100%',
+                  }}
                 />
+
                 <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4 text-white">
                   <h3 className="font-serif text-xs font-bold uppercase">{project.project_name}</h3>
                   <p className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">

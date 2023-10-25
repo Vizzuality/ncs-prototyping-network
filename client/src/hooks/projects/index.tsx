@@ -77,7 +77,9 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
       biomes: data.data.biomes.data.map((biome) => biome.attributes.name),
       country: data.data.country.data.attributes.name,
       cobenefits: data.data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
-      footer_photo: data.data.footer_photo.data?.attributes,
+      footer_photo:
+        data.data.footer_photo.data?.attributes.formats.xlarge ||
+        data.data.footer_photo.data?.attributes.formats.large,
       goals_photo: data.data.goals_photo.data?.attributes,
       header_photo:
         data.data.header_photo.data?.attributes.formats.xlarge ||

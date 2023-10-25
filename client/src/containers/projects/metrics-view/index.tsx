@@ -23,7 +23,7 @@ type Direction = 'asc' | 'desc';
 const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
   const cobenefitsQuery = useCobenefits();
 
-  // TODO: add one mor ecobenefit icon
+  // TODO: add one more ecobenefit icon
   const CO_BENEFITS_ICONS = {
     [cobenefitsQuery.data[0]]: ECOSYSTEM_SERVICES_SVG,
     [cobenefitsQuery.data[1]]: BIODIVERSITY_SVG,
@@ -55,7 +55,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ delay: 0.25, duration: 0.3 }}
-        className="bg-white pt-[28px]"
+        className="bg-white"
       >
         {!sortedData.length && (
           <div className="flex h-64 w-full items-center justify-center">
@@ -64,12 +64,12 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
         )}
         {!!sortedData.length && (
           <table className="bg-white text-xs">
-            <thead className="h-12 bg-white">
-              <tr className=" bg-white text-left [&>*]:px-4 [&>*]:py-2">
+            <thead className="h-16 bg-white">
+              <tr className="bg-white text-left [&>*]:px-4 [&>*]:py-2">
                 {COLUMNS.map((column) => (
                   <th
                     key={column.id}
-                    className="sticky top-[198px] cursor-pointer border-b border-indigo bg-white"
+                    className="sticky top-[198px] z-40 cursor-pointer border-b border-indigo bg-white"
                     style={{ width: column.width }}
                     onClick={() => {
                       if (column.sorting) {

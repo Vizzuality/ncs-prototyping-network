@@ -114,35 +114,29 @@ const ProjectDetail = (): JSX.Element => {
                   {projectQuery.data?.long_title}
                 </h2>
                 <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
-                  {!!projectQuery.data?.carbon_mitigation && (
-                    <div className="flex flex-col items-center">
-                      <p className="pb-2 text-4xl font-bold text-spring">
-                        {projectQuery.data?.carbon_mitigation}
-                      </p>
-                      <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
-                        <p>Tons of Carbon</p>
-                        <p>Mitigation Potential</p>
-                      </div>
+                  <div className="flex flex-col items-center">
+                    <p className="pb-2 text-4xl font-bold text-spring">
+                      {projectQuery.data?.carbon_mitigation}
+                    </p>
+                    <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
+                      <p>Tons of Carbon</p>
+                      <p>Mitigation Potential</p>
                     </div>
-                  )}
+                  </div>
 
-                  {!!projectQuery.data?.hectares_impacted && (
-                    <div className="flex flex-col items-center">
-                      <p className="pb-2 text-4xl font-bold text-spring">
-                        {projectQuery.data?.hectares_impacted}
-                      </p>
-                      <p className="text-center text-m font-medium text-text">Hectares Impacted</p>
-                    </div>
-                  )}
+                  <div className="flex flex-col items-center">
+                    <p className="pb-2 text-4xl font-bold text-spring">
+                      {projectQuery.data?.hectares_impacted}
+                    </p>
+                    <p className="text-center text-m font-medium text-text">Hectares Impacted</p>
+                  </div>
 
-                  {!!projectQuery.data?.people_supported && (
-                    <div className="flex flex-col items-center">
-                      <p className="pb-2 text-4xl font-bold text-spring">
-                        {projectQuery.data?.people_supported}
-                      </p>
-                      <p className="text-center text-m font-medium text-text">People Supported</p>
-                    </div>
-                  )}
+                  <div className="flex flex-col items-center">
+                    <p className="pb-2 text-4xl font-bold text-spring">
+                      {projectQuery.data?.people_supported}
+                    </p>
+                    <p className="text-center text-m font-medium text-text">People Supported</p>
+                  </div>
                 </div>
               </div>
             </div>
