@@ -31,6 +31,7 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
       country: project.country.data.attributes.name,
       cobenefits: project.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
       fallback_photo: project.fallback_photo.data?.attributes.formats.small,
+      header_photo: project.header_photo.data?.attributes.formats.medium,
       lesson_1_category: project.lesson_1_category.data.attributes.name,
       lesson_2_category: project.lesson_2_category.data.attributes.name,
       lesson_3_category: project.lesson_3_category.data.attributes.name,

@@ -74,9 +74,7 @@ const HomeProjects = (): JSX.Element => {
               >
                 <Image
                   alt="Project sample photo"
-                  src={
-                    project.fallback_photo?.url || 'https://dummyimage.com/330x290/000/fff&text=+'
-                  }
+                  src={project.header_photo?.url || 'https://dummyimage.com/330x290/000/fff&text=+'}
                   width={600}
                   height={600}
                   style={{
