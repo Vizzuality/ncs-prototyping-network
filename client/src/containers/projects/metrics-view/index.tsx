@@ -8,13 +8,7 @@ import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
 import { useCobenefits } from '@/hooks/projects';
 
-import Icon from 'components/icon';
 import { COLUMNS } from 'containers/projects/constants';
-import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
-import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
-import HUMAN_HEALTH_WELLBEING_SVG from 'svgs/co-benefits/human_health_wellbeing.svg?sprite';
-import LIVELIHOODS_ECONOMIC_SVG from 'svgs/co-benefits/livelihoods_economic.svg?sprite';
-import RESILIENCE_AND_ADAPTATION_SVG from 'svgs/co-benefits/resilience_and_adaptation.svg?sprite';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
@@ -23,13 +17,13 @@ type Direction = 'asc' | 'desc';
 const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
   const cobenefitsQuery = useCobenefits();
 
-  // TODO: add one more ecobenefit icon
   const CO_BENEFITS_ICONS = {
-    [cobenefitsQuery.data[0]]: ECOSYSTEM_SERVICES_SVG,
-    [cobenefitsQuery.data[1]]: BIODIVERSITY_SVG,
-    [cobenefitsQuery.data[2]]: LIVELIHOODS_ECONOMIC_SVG,
-    [cobenefitsQuery.data[3]]: HUMAN_HEALTH_WELLBEING_SVG,
-    [cobenefitsQuery.data[4]]: RESILIENCE_AND_ADAPTATION_SVG,
+    [cobenefitsQuery.data[0]]: '/images/icons/co-benefits/ecosystem_services.svg',
+    [cobenefitsQuery.data[1]]: '/images/icons/co-benefits/biodiversity.svg',
+    [cobenefitsQuery.data[2]]: '/images/icons/co-benefits/livelihoods_economic.svg',
+    [cobenefitsQuery.data[3]]: '/images/icons/co-benefits/human_health_wellbeing.svg',
+    [cobenefitsQuery.data[4]]: '',
+    [cobenefitsQuery.data[5]]: '/images/icons/co-benefits/resilience_and_adaptation.svg',
   };
 
   const [sortedBy, setSortedBy] = useState<string>('country');
@@ -170,7 +164,15 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                     <td>
                       <div className="grid grid-cols-2 gap-3">
                         {project.cobenefits.map((cb) => {
-                          return <Icon icon={CO_BENEFITS_ICONS[cb]} className="h-7 w-7" key={cb} />;
+                          return (
+                            <Image
+                              alt={cb}
+                              src={CO_BENEFITS_ICONS[cb]}
+                              width={28}
+                              height={28}
+                              key={cb}
+                            />
+                          );
                         })}
                       </div>
                     </td>

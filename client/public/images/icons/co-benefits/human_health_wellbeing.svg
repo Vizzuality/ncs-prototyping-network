@@ -1,0 +1,11 @@
+<svg id="Icon-HumanHealth" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_402" data-name="Rectangle 402" width="30" height="30" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_551" data-name="Group 551" clip-path="url(#clip-path)">
+    <path id="Path_437" data-name="Path 437" d="M15,26.8l-10-10c-7.45-7.45,2.547-17.448,10-10C22.44-.63,32.437,9.368,25,16.8Z" fill="none" stroke="#828282" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_438" data-name="Path 438" d="M.691,16.866H9.074L11,11.524l3.307,8.12,2.231-2.778H29.309" fill="none" stroke="#828282" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
 import { motion, useInView } from 'framer-motion';
+import { BsArrowLeft } from 'react-icons/bs';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
 import { useSetRecoilState } from 'recoil';
@@ -15,16 +16,9 @@ import { headerStyleAtom } from '@/store';
 
 import { useProject, useProjects } from '@/hooks/projects';
 
-import Icon from 'components/icon';
 import Button from 'components/ui/button';
 import Video from 'components/video';
 import Wrapper from 'containers/wrapper';
-import BIODIVERSITY_SVG from 'svgs/co-benefits/biodiversity.svg?sprite';
-import ECOSYSTEM_SERVICES_SVG from 'svgs/co-benefits/ecosystem_services.svg?sprite';
-import HUMAN_HEALTH_WELLBEING_SVG from 'svgs/co-benefits/human_health_wellbeing.svg?sprite';
-import LIVELIHOODS_ECONOMIC_SVG from 'svgs/co-benefits/livelihoods_economic.svg?sprite';
-import RESILIENCE_AND_ADAPTATION_SVG from 'svgs/co-benefits/resilience_and_adaptation.svg?sprite';
-import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 import { cn } from 'utils/cn';
 
 import Card from '../card';
@@ -98,12 +92,9 @@ const ProjectDetail = (): JSX.Element => {
           <Wrapper className="relative flex w-full flex-row justify-between">
             <div className="flex w-2/3 flex-col items-start pt-6 pb-24">
               <motion.div whileHover="hover">
-                <Link href="/projects" className="flex items-center space-x-1 pb-8">
+                <Link href="/projects" className="flex items-center space-x-2 pb-8">
                   <motion.div variants={arrowAnimation}>
-                    <Icon
-                      icon={ARROW_SVG}
-                      className="h-4 w-8 rotate-180 stroke-butternut stroke-2"
-                    />
+                    <BsArrowLeft className="fill-butternut" size={30} />
                   </motion.div>
                   <p className="font-sans text-xl font-medium text-butternut">Back to projects</p>
                 </Link>
@@ -405,7 +396,12 @@ const ProjectDetail = (): JSX.Element => {
                 {projectQuery.data?.cb_biodiversity && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
-                      <Icon icon={BIODIVERSITY_SVG} className="h-7 w-7" />
+                      <Image
+                        alt="Biodiversity"
+                        src="/images/icons/co-benefits/biodiversity.svg"
+                        height={24}
+                        width={24}
+                      />
                       <p className="text-xl">Biodiversity</p>
                     </div>
                     <p className="text-m leading-6">{projectQuery.data?.cb_biodiversity}</p>
@@ -415,7 +411,12 @@ const ProjectDetail = (): JSX.Element => {
                 {projectQuery.data?.cb_ecosystem_services && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
-                      <Icon icon={ECOSYSTEM_SERVICES_SVG} className="h-7 w-7" />
+                      <Image
+                        alt="Ecosystem"
+                        src="/images/icons/co-benefits/ecosystem_services.svg"
+                        height={24}
+                        width={24}
+                      />
                       <p className="text-xl">Ecosystem Services</p>
                     </div>
                     <p className="text-m leading-6">{projectQuery.data?.cb_ecosystem_services}</p>
@@ -424,7 +425,12 @@ const ProjectDetail = (): JSX.Element => {
                 {projectQuery.data?.cb_livelihood_econ && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
-                      <Icon icon={LIVELIHOODS_ECONOMIC_SVG} className="h-7 w-7" />
+                      <Image
+                        alt="Livehoods"
+                        src="/images/icons/co-benefits/livelihoods_economic.svg"
+                        height={24}
+                        width={24}
+                      />
                       <p className="text-xl">Livelihoods & Economics</p>
                     </div>
                     <p className="text-m leading-6">{projectQuery.data?.cb_livelihood_econ}</p>
@@ -433,7 +439,12 @@ const ProjectDetail = (): JSX.Element => {
                 {projectQuery.data?.cb_health_well_being && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
-                      <Icon icon={HUMAN_HEALTH_WELLBEING_SVG} className="h-7 w-7" />
+                      <Image
+                        alt="Human Health & Well-being"
+                        src="/images/icons/co-benefits/human_health_wellbeing.svg"
+                        height={24}
+                        width={24}
+                      />
                       <p className="text-xl">Health & Well-being</p>
                     </div>
                     <p className="text-m leading-6">{projectQuery.data?.cb_health_well_being}</p>
@@ -442,7 +453,12 @@ const ProjectDetail = (): JSX.Element => {
                 {projectQuery.data?.cb_resilience_adapt && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
-                      <Icon icon={RESILIENCE_AND_ADAPTATION_SVG} className="h-7 w-7" />
+                      <Image
+                        alt="Resilience & Adaptation"
+                        src="/images/icons/co-benefits/resilience_and_adaptation.svg"
+                        height={24}
+                        width={24}
+                      />
                       <p className="text-xl">Resilience & Adaptation</p>
                     </div>
                     <p className="text-m leading-6">{projectQuery.data?.cb_resilience_adapt}</p>
