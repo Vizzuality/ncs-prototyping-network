@@ -26,11 +26,11 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
   } = data;
 
   const COLORS = {
-    [pathwaysQuery.data[0]]: 'bg-iris',
-    [pathwaysQuery.data[1]]: 'bg-rust',
-    [pathwaysQuery.data[2]]: 'bg-rust',
-    [pathwaysQuery.data[3]]: 'bg-cirrus',
-    [pathwaysQuery.data[4]]: 'bg-cirrus',
+    [pathwaysQuery.data[0]]: 'bg-rust',
+    [pathwaysQuery.data[1]]: 'bg-cirrus',
+    [pathwaysQuery.data[2]]: 'bg-cirrus',
+    [pathwaysQuery.data[3]]: 'bg-iris',
+    [pathwaysQuery.data[4]]: 'bg-iris',
   };
 
   const ICONS = {
