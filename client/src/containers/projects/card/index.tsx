@@ -4,10 +4,6 @@ import Link from 'next/link';
 
 import { usePathways } from '@/hooks/projects';
 
-import Icon from 'components/icon';
-import AGROFORESTRY_SVG from 'svgs/pathways/agroforestry.svg?sprite';
-import COASTAL_WETLANDS_SVG from 'svgs/pathways/coastal-wetlands.svg?sprite';
-import PEATLANDS_SVG from 'svgs/pathways/peatlands.svg?sprite';
 import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
@@ -34,11 +30,11 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
   };
 
   const ICONS = {
-    [pathwaysQuery.data[0]]: AGROFORESTRY_SVG,
-    [pathwaysQuery.data[1]]: COASTAL_WETLANDS_SVG,
-    [pathwaysQuery.data[2]]: COASTAL_WETLANDS_SVG,
-    [pathwaysQuery.data[3]]: PEATLANDS_SVG,
-    [pathwaysQuery.data[4]]: PEATLANDS_SVG,
+    [pathwaysQuery.data[0]]: 'images/icons/pathways/agroforestry.svg',
+    [pathwaysQuery.data[1]]: 'images/icons/pathways/coastal-wetlands.svg',
+    [pathwaysQuery.data[2]]: 'images/icons/pathways/coastal-wetlands.svg',
+    [pathwaysQuery.data[3]]: 'images/icons/pathways/peatlands.svg',
+    [pathwaysQuery.data[4]]: 'images/icons/pathways/peatlands.svg',
   };
 
   return (
@@ -61,7 +57,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
                 [COLORS[pathway]]: pathway,
               })}
             >
-              <Icon icon={ICONS[pathway]} className="h-6 w-6" />
+              <Image alt={pathway} src={ICONS[pathway]} width={24} height={24} />
               <p className="font-serif text-xs uppercase text-white">{pathway}</p>
             </div>
           ))}

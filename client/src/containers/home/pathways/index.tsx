@@ -2,10 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { motion } from 'framer-motion';
+import { BsArrowRight } from 'react-icons/bs';
 
-import Icon from 'components/icon/component';
 import Wrapper from 'containers/wrapper';
-import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 import { cn } from 'utils/cn';
 
 import { PATHWAYS } from './constants';
@@ -59,10 +58,9 @@ const Pathways = (): JSX.Element => {
                   className="flex h-full w-32 items-center justify-center"
                   variants={arrowAnimation}
                 >
-                  <Icon
-                    icon={ARROW_SVG}
+                  <BsArrowRight
+                    size={45}
                     className={cn({
-                      'h-8 w-12': true,
                       [className.arrow]: !!className.arrow,
                     })}
                   />

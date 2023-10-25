@@ -2,10 +2,9 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Listbox, Transition } from '@headlessui/react';
 import { HiCheck } from 'react-icons/hi';
+import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
 
-import Icon from 'components/icon';
 import Loading from 'components/loading';
-import ARROW_FILLED_DOWN_SVG from 'svgs/ui/arrow-filled-down.svg?sprite';
 import { cn } from 'utils/cn';
 
 export interface MultiSelectProps {
@@ -119,10 +118,8 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
                       iconClassName="w-3 h-3"
                     />
 
-                    {!loading && open && <Icon icon={ARROW_FILLED_DOWN_SVG} className="h-2 w-3" />}
-                    {!loading && !open && (
-                      <Icon icon={ARROW_FILLED_DOWN_SVG} className="h-2 w-3 rotate-180" />
-                    )}
+                    {!loading && open && <TiArrowSortedDown size={20} className="fill-indigo" />}
+                    {!loading && !open && <TiArrowSortedUp size={20} className="fill-indigo" />}
                   </span>
                 </Listbox.Button>
               </span>
