@@ -49,7 +49,7 @@ const DetailFooter: React.FC = () => {
                 <div className="flex h-20 items-center space-x-6">
                   <p className="uppercase">Visit our partner sites:</p>
                   <a href="https://www.naturebase.org" className="w-44">
-                    <Image src="/images/logos/naturbase.png" alt="Logo" width={150} height={20} />
+                    <Image src="/images/logos/naturbase.svg" alt="Logo" width={150} height={20} />
                   </a>
                   <a href="https://www.naturebase.org" className="w-44">
                     <Image src="/images/logos/tnc.png" alt="Logo" width={150} height={20} />
