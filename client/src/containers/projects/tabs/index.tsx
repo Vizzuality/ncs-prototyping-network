@@ -1,4 +1,3 @@
-'use client';
 import { motion } from 'framer-motion';
 import { useRecoilState } from 'recoil';
 
@@ -6,7 +5,7 @@ import Icon from 'components/icon/component';
 import { TABS } from 'containers/projects/tabs/constants';
 import { projectsViewAtom } from 'store';
 import MARKER_SVG from 'svgs/ui/marker.svg?sprite';
-import METRICS_SVG from 'svgs/ui/metrics.svg?sprite';
+import METRICS_SVG from 'svgs/ui/metrics.svg';
 import { cn } from 'utils/cn';
 
 const Tabs = (): JSX.Element => {
