@@ -30,7 +30,6 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
       biomes: project.biomes.data.map((biome) => biome.attributes.name),
       country: project.country.data.attributes.name,
       cobenefits: project.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
-      fallback_photo: project.fallback_photo.data?.attributes.formats.small,
       header_photo: project.header_photo.data?.attributes.formats.medium,
       lesson_1_category: project.lesson_1_category.data.attributes.name,
       lesson_2_category: project.lesson_2_category.data.attributes.name,
@@ -78,6 +77,7 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
       biomes: data.data.biomes.data.map((biome) => biome.attributes.name),
       country: data.data.country.data.attributes.name,
       cobenefits: data.data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
+      fallback_photo: data.data.fallback_photo.data?.attributes.formats.large,
       footer_photo:
         data.data.footer_photo.data?.attributes.formats.xlarge ||
         data.data.footer_photo.data?.attributes.formats.large,
@@ -85,7 +85,7 @@ export function useProject({ projectId }: { projectId: string }): UseQueryResult
       header_photo:
         data.data.header_photo.data?.attributes.formats.xlarge ||
         data.data.header_photo.data?.attributes.formats.large,
-      graphic: data.data.graphic?.data?.attributes,
+      graphic: data.data.graphic_1?.data?.attributes,
       lesson_1_category: data.data.lesson_1_category.data.attributes.name,
       lesson_2_category: data.data.lesson_2_category.data.attributes.name,
       lesson_3_category: data.data.lesson_3_category.data.attributes.name,

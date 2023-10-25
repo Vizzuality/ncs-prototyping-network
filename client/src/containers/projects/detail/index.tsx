@@ -257,6 +257,21 @@ const ProjectDetail = (): JSX.Element => {
               </Wrapper>
             </section>
           )}
+
+          {!projectQuery.data?.video && projectQuery.data?.fallback_photo && (
+            <section className="bg-background py-16">
+              <Wrapper>
+                <div className="flex w-full justify-center">
+                  <Image
+                    alt={projectQuery.data?.fallback_photo.caption}
+                    src={projectQuery.data?.fallback_photo.url}
+                    width={600}
+                    height={500}
+                  />
+                </div>
+              </Wrapper>
+            </section>
+          )}
           <section id="lessons" className="scroll-mt-28">
             <div className="bg-indigo py-6">
               <Wrapper>
@@ -370,7 +385,6 @@ const ProjectDetail = (): JSX.Element => {
                     {projectQuery.data?.graphic.caption}
                   </p>
                   <Image
-                    // src="/images/mockup/project_location.png"
                     src={projectQuery.data?.graphic.url}
                     alt={projectQuery.data?.graphic.caption}
                     height={700}
