@@ -2,15 +2,12 @@ import { useCallback, MouseEvent } from 'react';
 
 import { useMap } from 'react-map-gl';
 
-import Icon from 'components/icon';
-import ZOOM_IN_SVG from 'svgs/map/zoom-in.svg?sprite';
-import ZOOM_OUT_SVG from 'svgs/map/zoom-out.svg?sprite';
+import { HiOutlinePlusSm, HiMinusSm } from 'react-icons/hi';
+
 import { cn } from 'utils/cn';
 
 const COMMON_CLASSES =
   'group bg-white p-1 hover:bg-gray-100 active:outline active:outline-2 active:-outline-offset-[5px] active:outline-brand-400/40 disabled:bg-gray-50 disabled:outline-none';
-
-const SVG_COMMON_CLASSES = 'h-5 w-5 fill-gray-500 group-disabled:fill-grey-75';
 
 export const ZoomControl = ({ className, mapId }: { className?: string; mapId: string }) => {
   const { [mapId]: map } = useMap();
@@ -54,7 +51,7 @@ export const ZoomControl = ({ className, mapId }: { className?: string; mapId: s
         disabled={zoom >= maxZoom}
         onClick={increaseZoom}
       >
-        <Icon icon={ZOOM_IN_SVG} className={SVG_COMMON_CLASSES} />
+        <HiOutlinePlusSm className="group-disabled:fill-grey-75 h-5 w-5 fill-gray-500" size={16} />
       </button>
       <button
         className={cn({
@@ -65,7 +62,7 @@ export const ZoomControl = ({ className, mapId }: { className?: string; mapId: s
         disabled={zoom <= minZoom}
         onClick={decreaseZoom}
       >
-        <Icon icon={ZOOM_OUT_SVG} className={SVG_COMMON_CLASSES} />
+        <HiMinusSm className="group-disabled:fill-grey-75 h-5 w-5 fill-gray-500" size={16} />
       </button>
     </div>
   );
