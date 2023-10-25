@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
+import { BsFillGrid3X3GapFill } from 'react-icons/bs';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
 
-import Icon from 'components/icon/component';
 import { TABS } from 'containers/projects/tabs/constants';
 import { projectsViewAtom } from 'store';
-import MARKER_SVG from 'svgs/ui/marker.svg?sprite';
-import METRICS_SVG from 'svgs/ui/metrics.svg?sprite';
 import { cn } from 'utils/cn';
 
 const Tabs = (): JSX.Element => {
@@ -27,20 +26,20 @@ const Tabs = (): JSX.Element => {
           )}
           <div className="z-20 flex items-center space-x-2 px-[18.5px]">
             {tab.id === TABS[0].id && (
-              <Icon
-                icon={MARKER_SVG}
+              <FaMapMarkerAlt
+                size={16}
                 className={cn({
-                  'h-4 w-4 fill-indigo': true,
-                  '!fill-butternut': tab.id === projectsView,
+                  'fill-indigo': true,
+                  'fill-butternut': tab.id === projectsView,
                 })}
               />
             )}
             {tab.id === TABS[1].id && (
-              <Icon
-                icon={METRICS_SVG}
+              <BsFillGrid3X3GapFill
+                size={16}
                 className={cn({
-                  'h-4 w-4 fill-indigo': true,
-                  '!fill-butternut': tab.id === projectsView,
+                  'fill-indigo': true,
+                  'fill-butternut': tab.id === projectsView,
                 })}
               />
             )}
