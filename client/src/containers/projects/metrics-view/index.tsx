@@ -69,7 +69,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                 {COLUMNS.map((column) => (
                   <th
                     key={column.id}
-                    className="sticky top-[198px] z-40 cursor-pointer border-b border-indigo bg-white"
+                    className="sticky top-[198px] z-30 cursor-pointer border-b border-indigo bg-white"
                     style={{ width: column.width }}
                     onClick={() => {
                       if (column.sorting) {
