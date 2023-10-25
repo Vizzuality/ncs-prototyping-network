@@ -87,9 +87,8 @@ const ContactPage = (): JSX.Element => {
         <Wrapper className="!px-56 py-20">
           <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">Contact Us</h4>
           <p className="pt-3 text-xl font-light leading-8 text-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            If you would like more information about the network in general, would like to be
+            connected to a project team, or see an error, please contact us using this form.
           </p>
 
           <Form initialValues={INITIAL_VALUES} onSubmit={onSubmit}>
