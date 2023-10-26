@@ -53,7 +53,7 @@ const ExtentMap = ({ extent }): JSX.Element => {
         id: 'extent-boundaries-layer',
         type: 'line',
         paint: {
-          'line-color': '#05D5FA',
+          'line-color': '#e29717',
           'line-opacity': 1,
           'line-width': 2,
         },
@@ -62,7 +62,7 @@ const ExtentMap = ({ extent }): JSX.Element => {
         id: 'extent-fill-layer',
         type: 'fill',
         paint: {
-          'fill-color': '#05D5FA',
+          'fill-color': '#e29717',
           'fill-opacity': 0.2,
         },
       },

@@ -18,12 +18,10 @@ import { useProject, useProjects } from '@/hooks/projects';
 
 import Button from 'components/ui/button';
 import Video from 'components/video';
+import Card from 'containers/projects/card';
+import ExtentMap from 'containers/projects/detail/extent-map';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
-
-import Card from '../card';
-
-import ExtentMap from './extent-map';
 
 const ProjectDetail = (): JSX.Element => {
   const params = useParams();
