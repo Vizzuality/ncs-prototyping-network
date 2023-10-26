@@ -22,6 +22,7 @@ const ProjectsPage = (): JSX.Element => {
   }, [setHeaderStyle]);
 
   const projectsQuery = useProjects();
+
   const pathwaysQuery = usePathways();
 
   const projectsView = useRecoilValue(projectsViewAtom);

@@ -14,7 +14,7 @@ import { useSetRecoilState } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
-import { useProject, useProjects } from '@/hooks/projects';
+import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
 import Button from 'components/ui/button';
 import Video from 'components/video';
@@ -33,9 +33,8 @@ const ProjectDetail = (): JSX.Element => {
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
-  const projectQuery = useProject({ projectId: `${id}` });
-
-  const projectsQuery = useProjects();
+  const { data, isFetched, isFetching } = useGetProjectsId(id, { populate: '*' });
+  const { data: projects } = useGetProjects({ populate: '*' });
 
   const [playing, setPlaying] = useState(false);
 
@@ -47,14 +46,14 @@ const ProjectDetail = (): JSX.Element => {
   };
 
   const similarProjects = useMemo(() => {
-    return projectsQuery.data
+    return projects?.data?.data
       ?.filter((project) => {
         if (`${project.id}` === id) return false;
         return true;
       })
       .sort(() => Math.random() - 0.5)
       .slice(0, 3);
-  }, [projectsQuery.data, id]);
+  }, [projects?.data?.data, id]);
 
   // const onDownload = async (resource: string, fileName: string) => {
   //   const blob = await fetch(resource).then((r) => r.blob());
@@ -81,11 +80,13 @@ const ProjectDetail = (): JSX.Element => {
       <div
         className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${projectQuery.data?.header_photo?.url})` || '',
+          backgroundImage:
+            `url(${data?.data?.data?.attributes.header_photo.data.attributes.url})` || '',
         }}
         ref={ref}
       />
-      {projectQuery.isFetched && !!Object.keys(projectQuery.data).length && (
+
+      {isFetched && !!Object.keys(data?.data?.data).length && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between">
             <div className="flex w-2/3 flex-col items-start pt-6 pb-24">
@@ -100,12 +101,12 @@ const ProjectDetail = (): JSX.Element => {
 
               <div className="flex max-w-2xl flex-col items-center">
                 <h2 className="mb-16  font-serif text-[35px] font-medium leading-9 text-indigo">
-                  {projectQuery.data?.long_title}
+                  {data?.data?.data?.attributes.long_title}
                 </h2>
                 <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {projectQuery.data?.carbon_mitigation}
+                      {data?.data?.data?.attributes.carbon_mitigation}
                     </p>
                     <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
                       <p>Tons of Carbon</p>
@@ -115,14 +116,14 @@ const ProjectDetail = (): JSX.Element => {
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {projectQuery.data?.hectares_impacted}
+                      {data?.data?.data?.attributes.hectares_impacted}
                     </p>
                     <p className="text-center text-m font-medium text-text">Hectares Impacted</p>
                   </div>
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {projectQuery.data?.people_supported}
+                      {data?.data?.data?.attributes.people_supported}
                     </p>
                     <p className="text-center text-m font-medium text-text">People Supported</p>
                   </div>
@@ -130,9 +131,9 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </div>
 
-            {projectQuery.data?.extent && (
+            {data?.data?.data?.attributes.extent && (
               <div className="-mt-20">
-                <ExtentMap extent={projectQuery.data?.extent} />
+                <ExtentMap extent={data?.data?.data?.attributes.extent} />
               </div>
             )}
           </Wrapper>
@@ -165,14 +166,17 @@ const ProjectDetail = (): JSX.Element => {
               <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
                 <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
                 <p className="xl: font-sans text-base leading-7 xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9">
-                  {projectQuery.data?.project_goal}
+                  {data?.data?.data?.attributes.project_goal}
                 </p>
               </div>
             </div>
 
             <Image
-              src={projectQuery.data?.goals_photo?.url || '/images/projects/goals_placeholder.png'}
-              alt={projectQuery.data?.goals_photo?.caption || 'Goals'}
+              src={
+                data?.data?.data?.attributes.goals_photo.data.attributes.url ||
+                '/images/projects/goals_placeholder.png'
+              }
+              alt={data?.data?.data?.attributes.goals_photo.data.attributes.name || 'Goals'}
               height={280}
               width={500}
               style={{ objectFit: 'cover' }}
@@ -180,38 +184,41 @@ const ProjectDetail = (): JSX.Element => {
             />
           </section>
 
-          {projectQuery.data?.key_activities && (
-            <section className="py-16">
-              <Wrapper className="space-y-10">
+          <section className="py-16">
+            <Wrapper className="space-y-10">
+              {data?.data?.data?.attributes.key_activities && (
                 <div>
                   <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                    {projectQuery.data?.key_activities?.split(';').map((activity, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
-                      >
-                        <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
-                        <p className="mt-2 font-sans text-xl font-light text-text">{activity}</p>
-                      </div>
-                    ))}
+                    {data?.data?.data?.attributes.key_activities
+                      ?.split(';')
+                      .map((activity, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
+                        >
+                          <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
+                          <p className="mt-2 font-sans text-xl font-light text-text">{activity}</p>
+                        </div>
+                      ))}
                   </div>
                 </div>
-                <div>
-                  <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
-                  <p className="pt-6 font-sans text-lg font-light text-text">
-                    Project Phase: {projectQuery.data.project_phases}
-                  </p>
+              )}
+              <div>
+                <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
+                <p className="pt-6 font-sans text-lg font-light text-text">
+                  Project Phase:{' '}
+                  {data?.data?.data?.attributes.project_phases.data.map((pp) => pp.attributes.name)}
+                </p>
 
-                  <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
-                    {projectQuery.data?.project_summary}
-                  </p>
-                </div>
-              </Wrapper>
-            </section>
-          )}
+                <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
+                  {data?.data?.data?.attributes.project_summary}
+                </p>
+              </div>
+            </Wrapper>
+          </section>
 
-          {projectQuery.data?.why_this_why_now && (
+          {data?.data?.data?.attributes.why_this_why_now && (
             <section
               id="why"
               className="scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
@@ -220,14 +227,14 @@ const ProjectDetail = (): JSX.Element => {
                 <div className="flex flex-col items-center space-y-4 py-16 text-white">
                   <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
                   <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
-                    {projectQuery.data?.why_this_why_now}
+                    {data?.data?.data?.attributes.why_this_why_now}
                   </p>
                 </div>
               </Wrapper>
             </section>
           )}
 
-          {projectQuery.data?.video && (
+          {data?.data?.data?.attributes.video && (
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="flex w-full space-x-16">
@@ -235,13 +242,13 @@ const ProjectDetail = (): JSX.Element => {
                     <Video
                       playing={playing}
                       loop
-                      url={projectQuery.data?.video}
+                      url={data?.data?.data?.attributes.video}
                       height="100%"
                       width="100%"
                     />
                   </div>
                   <div className="w-1/3 space-y-4 py-4">
-                    <p className="text-m text-text">{projectQuery.data?.video_caption}</p>
+                    <p className="text-m text-text">{data?.data?.data?.attributes.video_caption}</p>
 
                     <div className="pt-2">
                       <Button onClick={() => setPlaying(!playing)}>
@@ -256,13 +263,13 @@ const ProjectDetail = (): JSX.Element => {
             </section>
           )}
 
-          {!projectQuery.data?.video && projectQuery.data?.fallback_photo && (
+          {!data?.data?.data?.attributes.video && !!data?.data?.data?.attributes.fallback_photo && (
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="flex w-full justify-center">
                   <Image
-                    alt={projectQuery.data?.fallback_photo.caption}
-                    src={projectQuery.data?.fallback_photo.url}
+                    alt={data?.data?.data?.attributes?.fallback_photo.data?.attributes.name || ''}
+                    src={data?.data?.data?.attributes?.fallback_photo.data?.attributes.url}
                     width={600}
                     height={500}
                   />
@@ -281,34 +288,35 @@ const ProjectDetail = (): JSX.Element => {
             <Wrapper>
               <table>
                 <tbody>
-                  {projectQuery.data?.lesson_1 && (
+                  {data?.data?.data?.attributes.lesson_1 && (
                     <tr className="border-b-[2px] [&>*]:py-10">
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                        {projectQuery.data?.lesson_1_category}
+                        {data?.data?.data?.attributes.lesson_1_category.data.attributes.name}
                       </td>
                       <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                        {projectQuery.data?.lesson_1}
+                        {data?.data?.data?.attributes.lesson_1}
                       </td>
                     </tr>
                   )}
 
-                  {projectQuery.data?.lesson_2 && (
+                  {data?.data?.data?.attributes.lesson_2 && (
                     <tr className="border-b-[2px] [&>*]:py-10">
                       <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
-                        {projectQuery.data?.lesson_2_category}
+                        {data?.data?.data?.attributes.lesson_2_category.data.attributes.name}
                       </td>
                       <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                        {projectQuery.data?.lesson_2}
+                        {data?.data?.data?.attributes.lesson_2}
                       </td>
                     </tr>
                   )}
-                  {projectQuery.data?.lesson_3 && (
+
+                  {data?.data?.data?.attributes.lesson_3 && (
                     <tr className="[&>*]:py-10">
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
-                        {projectQuery.data?.lesson_3_category}
+                        {data?.data?.data?.attributes.lesson_3_category.data.attributes.name}
                       </td>
                       <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
-                        {projectQuery.data?.lesson_3}
+                        {data?.data?.data?.attributes.lesson_3}
                       </td>
                     </tr>
                   )}
@@ -329,21 +337,21 @@ const ProjectDetail = (): JSX.Element => {
                 <div className="flex-col space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
                   <p className="font-sans text-m font-light leading-7 text-text">
-                    {projectQuery.data?.project_summary}
+                    {data?.data?.data?.attributes.project_summary}
                   </p>
                 </div>
-                {projectQuery.data?.citations && (
+                {data?.data?.data?.attributes.citations && (
                   <div className="flex flex-col space-y-4">
                     <h5 className="text-lg font-light uppercase">CITATIONS</h5>
                     <div className="space-y-2 text-2xs font-light">
-                      {projectQuery.data?.citations?.split(';').map((citation, idx) => (
+                      {data?.data?.data?.attributes.citations?.split(';').map((citation, idx) => (
                         <p key={idx}>{citation}</p>
                       ))}
                     </div>
                   </div>
                 )}
               </div>
-              {!!projectQuery.data?.resources.length && (
+              {!!data?.data?.data?.attributes.resources.length && (
                 <section className="flex w-1/4 flex-col space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
 
@@ -351,21 +359,21 @@ const ProjectDetail = (): JSX.Element => {
                     <button
                       type="button"
                       className="hover:font-medium"
-                      // onClick={() => onDownload(projectQuery.data?.resources[0], 'Fact Sheet')}
+                      // onClick={() => onDownload(data?.data?.data?.attributes.resources[0], 'Fact Sheet')}
                     >
                       <p>Download Fact Sheet</p>
                     </button>
                     <button
                       type="button"
                       className="hover:font-medium"
-                      // onClick={() => onDownload(projectQuery.data?.resources[1], 'Download 2')}
+                      // onClick={() => onDownload(data?.data?.data?.attributes.resources[1], 'Download 2')}
                     >
                       <p>Download 2</p>
                     </button>
                     <button
                       type="button"
                       className="hover:font-medium"
-                      // onClick={() => onDownload(projectQuery.data?.resources[2], 'Download 3')}
+                      // onClick={() => onDownload(data?.data?.data?.attributes.resources[2], 'Download 3')}
                     >
                       <p>Download 3</p>
                     </button>
@@ -375,16 +383,16 @@ const ProjectDetail = (): JSX.Element => {
             </Wrapper>
           </section>
 
-          {projectQuery.data?.graphic && (
+          {data?.data?.data?.attributes.graphic_1 && (
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="w-2/3 space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">
-                    {projectQuery.data?.graphic.caption}
+                    {data?.data?.data?.attributes.graphic_1.data.attributes.name}
                   </p>
                   <Image
-                    src={projectQuery.data?.graphic.url}
-                    alt={projectQuery.data?.graphic.caption}
+                    src={data?.data?.data?.attributes.graphic_1.data.attributes.url}
+                    alt={data?.data?.data?.attributes.graphic_1.data.attributes.caption}
                     height={700}
                     width={700}
                     style={{ objectFit: 'contain' }}
@@ -405,7 +413,7 @@ const ProjectDetail = (): JSX.Element => {
             </div>
             <Wrapper>
               <div className="w-3/4 py-10 font-light">
-                {projectQuery.data?.cb_biodiversity && (
+                {data?.data?.data?.attributes.cb_biodiversity && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
@@ -416,11 +424,13 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Biodiversity</p>
                     </div>
-                    <p className="text-m leading-6">{projectQuery.data?.cb_biodiversity}</p>
+                    <p className="text-m leading-6">
+                      {data?.data?.data?.attributes.cb_biodiversity}
+                    </p>
                   </div>
                 )}
 
-                {projectQuery.data?.cb_ecosystem_services && (
+                {data?.data?.data?.attributes.cb_ecosystem_services && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
@@ -431,10 +441,12 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Ecosystem Services</p>
                     </div>
-                    <p className="text-m leading-6">{projectQuery.data?.cb_ecosystem_services}</p>
+                    <p className="text-m leading-6">
+                      {data?.data?.data?.attributes.cb_ecosystem_services}
+                    </p>
                   </div>
                 )}
-                {projectQuery.data?.cb_livelihood_econ && (
+                {data?.data?.data?.attributes.cb_livelihood_econ && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
@@ -445,10 +457,12 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Livelihoods & Economics</p>
                     </div>
-                    <p className="text-m leading-6">{projectQuery.data?.cb_livelihood_econ}</p>
+                    <p className="text-m leading-6">
+                      {data?.data?.data?.attributes.cb_livelihood_econ}
+                    </p>
                   </div>
                 )}
-                {projectQuery.data?.cb_health_well_being && (
+                {data?.data?.data?.attributes.cb_health_well_being && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
@@ -459,10 +473,12 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Health & Well-being</p>
                     </div>
-                    <p className="text-m leading-6">{projectQuery.data?.cb_health_well_being}</p>
+                    <p className="text-m leading-6">
+                      {data?.data?.data?.attributes.cb_health_well_being}
+                    </p>
                   </div>
                 )}
-                {projectQuery.data?.cb_resilience_adapt && (
+                {data?.data?.data?.attributes.cb_resilience_adapt && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
@@ -473,25 +489,27 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Resilience & Adaptation</p>
                     </div>
-                    <p className="text-m leading-6">{projectQuery.data?.cb_resilience_adapt}</p>
+                    <p className="text-m leading-6">
+                      {data?.data?.data?.attributes.cb_resilience_adapt}
+                    </p>
                   </div>
                 )}
               </div>
             </Wrapper>
           </section>
-          {projectQuery.data?.why_this_why_now_callout && (
+          {data?.data?.data?.attributes.why_this_why_now_callout && (
             <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
               <Wrapper className="flex flex-col items-center space-y-6 py-20">
                 <VscQuote className="fill-butternut" size={40} />
                 <div className="flex justify-center">
                   <p className="max-w-3xl text-center font-sans text-xl font-light leading-9 text-white">
-                    {projectQuery.data?.why_this_why_now_callout}
+                    {data?.data?.data?.attributes.why_this_why_now_callout}
                   </p>
                 </div>
               </Wrapper>
             </section>
           )}
-          {projectQuery.data?.primary_partners && (
+          {data?.data?.data?.attributes.primary_partners && (
             <section>
               <Wrapper>
                 <div className="space-y-4 border-b-[2px] py-14">
@@ -500,10 +518,10 @@ const ProjectDetail = (): JSX.Element => {
                     className={cn({
                       'font-light leading-8 text-text': true,
                       'grid grid-cols-2':
-                        projectQuery.data?.primary_partners?.split(';').length > 5,
+                        data?.data?.data?.attributes.primary_partners?.split(';').length > 5,
                     })}
                   >
-                    {projectQuery.data?.primary_partners?.split(';').map((partner) => (
+                    {data?.data?.data?.attributes.primary_partners?.split(';').map((partner) => (
                       <p key={partner} className="mr-8">
                         {partner}
                       </p>
@@ -519,19 +537,20 @@ const ProjectDetail = (): JSX.Element => {
               <div className="w-3/4 space-y-6">
                 <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
                 <p className="font-sans text-m font-light leading-7 text-text">
-                  {projectQuery.data?.whats_next}
+                  {data?.data?.data?.attributes.whats_next}
                 </p>
               </div>
 
               {!!(
-                projectQuery.data?.public_contact_name || projectQuery.data?.public_contact_email
+                data?.data?.data?.attributes.public_contact_name ||
+                data?.data?.data?.attributes.public_contact_email
               ) && (
                 <div className="w-1/4 space-y-6 pt-16">
                   <h5 className="font-serif text-2xl font-medium text-indigo ">Contact Info</h5>
                   <div className="text-m font-light text-gray-800">
                     <p>MAIN CONTACT:</p>
-                    <p>{projectQuery.data?.public_contact_name}</p>
-                    <p>{projectQuery.data?.public_contact_email}</p>
+                    <p>{data?.data?.data?.attributes.public_contact_name}</p>
+                    <p>{data?.data?.data?.attributes.public_contact_email}</p>
                   </div>
                 </div>
               )}
@@ -569,12 +588,14 @@ const ProjectDetail = (): JSX.Element => {
           </section>
         </div>
       )}
-      {projectQuery.isFetched && Object.keys(projectQuery.data).length === 0 && (
+
+      {isFetched && Object.keys(data?.data?.data).length === 0 && (
         <div className="flex h-64 w-full items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">No data available</p>
         </div>
       )}
-      {projectQuery.isFetching && (
+
+      {isFetching && (
         <div className="flex h-64 w-full items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
         </div>

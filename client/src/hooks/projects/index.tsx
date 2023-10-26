@@ -51,62 +51,6 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
   } as typeof query;
 }
 
-export function useProject({ projectId }: { projectId: string }): UseQueryResult<Project, unknown> {
-  const fetchProject = () =>
-    API.request({
-      method: 'GET',
-      url: `/projects/${projectId}?populate=*`,
-    }).then((response: AxiosResponse) => {
-      return response.data;
-    });
-
-  const query = useQuery(['project', projectId], fetchProject, {
-    placeholderData: [],
-    enabled: !!projectId,
-  });
-
-  const { data } = query;
-
-  const parsedData = useMemo(() => {
-    if (!data?.data) {
-      return {};
-    }
-    return {
-      ...data.data,
-      action_types: data.data.action_types.data.map((action_type) => action_type.attributes.name),
-      biomes: data.data.biomes.data.map((biome) => biome.attributes.name),
-      country: data.data.country.data.attributes.name,
-      cobenefits: data.data.cobenefits.data.map((cobenefit) => cobenefit.attributes.name),
-      fallback_photo: data.data.fallback_photo.data?.attributes.formats.large,
-      footer_photo:
-        data.data.footer_photo.data?.attributes.formats.xlarge ||
-        data.data.footer_photo.data?.attributes.formats.large,
-      goals_photo: data.data.goals_photo.data?.attributes,
-      header_photo:
-        data.data.header_photo.data?.attributes.formats.xlarge ||
-        data.data.header_photo.data?.attributes.formats.large,
-      graphic: data.data.graphic_1?.data?.attributes,
-      lesson_1_category: data.data.lesson_1_category.data.attributes.name,
-      lesson_2_category: data.data.lesson_2_category.data.attributes.name,
-      lesson_3_category: data.data.lesson_3_category.data.attributes.name,
-      pathways: data.data.pathways.data.map((pathway) => pathway.attributes.name),
-      project_categories: data.data.project_categories.data.map(
-        (project_categories) => project_categories.attributes.name
-      ),
-      project_phases: data.data.project_phases.data.map(
-        (project_phases) => project_phases.attributes.name
-      ),
-      region: data.data.region.data?.attributes.name,
-      resources: data.data.resources.data,
-    };
-  }, [data]);
-
-  return {
-    ...query,
-    data: parsedData,
-  } as typeof query;
-}
-
 export function useTotalData({ dataFiltered }: { dataFiltered?: Project[] }) {
   const data = useMemo(() => {
     if (!dataFiltered) {
