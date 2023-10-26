@@ -1,50 +1,31 @@
-import axios, { AxiosError, AxiosResponse, CreateAxiosDefaults, isAxiosError } from 'axios';
-import Jsona from 'jsona';
+import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-const dataFormatter = new Jsona();
+import env from '@/env.mjs';
 
-const APIConfig: CreateAxiosDefaults<unknown> = {
-  baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
-  headers: { 'Content-Type': 'application/json' },
-} satisfies CreateAxiosDefaults;
+export const AXIOS_INSTANCE = Axios.create({ baseURL: env.NEXT_PUBLIC_API_URL });
 
-export const JSONAPI = axios.create({
-  ...APIConfig,
-  transformResponse: (data) => {
-    try {
-      const parsedData = JSON.parse(data);
-      return {
-        data: dataFormatter.deserialize(parsedData),
-        meta: parsedData.meta,
-      };
-    } catch (error: unknown) {
-      if (isAxiosError(error)) {
-        throw new Error(error.response.statusText);
-      }
-      throw error;
-    }
-  },
-});
+export const API = <T>(
+  config: AxiosRequestConfig,
+  options?: AxiosRequestConfig
+): Promise<AxiosResponse<T>> => {
+  const source = Axios.CancelToken.source();
 
-const onResponseSuccess = (response: AxiosResponse<unknown>) => response;
+  const promise = AXIOS_INSTANCE({
+    ...config,
+    ...options,
+    cancelToken: source.token,
+  });
 
-const onResponseError = (error: unknown) => {
-  return Promise.reject(error);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  promise.cancel = () => {
+    source.cancel('Query was cancelled');
+  };
+
+  return promise;
 };
 
-JSONAPI.interceptors.response.use(onResponseSuccess, onResponseError);
-
-export const API = axios.create({
-  ...APIConfig,
-});
-
-API.interceptors.response.use(onResponseSuccess, onResponseError);
-
-const APIInstances = {
-  JSONAPI,
-  API,
-};
-
+// In some case with react-query and swr you want to be able to override the return error type so you can also do it here like this
 export type ErrorType<Error> = AxiosError<Error>;
 
-export default APIInstances;
+export default API;

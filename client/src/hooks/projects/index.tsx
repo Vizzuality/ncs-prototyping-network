@@ -3,12 +3,12 @@ import { useMemo } from 'react';
 import { useQuery, type UseQueryResult } from '@tanstack/react-query';
 import { type AxiosResponse } from 'axios';
 
-import { JSONAPI } from 'services/api';
+import { API } from 'services/api';
 import { Project, Total } from 'types/project';
 
 export function useProjects(): UseQueryResult<Project[], unknown> {
   const fetchProjects = () =>
-    JSONAPI.request({
+    API.request({
       method: 'GET',
       url: '/projects?populate=*',
     }).then((response: AxiosResponse) => response.data);
@@ -53,7 +53,7 @@ export function useProjects(): UseQueryResult<Project[], unknown> {
 
 export function useProject({ projectId }: { projectId: string }): UseQueryResult<Project, unknown> {
   const fetchProject = () =>
-    JSONAPI.request({
+    API.request({
       method: 'GET',
       url: `/projects/${projectId}?populate=*`,
     }).then((response: AxiosResponse) => {
@@ -142,7 +142,7 @@ export function useTotalData({ dataFiltered }: { dataFiltered?: Project[] }) {
 
 export function usePathways(): UseQueryResult<Project['pathways'], unknown> {
   const fetchPathways = () =>
-    JSONAPI.request({
+    API.request({
       method: 'GET',
       url: '/pathways',
     }).then((response: AxiosResponse) => response.data);
@@ -168,7 +168,7 @@ export function usePathways(): UseQueryResult<Project['pathways'], unknown> {
 
 export function usePhases(): UseQueryResult<Project['project_phases'], unknown> {
   const fetchPhases = () =>
-    JSONAPI.request({
+    API.request({
       method: 'GET',
       url: '/project-phases',
     }).then((response: AxiosResponse) => response.data);
@@ -194,7 +194,7 @@ export function usePhases(): UseQueryResult<Project['project_phases'], unknown> 
 
 export function useCategories(): UseQueryResult<Project['project_categories'], unknown> {
   const fetchCategories = () =>
-    JSONAPI.request({
+    API.request({
       method: 'GET',
       url: '/project-categories',
     }).then((response: AxiosResponse) => response.data);
@@ -220,7 +220,7 @@ export function useCategories(): UseQueryResult<Project['project_categories'], u
 
 export function useActionTypes(): UseQueryResult<Project['action_types'], unknown> {
   const fetchActionTypes = () =>
-    JSONAPI.request({
+    API.request({
       method: 'GET',
       url: '/action-types',
     }).then((response: AxiosResponse) => response.data);
@@ -246,7 +246,7 @@ export function useActionTypes(): UseQueryResult<Project['action_types'], unknow
 
 export function useCobenefits(): UseQueryResult<Project['cobenefits'], unknown> {
   const fetchCobenefits = () =>
-    JSONAPI.request({
+    API.request({
       method: 'GET',
       url: '/cobenefits',
     }).then((response: AxiosResponse) => response.data);

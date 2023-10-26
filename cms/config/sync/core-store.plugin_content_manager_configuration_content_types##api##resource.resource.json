@@ -22,7 +22,7 @@
       },
       "label": {
         "edit": {
-          "label": "Label",
+          "label": "label",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "link": {
         "edit": {
-          "label": "Link",
+          "label": "link",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "file": {
         "edit": {
-          "label": "File",
+          "label": "file",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -137,6 +137,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "label",
+        "link",
+        "file"
+      ],
       "edit": [
         [
           {
@@ -158,12 +164,6 @@
             "size": 6
           }
         ]
-      ],
-      "list": [
-        "id",
-        "label",
-        "link",
-        "file"
       ]
     }
   },

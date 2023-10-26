@@ -7,13 +7,13 @@ import Link from 'next/link';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
-import { Project } from '@/types/project';
+import { useGetProjects } from '@/types/generated/project';
 
 import Wrapper from 'containers/wrapper';
-import { useProjects } from 'hooks/projects';
 
 const HomeProjects = (): JSX.Element => {
-  const projectsQuery = useProjects();
+  const { data, isFetched } = useGetProjects({ populate: '*' });
+
   const SampleNextArrow = ({ onClick }: { onClick?: MouseEventHandler<HTMLButtonElement> }) => {
     return (
       <button
@@ -45,7 +45,7 @@ const HomeProjects = (): JSX.Element => {
     prevArrow: <SamplePrevArrow />,
   };
 
-  const shuffleProjects = (array: Project[]) => {
+  const shuffleProjects = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
 
@@ -65,34 +65,41 @@ const HomeProjects = (): JSX.Element => {
           </p>
         </div>
         <div>
-          <Slider {...settings}>
-            {shuffleProjects(projectsQuery.data)?.map((project) => (
-              <Link
-                key={project.id}
-                href={`/projects/${project.id}`}
-                className="relative before:absolute before:top-0 before:left-0 before:h-[339px] before:min-w-[339px] before:bg-black/25 before:content-['']"
-              >
-                <Image
-                  alt="Project sample photo"
-                  src={project.header_photo?.url || 'https://dummyimage.com/330x290/000/fff&text=+'}
-                  width={600}
-                  height={600}
-                  style={{
-                    objectFit: 'cover',
-                    height: '339px',
-                    minWidth: '100%',
-                  }}
-                />
+          {isFetched && (
+            <Slider {...settings}>
+              {shuffleProjects(data?.data?.data)?.map((project) => (
+                <Link
+                  key={project.attributes.id}
+                  href={`/projects/${project.id}`}
+                  className="relative before:absolute before:top-0 before:left-0 before:h-[339px] before:min-w-[334px] before:bg-black/25 before:content-['']"
+                >
+                  <Image
+                    alt={project.attributes.header_photo.data.attributes.formats.large?.name}
+                    src={
+                      project.attributes.header_photo.data.attributes.formats.large?.url ||
+                      'https://dummyimage.com/330x290/000/fff&text=+'
+                    }
+                    width={600}
+                    height={600}
+                    style={{
+                      objectFit: 'cover',
+                      height: '339px',
+                      minWidth: '100%',
+                    }}
+                  />
 
-                <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4 text-white">
-                  <h3 className="font-serif text-xs font-bold uppercase">{project.project_name}</h3>
-                  <p className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">
-                    {project.long_title}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </Slider>
+                  <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4 text-white">
+                    <h3 className="font-serif text-xs font-bold uppercase">
+                      {project.attributes.project_name}
+                    </h3>
+                    <p className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">
+                      {project.attributes.long_title}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </Slider>
+          )}
         </div>
       </section>
     </Wrapper>
