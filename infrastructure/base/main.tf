@@ -223,6 +223,9 @@ module "github_values" {
     STAGING_CMS_ENV_FILE            = join("\n", [for key, value in local.staging_cms_env : "${key}=${value}"])
     STAGING_CLIENT_ENV_FILE         = join("\n", [for key, value in local.staging_client_env : "${key}=${value}"])
     STAGING_DOMAIN                  = var.staging_domain
+    PRODUCTION_CMS_ENV_FILE         = join("\n", [for key, value in local.production_cms_env : "${key}=${value}"])
+    PRODUCTION_CLIENT_ENV_FILE      = join("\n", [for key, value in local.production_client_env : "${key}=${value}"])
+    PRODUCTION_DOMAIN               = var.production_domain
   }
   variable_map = {
     AWS_REGION = var.aws_region
