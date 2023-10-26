@@ -4,7 +4,7 @@ import Jsona from 'jsona';
 const dataFormatter = new Jsona();
 
 const APIConfig: CreateAxiosDefaults<unknown> = {
-  baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api`,
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
   headers: { 'Content-Type': 'application/json' },
 } satisfies CreateAxiosDefaults;
 
