@@ -25,6 +25,7 @@ const nextConfig = {
       'dummyimage.com',
       'placebear.com',
       'tnc-protodash-staging-assets-bucket.s3.eu-west-3.amazonaws.com',
+      'tnc-protodash-production-assets-bucket.s3.eu-west-3.amazonaws.com',
     ],
   },
   webpack(config) {
