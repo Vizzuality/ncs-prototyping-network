@@ -73,7 +73,7 @@ const Card = ({ data }: { data: Project }): JSX.Element => {
           </div>
           <div className="flex flex-col space-y-2">
             <p className="max-w-xs font-sans text-2xs font-light text-text">
-              <span className="font-medium uppercase">Mitigation potencial:</span> {''}
+              <span className="font-medium uppercase">Mitigation potential:</span> {''}
               {carbon_mitigation}
             </p>
             <div className="max-w-xs font-sans text-2xs font-light text-text">

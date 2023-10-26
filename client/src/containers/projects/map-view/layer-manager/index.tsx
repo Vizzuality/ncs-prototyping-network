@@ -90,8 +90,9 @@ const LayerManager = () => {
       },
       paint: {},
       layout: {
-        'icon-size': 0.85,
+        'icon-size': 0.75,
         'icon-image': 'marker',
+        'icon-allow-overlap': true,
         'icon-keep-upright': true,
       },
     };

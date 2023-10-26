@@ -18,15 +18,13 @@ import { useProject, useProjects } from '@/hooks/projects';
 
 import Button from 'components/ui/button';
 import Video from 'components/video';
+import Card from 'containers/projects/card';
+import ExtentMap from 'containers/projects/detail/extent-map';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
-import Card from '../card';
-
-import ExtentMap from './extent-map';
-
 const ProjectDetail = (): JSX.Element => {
-  const params = useParams();
+  const { id } = useParams();
   const ref = useRef();
   const inView = useInView(ref, {
     once: false,
@@ -35,7 +33,7 @@ const ProjectDetail = (): JSX.Element => {
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
-  const projectQuery = useProject({ projectId: `${params.id}` });
+  const projectQuery = useProject({ projectId: `${id}` });
 
   const projectsQuery = useProjects();
 
@@ -51,12 +49,12 @@ const ProjectDetail = (): JSX.Element => {
   const similarProjects = useMemo(() => {
     return projectsQuery.data
       ?.filter((project) => {
-        if (!project.pathways.some((pathway) => projectQuery.data?.pathways?.includes(pathway)))
-          return false;
+        if (`${project.id}` === id) return false;
         return true;
       })
+      .sort(() => Math.random() - 0.5)
       .slice(0, 3);
-  }, [projectsQuery.data, projectQuery.data]);
+  }, [projectsQuery.data, id]);
 
   // const onDownload = async (resource: string, fileName: string) => {
   //   const blob = await fetch(resource).then((r) => r.blob());
