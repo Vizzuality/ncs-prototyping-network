@@ -7,14 +7,14 @@ export const NAV_TABS_HEADER = [
     label: 'Projects',
     href: '/projects',
   },
-  {
-    label: 'About',
-    href: '/about',
-  },
-  {
-    label: 'Resources',
-    href: '/resources',
-  },
+  // {
+  //   label: 'About',
+  //   href: '/about',
+  // },
+  // {
+  //   label: 'Resources',
+  //   href: '/resources',
+  // },
 ];
 
 export const NAV_TABS_FOOTER = [
@@ -30,8 +30,8 @@ export const NAV_TABS_FOOTER = [
     label: 'Contact',
     href: '/contact',
   },
-  {
-    label: 'Resources',
-    href: '/resources',
-  },
+  // {
+  //   label: 'Resources',
+  //   href: '/resources',
+  // },
 ];
