@@ -266,20 +266,21 @@ const ProjectDetail = (): JSX.Element => {
             </section>
           )}
 
-          {!data?.data?.data?.attributes.video && !!data?.data?.data?.attributes.fallback_photo && (
-            <section className="bg-background py-16">
-              <Wrapper>
-                <div className="flex w-full justify-center">
-                  <Image
-                    alt={data?.data?.data?.attributes?.fallback_photo.data?.attributes.name || ''}
-                    src={data?.data?.data?.attributes?.fallback_photo.data?.attributes.url}
-                    width={600}
-                    height={500}
-                  />
-                </div>
-              </Wrapper>
-            </section>
-          )}
+          {!data?.data?.data?.attributes.video &&
+            data?.data?.data?.attributes.fallback_photo.data && (
+              <section className="bg-background py-16">
+                <Wrapper>
+                  <div className="flex w-full justify-center">
+                    <Image
+                      alt={data?.data?.data?.attributes?.fallback_photo.data?.attributes.name || ''}
+                      src={data?.data?.data?.attributes?.fallback_photo.data?.attributes.url}
+                      width={600}
+                      height={500}
+                    />
+                  </div>
+                </Wrapper>
+              </section>
+            )}
           <section id="lessons" className="scroll-mt-28">
             <div className="bg-indigo py-6">
               <Wrapper>
