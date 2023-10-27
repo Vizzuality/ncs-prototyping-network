@@ -19,11 +19,11 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
 
   const CO_BENEFITS_ICONS = {
     [cobenefits[0]]: '/images/icons/co-benefits/ecosystem_services.svg',
-    [cobenefits[1]]: '/images/icons/co-benefits/biodiversity.svg',
-    [cobenefits[2]]: '/images/icons/co-benefits/livelihoods_economic.svg',
-    [cobenefits[3]]: '/images/icons/co-benefits/human_health_wellbeing.svg',
-    [cobenefits[4]]: '',
-    [cobenefits[5]]: '/images/icons/co-benefits/resilience_and_adaptation.svg',
+    [cobenefits[1]]: '/images/icons/co-benefits/resilience_and_adaptation.svg',
+    [cobenefits[2]]: '/images/icons/co-benefits/biodiversity.svg',
+    [cobenefits[3]]: '/images/icons/co-benefits/livelihoods_economic.svg',
+    [cobenefits[4]]: '/images/icons/co-benefits/human_health_wellbeing.svg',
+    [cobenefits[5]]: '',
   };
 
   const [sortedBy, setSortedBy] = useState<string>('country');
