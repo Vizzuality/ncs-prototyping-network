@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useGetPathways } from '@/types/generated/pathway';
+import { useGetProjects } from '@/types/generated/project';
 
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
@@ -13,7 +14,6 @@ import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
 import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
-import { useGetProjects } from 'types/generated/project';
 
 const ProjectsPage = (): JSX.Element => {
   const { data: pathwaysData, isFetched } = useGetPathways();
