@@ -71,7 +71,7 @@ const HomeProjects = (): JSX.Element => {
                 <Link
                   key={project.attributes.id}
                   href={`/projects/${project.id}`}
-                  className="relative before:absolute before:top-0 before:left-0 before:h-[339px] before:min-w-[334px] before:bg-black/25 before:content-['']"
+                  className="relative"
                 >
                   <Image
                     alt={project.attributes.header_photo.data.attributes.formats.large?.name}
@@ -81,11 +81,7 @@ const HomeProjects = (): JSX.Element => {
                     }
                     width={600}
                     height={600}
-                    style={{
-                      objectFit: 'cover',
-                      height: '339px',
-                      minWidth: '100%',
-                    }}
+                    className="relative h-[250px] object-cover xl:h-[339px]"
                   />
 
                   <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4 text-white">
