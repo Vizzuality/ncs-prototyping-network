@@ -22,17 +22,16 @@ const ProjectsPage = (): JSX.Element => {
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
   const projectsView = useRecoilValue(projectsViewAtom);
+  const [filters, setFilters] = useRecoilState(filtersAtom);
+
+  const searchParams = useSearchParams();
+  const pathway = searchParams.get('pathway');
+
+  const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
   useEffect(() => {
     setHeaderStyle('default');
   }, [setHeaderStyle]);
-
-  const [filters, setFilters] = useRecoilState(filtersAtom);
-  const searchParams = useSearchParams();
-
-  const pathway = searchParams.get('pathway');
-
-  const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
   const getSpecificPathwayName = (pathway) => {
     switch (pathway) {
@@ -106,7 +105,7 @@ const ProjectsPage = (): JSX.Element => {
         <Tabs />
         <Filters />
       </div>
-      {/* {projectsView === 'map' && <MapView data={dataFiltered} />} */}
+      {projectsView === 'map' && <MapView data={dataFiltered} />}
       {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
     </Wrapper>
   );

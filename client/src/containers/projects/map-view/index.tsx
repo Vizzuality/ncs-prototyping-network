@@ -46,7 +46,7 @@ const DEFAULT_PROPS = {
   maxZoom: 20,
 };
 
-const MapView = ({ data }: { data: Project[] }): JSX.Element => {
+const MapView = ({ data }: { data }): JSX.Element => {
   const { push } = useRouter();
 
   const mapRef = useRef(null);
@@ -69,7 +69,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
 
-  // This effect will update bounds when filtering projects
+  // ? This effect will update bounds when filtering projects
   useEffect(() => {
     if (map) {
       map.fitBounds(filteredBbox, { padding: 20 });
