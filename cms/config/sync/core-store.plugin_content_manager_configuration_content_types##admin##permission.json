@@ -176,15 +176,7 @@
           {
             "name": "action",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "actionParameters",
-            "size": 12
-          }
-        ],
-        [
+          },
           {
             "name": "subject",
             "size": 6
@@ -206,6 +198,12 @@
           {
             "name": "role",
             "size": 6
+          }
+        ],
+        [
+          {
+            "name": "actionParameters",
+            "size": 12
           }
         ]
       ]

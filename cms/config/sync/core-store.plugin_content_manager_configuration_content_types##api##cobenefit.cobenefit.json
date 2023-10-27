@@ -112,17 +112,13 @@
       "list": [
         "id",
         "name",
-        "projects",
-        "createdAt"
+        "createdBy",
+        "updatedBy"
       ],
       "edit": [
         [
           {
             "name": "name",
-            "size": 6
-          },
-          {
-            "name": "projects",
             "size": 6
           }
         ]

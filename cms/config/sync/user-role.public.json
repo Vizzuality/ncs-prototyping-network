@@ -4,6 +4,72 @@
   "type": "public",
   "permissions": [
     {
+      "action": "api::action-type.action-type.find"
+    },
+    {
+      "action": "api::action-type.action-type.findOne"
+    },
+    {
+      "action": "api::biome.biome.find"
+    },
+    {
+      "action": "api::biome.biome.findOne"
+    },
+    {
+      "action": "api::cobenefit.cobenefit.find"
+    },
+    {
+      "action": "api::cobenefit.cobenefit.findOne"
+    },
+    {
+      "action": "api::country.country.find"
+    },
+    {
+      "action": "api::country.country.findOne"
+    },
+    {
+      "action": "api::lesson-category.lesson-category.find"
+    },
+    {
+      "action": "api::lesson-category.lesson-category.findOne"
+    },
+    {
+      "action": "api::pathway.pathway.find"
+    },
+    {
+      "action": "api::pathway.pathway.findOne"
+    },
+    {
+      "action": "api::project-category.project-category.find"
+    },
+    {
+      "action": "api::project-category.project-category.findOne"
+    },
+    {
+      "action": "api::project-phase.project-phase.find"
+    },
+    {
+      "action": "api::project-phase.project-phase.findOne"
+    },
+    {
+      "action": "api::project.project.find"
+    },
+    {
+      "action": "api::project.project.findOne"
+    },
+    {
+      "action": "api::region.region.find"
+    },
+    {
+      "action": "api::region.region.findOne"
+    },
+    {
+      "action": "api::resource.resource.find"
+    },
+    {
+      "action": "api::resource.resource.findOne"
+    },
+    {
       "action": "plugin::users-permissions.auth.callback"
     },
     {

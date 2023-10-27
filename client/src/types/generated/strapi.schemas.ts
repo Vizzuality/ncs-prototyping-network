@@ -1189,7 +1189,6 @@ export type ResourceProjectsDataItemAttributesProjectPhasesDataItemAttributesCre
 export type ResourceProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: ResourceProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ResourceProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -1294,7 +1293,6 @@ export type ResourceProjectsDataItemAttributesActionTypesDataItemAttributesUpdat
 export type ResourceProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: ResourceProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ResourceProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -2872,7 +2870,6 @@ export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesUpdat
 export type RegionProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: RegionProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -2962,7 +2959,6 @@ export type RegionProjectsDataItemAttributesCobenefitsDataItemAttributesProjects
 export type RegionProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: RegionProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: RegionProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -3734,7 +3730,6 @@ export type ProjectPhaseProjects = {
 export interface ProjectPhase {
   name: string;
   projects?: ProjectPhaseProjects;
-  sort: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectPhaseCreatedBy;
@@ -4462,7 +4457,6 @@ export type ProjectPhaseProjectsDataItemAttributesProjectCategoriesDataItemAttri
 export type ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectPhaseProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -4572,7 +4566,6 @@ export type ProjectPhaseProjectsDataItemAttributesCobenefitsDataItemAttributesPr
 export type ProjectPhaseProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: ProjectPhaseProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectPhaseProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -5288,7 +5281,6 @@ export type ProjectPhaseRequestDataProjectsItem = number | string;
 export type ProjectPhaseRequestData = {
   name: string;
   projects?: ProjectPhaseRequestDataProjectsItem[];
-  sort: number;
 };
 
 export interface ProjectPhaseRequest {
@@ -6075,7 +6067,6 @@ export type ProjectCategoryProjectsDataItemAttributesProjectCategoriesDataItemAt
 export type ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectCategoryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -6192,7 +6183,6 @@ export type ProjectCategoryProjectsDataItemAttributesActionTypesDataItemAttribut
 export type ProjectCategoryProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: ProjectCategoryProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectCategoryProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -8302,7 +8292,6 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDa
 export type ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -8423,7 +8412,6 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributesActionTypesData
 export type ProjectRegionDataAttributesProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: ProjectRegionDataAttributesProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -10020,7 +10008,6 @@ export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesUpda
 export type PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: PathwayProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -10110,7 +10097,6 @@ export type PathwayProjectsDataItemAttributesCobenefitsDataItemAttributesProject
 export type PathwayProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: PathwayProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: PathwayProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -11686,7 +11672,6 @@ export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttrib
 export type LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: LessonCategoryProjects1DataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -11797,7 +11782,6 @@ export type LessonCategoryProjects1DataItemAttributesActionTypesDataItemAttribut
 export type LessonCategoryProjects1DataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: LessonCategoryProjects1DataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: LessonCategoryProjects1DataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -13294,7 +13278,6 @@ export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProj
 export type CountryProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: CountryProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -13365,7 +13348,6 @@ export type CountryProjectsDataItemAttributesCobenefitsDataItemAttributesProject
 export type CountryProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: CountryProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: CountryProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -14868,7 +14850,6 @@ export type CobenefitProjectsDataItemAttributesProjectCategoriesDataItemAttribut
 export type CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: CobenefitProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -14977,7 +14958,6 @@ export type CobenefitProjectsDataItemAttributesCobenefitsDataItemAttributesProje
 export type CobenefitProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: CobenefitProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: CobenefitProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -16530,7 +16510,6 @@ export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjec
 export type BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: BiomeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -16596,7 +16575,6 @@ export type BiomeProjectsDataItemAttributesCobenefitsDataItemAttributes = {
 export type BiomeProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: BiomeProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: BiomeProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -17332,7 +17310,6 @@ export interface ActionTypeResponse {
 export interface ActionType {
   name: string;
   projects?: ActionTypeProjects;
-  sort: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ActionTypeCreatedBy;
@@ -18105,7 +18082,6 @@ export type ActionTypeProjectsDataItemAttributesProjectPhases = {
 export type ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributes = {
   name?: string;
   projects?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ActionTypeProjectsDataItemAttributesProjectPhasesDataItemAttributesCreatedBy;
@@ -18210,7 +18186,6 @@ export type ActionTypeProjectsDataItemAttributesCobenefitsDataItemAttributes = {
 export type ActionTypeProjectsDataItemAttributesActionTypesDataItemAttributes = {
   name?: string;
   projects?: ActionTypeProjectsDataItemAttributesActionTypesDataItemAttributesProjects;
-  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ActionTypeProjectsDataItemAttributesActionTypesDataItemAttributesCreatedBy;
@@ -18928,7 +18903,6 @@ export type ActionTypeRequestDataProjectsItem = number | string;
 export type ActionTypeRequestData = {
   name: string;
   projects?: ActionTypeRequestDataProjectsItem[];
-  sort: number;
 };
 
 export interface ActionTypeRequest {
