@@ -1,4 +1,4 @@
-import { ActionType, Pathway, ProjectCategory, ProjectPhase } from './generated/strapi.schemas';
+import { ActionType, Pathway, ProjectCategory, ProjectPhase } from 'types/generated/strapi.schemas';
 
 export type Total = {
   total_people_supported: string;
