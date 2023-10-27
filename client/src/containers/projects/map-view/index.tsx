@@ -23,7 +23,7 @@ import LayerManager from 'containers/projects/map-view/layer-manager';
 import Tabs from 'containers/projects/map-view/tabs';
 import Total from 'containers/projects/map-view/total';
 import { basemapAtom, filteredBboxAtom } from 'store';
-import { Project, PopUp } from 'types/project';
+import { PopUp } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
 
@@ -136,7 +136,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
     }
   };
 
-  const getSortedData = (arr: Project[], sortedBy: string) => {
+  const getSortedData = (arr, sortedBy: string) => {
     if (!sortedBy) return arr;
 
     const sortedArr = [...arr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? -1 : 1));
