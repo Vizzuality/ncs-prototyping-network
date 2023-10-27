@@ -46,14 +46,28 @@ const ProjectDetail = (): JSX.Element => {
   };
 
   const similarProjects = useMemo(() => {
-    return projects?.data?.data
+    const otherProjects = projects?.data?.data?.filter((project) => {
+      if (`${project.id}` === id) return false;
+      return true;
+    });
+
+    return otherProjects
       ?.filter((project) => {
-        if (`${project.id}` === id) return false;
+        if (
+          !project.attributes.pathways.data
+            .map((p) => p.attributes.name)
+            .some((pathway) =>
+              data?.data?.data?.attributes.pathways.data
+                .map((pp) => pp.attributes.name)
+                .includes(pathway)
+            )
+        )
+          return false;
         return true;
       })
       .sort(() => Math.random() - 0.5)
       .slice(0, 3);
-  }, [projects?.data?.data, id]);
+  }, [projects?.data?.data, id, data?.data?.data?.attributes.pathways]);
 
   // const onDownload = async (resource: string, fileName: string) => {
   //   const blob = await fetch(resource).then((r) => r.blob());
@@ -215,7 +229,7 @@ const ProjectDetail = (): JSX.Element => {
                 </p>
 
                 <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
-                  {data?.data?.data?.attributes.project_summary}
+                  {data?.data?.data?.attributes.abstract}
                 </p>
               </div>
             </Wrapper>
@@ -585,7 +599,7 @@ const ProjectDetail = (): JSX.Element => {
               <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
               <div className="flex justify-start space-x-6 2xl:space-x-10">
                 {similarProjects?.map((project, idx) => (
-                  <Card key={idx} data={project} />
+                  <Card key={idx} id={project.id} />
                 ))}
               </div>
             </Wrapper>

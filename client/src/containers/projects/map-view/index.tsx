@@ -189,7 +189,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
               <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
                 {sortedData.map((project) => (
                   <div key={project.id}>
-                    <Card data={project} />
+                    <Card id={project.id} />
                   </div>
                 ))}
               </div>
