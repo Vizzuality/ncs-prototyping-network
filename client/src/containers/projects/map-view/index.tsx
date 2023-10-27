@@ -50,7 +50,8 @@ const MapView = ({ data }: { data }): JSX.Element => {
   const { push } = useRouter();
 
   const mapRef = useRef(null);
-  const [sortedBy, setSortedBy] = useState<string>('country');
+  const [sortedBy, setSortedBy] = useState<string>('carbon_mitigation');
+
   const [projectsPopUp, setProjectsPopUp] = useState<PopUp>({
     popup: [],
     popupInfo: null,
@@ -137,9 +138,13 @@ const MapView = ({ data }: { data }): JSX.Element => {
   };
 
   const getSortedData = (arr, sortedBy: string) => {
-    if (!sortedBy) return arr;
+    const parsedArr = arr.map((project) => {
+      return { ...project.attributes, id: project.id };
+    });
 
-    const sortedArr = [...arr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? -1 : 1));
+    if (!sortedBy) return parsedArr;
+
+    const sortedArr = [...parsedArr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? 1 : -1));
 
     return sortedArr;
   };
@@ -173,7 +178,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                     <div className="mb-1">
                       <Select
                         theme="secondary"
-                        type="Country"
+                        type="Select..."
                         onValueChange={(v) => setSortedBy(v)}
                         options={SORT_OPTIONS}
                       />
