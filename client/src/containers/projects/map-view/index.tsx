@@ -160,7 +160,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
             <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
           </div>
         )}
-        <Total />
+
         {!!sortedData.length && (
           <div className="flex space-x-6">
             <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">

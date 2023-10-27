@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useGetPathways } from '@/types/generated/pathway';
-
+import { useGetPathways } from 'types/generated/pathway';
 import { cn } from 'utils/cn';
 
 const Card = ({ data }: { data }): JSX.Element => {

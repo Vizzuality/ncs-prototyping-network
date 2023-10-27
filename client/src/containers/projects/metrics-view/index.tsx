@@ -6,31 +6,31 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
-import { useCobenefits } from '@/hooks/projects';
+import { useGetCobenefits } from '@/types/generated/cobenefit';
 
 import { COLUMNS } from 'containers/projects/constants';
-import { Project } from 'types/project';
 import { cn } from 'utils/cn';
 
 type Direction = 'asc' | 'desc';
 
-const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
-  const cobenefitsQuery = useCobenefits();
+const MetricsView = ({ data }: { data }): JSX.Element => {
+  const { data: cobenefitsData, isFetched } = useGetCobenefits();
+  const cobenefits = isFetched ? cobenefitsData?.data.data.map((p) => p.attributes.name) : [];
 
   const CO_BENEFITS_ICONS = {
-    [cobenefitsQuery.data[0]]: '/images/icons/co-benefits/ecosystem_services.svg',
-    [cobenefitsQuery.data[1]]: '/images/icons/co-benefits/biodiversity.svg',
-    [cobenefitsQuery.data[2]]: '/images/icons/co-benefits/livelihoods_economic.svg',
-    [cobenefitsQuery.data[3]]: '/images/icons/co-benefits/human_health_wellbeing.svg',
-    [cobenefitsQuery.data[4]]: '',
-    [cobenefitsQuery.data[5]]: '/images/icons/co-benefits/resilience_and_adaptation.svg',
+    [cobenefits[0]]: '/images/icons/co-benefits/ecosystem_services.svg',
+    [cobenefits[1]]: '/images/icons/co-benefits/biodiversity.svg',
+    [cobenefits[2]]: '/images/icons/co-benefits/livelihoods_economic.svg',
+    [cobenefits[3]]: '/images/icons/co-benefits/human_health_wellbeing.svg',
+    [cobenefits[4]]: '',
+    [cobenefits[5]]: '/images/icons/co-benefits/resilience_and_adaptation.svg',
   };
 
   const [sortedBy, setSortedBy] = useState<string>('country');
 
   const [direction, setDirection] = useState<Direction>('asc');
 
-  const getSortedData = (arr: Project[], sortedBy: string, direction: Direction) => {
+  const getSortedData = (arr, sortedBy: string, direction: Direction) => {
     if (!sortedBy) return arr;
 
     const sortedArr = [...arr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? -1 : 1));
@@ -56,6 +56,7 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
             <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
           </div>
         )}
+
         {!!sortedData.length && (
           <table className="bg-white text-xs">
             <thead className="h-16 bg-white">
@@ -112,9 +113,9 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
                         className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
                       >
                         <Image
-                          alt={project.header_photo?.caption}
+                          alt={project.attributes.header_photo.data.attributes.formats.medium.name}
                           src={
-                            project.header_photo?.url ||
+                            project.attributes.header_photo.data.attributes.formats.medium.url ||
                             'https://dummyimage.com/110x110/000/fff&text=+'
                           }
                           style={{
@@ -128,52 +129,62 @@ const MetricsView = ({ data }: { data: Project[] }): JSX.Element => {
 
                         <div className="flex w-[100px] flex-col xl:w-auto">
                           <p className="-mt-1 font-serif text-lg font-semibold leading-6 text-indigo group-hover:underline xl:text-2xl xl:leading-7">
-                            {project.project_name}
+                            {project.attributes.project_name}
                           </p>
                           <p className="overflow-hidden text-2xs text-text group-hover:opacity-80">
-                            {project.long_title}
+                            {project.attributes.long_title}
                           </p>
                         </div>
                       </Link>
                     </td>
                     <td className="space-y-1 bg-background">
-                      {project.pathways.map((pathway, idx) => (
-                        <p key={idx}>{pathway}</p>
-                      ))}
+                      {project.attributes.pathways.data
+                        .map((p) => p.attributes.name)
+                        .map((pathway, idx) => (
+                          <p key={idx}>{pathway}</p>
+                        ))}
                     </td>
                     <td>
                       <div>
-                        {project.action_types.map((at, idx) => (
-                          <p key={idx}>{at}</p>
-                        ))}
+                        {project.attributes.action_types.data
+                          .map((pa) => pa.attributes.name)
+                          .map((at, idx) => (
+                            <p key={idx}>{at}</p>
+                          ))}
                       </div>
                     </td>
                     <td className="space-y-1 bg-background">
-                      {project.project_phases.map((phase, idx) => (
-                        <p key={idx}>{phase}</p>
-                      ))}
+                      {project.attributes.project_phases.data
+                        .map((pp) => pp.attributes.name)
+                        .map((phase, idx) => (
+                          <p key={idx}>{phase}</p>
+                        ))}
                     </td>
                     <td className="space-y-1">
-                      {project.project_categories.map((category, idx) => (
-                        <p key={idx}>{category}</p>
-                      ))}
+                      {project.attributes.project_categories.data
+                        .map((pc) => pc.attributes.name)
+                        .map((category, idx) => (
+                          <p key={idx}>{category}</p>
+                        ))}
                     </td>
-                    <td className="bg-background">{project.hectares_impacted}</td>
-                    <td>{project.people_supported}</td>
-                    <td className="bg-background">{project.carbon_mitigation}</td>
+                    <td className="bg-background">{project.attributes.hectares_impacted}</td>
+                    <td>{project.attributes.people_supported}</td>
+                    <td className="bg-background">{project.attributes.carbon_mitigation}</td>
                     <td>
                       <div className="grid grid-cols-2 gap-3">
-                        {project.cobenefits.map((cb) => {
-                          return (
-                            <Image
-                              alt={cb}
-                              src={CO_BENEFITS_ICONS[cb]}
-                              width={28}
-                              height={28}
-                              key={cb}
-                            />
-                          );
-                        })}
+                        {project.attributes.cobenefits.data
+                          .map((cb) => cb.attributes.name)
+                          .map((cb) => {
+                            return (
+                              <Image
+                                alt={cb}
+                                src={CO_BENEFITS_ICONS[cb]}
+                                width={28}
+                                height={28}
+                                key={cb}
+                              />
+                            );
+                          })}
                       </div>
                     </td>
                   </tr>

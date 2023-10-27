@@ -187,29 +187,3 @@ export function useActionTypes(): UseQueryResult<Project['action_types'], unknow
     data: parsedData,
   } as typeof query;
 }
-
-export function useCobenefits(): UseQueryResult<Project['cobenefits'], unknown> {
-  const fetchCobenefits = () =>
-    API.request({
-      method: 'GET',
-      url: '/cobenefits',
-    }).then((response: AxiosResponse) => response.data);
-
-  const query = useQuery(['cobenefits'], fetchCobenefits, {
-    placeholderData: [],
-  });
-
-  const { data } = query;
-
-  const parsedData = useMemo(() => {
-    if (!data?.data) {
-      return [];
-    }
-    return data?.data.map((p) => p.name);
-  }, [data]);
-
-  return {
-    ...query,
-    data: parsedData,
-  } as typeof query;
-}
