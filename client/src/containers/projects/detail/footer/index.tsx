@@ -13,7 +13,7 @@ import { cn } from 'utils/cn';
 const DetailFooter: React.FC = () => {
   const { id } = useParams();
 
-  const { data, isFetched } = useGetProjectsId(id, { populate: '*' });
+  const { data, isFetched } = useGetProjectsId(+id, { populate: '*' });
 
   const getBackground = () => {
     if (id && data?.data?.data?.attributes.footer_photo.data.attributes.url) {

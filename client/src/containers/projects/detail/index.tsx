@@ -33,7 +33,7 @@ const ProjectDetail = (): JSX.Element => {
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
-  const { data, isFetched, isFetching } = useGetProjectsId(id, { populate: '*' });
+  const { data, isFetched, isFetching } = useGetProjectsId(+id, { populate: '*' });
   const { data: projects } = useGetProjects({ populate: '*' });
 
   const [playing, setPlaying] = useState(false);
@@ -351,7 +351,7 @@ const ProjectDetail = (): JSX.Element => {
                   </div>
                 )}
               </div>
-              {!!data?.data?.data?.attributes.resources.length && (
+              {!!data?.data?.data?.attributes.resources.data.length && (
                 <section className="flex w-1/4 flex-col space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
 
@@ -383,7 +383,7 @@ const ProjectDetail = (): JSX.Element => {
             </Wrapper>
           </section>
 
-          {data?.data?.data?.attributes.graphic_1 && (
+          {data?.data?.data?.attributes.graphic_1.data && (
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="w-2/3 space-y-6">
