@@ -171,6 +171,7 @@ export function usePhases(): UseQueryResult<Project['project_phases'], unknown> 
     JSONAPI.request({
       method: 'GET',
       url: '/project-phases',
+      params: { sort: 'sort:asc' }
     }).then((response: AxiosResponse) => response.data);
 
   const query = useQuery(['phases'], fetchPhases, {
@@ -223,6 +224,7 @@ export function useActionTypes(): UseQueryResult<Project['action_types'], unknow
     JSONAPI.request({
       method: 'GET',
       url: '/action-types',
+      params: { sort: 'sort:asc' }
     }).then((response: AxiosResponse) => response.data);
 
   const query = useQuery(['action-types'], fetchActionTypes, {
