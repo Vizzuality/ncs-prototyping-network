@@ -204,11 +204,14 @@ const ProjectDetail = (): JSX.Element => {
                   </div>
                 </div>
               )}
+
               <div>
                 <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
                 <p className="pt-6 font-sans text-lg font-light text-text">
                   Project Phase:{' '}
-                  {data?.data?.data?.attributes.project_phases.data.map((pp) => pp.attributes.name)}
+                  {data?.data?.data?.attributes.project_phases.data
+                    .map((pp) => pp.attributes.name)
+                    .join(', ')}
                 </p>
 
                 <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
