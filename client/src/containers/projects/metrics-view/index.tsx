@@ -6,24 +6,19 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
-import { useGetCobenefits } from '@/types/generated/cobenefit';
-
 import { COLUMNS } from 'containers/projects/constants';
 import { cn } from 'utils/cn';
 
 type Direction = 'asc' | 'desc';
 
 const MetricsView = ({ data }: { data }): JSX.Element => {
-  const { data: cobenefitsData, isFetched } = useGetCobenefits();
-  const cobenefits = isFetched ? cobenefitsData?.data.data.map((p) => p.attributes.name) : [];
-
   const CO_BENEFITS_ICONS = {
-    [cobenefits[0]]: '/images/icons/co-benefits/ecosystem_services.svg',
-    [cobenefits[1]]: '/images/icons/co-benefits/resilience_and_adaptation.svg',
-    [cobenefits[2]]: '/images/icons/co-benefits/biodiversity.svg',
-    [cobenefits[3]]: '/images/icons/co-benefits/livelihoods_economic.svg',
-    [cobenefits[4]]: '/images/icons/co-benefits/human_health_wellbeing.svg',
-    [cobenefits[5]]: '',
+    'Ecosystem Services': '/images/icons/co-benefits/ecosystem_services.svg',
+    'Resilience/Adaptation': '/images/icons/co-benefits/resilience_and_adaptation.svg',
+    Biodiversity: '/images/icons/co-benefits/biodiversity.svg',
+    'Livelihoods/Economic': '/images/icons/co-benefits/livelihoods_economic.svg',
+    'Human Health/Well-Being': '/images/icons/co-benefits/human_health_wellbeing.svg',
+    'Socio-Cultural': '',
   };
 
   const [sortedBy, setSortedBy] = useState<string>('country');

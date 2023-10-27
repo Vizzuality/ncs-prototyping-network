@@ -45,7 +45,7 @@ const Tabs = (): JSX.Element => {
             )}
             <p
               className={cn({
-                'font-sans text-sm text-black xl:text-base': true,
+                'font-sans text-sm text-indigo xl:text-base': true,
                 'text-butternut': tab.id === projectsView,
               })}
             >
