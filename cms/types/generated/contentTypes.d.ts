@@ -695,6 +695,14 @@ export interface ApiActionTypeActionType extends Schema.CollectionType {
       'manyToMany',
       'api::project.project'
     >;
+    sort: Attribute.Integer &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 1000;
+      }> &
+      Attribute.DefaultTo<1>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1092,6 +1100,7 @@ export interface ApiProjectPhaseProjectPhase extends Schema.CollectionType {
     singularName: 'project-phase';
     pluralName: 'project-phases';
     displayName: 'Project Phase';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1103,6 +1112,14 @@ export interface ApiProjectPhaseProjectPhase extends Schema.CollectionType {
       'manyToMany',
       'api::project.project'
     >;
+    sort: Attribute.Integer &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 1000;
+      }> &
+      Attribute.DefaultTo<1>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

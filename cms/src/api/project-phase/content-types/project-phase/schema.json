@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project-phase",
     "pluralName": "project-phases",
-    "displayName": "Project Phase"
+    "displayName": "Project Phase",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -20,6 +21,14 @@
       "relation": "manyToMany",
       "target": "api::project.project",
       "mappedBy": "project_phases"
+    },
+    "sort": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "min": 1,
+      "max": 1000,
+      "default": 1
     }
   }
 }

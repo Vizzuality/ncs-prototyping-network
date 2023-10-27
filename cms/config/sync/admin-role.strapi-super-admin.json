@@ -9,7 +9,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ]
       },
       "conditions": [],
@@ -28,7 +29,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ]
       },
       "conditions": [],
@@ -40,7 +42,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ]
       },
       "conditions": [],
@@ -316,7 +319,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ]
       },
       "conditions": [],
@@ -335,7 +339,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ]
       },
       "conditions": [],
@@ -347,7 +352,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ]
       },
       "conditions": [],
