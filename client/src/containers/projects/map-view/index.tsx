@@ -23,7 +23,7 @@ import LayerManager from 'containers/projects/map-view/layer-manager';
 import Tabs from 'containers/projects/map-view/tabs';
 import Total from 'containers/projects/map-view/total';
 import { basemapAtom, filteredBboxAtom } from 'store';
-import { Project, PopUp } from 'types/project';
+import { PopUp } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
 
@@ -46,7 +46,7 @@ const DEFAULT_PROPS = {
   maxZoom: 20,
 };
 
-const MapView = ({ data }: { data: Project[] }): JSX.Element => {
+const MapView = ({ data }: { data }): JSX.Element => {
   const { push } = useRouter();
 
   const mapRef = useRef(null);
@@ -69,7 +69,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
 
-  // This effect will update bounds when filtering projects
+  // ? This effect will update bounds when filtering projects
   useEffect(() => {
     if (map) {
       map.fitBounds(filteredBbox, { padding: 20 });
@@ -136,7 +136,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
     }
   };
 
-  const getSortedData = (arr: Project[], sortedBy: string) => {
+  const getSortedData = (arr, sortedBy: string) => {
     if (!sortedBy) return arr;
 
     const sortedArr = [...arr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? -1 : 1));
@@ -160,6 +160,7 @@ const MapView = ({ data }: { data: Project[] }): JSX.Element => {
             <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
           </div>
         )}
+
         {!!sortedData.length && (
           <div className="flex space-x-6">
             <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">

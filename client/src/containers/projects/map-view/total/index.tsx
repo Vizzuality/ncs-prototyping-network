@@ -2,36 +2,54 @@ import { useEffect, useState } from 'react';
 
 import { useRecoilValue } from 'recoil';
 
-import { useProjects, useTotalData } from 'hooks/projects';
+import { useGetProjects } from '@/types/generated/project';
+
+import { useTotalData } from 'hooks/projects';
 import { filtersAtom } from 'store';
-import { ActionType, Category, Pathway, Phase, Project } from 'types/project';
 
 const Total = (): JSX.Element => {
-  const projectsQuery = useProjects();
-  const [dataFiltered, setDataFiltered] = useState<Project[]>(projectsQuery.data || []);
-  const totalData = useTotalData({ dataFiltered });
+  const { data: projectsData } = useGetProjects({ populate: '*' });
 
   const filters = useRecoilValue(filtersAtom);
+
+  const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
+
+  const totalData = useTotalData({ dataFiltered });
 
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f.length > 0);
     const dataFinalFiltered = () => {
-      const data = projectsQuery.data?.filter((project) => {
+      const data = projectsData?.data?.data?.filter((project) => {
         if (filters.pathways.length > 0) {
-          if (!filters.pathways.some((pw: Pathway) => project.pathways.includes(pw))) return false;
+          if (
+            !filters.pathways.some((pw) =>
+              project.attributes.pathways.data.map((pa) => pa.attributes.name).includes(pw)
+            )
+          )
+            return false;
         }
         if (filters.project_phases.length > 0) {
-          if (!filters.project_phases.some((pp: Phase) => project.project_phases.includes(pp)))
+          if (
+            !filters.project_phases.some((pp) =>
+              project.attributes.project_phases.data.map((pa) => pa.attributes.name).includes(pp)
+            )
+          )
             return false;
         }
         if (filters.action_types.length > 0) {
-          if (!filters.action_types.some((at: ActionType) => project.action_types.includes(at)))
+          if (
+            !filters.action_types.some((at) =>
+              project.attributes.action_types.data.map((pa) => pa.attributes.name).includes(at)
+            )
+          )
             return false;
         }
         if (filters.project_categories.length > 0) {
           if (
-            !filters.project_categories.some((pc: Category) =>
-              project.project_categories.includes(pc)
+            !filters.project_categories.some((pc) =>
+              project.attributes.project_categories.data
+                .map((pa) => pa.attributes.name)
+                .includes(pc)
             )
           )
             return false;
@@ -43,8 +61,8 @@ const Total = (): JSX.Element => {
 
     if (activedFilters) return setDataFiltered(dataFinalFiltered());
 
-    if (!activedFilters) return setDataFiltered(projectsQuery.data || []);
-  }, [filters, projectsQuery.data]);
+    if (!activedFilters) return setDataFiltered(projectsData?.data?.data || []);
+  }, [filters, projectsData?.data?.data]);
 
   return (
     <section className="bg-background">

@@ -1,39 +1,52 @@
 import { useRecoilState } from 'recoil';
 
-import { useActionTypes, useCategories, usePathways, usePhases } from '@/hooks/projects';
+import { useGetActionTypes } from '@/types/generated/action-type';
+import { useGetPathways } from '@/types/generated/pathway';
+import { useGetProjectCategories } from '@/types/generated/project-category';
+import { useGetProjectPhases } from '@/types/generated/project-phase';
 
 import MultiSelect from 'components/ui/multiselect';
 import { filtersAtom } from 'store';
 
 const Filters = (): JSX.Element => {
   const [filters, setFilters] = useRecoilState(filtersAtom);
-  const pathwaysQuery = usePathways();
-  const phasesQuery = usePhases();
-  const categoriesQuery = useCategories();
-  const actionTypesQuery = useActionTypes();
 
-  const PATHWAYS_OPTIONS = pathwaysQuery.data.map((p) => {
+  const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways();
+  const pathways = pathwaysIsFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
+
+  const { data: phasesData, isFetched: phasesIsFetched } = useGetProjectPhases();
+  const phases = phasesIsFetched ? phasesData?.data.data.map((p) => p.attributes.name) : [];
+
+  const { data: categoriesData, isFetched: categoriesIsFetched } = useGetProjectCategories();
+  const categories = categoriesIsFetched
+    ? categoriesData?.data.data.map((p) => p.attributes.name)
+    : [];
+
+  const { data: actionsData, isFetched: actionsIsFetched } = useGetActionTypes();
+  const actions = actionsIsFetched ? actionsData?.data.data.map((p) => p.attributes.name) : [];
+
+  const PATHWAYS_OPTIONS = pathways.map((p) => {
     return {
       label: p,
       value: p,
     };
   });
 
-  const P_PHASE_OPTIONS = phasesQuery.data.map((p) => {
+  const P_PHASE_OPTIONS = phases.map((p) => {
     return {
       label: p,
       value: p,
     };
   });
 
-  const P_CATEGORY_OPTIONS = categoriesQuery.data.map((c) => {
+  const P_CATEGORY_OPTIONS = categories.map((c) => {
     return {
       label: c,
       value: c,
     };
   });
 
-  const ACTION_TYPES_OPTIONS = actionTypesQuery.data.map((at) => {
+  const ACTION_TYPES_OPTIONS = actions.map((at) => {
     return {
       label: at,
       value: at,

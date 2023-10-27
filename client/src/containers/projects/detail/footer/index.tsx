@@ -4,27 +4,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
+import { useGetProjectsId } from '@/types/generated/project';
+
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
-import { useProject } from 'hooks/projects';
 import { cn } from 'utils/cn';
 
 const DetailFooter: React.FC = () => {
   const { id } = useParams();
 
-  const projectQuery = useProject({ projectId: `${id}` });
+  const { data, isFetched } = useGetProjectsId(+id, { populate: '*' });
 
   const getBackground = () => {
-    if (id && projectQuery.data?.footer_photo?.url) {
-      return `url(${projectQuery.data?.footer_photo?.url})`;
+    if (id && data?.data?.data?.attributes.footer_photo.data.attributes.url) {
+      return `url(${data?.data?.data?.attributes.footer_photo.data.attributes.url})`;
     }
   };
 
-  if (Object.keys(projectQuery.data).length === 0) return null;
-
   return (
-    projectQuery.isFetched &&
-    !!Object.keys(projectQuery.data).length && (
+    isFetched &&
+    !!Object.keys(data?.data?.data).length && (
       <div className="relative">
         <div
           className={cn({
