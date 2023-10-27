@@ -46,7 +46,7 @@ const HomeProjects = (): JSX.Element => {
   };
 
   const shuffleProjects = (array) => {
-    return array.sort(() => Math.random() - 0.5);
+    return array?.sort(() => Math.random() - 0.5);
   };
 
   return (
