@@ -585,7 +585,7 @@ const ProjectDetail = (): JSX.Element => {
               <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
               <div className="flex justify-start space-x-6 2xl:space-x-10">
                 {similarProjects?.map((project, idx) => (
-                  <Card key={idx} data={project} />
+                  <Card key={idx} id={project.id} />
                 ))}
               </div>
             </Wrapper>
