@@ -137,9 +137,13 @@ const MapView = ({ data }: { data }): JSX.Element => {
   };
 
   const getSortedData = (arr, sortedBy: string) => {
-    if (!sortedBy) return arr;
+    const parsedArr = arr.map((project) => {
+      return { ...project.attributes, id: project.id };
+    });
 
-    const sortedArr = [...arr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? -1 : 1));
+    if (!sortedBy) return parsedArr;
+
+    const sortedArr = [...parsedArr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? 1 : -1));
 
     return sortedArr;
   };
