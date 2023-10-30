@@ -23,7 +23,7 @@ const DetailFooter: React.FC = () => {
 
   return (
     isFetched &&
-    !!Object.keys(data?.data?.data).length && (
+    !!data?.data?.data.id && (
       <div className="relative">
         <div
           className={cn({

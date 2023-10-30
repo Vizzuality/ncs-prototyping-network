@@ -100,7 +100,19 @@ const ProjectDetail = (): JSX.Element => {
         ref={ref}
       />
 
-      {isFetched && !!Object.keys(data?.data?.data).length && (
+      {isFetching && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
+        </div>
+      )}
+
+      {!isFetching && isFetched && !data && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">No data available</p>
+        </div>
+      )}
+
+      {isFetched && !!data?.data?.data && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between">
             <div className="flex w-2/3 flex-col items-start pt-6 pb-24">
@@ -197,7 +209,7 @@ const ProjectDetail = (): JSX.Element => {
               height={280}
               width={500}
               style={{ objectFit: 'cover' }}
-              className="w-1/2"
+              className="max-h-[600px] w-1/2"
             />
           </section>
 
@@ -607,18 +619,6 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-        </div>
-      )}
-
-      {isFetched && Object.keys(data?.data?.data).length === 0 && (
-        <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">No data available</p>
-        </div>
-      )}
-
-      {isFetching && (
-        <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
         </div>
       )}
     </>
