@@ -9,9 +9,9 @@ import Wrapper from 'containers/wrapper';
 const HomeMap = (): JSX.Element => {
   return (
     <Wrapper>
-      <section className="-mt-44 mb-24 flex h-full bg-white py-12 px-16">
+      <section className="-mt-44 mb-24 flex h-full items-center bg-white py-12 px-16">
         <div className="flex w-1/3 flex-col">
-          <p className="text-xs font-light leading-7 text-text xl:text-lg xl:leading-9">
+          <p className="text-base font-light leading-7 text-text lg:text-lg xl:text-xl xl:leading-9">
             The Nature Conservancy’s NCS Prototyping Network, part of a broader NCS Activation
             Toolkit funded by the Bezos Earth Fund, is bringing together field staff and scientists
             from 15 existing TNC projects using NCS interventions in peatlands, coastal wetlands,
@@ -26,7 +26,7 @@ const HomeMap = (): JSX.Element => {
             </Button>
           </Link>
         </div>
-        <div className="mt-8 ml-20 flex h-full w-2/3 items-center justify-center xl:ml-0">
+        <div className="ml-20 flex h-full w-2/3 items-center justify-center xl:ml-0">
           <Image src="/images/home/map.png" alt="Map" width={678} height={338} />
         </div>
       </section>
