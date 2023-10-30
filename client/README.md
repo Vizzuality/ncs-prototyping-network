@@ -7,7 +7,7 @@
 | SENDGRID_API_KEY_SUBSCRIPTION  | Key to authenticate access to SendGrid e-mail platform services.  |    |
 | NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN  |  Token to use Mapbox services.  |    |
 | NEXT_PUBLIC_API_URL  |  API URL.  |    |
-| NEXT_PUBLIC_ENVIRONMENT  |    |    |
+| NEXT_PUBLIC_ENVIRONMENT  |    | 'development', 'staging', 'production'   |
 | NEXT_PUBLIC_URL  |    |    |
 
 
