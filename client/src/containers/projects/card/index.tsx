@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -28,16 +29,19 @@ const Card = ({ id }: { id }): JSX.Element => {
     [pathways[4]]: '/images/icons/pathways/peatlands.svg',
   };
 
+  type Format = any;
+
+  const headerPhotoFormat: Format = isFetched
+    ? data.data.data.attributes.header_photo.data.attributes.formats
+    : null;
+
   return (
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
       {isFetched && (
         <Link href={`/projects/${id}`}>
           <Image
             alt={data.data.data.attributes.header_photo.data.attributes.name || 'Project image'}
-            src={
-              data.data.data.attributes.header_photo.data.attributes.url ||
-              'https://dummyimage.com/700x300/000/fff&text=+'
-            }
+            src={headerPhotoFormat.small.url || 'https://dummyimage.com/700x300/000/fff&text=+'}
             style={{ objectFit: 'cover', height: '140px', width: '360px' }}
             height={140}
             width={360}
