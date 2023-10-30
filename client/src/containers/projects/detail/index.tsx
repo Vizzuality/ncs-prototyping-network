@@ -250,7 +250,7 @@ const ProjectDetail = (): JSX.Element => {
             </Wrapper>
           </section>
 
-          {data?.data?.data?.attributes.why_this_why_now && (
+          {data?.data?.data?.attributes.why_this_why_now_callout && (
             <section
               id="why"
               className="scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
@@ -259,7 +259,7 @@ const ProjectDetail = (): JSX.Element => {
                 <div className="flex flex-col items-center space-y-4 py-16 text-white">
                   <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
                   <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
-                    {data?.data?.data?.attributes.why_this_why_now}
+                    {data?.data?.data?.attributes.why_this_why_now_callout}
                   </p>
                 </div>
               </Wrapper>
