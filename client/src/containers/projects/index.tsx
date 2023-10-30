@@ -106,6 +106,7 @@ const ProjectsPage = (): JSX.Element => {
         <Tabs />
         <Filters />
       </div>
+      {/* //!Todo: Add loading state */}
       {projectsView === 'map' && <MapView data={dataFiltered} />}
       {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
     </Wrapper>

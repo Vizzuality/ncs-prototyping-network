@@ -11,7 +11,7 @@ const Facts = (): JSX.Element => {
     },
   };
   return (
-    <section className="bg-midnight">
+    <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
       <Wrapper>
         <div className="my-20 flex flex-col items-center space-y-4 font-sans text-xl text-white">
           <p className="max-w-4xl text-center leading-8">

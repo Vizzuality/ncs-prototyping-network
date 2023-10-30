@@ -175,7 +175,10 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          <section id="goals" className="flex scroll-mt-28 bg-indigo">
+          <section
+            id="goals"
+            className="flex scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
+          >
             <div className="flex w-1/2 justify-end">
               <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
                 <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
@@ -311,7 +314,7 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_1_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
                         {data?.data?.data?.attributes.lesson_1}
                       </td>
                     </tr>
@@ -322,7 +325,7 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_2_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
                         {data?.data?.data?.attributes.lesson_2}
                       </td>
                     </tr>
@@ -333,7 +336,7 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_3_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
                         {data?.data?.data?.attributes.lesson_3}
                       </td>
                     </tr>
