@@ -73,7 +73,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   // ? This effect will update bounds when filtering projects
   useEffect(() => {
     if (map) {
-      map.fitBounds(filteredBbox, { padding: 20 });
+      map.fitBounds(filteredBbox, { padding: 20, maxZoom: 6 });
     }
   }, [filteredBbox, map, basemap]);
 
