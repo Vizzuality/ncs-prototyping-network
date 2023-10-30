@@ -86,6 +86,20 @@ const Filters = (): JSX.Element => {
           options={P_CATEGORY_OPTIONS}
           onSelect={(v) => setFilters({ ...filters, project_categories: v })}
         />
+        <button
+          className="rounded-lg border border-accents px-4 py-2 font-sans text-base text-text"
+          type="reset"
+          onClick={() =>
+            setFilters({
+              pathways: [],
+              action_types: [],
+              project_phases: [],
+              project_categories: [],
+            })
+          }
+        >
+          Reset
+        </button>
       </div>
     </div>
   );

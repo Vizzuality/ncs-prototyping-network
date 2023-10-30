@@ -73,7 +73,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   // ? This effect will update bounds when filtering projects
   useEffect(() => {
     if (map) {
-      map.fitBounds(filteredBbox, { padding: 20 });
+      map.fitBounds(filteredBbox, { padding: 20, maxZoom: 6 });
     }
   }, [filteredBbox, map, basemap]);
 
@@ -149,7 +149,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
     return sortedArr;
   };
 
-  const sortedData = getSortedData(data, sortedBy);
+  const sortedData = data && getSortedData(data, sortedBy);
 
   return (
     <AnimatePresence>
@@ -160,19 +160,19 @@ const MapView = ({ data }: { data }): JSX.Element => {
         exit={{ opacity: 0 }}
         transition={{ delay: 0.25, duration: 0.3 }}
       >
-        {!sortedData.length && (
+        {!sortedData?.length && (
           <div className="flex h-64 w-full items-center justify-center">
             <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
           </div>
         )}
 
-        {!!sortedData.length && (
+        {!!sortedData?.length && (
           <div className="flex space-x-6">
             <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
               <Total />
 
               <div className="flex h-10 items-center justify-end space-x-3">
-                {sortedData.length > 1 && (
+                {sortedData?.length > 1 && (
                   <>
                     <p className="font-sans text-xs text-text">SORT BY:</p>
                     <div className="mb-1">
@@ -187,7 +187,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                 )}
               </div>
               <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                {sortedData.map((project) => (
+                {sortedData?.map((project) => (
                   <div key={project.id}>
                     <Card id={project.id} />
                   </div>

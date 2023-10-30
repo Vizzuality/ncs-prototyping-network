@@ -100,7 +100,19 @@ const ProjectDetail = (): JSX.Element => {
         ref={ref}
       />
 
-      {isFetched && !!Object.keys(data?.data?.data).length && (
+      {isFetching && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
+        </div>
+      )}
+
+      {!isFetching && isFetched && !data && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">No data available</p>
+        </div>
+      )}
+
+      {isFetched && !!data?.data?.data && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between">
             <div className="flex w-2/3 flex-col items-start pt-6 pb-24">
@@ -175,7 +187,10 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          <section id="goals" className="flex scroll-mt-28 bg-indigo">
+          <section
+            id="goals"
+            className="flex scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
+          >
             <div className="flex w-1/2 justify-end">
               <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
                 <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
@@ -194,7 +209,7 @@ const ProjectDetail = (): JSX.Element => {
               height={280}
               width={500}
               style={{ objectFit: 'cover' }}
-              className="w-1/2"
+              className="max-h-[600px] w-1/2"
             />
           </section>
 
@@ -311,7 +326,7 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_1_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
                         {data?.data?.data?.attributes.lesson_1}
                       </td>
                     </tr>
@@ -322,7 +337,7 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_2_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
                         {data?.data?.data?.attributes.lesson_2}
                       </td>
                     </tr>
@@ -333,7 +348,7 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_3_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m leading-6 text-text">
+                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
                         {data?.data?.data?.attributes.lesson_3}
                       </td>
                     </tr>
@@ -604,18 +619,6 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-        </div>
-      )}
-
-      {isFetched && Object.keys(data?.data?.data).length === 0 && (
-        <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">No data available</p>
-        </div>
-      )}
-
-      {isFetching && (
-        <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
         </div>
       )}
     </>
