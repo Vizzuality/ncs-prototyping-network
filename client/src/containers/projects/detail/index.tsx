@@ -92,7 +92,7 @@ const ProjectDetail = (): JSX.Element => {
   return (
     <>
       <div
-        className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat"
+        className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat lg:h-[500px] xl:h-[600px]"
         style={{
           backgroundImage:
             `url(${data?.data?.data?.attributes.header_photo.data.attributes.url})` || '',
