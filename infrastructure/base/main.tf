@@ -166,7 +166,7 @@ locals {
     AWS_SES_DOMAIN            = var.staging_domain
     AWS_SES_ACCESS_KEY_ID     = module.staging.email_iam_user_access_key_id
     AWS_SES_ACCESS_KEY_SECRET = module.staging.email_iam_user_access_key_secret
-    AWS_BUCKET = module.staging.assets_bucket_name
+    AWS_BUCKET                = module.staging.assets_bucket_name
   }
   staging_client_env = {
     NEXT_PUBLIC_URL            = "https://${var.staging_domain}"
@@ -199,7 +199,7 @@ locals {
     AWS_SES_DOMAIN            = var.production_domain
     AWS_SES_ACCESS_KEY_ID     = module.production.email_iam_user_access_key_id
     AWS_SES_ACCESS_KEY_SECRET = module.production.email_iam_user_access_key_secret
-    AWS_BUCKET = module.production.assets_bucket_name
+    AWS_BUCKET                = module.production.assets_bucket_name
   }
   production_client_env = {
     NEXT_PUBLIC_URL            = "https://${var.production_domain}"
@@ -211,8 +211,8 @@ locals {
 }
 
 module "github_values" {
-  source     = "./modules/github_values"
-  repo_name  = var.repo_name
+  source    = "./modules/github_values"
+  repo_name = var.repo_name
   secret_map = {
     PIPELINE_USER_ACCESS_KEY_ID     = module.iam.pipeline_user_access_key_id
     PIPELINE_USER_SECRET_ACCESS_KEY = module.iam.pipeline_user_access_key_secret

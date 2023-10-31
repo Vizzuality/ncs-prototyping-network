@@ -20,7 +20,7 @@ output "staging_dns_entries" {
       record_name  = var.staging_domain
       record_value = module.staging.beanstalk_environment_cname
     }
-  ], [
+    ], [
     for token in module.staging.dkim_tokens : {
       record_type  = "CNAME"
       record_name  = "${token}._domainkey.${var.staging_domain}"
@@ -51,7 +51,7 @@ output "production_dns_entries" {
       record_name  = var.production_domain
       record_value = module.production.beanstalk_environment_cname
     }
-  ], [
+    ], [
     for token in module.production.dkim_tokens : {
       record_type  = "CNAME"
       record_name  = "${token}._domainkey.${var.production_domain}"

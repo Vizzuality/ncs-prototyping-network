@@ -83,7 +83,7 @@ resource "aws_iam_policy" "policy" {
   description = "Allows read access to the data layer bucket"
 
   policy = jsonencode({
-    Version   = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
         Action = [
@@ -93,7 +93,7 @@ resource "aws_iam_policy" "policy" {
           "s3:DeleteObject",
           "s3:PutObjectAcl"
         ]
-        Effect   = "Allow"
+        Effect = "Allow"
         Resource = [
           "arn:aws:s3:::${module.data_bucket.bucket_name}/*",
           "arn:aws:s3:::${module.data_bucket.bucket_name}"

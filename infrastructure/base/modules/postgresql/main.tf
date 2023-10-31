@@ -25,8 +25,8 @@ resource "aws_db_instance" "postgresql" {
 }
 
 resource "random_password" "postgresql_superuser" {
-  length           = 16
-  special          = false
+  length  = 16
+  special = false
 }
 
 
@@ -71,7 +71,7 @@ resource "aws_secretsmanager_secret" "postgresql-admin" {
 
 resource "aws_secretsmanager_secret_version" "postgresql-admin" {
 
-  secret_id     = aws_secretsmanager_secret.postgresql-admin.id
+  secret_id = aws_secretsmanager_secret.postgresql-admin.id
   secret_string = jsonencode({
     "username" = var.rds_user_name,
     "engine"   = "postgresql",
@@ -83,7 +83,7 @@ resource "aws_secretsmanager_secret_version" "postgresql-admin" {
 
 data "template_file" "secrets_postgresql-writer" {
   template = file("${path.module}/iam_policy_secrets_read.json.tpl")
-  vars     = {
+  vars = {
     secret_arn = aws_secretsmanager_secret.postgresql-admin.arn
   }
 }
