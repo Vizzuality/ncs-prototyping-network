@@ -248,6 +248,9 @@
     },
     "video_caption": {
       "type": "text"
+    },
+    "why_this_why_now_author": {
+      "type": "string"
     }
   }
 }

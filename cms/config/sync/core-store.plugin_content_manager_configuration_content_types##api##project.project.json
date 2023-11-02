@@ -774,6 +774,20 @@
           "sortable": true
         }
       },
+      "why_this_why_now_author": {
+        "edit": {
+          "label": "Why This Why Now Author",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "why_this_why_now_author",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -1048,6 +1062,12 @@
           },
           {
             "name": "why_this_why_now_callout",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "why_this_why_now_author",
             "size": 6
           }
         ],
