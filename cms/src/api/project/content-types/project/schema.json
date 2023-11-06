@@ -251,6 +251,9 @@
     },
     "why_this_why_now_author": {
       "type": "string"
+    },
+    "extent_credits": {
+      "type": "text"
     }
   }
 }

@@ -417,7 +417,8 @@
           "public_contact_email",
           "video",
           "video_caption",
-          "why_this_why_now_author"
+          "why_this_why_now_author",
+          "extent_credits"
         ]
       },
       "conditions": [],
@@ -495,7 +496,8 @@
           "public_contact_email",
           "video",
           "video_caption",
-          "why_this_why_now_author"
+          "why_this_why_now_author",
+          "extent_credits"
         ]
       },
       "conditions": [],
@@ -559,7 +561,8 @@
           "public_contact_email",
           "video",
           "video_caption",
-          "why_this_why_now_author"
+          "why_this_why_now_author",
+          "extent_credits"
         ]
       },
       "conditions": [],

@@ -466,6 +466,7 @@ export type ResourceProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -2189,6 +2190,7 @@ export type RegionProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -3829,6 +3831,7 @@ export type ProjectPhaseProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -5440,6 +5443,7 @@ export type ProjectCategoryProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -6967,6 +6971,7 @@ export interface Project {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -7530,6 +7535,7 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -9225,6 +9231,7 @@ export type ProjectRequestData = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
 };
 
 export type PathwayResponseMeta = { [key: string]: any };
@@ -9345,6 +9352,7 @@ export type PathwayProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -10986,6 +10994,7 @@ export type LessonCategoryProjects1DataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -12602,6 +12611,7 @@ export type CountryProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -14188,6 +14198,7 @@ export type CobenefitProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -15852,6 +15863,7 @@ export type BiomeProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -17453,6 +17465,7 @@ export type ActionTypeProjectsDataItemAttributes = {
   video?: string;
   video_caption?: string;
   why_this_why_now_author?: string;
+  extent_credits?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;

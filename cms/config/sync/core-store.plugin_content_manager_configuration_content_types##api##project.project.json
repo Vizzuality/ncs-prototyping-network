@@ -788,6 +788,20 @@
           "sortable": true
         }
       },
+      "extent_credits": {
+        "edit": {
+          "label": "Extent Credits",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "extent_credits",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -1110,6 +1124,12 @@
         [
           {
             "name": "extent",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "extent_credits",
             "size": 12
           }
         ],

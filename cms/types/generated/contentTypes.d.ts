@@ -1042,6 +1042,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     video: Attribute.String;
     video_caption: Attribute.Text;
     why_this_why_now_author: Attribute.String;
+    extent_credits: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
