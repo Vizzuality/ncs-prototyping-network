@@ -158,8 +158,15 @@ const ProjectDetail = (): JSX.Element => {
             </div>
 
             {data?.data?.data?.attributes.extent && (
-              <div className="-mt-20">
+              <div className="relative -mt-20">
                 <ExtentMap extent={data?.data?.data?.attributes.extent} />
+                {data?.data?.data?.attributes.extent_credits && (
+                  <div className="absolute bottom-24 right-2 mb-1 bg-black/40 px-2">
+                    <p className="text-xs text-white">
+                      {data?.data?.data?.attributes.extent_credits}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </Wrapper>
@@ -200,17 +207,26 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </div>
 
-            <Image
-              src={
-                data?.data?.data?.attributes.goals_photo.data.attributes.url ||
-                '/images/projects/goals_placeholder.png'
-              }
-              alt={data?.data?.data?.attributes.goals_photo.data.attributes.name || 'Goals'}
-              height={280}
-              width={500}
-              style={{ objectFit: 'cover' }}
-              className="max-h-[600px] w-1/2"
-            />
+            <div className="relative max-h-[600px] w-1/2">
+              <Image
+                src={
+                  data?.data?.data?.attributes.goals_photo.data.attributes.url ||
+                  '/images/projects/goals_placeholder.png'
+                }
+                alt={data?.data?.data?.attributes.goals_photo.data.attributes.name || 'Goals'}
+                height={280}
+                width={500}
+                style={{ objectFit: 'cover' }}
+                className="w-full"
+              />
+              {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText && (
+                <div className="absolute bottom-2 right-6 bg-white/40 px-2">
+                  <p className="text-xs text-black">
+                    {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText}
+                  </p>
+                </div>
+              )}
+            </div>
           </section>
 
           <section className="py-16">
@@ -420,7 +436,7 @@ const ProjectDetail = (): JSX.Element => {
           {data?.data?.data?.attributes.graphic_1.data && (
             <section className="bg-background py-16">
               <Wrapper>
-                <div className="w-2/3 space-y-6">
+                <div className="relative w-3/6 space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">
                     {data?.data?.data?.attributes.graphic_1.data.attributes.name}
                   </p>
@@ -432,6 +448,13 @@ const ProjectDetail = (): JSX.Element => {
                     style={{ objectFit: 'contain' }}
                     className="w-full"
                   />
+                  {data?.data?.data?.attributes.graphic_1.data.attributes.alternativeText && (
+                    <div className="absolute bottom-2 right-2 bg-black/40 px-2">
+                      <p className="text-xs text-white">
+                        {data?.data?.data?.attributes.graphic_1.data.attributes.alternativeText}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </Wrapper>
             </section>

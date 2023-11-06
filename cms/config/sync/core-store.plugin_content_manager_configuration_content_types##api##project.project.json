@@ -774,6 +774,34 @@
           "sortable": true
         }
       },
+      "why_this_why_now_author": {
+        "edit": {
+          "label": "why_this_why_now_author",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "why_this_why_now_author",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "extent_credits": {
+        "edit": {
+          "label": "extent_credits",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "extent_credits",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -834,6 +862,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
+      ],
       "edit": [
         [
           {
@@ -1109,14 +1143,18 @@
           {
             "name": "resources",
             "size": 6
+          },
+          {
+            "name": "why_this_why_now_author",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "extent_credits",
+            "size": 6
           }
         ]
-      ],
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
       ]
     }
   },
