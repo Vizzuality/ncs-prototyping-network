@@ -261,9 +261,7 @@ const ProjectDetail = (): JSX.Element => {
                   <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
                     {data?.data?.data?.attributes.why_this_why_now_callout}
                   </p>
-                  <p className="text-xxs font-sans uppercase">
-                    {data?.data?.data?.attributes.why_this_why_now_author}
-                  </p>
+                  <p className="italic">{data?.data?.data?.attributes.why_this_why_now_author}</p>
                 </div>
               </Wrapper>
             </section>
