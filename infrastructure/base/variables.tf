@@ -72,6 +72,11 @@ variable "ga_tracking_id" {
   description = "Google Analytics tracking id"
 }
 
+variable "mapbox_access_token" {
+  type        = string
+  description = "Mapbox access token"
+}
+
 # Staging configuration
 variable "staging_domain" {
   type = string

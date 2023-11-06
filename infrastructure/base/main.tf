@@ -174,6 +174,7 @@ locals {
     NEXT_PUBLIC_API_URL        = "https://${var.staging_domain}/cms/api"
     NEXT_PUBLIC_GA_TRACKING_ID = var.ga_tracking_id
     LOG_LEVEL                  = "info"
+    NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN = var.mapbox_access_token
   }
   production_cms_env = {
     HOST                = "0.0.0.0"
@@ -202,17 +203,18 @@ locals {
     AWS_BUCKET                = module.production.assets_bucket_name
   }
   production_client_env = {
-    NEXT_PUBLIC_URL            = "https://${var.production_domain}"
-    NEXT_PUBLIC_ENVIRONMENT    = "production"
-    NEXT_PUBLIC_API_URL        = "https://${var.production_domain}/cms/api"
-    NEXT_PUBLIC_GA_TRACKING_ID = var.ga_tracking_id
-    LOG_LEVEL                  = "info"
+    NEXT_PUBLIC_URL                 = "https://${var.production_domain}"
+    NEXT_PUBLIC_ENVIRONMENT         = "production"
+    NEXT_PUBLIC_API_URL             = "https://${var.production_domain}/cms/api"
+    NEXT_PUBLIC_GA_TRACKING_ID      = var.ga_tracking_id
+    LOG_LEVEL                       = "info"
+    NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN = var.mapbox_access_token
   }
 }
 
 module "github_values" {
-  source    = "./modules/github_values"
-  repo_name = var.repo_name
+  source     = "./modules/github_values"
+  repo_name  = var.repo_name
   secret_map = {
     PIPELINE_USER_ACCESS_KEY_ID     = module.iam.pipeline_user_access_key_id
     PIPELINE_USER_SECRET_ACCESS_KEY = module.iam.pipeline_user_access_key_secret
