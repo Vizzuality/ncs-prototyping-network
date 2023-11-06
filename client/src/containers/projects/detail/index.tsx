@@ -196,7 +196,7 @@ const ProjectDetail = (): JSX.Element => {
           </section>
           <section
             id="goals"
-            className="flex scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
+            className="relative flex scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
           >
             <div className="flex w-1/2 justify-end">
               <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
@@ -207,26 +207,24 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="relative max-h-[600px] w-1/2">
-              <Image
-                src={
-                  data?.data?.data?.attributes.goals_photo.data.attributes.url ||
-                  '/images/projects/goals_placeholder.png'
-                }
-                alt={data?.data?.data?.attributes.goals_photo.data.attributes.name || 'Goals'}
-                height={280}
-                width={500}
-                style={{ objectFit: 'cover' }}
-                className="w-full"
-              />
-              {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText && (
-                <div className="absolute bottom-2 right-6 bg-white/40 px-2">
-                  <p className="text-xs text-black">
-                    {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText}
-                  </p>
-                </div>
-              )}
-            </div>
+            <Image
+              src={
+                data?.data?.data?.attributes.goals_photo.data.attributes.url ||
+                '/images/projects/goals_placeholder.png'
+              }
+              alt={data?.data?.data?.attributes.goals_photo.data.attributes.name || 'Goals'}
+              height={280}
+              width={500}
+              style={{ objectFit: 'cover' }}
+              className="max-h-[600px] w-1/2"
+            />
+            {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText && (
+              <div className="absolute bottom-2 right-6 z-50 bg-white/40 px-2">
+                <p className="text-xs text-black">
+                  {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText}
+                </p>
+              </div>
+            )}
           </section>
 
           <section className="py-16">
