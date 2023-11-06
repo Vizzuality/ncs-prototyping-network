@@ -261,6 +261,9 @@ const ProjectDetail = (): JSX.Element => {
                   <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
                     {data?.data?.data?.attributes.why_this_why_now_callout}
                   </p>
+                  <p className="text-xxs font-sans uppercase">
+                    {data?.data?.data?.attributes.why_this_why_now_author}
+                  </p>
                 </div>
               </Wrapper>
             </section>
@@ -530,13 +533,13 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
-          {data?.data?.data?.attributes.why_this_why_now_callout && (
+          {data?.data?.data?.attributes.callout && (
             <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
               <Wrapper className="flex flex-col items-center space-y-6 py-20">
                 <VscQuote className="fill-butternut" size={40} />
                 <div className="flex justify-center">
                   <p className="max-w-3xl text-center font-sans text-xl font-light leading-9 text-white">
-                    {data?.data?.data?.attributes.why_this_why_now_callout}
+                    {data?.data?.data?.attributes.callout}
                   </p>
                 </div>
               </Wrapper>
