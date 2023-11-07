@@ -84,7 +84,7 @@ const Total = (): JSX.Element => {
               {totalData?.total_hectares_impacted}
             </p>
             <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-              Hectares Impacted
+              Area Impacted (ha)
             </p>
           </div>
         )}
@@ -95,7 +95,7 @@ const Total = (): JSX.Element => {
               {totalData?.total_carbon_mitigation}
             </p>
             <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-              Million Tons of Carbon Sequestered
+              Mitigation Potential (tCO<sub>2</sub>e)
             </p>
           </div>
         )}

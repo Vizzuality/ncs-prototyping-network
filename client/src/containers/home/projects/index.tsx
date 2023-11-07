@@ -81,16 +81,18 @@ const HomeProjects = (): JSX.Element => {
                     }
                     width={600}
                     height={600}
-                    className="relative h-[250px] object-cover xl:h-[339px]"
+                    className="h-[250px] object-cover xl:h-[339px]"
                   />
 
-                  <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4 text-white">
-                    <h3 className="font-serif text-xs font-bold uppercase">
-                      {project.attributes.project_name}
-                    </h3>
-                    <p className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">
-                      {project.attributes.long_title}
-                    </p>
+                  <div className="absolute top-0 h-full w-full bg-black/25 text-white">
+                    <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4">
+                      <h3 className="font-serif text-xs font-bold uppercase">
+                        {project.attributes.project_name}
+                      </h3>
+                      <p className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">
+                        {project.attributes.long_title}
+                      </p>
+                    </div>
                   </div>
                 </Link>
               ))}

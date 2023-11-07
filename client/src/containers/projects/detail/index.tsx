@@ -144,7 +144,7 @@ const ProjectDetail = (): JSX.Element => {
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {data?.data?.data?.attributes.hectares_impacted}
                     </p>
-                    <p className="text-center text-m font-medium text-text">Hectares Impacted</p>
+                    <p className="text-center text-m font-medium text-text">Area Impacted (ha)</p>
                   </div>
 
                   <div className="flex flex-col items-center">

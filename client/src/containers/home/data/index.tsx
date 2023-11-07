@@ -63,6 +63,17 @@ const Data = (): JSX.Element => {
               </div>
             )}
 
+            {!isNaN(total_hectares_impacted) && (
+              <div className="flex flex-col items-center space-y-2">
+                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                  {Intl.NumberFormat('en-IN').format(total_hectares_impacted)}
+                </p>
+                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                  Area Impacted (ha)
+                </p>
+              </div>
+            )}
+
             {!isNaN(total_people_supported) && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
@@ -74,29 +85,22 @@ const Data = (): JSX.Element => {
               </div>
             )}
 
-            {!isNaN(total_hectares_impacted) && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {Intl.NumberFormat('en-IN').format(total_hectares_impacted)}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Hectares Impacted
-                </p>
-              </div>
-            )}
-
             {!isNaN(total_carbon_mitigation) && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                   {Intl.NumberFormat('en-IN').format(total_carbon_mitigation)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Million Tons of Carbon Sequestered
+                  Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
                 </p>
               </div>
             )}
           </div>
         )}
+        <p className="pb-3 text-xs text-text/70">
+          <span className="text-sm">*</span> Mitigation values presented may or may not be
+          equivalent to carbon credit potential depending on methodology and timeframe.
+        </p>
       </Wrapper>
     </section>
   );
