@@ -95,11 +95,15 @@ const Total = (): JSX.Element => {
               {totalData?.total_carbon_mitigation}
             </p>
             <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-              Mitigation Potential (tCO<sub>2</sub>e)
+              Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
             </p>
           </div>
         )}
       </div>
+      <p className="px-6 pb-3 text-xs text-text/70">
+        <span className="text-sm">*</span> Mitigation values presented may or may not be equivalent
+        to carbon credit potential depending on methodology and timeframe.
+      </p>
     </section>
   );
 };
