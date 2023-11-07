@@ -776,7 +776,7 @@
       },
       "why_this_why_now_author": {
         "edit": {
-          "label": "why_this_why_now_author",
+          "label": "Why This Why Now Author",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -790,7 +790,7 @@
       },
       "extent_credits": {
         "edit": {
-          "label": "extent_credits",
+          "label": "Extent Credits",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -862,12 +862,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
-      ],
       "edit": [
         [
           {
@@ -1087,6 +1081,12 @@
         ],
         [
           {
+            "name": "why_this_why_now_author",
+            "size": 6
+          }
+        ],
+        [
+          {
             "name": "header_photo",
             "size": 6
           },
@@ -1129,6 +1129,12 @@
         ],
         [
           {
+            "name": "extent_credits",
+            "size": 12
+          }
+        ],
+        [
+          {
             "name": "keywords",
             "size": 12
           }
@@ -1143,18 +1149,14 @@
           {
             "name": "resources",
             "size": 6
-          },
-          {
-            "name": "why_this_why_now_author",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "extent_credits",
-            "size": 6
           }
         ]
+      ],
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
       ]
     }
   },
