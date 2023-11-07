@@ -8,7 +8,7 @@ staging_ec2_instance_type           = "t3a.small"
 staging_rds_backup_retention_period = 3
 
 production_domain                      = "ncsprototypingnetwork.naturebase.org"
-production_ec2_instance_type           = "t3a.small"
+production_ec2_instance_type           = "m5a.large"
 production_rds_backup_retention_period = 7
 
 beanstalk_platform = "64bit Amazon Linux 2023 v4.0.1 running Docker"

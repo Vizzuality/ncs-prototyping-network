@@ -169,11 +169,11 @@ locals {
     AWS_BUCKET                = module.staging.assets_bucket_name
   }
   staging_client_env = {
-    NEXT_PUBLIC_URL            = "https://${var.staging_domain}"
-    NEXT_PUBLIC_ENVIRONMENT    = "production"
-    NEXT_PUBLIC_API_URL        = "https://${var.staging_domain}/cms/api"
-    NEXT_PUBLIC_GA_TRACKING_ID = var.ga_tracking_id
-    LOG_LEVEL                  = "info"
+    NEXT_PUBLIC_URL                 = "https://${var.staging_domain}"
+    NEXT_PUBLIC_ENVIRONMENT         = "production"
+    NEXT_PUBLIC_API_URL             = "https://${var.staging_domain}/cms/api"
+    NEXT_PUBLIC_GA_TRACKING_ID      = var.ga_tracking_id
+    LOG_LEVEL                       = "info"
     NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN = var.mapbox_access_token
   }
   production_cms_env = {

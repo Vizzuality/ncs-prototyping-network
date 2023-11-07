@@ -123,12 +123,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "name",
-        "createdBy",
-        "updatedBy"
-      ],
       "edit": [
         [
           {
@@ -140,6 +134,11 @@
             "size": 4
           }
         ]
+      ],
+      "list": [
+        "id",
+        "name",
+        "sort"
       ]
     }
   },
