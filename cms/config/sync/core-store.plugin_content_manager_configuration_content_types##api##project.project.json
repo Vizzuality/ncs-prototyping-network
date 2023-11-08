@@ -802,6 +802,20 @@
           "sortable": true
         }
       },
+      "callout_author": {
+        "edit": {
+          "label": "Callout Author",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "callout_author",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -965,9 +979,15 @@
           {
             "name": "cb_livelihood_econ",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "callout",
+            "size": 6
+          },
+          {
+            "name": "callout_author",
             "size": 6
           }
         ],

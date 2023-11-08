@@ -1043,6 +1043,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     video_caption: Attribute.Text;
     why_this_why_now_author: Attribute.String;
     extent_credits: Attribute.Text;
+    callout_author: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

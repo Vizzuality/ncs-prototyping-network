@@ -254,6 +254,9 @@
     },
     "extent_credits": {
       "type": "text"
+    },
+    "callout_author": {
+      "type": "string"
     }
   }
 }
