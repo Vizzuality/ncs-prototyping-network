@@ -166,7 +166,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                     <td>{project.attributes.people_supported}</td>
                     <td className="bg-background">{project.attributes.carbon_mitigation}</td>
                     <td>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-x-0 gap-y-5">
                         {project.attributes.cobenefits.data
                           .map((cb) => cb.attributes.name)
                           .map((cb) => {

@@ -776,7 +776,7 @@
       },
       "why_this_why_now_author": {
         "edit": {
-          "label": "Why This Why Now Author",
+          "label": "why_this_why_now_author",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -790,7 +790,7 @@
       },
       "extent_credits": {
         "edit": {
-          "label": "Extent Credits",
+          "label": "extent_credits",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -804,7 +804,7 @@
       },
       "callout_author": {
         "edit": {
-          "label": "Callout Author",
+          "label": "callout_author",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -876,6 +876,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
+      ],
       "edit": [
         [
           {
@@ -979,15 +985,9 @@
           {
             "name": "cb_livelihood_econ",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "callout",
-            "size": 6
           },
           {
-            "name": "callout_author",
+            "name": "callout",
             "size": 6
           }
         ],
@@ -1101,12 +1101,6 @@
         ],
         [
           {
-            "name": "why_this_why_now_author",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "header_photo",
             "size": 6
           },
@@ -1149,12 +1143,6 @@
         ],
         [
           {
-            "name": "extent_credits",
-            "size": 12
-          }
-        ],
-        [
-          {
             "name": "keywords",
             "size": 12
           }
@@ -1169,14 +1157,22 @@
           {
             "name": "resources",
             "size": 6
+          },
+          {
+            "name": "why_this_why_now_author",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "extent_credits",
+            "size": 6
+          },
+          {
+            "name": "callout_author",
+            "size": 6
           }
         ]
-      ],
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
       ]
     }
   },
