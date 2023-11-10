@@ -802,6 +802,20 @@
           "sortable": true
         }
       },
+      "callout_author": {
+        "edit": {
+          "label": "callout_author",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "callout_author",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -1152,6 +1166,10 @@
         [
           {
             "name": "extent_credits",
+            "size": 6
+          },
+          {
+            "name": "callout_author",
             "size": 6
           }
         ]

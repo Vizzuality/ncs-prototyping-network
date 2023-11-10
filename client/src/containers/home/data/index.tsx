@@ -33,13 +33,13 @@ const Data = (): JSX.Element => {
 
   return (
     <section className="bg-background">
-      <Wrapper>
-        {isFetched && (
+      {isFetched && (
+        <Wrapper>
           <div className="mx-6 flex justify-between py-7 xl:mx-20">
-            {data?.data?.data && !!data?.data?.data.length && (
+            {data?.data?.data && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {data?.data?.data.length}
+                  {data?.data?.data.length || 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Projects to Date
@@ -47,18 +47,20 @@ const Data = (): JSX.Element => {
               </div>
             )}
 
-            {countries && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">{countries}</p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Countries Across the World
-                </p>
-              </div>
-            )}
+            <div className="flex flex-col items-center space-y-2">
+              <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                {countries || 'TBD'}
+              </p>
+              <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                Countries Across the World
+              </p>
+            </div>
 
             {partners && (
               <div className="flex flex-col items-center space-y-2">
-                <p className="xl:4xl font-sans text-3xl font-bold text-spring">{partners}</p>
+                <p className="xl:4xl font-sans text-3xl font-bold text-spring">
+                  {partners || 'TBD'}
+                </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Partners Working Together
                 </p>
@@ -68,7 +70,9 @@ const Data = (): JSX.Element => {
             {!isNaN(total_hectares_impacted) && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {Intl.NumberFormat('en-IN').format(total_hectares_impacted)}
+                  {total_hectares_impacted !== 0
+                    ? Intl.NumberFormat('en-IN').format(total_hectares_impacted)
+                    : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Area Impacted (ha)
@@ -79,7 +83,9 @@ const Data = (): JSX.Element => {
             {!isNaN(total_people_supported) && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {Intl.NumberFormat('en-IN').format(total_people_supported)}
+                  {total_people_supported !== 0
+                    ? Intl.NumberFormat('en-IN').format(total_people_supported)
+                    : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   People Supported
@@ -90,7 +96,9 @@ const Data = (): JSX.Element => {
             {!isNaN(total_carbon_mitigation) && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {Intl.NumberFormat('en-IN').format(total_carbon_mitigation)}
+                  {total_carbon_mitigation !== 0
+                    ? Intl.NumberFormat('en-IN').format(total_carbon_mitigation)
+                    : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
@@ -98,12 +106,12 @@ const Data = (): JSX.Element => {
               </div>
             )}
           </div>
-        )}
-        <p className="pb-3 text-xs text-text/70">
-          <span className="text-sm">*</span> Mitigation values presented may or may not be
-          equivalent to carbon credit potential depending on methodology and timeframe.
-        </p>
-      </Wrapper>
+          <p className="pb-3 text-xs text-text/70">
+            <span className="text-sm">*</span> Mitigation values presented may or may not be
+            equivalent to carbon credit potential depending on methodology and timeframe.
+          </p>
+        </Wrapper>
+      )}
     </section>
   );
 };

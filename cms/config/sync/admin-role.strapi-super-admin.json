@@ -419,7 +419,8 @@
           "video",
           "video_caption",
           "why_this_why_now_author",
-          "extent_credits"
+          "extent_credits",
+          "callout_author"
         ]
       },
       "conditions": []
@@ -498,7 +499,8 @@
           "video",
           "video_caption",
           "why_this_why_now_author",
-          "extent_credits"
+          "extent_credits",
+          "callout_author"
         ]
       },
       "conditions": []
@@ -563,7 +565,8 @@
           "video",
           "video_caption",
           "why_this_why_now_author",
-          "extent_credits"
+          "extent_credits",
+          "callout_author"
         ]
       },
       "conditions": []
