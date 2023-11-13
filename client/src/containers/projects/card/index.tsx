@@ -7,7 +7,7 @@ import { useGetProjectsId } from '@/types/generated/project';
 
 import { cn } from 'utils/cn';
 
-const Card = ({ id }: { id }): JSX.Element => {
+const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
   const { data, isFetched } = useGetProjectsId(id, { populate: '*' });
 
   const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways();
@@ -38,7 +38,7 @@ const Card = ({ id }: { id }): JSX.Element => {
   return (
     <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
       {isFetched && (
-        <Link href={`/projects/${id}`}>
+        <Link href={`/projects/${slug}`}>
           <Image
             alt={data.data.data.attributes.header_photo.data.attributes.name || 'Project image'}
             src={headerPhotoFormat.small.url || 'https://dummyimage.com/700x300/000/fff&text=+'}
