@@ -22,9 +22,11 @@ import Card from 'containers/projects/card';
 import ExtentMap from 'containers/projects/detail/extent-map';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
+import { toName, toSlug } from 'utils/data';
 
 const ProjectDetail = (): JSX.Element => {
-  const { id } = useParams();
+  const { slug } = useParams();
+
   const ref = useRef();
   const inView = useInView(ref, {
     once: false,
@@ -33,8 +35,14 @@ const ProjectDetail = (): JSX.Element => {
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
-  const { data, isFetched, isFetching } = useGetProjectsId(+id, { populate: '*' });
   const { data: projects } = useGetProjects({ populate: '*' });
+
+  const id = useMemo(() => {
+    return projects?.data?.data?.find((project) => project.attributes.project_name === toName(slug))
+      ?.id;
+  }, [slug, projects?.data?.data]);
+
+  const { data, isFetched, isFetching } = useGetProjectsId(+id, { populate: '*' });
 
   const [playing, setPlaying] = useState(false);
 
@@ -47,7 +55,7 @@ const ProjectDetail = (): JSX.Element => {
 
   const similarProjects = useMemo(() => {
     const otherProjects = projects?.data?.data?.filter((project) => {
-      if (`${project.id}` === id) return false;
+      if (project.id === id) return false;
       return true;
     });
 
@@ -648,7 +656,7 @@ const ProjectDetail = (): JSX.Element => {
               <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
               <div className="flex justify-start space-x-6 2xl:space-x-10">
                 {similarProjects?.map((project, idx) => (
-                  <Card key={idx} id={project.id} />
+                  <Card key={idx} id={project.id} slug={toSlug(project.attributes.project_name)} />
                 ))}
               </div>
             </Wrapper>

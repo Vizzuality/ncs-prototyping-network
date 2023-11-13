@@ -10,6 +10,7 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { useGetProjects } from '@/types/generated/project';
 
 import Wrapper from 'containers/wrapper';
+import { toSlug } from 'utils/data';
 
 const HomeProjects = (): JSX.Element => {
   const { data, isFetched } = useGetProjects({ populate: '*' });
@@ -69,8 +70,8 @@ const HomeProjects = (): JSX.Element => {
             <Slider {...settings}>
               {shuffleProjects(data?.data?.data)?.map((project) => (
                 <Link
-                  key={project.attributes.id}
-                  href={`/projects/${project.id}`}
+                  key={project.id}
+                  href={`/projects/${toSlug(project.attributes.project_name)}`}
                   className="relative"
                 >
                   <Image

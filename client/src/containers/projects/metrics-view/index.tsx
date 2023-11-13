@@ -8,6 +8,7 @@ import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
 import { COLUMNS } from 'containers/projects/constants';
 import { cn } from 'utils/cn';
+import { toSlug } from 'utils/data';
 
 type Direction = 'asc' | 'desc';
 
@@ -104,7 +105,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                   >
                     <td className="max-w-[140px] !pl-0 xl:w-3/12 xl:max-w-0">
                       <Link
-                        href={`/projects/${project.id}`}
+                        href={`/projects/${toSlug(project.attributes.project_name)}`}
                         className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
                       >
                         <Image

@@ -26,6 +26,7 @@ import { basemapAtom, filteredBboxAtom } from 'store';
 import { PopUp } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
+import { toSlug } from 'utils/data';
 
 const initialViewState: MapboxProps['initialViewState'] = {
   bounds: WORLD_BOUNDS,
@@ -133,7 +134,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
     const projectsFeature = e?.features?.find(({ layer }) => layer.id === 'projects-layer');
     if (projectsFeature) {
-      push(`/projects/${projectsPopUp.popupInfo?.id}`);
+      push(`/projects/${toSlug(projectsPopUp.popupInfo?.name)}`);
     }
   };
 
@@ -189,7 +190,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
               <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
                 {sortedData?.map((project) => (
                   <div key={project.id}>
-                    <Card id={project.id} />
+                    <Card id={project.id} slug={toSlug(project.project_name)} />
                   </div>
                 ))}
               </div>
@@ -230,7 +231,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                     </Controls>
                     {!!projectsPopUp?.popup?.length && (
                       <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
-                        <Link href={`/projects/${projectsPopUp.popupInfo?.id}`}>
+                        <Link href={`/projects/${toSlug(projectsPopUp.popupInfo?.name)}`}>
                           <div className="px-2 py-1">
                             <p className="font-sans text-2xs text-gray-800">
                               {projectsPopUp.popupInfo.name}
