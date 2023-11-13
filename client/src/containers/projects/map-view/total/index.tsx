@@ -66,40 +66,55 @@ const Total = (): JSX.Element => {
 
   return (
     <section className="bg-background">
-      <div className="mx-6 flex justify-between py-7 xl:mx-20">
-        {totalData?.total_people_supported && (
-          <div className="flex flex-col items-center space-y-2">
-            <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-              {totalData?.total_people_supported}
-            </p>
-            <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-              People Supported
-            </p>
-          </div>
-        )}
+      {totalData && (
+        <>
+          <div className="mx-6 flex justify-between py-7 xl:mx-20">
+            {totalData?.total_people_supported && (
+              <div className="flex flex-col items-center space-y-2">
+                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                  {totalData?.total_people_supported !== '0'
+                    ? totalData?.total_people_supported
+                    : 'TBD'}
+                </p>
+                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                  People Supported
+                </p>
+              </div>
+            )}
 
-        {totalData?.total_hectares_impacted && (
-          <div className="flex flex-col items-center space-y-2">
-            <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-              {totalData?.total_hectares_impacted}
-            </p>
-            <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-              Hectares Impacted
-            </p>
-          </div>
-        )}
+            {totalData?.total_hectares_impacted && (
+              <div className="flex flex-col items-center space-y-2">
+                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                  {totalData?.total_hectares_impacted !== '0'
+                    ? totalData?.total_hectares_impacted
+                    : 'TBD'}
+                </p>
+                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                  Area Impacted (ha)
+                </p>
+              </div>
+            )}
 
-        {totalData?.total_carbon_mitigation && (
-          <div className="flex flex-col items-center space-y-2">
-            <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-              {totalData?.total_carbon_mitigation}
-            </p>
-            <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-              Million Tons of Carbon Sequestered
-            </p>
+            {totalData?.total_carbon_mitigation && (
+              <div className="flex flex-col items-center space-y-2">
+                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                  {totalData?.total_carbon_mitigation !== '0'
+                    ? totalData?.total_carbon_mitigation
+                    : 'TBD'}
+                </p>
+                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                  Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
+                </p>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+
+          <p className="px-6 pb-3 text-xs text-text/70">
+            <span className="text-sm">*</span> Mitigation values presented may or may not be
+            equivalent to carbon credit potential depending on methodology and timeframe.
+          </p>
+        </>
+      )}
     </section>
   );
 };

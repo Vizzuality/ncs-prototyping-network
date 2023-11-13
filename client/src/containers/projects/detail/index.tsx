@@ -132,7 +132,9 @@ const ProjectDetail = (): JSX.Element => {
                 <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {data?.data?.data?.attributes.carbon_mitigation}
+                      {data?.data?.data?.attributes.carbon_mitigation !== 0
+                        ? data?.data?.data?.attributes.carbon_mitigation
+                        : 'TBD'}
                     </p>
                     <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
                       <p>Tons of Carbon</p>
@@ -142,14 +144,18 @@ const ProjectDetail = (): JSX.Element => {
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {data?.data?.data?.attributes.hectares_impacted}
+                      {data?.data?.data?.attributes.hectares_impacted !== 0
+                        ? data?.data?.data?.attributes.hectares_impacted
+                        : 'TBD'}
                     </p>
-                    <p className="text-center text-m font-medium text-text">Hectares Impacted</p>
+                    <p className="text-center text-m font-medium text-text">Area Impacted (ha)</p>
                   </div>
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {data?.data?.data?.attributes.people_supported}
+                      {data?.data?.data?.attributes.people_supported !== 0
+                        ? data?.data?.data?.attributes.people_supported
+                        : 'TBD'}
                     </p>
                     <p className="text-center text-m font-medium text-text">People Supported</p>
                   </div>
@@ -320,8 +326,8 @@ const ProjectDetail = (): JSX.Element => {
                     <Image
                       alt={data?.data?.data?.attributes?.fallback_photo.data?.attributes.name || ''}
                       src={data?.data?.data?.attributes?.fallback_photo.data?.attributes.url}
-                      width={600}
-                      height={500}
+                      width={360}
+                      height={180}
                     />
                   </div>
                 </Wrapper>
@@ -436,15 +442,15 @@ const ProjectDetail = (): JSX.Element => {
           {data?.data?.data?.attributes.graphic_1.data && (
             <section className="bg-background py-16">
               <Wrapper>
-                <div className="relative w-3/6 space-y-6">
+                <div className="relative w-2/6 space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">
                     {data?.data?.data?.attributes.graphic_1.data.attributes.name}
                   </p>
                   <Image
                     src={data?.data?.data?.attributes.graphic_1.data.attributes.url}
                     alt={data?.data?.data?.attributes.graphic_1.data.attributes.caption}
-                    height={700}
-                    width={700}
+                    height={500}
+                    width={500}
                     style={{ objectFit: 'contain' }}
                     className="w-full"
                   />
@@ -503,22 +509,24 @@ const ProjectDetail = (): JSX.Element => {
                     </p>
                   </div>
                 )}
-                {data?.data?.data?.attributes.cb_livelihood_econ && (
+
+                {data?.data?.data?.attributes.cb_resilience_adapt && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
-                        alt="Livehoods"
-                        src="/images/icons/co-benefits/livelihoods_economic.svg"
+                        alt="Resilience & Adaptation"
+                        src="/images/icons/co-benefits/resilience_and_adaptation.svg"
                         height={24}
                         width={24}
                       />
-                      <p className="text-xl">Livelihoods & Economics</p>
+                      <p className="text-xl">Resilience & Adaptation</p>
                     </div>
                     <p className="text-m leading-6">
-                      {data?.data?.data?.attributes.cb_livelihood_econ}
+                      {data?.data?.data?.attributes.cb_resilience_adapt}
                     </p>
                   </div>
                 )}
+
                 {data?.data?.data?.attributes.cb_health_well_being && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
@@ -535,19 +543,20 @@ const ProjectDetail = (): JSX.Element => {
                     </p>
                   </div>
                 )}
-                {data?.data?.data?.attributes.cb_resilience_adapt && (
+
+                {data?.data?.data?.attributes.cb_livelihood_econ && (
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
-                        alt="Resilience & Adaptation"
-                        src="/images/icons/co-benefits/resilience_and_adaptation.svg"
+                        alt="Livehoods"
+                        src="/images/icons/co-benefits/livelihoods_economic.svg"
                         height={24}
                         width={24}
                       />
-                      <p className="text-xl">Resilience & Adaptation</p>
+                      <p className="text-xl">Livelihoods & Economics</p>
                     </div>
                     <p className="text-m leading-6">
-                      {data?.data?.data?.attributes.cb_resilience_adapt}
+                      {data?.data?.data?.attributes.cb_livelihood_econ}
                     </p>
                   </div>
                 )}

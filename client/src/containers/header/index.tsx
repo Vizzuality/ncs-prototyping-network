@@ -26,16 +26,21 @@ const Header: React.FC = () => {
       })}
     >
       <Wrapper className="h-18 relative z-50 flex w-full flex-row items-center justify-between self-start">
-        <Link className="flex cursor-pointer" href="/">
-          <h1
-            className={cn({
-              'font-sans text-2xl uppercase text-white': true,
-              'text-indigo': headerStyle === 'light',
-            })}
-          >
-            NCS Prototyping Network
-          </h1>
-        </Link>
+        <div className="flex  items-center space-x-4">
+          <Link className="flex cursor-pointer" href="/">
+            <h1
+              className={cn({
+                'font-sans text-2xl uppercase text-white': true,
+                'text-indigo': headerStyle === 'light',
+              })}
+            >
+              NCS Prototyping Network
+            </h1>
+          </Link>
+          <div className="h-4 rounded-xl bg-white px-2">
+            <p className="font-sans text-xs text-text">BETA</p>
+          </div>
+        </div>
         <NavigationTabs />
       </Wrapper>
     </div>

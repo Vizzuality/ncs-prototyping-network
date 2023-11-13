@@ -9,7 +9,7 @@ import Wrapper from 'containers/wrapper';
 const HomeMap = (): JSX.Element => {
   return (
     <Wrapper>
-      <section className="-mt-44 mb-24 flex h-full items-center bg-white py-12 px-16">
+      <section className="-mt-44 mb-12 flex h-full items-center bg-white py-12 px-16">
         <div className="flex w-1/3 flex-col">
           <p className="text-base font-light leading-7 text-text lg:text-lg xl:text-xl xl:leading-9">
             The Nature Conservancy’s NCS Prototyping Network, part of a broader NCS Activation
