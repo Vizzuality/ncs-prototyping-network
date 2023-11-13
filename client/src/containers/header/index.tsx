@@ -26,7 +26,7 @@ const Header: React.FC = () => {
       })}
     >
       <Wrapper className="h-18 relative z-50 flex w-full flex-row items-center justify-between self-start">
-        <div className="flex  items-center space-x-4">
+        <div className="flex items-center space-x-4">
           <Link className="flex cursor-pointer" href="/">
             <h1
               className={cn({
@@ -37,8 +37,13 @@ const Header: React.FC = () => {
               NCS Prototyping Network
             </h1>
           </Link>
-          <div className="h-4 rounded-xl bg-white px-2">
-            <p className="font-sans text-xs text-text">BETA</p>
+          <div
+            className={cn({
+              'h-4 rounded-xl bg-white px-2 font-sans text-xs text-text': true,
+              'bg-indigo text-white': headerStyle === 'light',
+            })}
+          >
+            <p>BETA</p>
           </div>
         </div>
         <NavigationTabs />

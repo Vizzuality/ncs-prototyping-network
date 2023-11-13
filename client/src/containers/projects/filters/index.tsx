@@ -1,3 +1,5 @@
+import { useRouter } from 'next/navigation';
+
 import { useRecoilState } from 'recoil';
 
 import { useGetActionTypes } from '@/types/generated/action-type';
@@ -9,6 +11,7 @@ import MultiSelect from 'components/ui/multiselect';
 import { filtersAtom } from 'store';
 
 const Filters = (): JSX.Element => {
+  const { push } = useRouter();
   const [filters, setFilters] = useRecoilState(filtersAtom);
 
   const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways();
@@ -89,14 +92,15 @@ const Filters = (): JSX.Element => {
         <button
           className="rounded-lg border border-accents px-4 py-2 font-sans text-base text-text"
           type="reset"
-          onClick={() =>
+          onClick={() => {
             setFilters({
               pathways: [],
               action_types: [],
               project_phases: [],
               project_categories: [],
-            })
-          }
+            });
+            push('/projects');
+          }}
         >
           Reset
         </button>
