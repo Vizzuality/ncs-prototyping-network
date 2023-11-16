@@ -16,3 +16,5 @@ export const toName = (slug) => {
     .map((i) => i[0].toUpperCase() + i.substr(1))
     .join(' ');
 };
+
+export const toTBD = (d) => (d !== 0 ? d : 'TBD');

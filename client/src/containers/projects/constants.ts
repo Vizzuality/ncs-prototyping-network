@@ -31,7 +31,7 @@ export const COLUMNS = [
   },
   {
     id: 'hectares_impacted',
-    label: 'Area Impacted',
+    label: 'Area Impacted (ha)',
     sorting: true,
     width: 100,
   },
@@ -43,7 +43,7 @@ export const COLUMNS = [
   },
   {
     id: 'carbon_mitigation',
-    label: 'Mitigation Potential',
+    label: 'Mitigation Potential (tCO₂e)',
     sorting: true,
     width: 80,
   },

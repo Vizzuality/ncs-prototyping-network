@@ -6,6 +6,7 @@ import { useGetProjects } from '@/types/generated/project';
 
 import { useTotalData } from 'hooks/projects';
 import { filtersAtom } from 'store';
+import { toTBD } from 'utils/data';
 
 const Total = (): JSX.Element => {
   const { data: projectsData } = useGetProjects({ populate: '*' });
@@ -72,9 +73,7 @@ const Total = (): JSX.Element => {
             {totalData?.total_people_supported && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {totalData?.total_people_supported !== '0'
-                    ? totalData?.total_people_supported
-                    : 'TBD'}
+                  {toTBD(totalData?.total_people_supported)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   People Supported
@@ -85,9 +84,7 @@ const Total = (): JSX.Element => {
             {totalData?.total_hectares_impacted && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {totalData?.total_hectares_impacted !== '0'
-                    ? totalData?.total_hectares_impacted
-                    : 'TBD'}
+                  {toTBD(totalData?.total_hectares_impacted)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Area Impacted (ha)
@@ -98,9 +95,7 @@ const Total = (): JSX.Element => {
             {totalData?.total_carbon_mitigation && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {totalData?.total_carbon_mitigation !== '0'
-                    ? totalData?.total_carbon_mitigation
-                    : 'TBD'}
+                  {toTBD(totalData?.total_carbon_mitigation)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>

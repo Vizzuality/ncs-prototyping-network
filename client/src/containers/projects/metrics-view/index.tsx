@@ -8,7 +8,7 @@ import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
 import { COLUMNS } from 'containers/projects/constants';
 import { cn } from 'utils/cn';
-import { toSlug } from 'utils/data';
+import { toSlug, toTBD } from 'utils/data';
 
 type Direction = 'asc' | 'desc';
 
@@ -163,9 +163,9 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                           <p key={idx}>{category}</p>
                         ))}
                     </td>
-                    <td className="bg-background">{project.attributes.hectares_impacted}</td>
-                    <td>{project.attributes.people_supported}</td>
-                    <td className="bg-background">{project.attributes.carbon_mitigation}</td>
+                    <td className="bg-background">{toTBD(project.attributes.hectares_impacted)}</td>
+                    <td>{toTBD(project.attributes.people_supported)}</td>
+                    <td className="bg-background">{toTBD(project.attributes.carbon_mitigation)}</td>
                     <td>
                       <div className="grid grid-cols-2 gap-x-0 gap-y-5">
                         {project.attributes.cobenefits.data
