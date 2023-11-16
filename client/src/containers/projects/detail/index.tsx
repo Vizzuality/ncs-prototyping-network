@@ -22,7 +22,7 @@ import Card from 'containers/projects/card';
 import ExtentMap from 'containers/projects/detail/extent-map';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
-import { toName, toSlug } from 'utils/data';
+import { toName, toSlug, toTBD } from 'utils/data';
 
 const ProjectDetail = (): JSX.Element => {
   const { slug } = useParams();
@@ -140,9 +140,7 @@ const ProjectDetail = (): JSX.Element => {
                 <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {data?.data?.data?.attributes.carbon_mitigation !== 0
-                        ? data?.data?.data?.attributes.carbon_mitigation
-                        : 'TBD'}
+                      {toTBD(data?.data?.data?.attributes.carbon_mitigation)}
                     </p>
                     <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
                       <p>Tons of Carbon</p>
@@ -152,18 +150,14 @@ const ProjectDetail = (): JSX.Element => {
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {data?.data?.data?.attributes.hectares_impacted !== 0
-                        ? data?.data?.data?.attributes.hectares_impacted
-                        : 'TBD'}
+                      {toTBD(data?.data?.data?.attributes.hectares_impacted)}
                     </p>
                     <p className="text-center text-m font-medium text-text">Area Impacted (ha)</p>
                   </div>
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
-                      {data?.data?.data?.attributes.people_supported !== 0
-                        ? data?.data?.data?.attributes.people_supported
-                        : 'TBD'}
+                      {toTBD(data?.data?.data?.attributes.people_supported)}
                     </p>
                     <p className="text-center text-m font-medium text-text">People Supported</p>
                   </div>
