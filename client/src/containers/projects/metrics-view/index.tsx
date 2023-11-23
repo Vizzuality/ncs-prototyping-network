@@ -29,7 +29,9 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
   const getSortedData = (arr, sortedBy: string, direction: Direction) => {
     if (!sortedBy) return arr;
 
-    const sortedArr = [...arr].sort((a, b) => (a[sortedBy] < b[sortedBy] ? -1 : 1));
+    const sortedArr = [...arr].sort((a, b) =>
+      a.attributes[sortedBy] < b.attributes[sortedBy] ? -1 : 1
+    );
 
     if (direction === 'desc') return sortedArr.reverse();
 
