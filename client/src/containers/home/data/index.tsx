@@ -58,7 +58,7 @@ const Data = (): JSX.Element => {
 
             {partners && (
               <div className="flex flex-col items-center space-y-2">
-                <p className="xl:4xl font-sans text-3xl font-bold text-spring">
+                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                   {partners || 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">

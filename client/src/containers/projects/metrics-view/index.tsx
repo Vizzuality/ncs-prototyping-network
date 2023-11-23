@@ -109,9 +109,9 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                         className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
                       >
                         <Image
-                          alt={project.attributes.header_photo.data.attributes.formats.medium.name}
+                          alt={project.attributes.header_photo.data.attributes.formats.medium?.name}
                           src={
-                            project.attributes.header_photo.data.attributes.formats.medium.url ||
+                            project.attributes.header_photo.data.attributes.formats.medium?.url ||
                             'https://dummyimage.com/110x110/000/fff&text=+'
                           }
                           style={{
