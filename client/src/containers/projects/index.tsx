@@ -110,7 +110,7 @@ const ProjectsPage = (): JSX.Element => {
         <Tabs />
         <Filters />
       </div>
-      {!projectsIsFetching && !dataFiltered?.length && (
+      {!projectsIsFetching && projectsIsFetched && !dataFiltered?.length && (
         <div className="flex h-64 w-full items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
         </div>
