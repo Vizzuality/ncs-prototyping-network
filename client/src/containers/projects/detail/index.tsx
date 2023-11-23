@@ -444,7 +444,7 @@ const ProjectDetail = (): JSX.Element => {
           {data?.data?.data?.attributes.graphic_1.data && (
             <section className="bg-background py-16">
               <Wrapper>
-                <div className="relative w-2/6 space-y-6">
+                <div className="relative w-4/6 space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">
                     {data?.data?.data?.attributes.graphic_1.data.attributes.name}
                   </p>
