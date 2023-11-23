@@ -22,7 +22,7 @@ const ProjectsPage = (): JSX.Element => {
   const {
     data: projectsData,
     isFetching: projectsIsFetching,
-    isFetched: projectsIsFetched,
+    isFetchedAfterMount: projectsIsFetched,
   } = useGetProjects({ populate: '*' });
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
@@ -110,11 +110,7 @@ const ProjectsPage = (): JSX.Element => {
         <Tabs />
         <Filters />
       </div>
-      {!projectsIsFetching && projectsIsFetched && !dataFiltered?.length && (
-        <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
-        </div>
-      )}
+
       {!projectsIsFetched && projectsIsFetching && (
         <div className="flex h-64 w-full items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>

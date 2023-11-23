@@ -161,6 +161,11 @@ const MapView = ({ data }: { data }): JSX.Element => {
         exit={{ opacity: 0 }}
         transition={{ delay: 0.25, duration: 0.3 }}
       >
+        {!sortedData?.length && (
+          <div className="flex h-64 w-full items-center justify-center">
+            <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
+          </div>
+        )}
         {!!sortedData?.length && (
           <div className="flex space-x-6">
             <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
