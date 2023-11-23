@@ -39,7 +39,7 @@ export const LESSONS = [
     points: [
       'Many projects encountered data discrepancies, including mismatches between gathered field and goverment data, between remote sensing data and field surveys, and between internal and external analyses.',
       'Many research and methodological gaps remain. NCS projects are pioneering new solutions with little locally applicable data and methods.',
-      'Limited local technical capacity often leads to hiring difficulties and unavailability of thecnicallaboratories for biogeochemical analyses.',
+      'Limited technical capacity often leads to hiring difficulties and unavailability of technical laboratories for biogeochemical analyses.',
     ],
     image: '/images/home/lessons/science.png',
   },
