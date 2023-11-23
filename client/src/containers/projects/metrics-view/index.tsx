@@ -14,11 +14,11 @@ type Direction = 'asc' | 'desc';
 
 const MetricsView = ({ data }: { data }): JSX.Element => {
   const CO_BENEFITS_ICONS = {
+    Biodiversity: '/images/icons/co-benefits/biodiversity.svg',
     'Ecosystem Services': '/images/icons/co-benefits/ecosystem_services.svg',
     'Resilience/Adaptation': '/images/icons/co-benefits/resilience_and_adaptation.svg',
-    Biodiversity: '/images/icons/co-benefits/biodiversity.svg',
-    'Livelihoods/Economic': '/images/icons/co-benefits/livelihoods_economic.svg',
     'Human Health/Well-Being': '/images/icons/co-benefits/human_health_wellbeing.svg',
+    'Livelihoods/Economic': '/images/icons/co-benefits/livelihoods_economic.svg',
     'Socio-Cultural': '',
   };
 
@@ -170,19 +170,17 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                     <td className="bg-background">{toTBD(project.attributes.carbon_mitigation)}</td>
                     <td>
                       <div className="grid grid-cols-2 gap-x-0 gap-y-5">
-                        {project.attributes.cobenefits.data
-                          .map((cb) => cb.attributes.name)
-                          .map((cb) => {
-                            return (
-                              <Image
-                                alt={cb}
-                                src={CO_BENEFITS_ICONS[cb]}
-                                width={28}
-                                height={28}
-                                key={cb}
-                              />
-                            );
-                          })}
+                        {project.attributes.cobenefits.data.map((cb) => {
+                          return (
+                            <Image
+                              alt={cb}
+                              src={CO_BENEFITS_ICONS[cb.attributes.name]}
+                              width={28}
+                              height={28}
+                              key={cb}
+                            />
+                          );
+                        })}
                       </div>
                     </td>
                   </tr>
