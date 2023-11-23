@@ -4,7 +4,7 @@ import Footer from 'containers/footer';
 import ProjectsPage from 'containers/projects';
 
 export const metadata: Metadata = {
-  title: 'TNC Prototype Dashboard',
+  title: 'NCS Prototyping Network',
 };
 
 const Projects: NextPage = () => {

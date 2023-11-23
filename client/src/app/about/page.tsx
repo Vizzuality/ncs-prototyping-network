@@ -3,7 +3,7 @@ import { Metadata, type NextPage } from 'next';
 import Wrapper from 'containers/wrapper';
 
 export const metadata: Metadata = {
-  title: 'TNC Prototype Dashboard',
+  title: 'NCS Prototyping Network',
 };
 
 const About: NextPage = () => {

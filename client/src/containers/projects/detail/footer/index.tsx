@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-import { useGetProjectsId } from '@/types/generated/project';
+import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
+import { toName } from '@/utils/data';
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const DetailFooter: React.FC = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
+
+  const { data: projects } = useGetProjects({ populate: '*' });
+
+  const id = useMemo(() => {
+    return projects?.data?.data?.find((project) => project.attributes.project_name === toName(slug))
+      ?.id;
+  }, [slug, projects?.data?.data]);
 
   const { data, isFetched } = useGetProjectsId(+id, { populate: '*' });
 

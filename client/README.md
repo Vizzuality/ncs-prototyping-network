@@ -1,4 +1,4 @@
-## TNC Prototype Dashboard
+## NCS Prototyping Network
 
 ## Env variables
 
