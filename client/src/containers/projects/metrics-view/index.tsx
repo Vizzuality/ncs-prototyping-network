@@ -49,12 +49,6 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
         transition={{ delay: 0.25, duration: 0.3 }}
         className="bg-white"
       >
-        {!sortedData.length && (
-          <div className="flex h-64 w-full items-center justify-center">
-            <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
-          </div>
-        )}
-
         {!!sortedData.length && (
           <table className="bg-white text-xs">
             <thead className="h-16 bg-white">

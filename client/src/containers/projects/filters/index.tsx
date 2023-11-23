@@ -28,21 +28,21 @@ const Filters = (): JSX.Element => {
   const { data: actionsData, isFetched: actionsIsFetched } = useGetActionTypes();
   const actions = actionsIsFetched ? actionsData?.data.data.map((p) => p.attributes.name) : [];
 
-  const PATHWAYS_OPTIONS = pathways.map((p) => {
+  const PATHWAYS_OPTIONS = pathways?.map((p) => {
     return {
       label: p,
       value: p,
     };
   });
 
-  const P_PHASE_OPTIONS = phases.map((p) => {
+  const P_PHASE_OPTIONS = phases?.map((p) => {
     return {
       label: p,
       value: p,
     };
   });
 
-  const P_CATEGORY_OPTIONS = categories.map((c) => {
+  const P_CATEGORY_OPTIONS = categories?.map((c) => {
     return {
       label: c,
       value: c,

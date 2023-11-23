@@ -19,7 +19,11 @@ const ProjectsPage = (): JSX.Element => {
   const { data: pathwaysData, isFetched } = useGetPathways();
   const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
 
-  const { data: projectsData, isFetched: projectsIsFetched } = useGetProjects({ populate: '*' });
+  const {
+    data: projectsData,
+    isFetching: projectsIsFetching,
+    isFetched: projectsIsFetched,
+  } = useGetProjects({ populate: '*' });
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
   const projectsView = useRecoilValue(projectsViewAtom);
@@ -106,7 +110,12 @@ const ProjectsPage = (): JSX.Element => {
         <Tabs />
         <Filters />
       </div>
-      {!projectsIsFetched && (
+      {!projectsIsFetching && !dataFiltered?.length && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
+        </div>
+      )}
+      {!projectsIsFetched && projectsIsFetching && (
         <div className="flex h-64 w-full items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
         </div>
