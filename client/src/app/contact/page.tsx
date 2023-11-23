@@ -4,7 +4,7 @@ import ContactPage from 'containers/contact';
 import Footer from 'containers/footer';
 
 export const metadata: Metadata = {
-  title: 'TNC Prototype Dashboard',
+  title: 'NCS Prototyping Network',
 };
 
 const Contact: NextPage = () => {

@@ -3,7 +3,7 @@ import { Metadata, type NextPage } from 'next';
 import Hero from 'containers/home/hero';
 
 export const metadata: Metadata = {
-  title: 'TNC Prototype Dashboard',
+  title: 'NCS Prototyping Network',
 };
 
 const Resources: NextPage = () => {

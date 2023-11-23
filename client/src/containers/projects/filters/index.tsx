@@ -49,12 +49,15 @@ const Filters = (): JSX.Element => {
     };
   });
 
-  const ACTION_TYPES_OPTIONS = actions.map((at) => {
-    return {
-      label: at,
-      value: at,
-    };
-  });
+  const ACTION_TYPES_ORDER = { Protect: 0, Manage: 1, Restore: 2 };
+  const ACTION_TYPES_OPTIONS = actions
+    .map((at) => {
+      return {
+        label: at,
+        value: at,
+      };
+    })
+    .sort((a, b) => ACTION_TYPES_ORDER[a.value] - ACTION_TYPES_ORDER[b.value]);
 
   return (
     <div className="flex w-9/12 flex-col space-y-1">

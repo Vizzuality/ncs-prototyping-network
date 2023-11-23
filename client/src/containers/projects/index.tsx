@@ -19,7 +19,7 @@ const ProjectsPage = (): JSX.Element => {
   const { data: pathwaysData, isFetched } = useGetPathways();
   const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
 
-  const { data: projectsData } = useGetProjects({ populate: '*' });
+  const { data: projectsData, isFetched: projectsIsFetched } = useGetProjects({ populate: '*' });
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
   const projectsView = useRecoilValue(projectsViewAtom);
@@ -106,9 +106,13 @@ const ProjectsPage = (): JSX.Element => {
         <Tabs />
         <Filters />
       </div>
-      {/* //!Todo: Add loading state */}
-      {projectsView === 'map' && <MapView data={dataFiltered} />}
-      {projectsView === 'metrics' && <MetricsView data={dataFiltered} />}
+      {!projectsIsFetched && (
+        <div className="flex h-64 w-full items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
+        </div>
+      )}
+      {projectsView === 'map' && projectsIsFetched && <MapView data={dataFiltered} />}
+      {projectsView === 'metrics' && projectsIsFetched && <MetricsView data={dataFiltered} />}
     </Wrapper>
   );
 };
