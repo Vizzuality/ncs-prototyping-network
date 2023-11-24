@@ -20,7 +20,7 @@ export const COLUMNS = [
   {
     id: 'project_phases',
     label: 'Project Phase',
-    sorting: false,
+    sorting: true,
     width: 100,
   },
   {
