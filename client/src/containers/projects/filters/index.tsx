@@ -72,14 +72,14 @@ const Filters = (): JSX.Element => {
         />
         <MultiSelect
           id="action"
-          placeholder="Action type(s)"
+          placeholder="Action Type(s)"
           options={ACTION_TYPES_OPTIONS}
           values={filters.action_types}
           onSelect={(v) => setFilters({ ...filters, action_types: v })}
         />
         <MultiSelect
           id="phase"
-          placeholder="Project phase"
+          placeholder="Project Phase"
           values={filters.project_phases}
           options={P_PHASE_OPTIONS}
           onSelect={(v) => setFilters({ ...filters, project_phases: v })}
@@ -87,7 +87,7 @@ const Filters = (): JSX.Element => {
 
         <MultiSelect
           id="category"
-          placeholder="Project category"
+          placeholder="Project Category"
           values={filters.project_categories}
           options={P_CATEGORY_OPTIONS}
           onSelect={(v) => setFilters({ ...filters, project_categories: v })}
