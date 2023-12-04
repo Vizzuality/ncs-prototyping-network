@@ -266,7 +266,7 @@ const ProjectDetail = (): JSX.Element => {
                 </p>
 
                 <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
-                  {data?.data?.data?.attributes.abstract}
+                  {data?.data?.data?.attributes.project_summary}
                 </p>
               </div>
             </Wrapper>
@@ -395,7 +395,7 @@ const ProjectDetail = (): JSX.Element => {
                 <div className="flex-col space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
                   <p className="font-sans text-m font-light leading-7 text-text">
-                    {data?.data?.data?.attributes.project_summary}
+                    {data?.data?.data?.attributes.abstract}
                   </p>
                 </div>
                 {data?.data?.data?.attributes.citations && (
