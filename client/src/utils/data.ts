@@ -17,4 +17,12 @@ export const toName = (slug) => {
     .join(' ');
 };
 
-export const toTBD = (d) => (d !== 0 ? d : 'TBD');
+export const toTBD = (d) => {
+  if (d === '0') {
+    return 'TBD';
+  }
+  if (d === 0) {
+    return 'TBD';
+  }
+  return d;
+};
