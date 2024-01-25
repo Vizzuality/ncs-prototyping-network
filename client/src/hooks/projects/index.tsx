@@ -24,9 +24,9 @@ export function useTotalData({ dataFiltered }: { dataFiltered }) {
     );
 
     return {
-      total_people_supported: Intl.NumberFormat('en-IN').format(total_people_supported),
-      total_hectares_impacted: Intl.NumberFormat('en-IN').format(total_hectares_impacted),
-      total_carbon_mitigation: Intl.NumberFormat('en-IN').format(total_carbon_mitigation),
+      total_people_supported: Intl.NumberFormat().format(total_people_supported),
+      total_hectares_impacted: Intl.NumberFormat().format(total_hectares_impacted),
+      total_carbon_mitigation: Intl.NumberFormat().format(total_carbon_mitigation),
     };
   }, [dataFiltered]);
 

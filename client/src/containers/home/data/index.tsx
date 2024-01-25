@@ -71,7 +71,7 @@ const Data = (): JSX.Element => {
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                   {total_hectares_impacted !== 0
-                    ? Intl.NumberFormat('en-IN').format(total_hectares_impacted)
+                    ? Intl.NumberFormat().format(total_hectares_impacted)
                     : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
@@ -84,7 +84,7 @@ const Data = (): JSX.Element => {
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                   {total_people_supported !== 0
-                    ? Intl.NumberFormat('en-IN').format(total_people_supported)
+                    ? Intl.NumberFormat().format(total_people_supported)
                     : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
@@ -97,7 +97,7 @@ const Data = (): JSX.Element => {
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                   {total_carbon_mitigation !== 0
-                    ? Intl.NumberFormat('en-IN').format(total_carbon_mitigation)
+                    ? Intl.NumberFormat().format(total_carbon_mitigation)
                     : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
