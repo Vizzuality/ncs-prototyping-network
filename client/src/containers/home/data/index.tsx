@@ -75,7 +75,7 @@ const Data = (): JSX.Element => {
                     : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Area Impacted (ha)
+                  Project Area (ha)
                 </p>
               </div>
             )}

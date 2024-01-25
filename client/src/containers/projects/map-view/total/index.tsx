@@ -87,7 +87,7 @@ const Total = (): JSX.Element => {
                   {toTBD(totalData?.total_hectares_impacted)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Area Impacted (ha)
+                  Project Area (ha)
                 </p>
               </div>
             )}

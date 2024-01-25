@@ -31,7 +31,7 @@ export const COLUMNS = [
   },
   {
     id: 'hectares_impacted',
-    label: 'Area Impacted (ha)',
+    label: 'Project Area (ha)',
     sorting: true,
     width: 140,
   },

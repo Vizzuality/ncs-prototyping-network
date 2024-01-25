@@ -156,7 +156,7 @@ const ProjectDetail = (): JSX.Element => {
                         Intl.NumberFormat().format(data?.data?.data?.attributes.hectares_impacted)
                       )}
                     </p>
-                    <p className="text-center text-m font-medium text-text">Area Impacted (ha)</p>
+                    <p className="text-center text-m font-medium text-text">Project Area (ha)</p>
                   </div>
 
                   <div className="flex flex-col items-center">
