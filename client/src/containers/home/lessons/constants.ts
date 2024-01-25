@@ -1,17 +1,6 @@
 export const LESSONS = [
   {
     id: 1,
-    title: 'Field Logistics',
-    points: [
-      'COVID-19 hindered fieldwork and community and partner meetings which are critical for planning, implementation, and ensuring community support.',
-      'Sampling sites are often in remote locations, with difficult accessibility.',
-      'Seasonal weather can further restrict field accessibility. Missing a sampling window can result in a one-year delay in data collection, so planning is imperative.',
-      ' Some project areas are prone to safety risks, affecting infrastructure development and field access. This includes social and political considerations for accessing sampling sites.',
-    ],
-    image: '/images/home/lessons/logistics.png',
-  },
-  {
-    id: 2,
     title: 'Community Engagement and Equity',
     points: [
       'In some countries, gender roles dictate project participation, with men often the primary participants. Additional arrangements may be required to effectively engage women.',
@@ -21,9 +10,8 @@ export const LESSONS = [
     ],
     image: '/images/home/lessons/community.png',
   },
-
   {
-    id: 3,
+    id: 2,
     title: 'Institutional',
     points: [
       'Political instability can lead to project delays, through difficulties in scheduling meetings and community engagement activities, safety concerns and field site inaccessibility.',
@@ -32,9 +20,8 @@ export const LESSONS = [
     ],
     image: '/images/home/lessons/institutional.png',
   },
-
   {
-    id: 4,
+    id: 3,
     title: 'Science and Knowledge',
     points: [
       'Many projects encountered data discrepancies, including mismatches between gathered field and goverment data, between remote sensing data and field surveys, and between internal and external analyses.',
@@ -43,6 +30,18 @@ export const LESSONS = [
     ],
     image: '/images/home/lessons/science.png',
   },
+  {
+    id: 4,
+    title: 'Field Logistics',
+    points: [
+      'COVID-19 hindered fieldwork and community and partner meetings which are critical for planning, implementation, and ensuring community support.',
+      'Sampling sites are often in remote locations, with difficult accessibility.',
+      'Seasonal weather can further restrict field accessibility. Missing a sampling window can result in a one-year delay in data collection, so planning is imperative.',
+      ' Some project areas are prone to safety risks, affecting infrastructure development and field access. This includes social and political considerations for accessing sampling sites.',
+    ],
+    image: '/images/home/lessons/logistics.png',
+  },
+
   {
     id: 5,
     title: 'Resources',
