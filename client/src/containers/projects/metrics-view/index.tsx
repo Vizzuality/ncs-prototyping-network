@@ -43,8 +43,8 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
   const CO_BENEFITS_ORDER = {
     Biodiversity: 0,
     'Ecosystem Services': 1,
-    'Human Health/Well-Being': 2,
-    'Resilience/Adaptation': 3,
+    'Resilience/Adaptation': 2,
+    'Human Health/Well-Being': 3,
     'Livelihoods/Economic': 4,
   };
 
