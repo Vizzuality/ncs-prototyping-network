@@ -26,8 +26,9 @@ module.exports = {
         serif: ['var(--font-lora)', ...fontFamily.serif],
       },
       fontSize: {
-        '2xs': '0.813rem',
-        m: '1.063rem',
+        xxs: '0.625rem', // 10px
+        '2xs': '0.813rem', // 13px
+        m: '1.063rem', // 17px
       },
       colors: {
         butternut: '#e29717',

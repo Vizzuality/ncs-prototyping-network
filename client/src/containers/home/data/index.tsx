@@ -106,7 +106,7 @@ const Data = (): JSX.Element => {
               </div>
             )}
           </div>
-          <p className="pb-3 text-xs text-text/70">
+          <p className="pb-3 text-xs text-text/50">
             <span className="text-sm">*</span> Mitigation values presented may or may not be
             equivalent to carbon credit potential depending on methodology and timeframe.
           </p>
