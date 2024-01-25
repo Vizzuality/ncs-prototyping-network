@@ -98,15 +98,23 @@ const ProjectDetail = (): JSX.Element => {
   }, [inView, setHeaderStyle]);
 
   return (
-    <>
+    <div>
       <div
-        className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat lg:h-[500px] xl:h-[600px]"
+        className="relative -z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat lg:h-[500px] xl:h-[600px]"
         style={{
           backgroundImage:
             `url(${data?.data?.data?.attributes.header_photo.data.attributes.url})` || '',
         }}
         ref={ref}
-      />
+      >
+        {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText && (
+          <div className="absolute bottom-2 right-6 z-50 bg-white/40 px-2">
+            <p className="text-xs text-black">
+              {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText}
+            </p>
+          </div>
+        )}
+      </div>
 
       {isFetching && (
         <div className="flex h-64 w-full items-center justify-center">
@@ -141,22 +149,10 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation)
-                      )}
-                    </p>
-                    <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
-                      <p>Tons of Carbon</p>
-                      <p>Mitigation Potential</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <p className="pb-2 text-4xl font-bold text-spring">
-                      {toTBD(
                         Intl.NumberFormat().format(data?.data?.data?.attributes.hectares_impacted)
                       )}
                     </p>
-                    <p className="text-center text-m font-medium text-text">Area Impacted (ha)</p>
+                    <p className="text-center text-m font-medium text-text">Project Area (ha)</p>
                   </div>
 
                   <div className="flex flex-col items-center">
@@ -166,6 +162,18 @@ const ProjectDetail = (): JSX.Element => {
                       )}
                     </p>
                     <p className="text-center text-m font-medium text-text">People Supported</p>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <p className="pb-2 text-4xl font-bold text-spring">
+                      {toTBD(
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation)
+                      )}
+                    </p>
+                    <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
+                      <p>Tons of Carbon</p>
+                      <p>Mitigation Potential</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -451,7 +459,7 @@ const ProjectDetail = (): JSX.Element => {
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="relative w-4/6 space-y-6">
-                  <p className="font-serif text-2xl font-medium text-indigo">
+                  <p className="font-sans text-xl font-light text-text">
                     {data?.data?.data?.attributes.graphic_1.data.attributes.name}
                   </p>
                   <Image
@@ -663,7 +671,7 @@ const ProjectDetail = (): JSX.Element => {
           </section>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -42,6 +42,13 @@ const DetailFooter: React.FC = () => {
             backgroundImage: getBackground(),
           }}
         >
+          {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText && (
+            <div className="absolute bottom-7 right-10 z-50 mb-0.5 bg-white/40 px-2">
+              <p className="text-xs text-black">
+                {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText}
+              </p>
+            </div>
+          )}
           <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
             <Link className="items-left flex cursor-pointer" href="/">
               <h1 className="text-2xl font-semibold uppercase">NCS Prototyping Network</h1>
