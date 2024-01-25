@@ -141,18 +141,6 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation)
-                      )}
-                    </p>
-                    <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
-                      <p>Tons of Carbon</p>
-                      <p>Mitigation Potential</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <p className="pb-2 text-4xl font-bold text-spring">
-                      {toTBD(
                         Intl.NumberFormat().format(data?.data?.data?.attributes.hectares_impacted)
                       )}
                     </p>
@@ -166,6 +154,18 @@ const ProjectDetail = (): JSX.Element => {
                       )}
                     </p>
                     <p className="text-center text-m font-medium text-text">People Supported</p>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <p className="pb-2 text-4xl font-bold text-spring">
+                      {toTBD(
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation)
+                      )}
+                    </p>
+                    <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
+                      <p>Tons of Carbon</p>
+                      <p>Mitigation Potential</p>
+                    </div>
                   </div>
                 </div>
               </div>
