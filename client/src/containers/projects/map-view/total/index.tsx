@@ -91,7 +91,6 @@ const Total = (): JSX.Element => {
                 </p>
               </div>
             )}
-
             {totalData?.total_carbon_mitigation && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
