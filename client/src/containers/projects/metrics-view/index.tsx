@@ -40,6 +40,14 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
 
   const sortedData = getSortedData(data, sortedBy, direction);
 
+  const CO_BENEFITS_ORDER = {
+    Biodiversity: 0,
+    'Ecosystem Services': 1,
+    'Human Health/Well-Being': 2,
+    'Resilience/Adaptation': 3,
+    'Livelihoods/Economic': 4,
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -99,6 +107,13 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
             </thead>
             <tbody className="[&>*]:h-10">
               {sortedData.map((project) => {
+                const CO_BENEFITS_ORDERED = project.attributes.cobenefits.data
+                  .map((cb) => cb)
+                  .sort(
+                    (a, b) =>
+                      CO_BENEFITS_ORDER[a.attributes.name] - CO_BENEFITS_ORDER[b.attributes.name]
+                  );
+
                 return (
                   <tr
                     key={project.id}
@@ -169,14 +184,14 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                     <td className="bg-background">{toTBD(project.attributes.carbon_mitigation)}</td>
                     <td>
                       <div className="grid grid-cols-2 gap-x-0 gap-y-5">
-                        {project.attributes.cobenefits.data.map((cb) => {
+                        {CO_BENEFITS_ORDERED.map((cb) => {
                           return (
                             <Image
                               alt={cb}
                               src={CO_BENEFITS_ICONS[cb.attributes.name]}
                               width={28}
                               height={28}
-                              key={cb}
+                              key={cb.attributes.name}
                             />
                           );
                         })}
