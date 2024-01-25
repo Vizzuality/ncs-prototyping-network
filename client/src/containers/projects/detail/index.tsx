@@ -98,15 +98,23 @@ const ProjectDetail = (): JSX.Element => {
   }, [inView, setHeaderStyle]);
 
   return (
-    <>
+    <div>
       <div
-        className="-z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat lg:h-[500px] xl:h-[600px]"
+        className="relative -z-10 -mt-20 h-[426px] bg-[url('/images/home/hero.png')] bg-cover bg-center bg-no-repeat lg:h-[500px] xl:h-[600px]"
         style={{
           backgroundImage:
             `url(${data?.data?.data?.attributes.header_photo.data.attributes.url})` || '',
         }}
         ref={ref}
-      />
+      >
+        {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText && (
+          <div className="absolute bottom-2 right-6 z-50 bg-white/40 px-2">
+            <p className="text-xs text-black">
+              {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText}
+            </p>
+          </div>
+        )}
+      </div>
 
       {isFetching && (
         <div className="flex h-64 w-full items-center justify-center">
@@ -663,7 +671,7 @@ const ProjectDetail = (): JSX.Element => {
           </section>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
