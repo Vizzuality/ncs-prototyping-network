@@ -451,7 +451,7 @@ const ProjectDetail = (): JSX.Element => {
             <section className="bg-background py-16">
               <Wrapper>
                 <div className="relative w-4/6 space-y-6">
-                  <p className="font-serif text-2xl font-medium text-indigo">
+                  <p className="font-sans text-xl font-light text-text">
                     {data?.data?.data?.attributes.graphic_1.data.attributes.name}
                   </p>
                   <Image
