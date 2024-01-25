@@ -170,7 +170,10 @@ const MapView = ({ data }: { data }): JSX.Element => {
           <div className="flex space-x-6">
             <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
               <Total />
-
+              <p className="py-3 text-right text-xs text-text/50">
+                <span className="text-sm">*</span>Mitigation values presented may or may not be
+                equivalent to carbon credit potential depending on methodology and timeframe.
+              </p>
               <div className="flex h-10 items-center justify-end space-x-3">
                 {sortedData?.length > 1 && (
                   <>
