@@ -33,6 +33,13 @@ const DetailFooter: React.FC = () => {
     isFetched &&
     !!data?.data?.data.id && (
       <div className="relative">
+        {data?.data?.data?.attributes.footer_photo.data.attributes.alternativeText && (
+          <div className="absolute -right-16 bottom-52 z-50 mb-16 -rotate-90 bg-white/40 px-2">
+            <p className="text-xs text-black">
+              {data?.data?.data?.attributes.footer_photo.data.attributes.alternativeText}
+            </p>
+          </div>
+        )}
         <div
           className={cn({
             "mt-auto bg-cover bg-top bg-no-repeat before:absolute before:top-0 before:left-0 before:h-44 before:w-full before:bg-gradient-to-t before:from-transparent before:to-white before:content-[''] after:absolute after:bottom-[72px] after:left-0 after:h-24 after:w-full after:bg-gradient-to-b after:from-transparent after:to-black/80 after:content-['']":
@@ -42,13 +49,6 @@ const DetailFooter: React.FC = () => {
             backgroundImage: getBackground(),
           }}
         >
-          {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText && (
-            <div className="absolute bottom-7 right-10 z-50 mb-0.5 bg-white/40 px-2">
-              <p className="text-xs text-black">
-                {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText}
-              </p>
-            </div>
-          )}
           <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
             <Link className="items-left flex cursor-pointer" href="/">
               <h1 className="text-2xl font-semibold uppercase">NCS Prototyping Network</h1>

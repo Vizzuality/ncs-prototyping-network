@@ -77,17 +77,6 @@ const ProjectDetail = (): JSX.Element => {
       .slice(0, 3);
   }, [projects?.data?.data, id, data?.data?.data?.attributes.pathways]);
 
-  // const onDownload = async (resource: string, fileName: string) => {
-  //   const blob = await fetch(resource).then((r) => r.blob());
-  //   const url = window.URL.createObjectURL(new Blob([blob]));
-  //   const link = document.createElement('a');
-  //   link.href = url;
-  //   link.setAttribute('download', `${fileName}`);
-  //   document.body.appendChild(link);
-  //   link.click();
-  //   link.remove();
-  // };
-
   useEffect(() => {
     if (inView) {
       setHeaderStyle('default');
@@ -108,7 +97,7 @@ const ProjectDetail = (): JSX.Element => {
         ref={ref}
       >
         {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText && (
-          <div className="absolute bottom-2 right-6 z-50 bg-white/40 px-2">
+          <div className="absolute -right-16 bottom-32 z-50 mb-16 -rotate-90 bg-white/40 px-2">
             <p className="text-xs text-black">
               {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText}
             </p>
