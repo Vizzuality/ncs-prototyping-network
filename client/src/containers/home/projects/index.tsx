@@ -85,7 +85,7 @@ const HomeProjects = (): JSX.Element => {
                     className="h-[250px] object-cover xl:h-[339px]"
                   />
 
-                  <div className="absolute top-0 h-full w-full bg-black/25 text-white">
+                  <div className="to-black-0 absolute top-0 h-2/3 w-full bg-gradient-to-b from-black/60 text-white">
                     <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4">
                       <h3 className="font-serif text-xs font-bold uppercase">
                         {project.attributes.project_name}
