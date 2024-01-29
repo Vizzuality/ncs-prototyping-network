@@ -43,7 +43,7 @@ export const COLUMNS = [
   },
   {
     id: 'carbon_mitigation',
-    label: 'Mitigation Potential (tCO₂e)',
+    label: 'Mitigation Potential (tCO₂e)*',
     sorting: true,
     width: 160,
   },
