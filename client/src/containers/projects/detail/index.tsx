@@ -97,10 +97,12 @@ const ProjectDetail = (): JSX.Element => {
         ref={ref}
       >
         {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText && (
-          <div className="absolute -right-16 bottom-32 z-50 mb-16 -rotate-90 bg-white/40 px-2">
-            <p className="text-xs text-black">
-              {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText}
-            </p>
+          <div className="absolute right-8 bottom-28 z-50">
+            <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
+              <p className="whitespace-nowrap text-xs text-black">
+                {data?.data?.data?.attributes.header_photo.data.attributes.alternativeText}
+              </p>
+            </div>
           </div>
         )}
       </div>
