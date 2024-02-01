@@ -122,7 +122,7 @@ const ProjectDetail = (): JSX.Element => {
       {isFetched && !!data?.data?.data && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between">
-            <div className="flex w-2/3 flex-col items-start pt-6 pb-24">
+            <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
               <motion.div whileHover="hover">
                 <Link href="/projects" className="flex items-center space-x-2 pb-8">
                   <motion.div variants={arrowAnimation}>
@@ -166,6 +166,10 @@ const ProjectDetail = (): JSX.Element => {
                     </p>
                   </div>
                 </div>
+                <p className="mt-6 py-3 text-right text-xs font-normal text-text/50">
+                  <span className="text-sm">*</span> Mitigation values presented may or may not be
+                  equivalent to carbon credit potential depending on methodology and timeframe.
+                </p>
               </div>
             </div>
 
