@@ -76,10 +76,6 @@ const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
               </p>
             </div>
             <div className="flex flex-col space-y-2">
-              <p className="max-w-xs font-sans text-2xs font-light text-text">
-                <span className="font-medium uppercase">Mitigation potential:</span> {''}
-                {toTBD(data.data.data.attributes.carbon_mitigation)}
-              </p>
               <div className="max-w-xs font-sans text-2xs font-light text-text">
                 <span className="font-medium uppercase">Project phase:</span> {''}
                 {data.data.data.attributes.project_phases.data
@@ -87,8 +83,12 @@ const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
                   .join(', ')}
               </div>
               <p className="max-w-xs font-sans text-2xs font-light text-text">
-                <span className="font-medium uppercase">Area impacted:</span> {''}
+                <span className="font-medium uppercase">Project Area:</span> {''}
                 {toTBD(data.data.data.attributes.hectares_impacted)}
+              </p>
+              <p className="max-w-xs font-sans text-2xs font-light text-text">
+                <span className="font-medium uppercase">Mitigation potential:</span> {''}
+                {toTBD(data.data.data.attributes.carbon_mitigation)}
               </p>
             </div>
           </div>
