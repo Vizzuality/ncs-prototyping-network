@@ -161,10 +161,9 @@ const ProjectDetail = (): JSX.Element => {
                         Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation)
                       )}
                     </p>
-                    <div className="flex flex-col items-center text-center text-m font-medium leading-6 text-text">
-                      <p>Tons of Carbon</p>
-                      <p>Mitigation Potential</p>
-                    </div>
+                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                      Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
+                    </p>
                   </div>
                 </div>
               </div>
