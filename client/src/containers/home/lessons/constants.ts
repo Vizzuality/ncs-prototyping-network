@@ -9,6 +9,7 @@ export const LESSONS = [
       'Building relationship trust with communities is important to overcome perceptions of distrust and/or suspicion towards foreign organizations.',
     ],
     image: '/images/home/lessons/community.png',
+    photoCredit: '©Roshni Lodhia',
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ export const LESSONS = [
       'Bureaucracy, both external and internal, can cause administrative delays in contracting, hiring, permitting, and registering projects.',
     ],
     image: '/images/home/lessons/institutional.png',
+    photoCredit: '©YKAN',
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ export const LESSONS = [
       'Limited technical capacity often leads to hiring difficulties and unavailability of technical laboratories for biogeochemical analyses.',
     ],
     image: '/images/home/lessons/science.png',
+    photoCredit: '©Kristen Blann/TNC',
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ export const LESSONS = [
       ' Some project areas are prone to safety risks, affecting infrastructure development and field access. This includes social and political considerations for accessing sampling sites.',
     ],
     image: '/images/home/lessons/logistics.png',
+    photoCredit: '©Carlos Cifuentes/TNC',
   },
 
   {
@@ -51,5 +55,6 @@ export const LESSONS = [
       ' Growing global and local interest in climate mitigation and environmental restoration are providing new opportunities for fundraising, partnerships, and improved government alignment.',
     ],
     image: '/images/home/lessons/resources.png',
+    photoCredit: '©Eugene Wemin',
   },
 ];
