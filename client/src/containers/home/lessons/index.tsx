@@ -24,7 +24,7 @@ const Lessons = (): JSX.Element => {
       </div>
 
       {LESSONS.map((lesson) => (
-        <div key={lesson.id} className="flex justify-between">
+        <div key={lesson.id} className="relative flex justify-between">
           <Image
             src={lesson.image}
             alt={lesson.title}
@@ -33,6 +33,17 @@ const Lessons = (): JSX.Element => {
             style={{ objectFit: 'cover' }}
             className="w-1/2"
           />
+          <div
+            className={cn({
+              'absolute bottom-20 z-10': true,
+              'right-8': lesson.id % 2 === 0,
+              'left-4': lesson.id % 2 !== 0,
+            })}
+          >
+            <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
+              <p className="whitespace-nowrap text-xs text-black">{lesson.photoCredit}</p>
+            </div>
+          </div>
           <div
             className={cn({
               'flex w-1/2 bg-background text-xl leading-9': true,
