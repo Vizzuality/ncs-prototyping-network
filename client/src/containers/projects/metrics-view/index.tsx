@@ -63,7 +63,11 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
           </div>
         )}
         {!!sortedData.length && (
-          <>
+          <div className="relative">
+            <p className="absolute top-8 z-50 py-3 text-xs font-normal text-text/50">
+              <span className="text-sm">*</span> Mitigation values presented may or may not be
+              equivalent to carbon credit potential depending on methodology and timeframe.
+            </p>
             <table className="bg-white text-xs">
               <thead className="h-16 bg-white">
                 <tr className="bg-white text-left [&>*]:px-4 [&>*]:py-2">
@@ -105,6 +109,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                   ))}
                 </tr>
               </thead>
+
               <tbody className="[&>*]:h-10">
                 {sortedData.map((project) => {
                   const CO_BENEFITS_ORDERED = project.attributes.cobenefits.data
@@ -208,11 +213,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                 })}
               </tbody>
             </table>
-            <p className="py-3 text-xs font-normal text-text/50">
-              <span className="text-sm">*</span> Mitigation values presented may or may not be
-              equivalent to carbon credit potential depending on methodology and timeframe.
-            </p>
-          </>
+          </div>
         )}
       </motion.div>
     </AnimatePresence>
