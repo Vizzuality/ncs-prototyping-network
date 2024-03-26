@@ -62,12 +62,9 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
             <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
           </div>
         )}
+
         {!!sortedData.length && (
-          <div className="relative">
-            <p className="absolute top-8 z-50 py-3 text-xs font-normal text-text/50">
-              <span className="text-sm">*</span> Mitigation values presented may or may not be
-              equivalent to carbon credit potential depending on methodology and timeframe.
-            </p>
+          <div>
             <table className="bg-white text-xs">
               <thead className="h-16 bg-white">
                 <tr className="bg-white text-left [&>*]:px-4 [&>*]:py-2">
@@ -89,7 +86,14 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                             true,
                         })}
                       >
-                        <p>{column.label}</p>
+                        {column.id === 'country' && (
+                          <p
+                            dangerouslySetInnerHTML={{ __html: column.label }}
+                            className="text-xs font-normal text-black text-text/50"
+                          />
+                        )}
+
+                        {column.id !== 'country' && <p>{column.label}</p>}
 
                         {column.sorting && (
                           <span>

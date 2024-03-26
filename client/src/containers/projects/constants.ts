@@ -1,7 +1,8 @@
 export const COLUMNS = [
   {
     id: 'country',
-    label: '',
+    label:
+      '<p><span>*</span> Mitigation values presented may or may not be equivalent to carbon credit potential depending on methodology and timeframe.</p>',
     sorting: false,
     width: 180,
   },
