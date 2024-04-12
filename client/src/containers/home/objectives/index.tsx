@@ -1,3 +1,5 @@
+import Video from '@/components/video';
+
 import Wrapper from 'containers/wrapper';
 
 import { OBJECTIVES } from './constants';
@@ -18,6 +20,17 @@ const Objectives = (): JSX.Element => {
               <p className="pt-2 text-xl font-light leading-8 text-text">{o.text}</p>
             </div>
           ))}
+        </div>
+        <div className="flex w-full justify-center">
+          <div className="aspect-video w-1/2">
+            <Video
+              playing={true}
+              loop
+              url={'https://youtu.be/qMzxUfOHrqE?si=tSXf2YCdXz-zQeaG'}
+              height="100%"
+              width="100%"
+            />
+          </div>
         </div>
       </section>
     </Wrapper>
