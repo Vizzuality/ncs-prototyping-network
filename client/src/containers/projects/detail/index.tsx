@@ -174,7 +174,7 @@ const ProjectDetail = (): JSX.Element => {
             </div>
 
             {data?.data?.data?.attributes.extent && (
-              <div className="relative -mt-20">
+              <div className="relative pt-6">
                 <ExtentMap extent={data?.data?.data?.attributes.extent} />
                 {data?.data?.data?.attributes.extent_credits && (
                   <div className="absolute bottom-24 right-2 mb-1 bg-black/40 px-2">

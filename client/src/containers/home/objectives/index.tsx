@@ -21,8 +21,20 @@ const Objectives = (): JSX.Element => {
             </div>
           ))}
         </div>
-        <div className="flex w-full justify-center">
-          <div className="aspect-[17.6/9] w-2/3">
+        {/* <div className="flex w-full justify-center">
+          <div className="aspect-video w-2/3">
+            <Video
+              playing={true}
+              loop
+              url="https://youtu.be/qMzxUfOHrqE?si=0fZ9yKUW1cGmQlKx"
+              height="100%"
+              width="100%"
+            />
+          </div>
+        </div> */}
+
+        <div className="flex w-full">
+          <div className="aspect-video w-2/3 pr-16">
             <Video
               playing={true}
               loop
