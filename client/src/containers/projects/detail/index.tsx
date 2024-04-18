@@ -121,8 +121,8 @@ const ProjectDetail = (): JSX.Element => {
 
       {isFetched && !!data?.data?.data && (
         <div>
-          <Wrapper className="relative flex w-full flex-row justify-between">
-            <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
+          <Wrapper className="relative flex w-full flex-row justify-between space-x-6 py-6">
+            <div className="flex w-2/3 flex-col items-start">
               <motion.div whileHover="hover">
                 <Link href="/projects" className="flex items-center space-x-2 pb-8">
                   <motion.div variants={arrowAnimation}>
@@ -174,7 +174,7 @@ const ProjectDetail = (): JSX.Element => {
             </div>
 
             {data?.data?.data?.attributes.extent && (
-              <div className="relative -mt-20">
+              <div className="relative">
                 <ExtentMap extent={data?.data?.data?.attributes.extent} />
                 {data?.data?.data?.attributes.extent_credits && (
                   <div className="absolute bottom-24 right-2 mb-1 bg-black/40 px-2">
