@@ -89,10 +89,7 @@ const ExtentMap = ({ extent }): JSX.Element => {
   };
 
   return (
-    <div
-      className="relative h-[426px] w-[460px] lg:w-[500px] xl:h-[400px] xl:w-[576px]"
-      ref={mapRef}
-    >
+    <div className="relative h-full w-[460px] lg:w-[500px] xl:w-[576px]" ref={mapRef}>
       <Map
         id="detail-map"
         mapStyle={BASEMAPS[0].url}
