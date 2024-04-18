@@ -90,7 +90,7 @@ const ExtentMap = ({ extent }): JSX.Element => {
 
   return (
     <div
-      className="relative h-[400px] w-[520px] border-4 border border-spring p-1.5 2xl:w-[576px]"
+      className="relative h-[426px] w-[460px] lg:w-[500px] xl:h-[400px] xl:w-[576px]"
       ref={mapRef}
     >
       <Map

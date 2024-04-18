@@ -121,8 +121,8 @@ const ProjectDetail = (): JSX.Element => {
 
       {isFetched && !!data?.data?.data && (
         <div>
-          <Wrapper className="relative flex w-full flex-row justify-between">
-            <div className="flex w-2/3 flex-col items-start pt-6 pb-16">
+          <Wrapper className="relative flex w-full flex-row justify-between space-x-6">
+            <div className="flex w-2/3 flex-col items-start pt-6 pb-6">
               <motion.div whileHover="hover">
                 <Link href="/projects" className="flex items-center space-x-2 pb-8">
                   <motion.div variants={arrowAnimation}>
