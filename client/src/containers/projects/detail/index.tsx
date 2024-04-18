@@ -166,7 +166,7 @@ const ProjectDetail = (): JSX.Element => {
                     </p>
                   </div>
                 </div>
-                <p className="mt-6 py-3 text-right text-xs font-normal text-text/50">
+                <p className="mt-8 text-right text-xs font-normal text-text/50">
                   <span className="text-sm">*</span> Mitigation values presented may or may not be
                   equivalent to carbon credit potential depending on methodology and timeframe.
                 </p>
