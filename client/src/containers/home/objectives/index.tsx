@@ -31,7 +31,7 @@ const Objectives = (): JSX.Element => {
           <div className="flex w-full justify-center">
             <div className="aspect-video w-2/3 px-5">
               <Video
-                playing={true}
+                playing={false}
                 loop
                 url="https://youtu.be/qMzxUfOHrqE?si=0fZ9yKUW1cGmQlKx"
                 height="100%"
