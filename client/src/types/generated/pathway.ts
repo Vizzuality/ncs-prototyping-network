@@ -20,6 +20,8 @@ import type {
   PathwayResponse,
   PathwayRequest,
   GetPathwaysIdParams,
+  PathwayLocalizationResponse,
+  PathwayLocalizationRequest,
 } from './strapi.schemas';
 import { API } from '../../services/api/index';
 import type { ErrorType } from '../../services/api/index';
@@ -329,6 +331,75 @@ export const useDeletePathwaysId = <TError = ErrorType<Error>, TContext = unknow
   request?: SecondParameter<typeof API>;
 }) => {
   const mutationOptions = getDeletePathwaysIdMutationOptions(options);
+
+  return useMutation(mutationOptions);
+};
+export const postPathwaysIdLocalizations = (
+  id: number,
+  pathwayLocalizationRequest: PathwayLocalizationRequest,
+  options?: SecondParameter<typeof API>
+) => {
+  return API<PathwayLocalizationResponse>(
+    {
+      url: `/pathways/${id}/localizations`,
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      data: pathwayLocalizationRequest,
+    },
+    options
+  );
+};
+
+export const getPostPathwaysIdLocalizationsMutationOptions = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postPathwaysIdLocalizations>>,
+    TError,
+    { id: number; data: PathwayLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof postPathwaysIdLocalizations>>,
+  TError,
+  { id: number; data: PathwayLocalizationRequest },
+  TContext
+> => {
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof postPathwaysIdLocalizations>>,
+    { id: number; data: PathwayLocalizationRequest }
+  > = (props) => {
+    const { id, data } = props ?? {};
+
+    return postPathwaysIdLocalizations(id, data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type PostPathwaysIdLocalizationsMutationResult = NonNullable<
+  Awaited<ReturnType<typeof postPathwaysIdLocalizations>>
+>;
+export type PostPathwaysIdLocalizationsMutationBody = PathwayLocalizationRequest;
+export type PostPathwaysIdLocalizationsMutationError = ErrorType<Error>;
+
+export const usePostPathwaysIdLocalizations = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postPathwaysIdLocalizations>>,
+    TError,
+    { id: number; data: PathwayLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}) => {
+  const mutationOptions = getPostPathwaysIdLocalizationsMutationOptions(options);
 
   return useMutation(mutationOptions);
 };

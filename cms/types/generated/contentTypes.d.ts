@@ -688,8 +688,19 @@ export interface ApiActionTypeActionType extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::action-type.action-type',
       'manyToMany',
@@ -698,6 +709,11 @@ export interface ApiActionTypeActionType extends Schema.CollectionType {
     sort: Attribute.Integer &
       Attribute.Required &
       Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMax<{
         min: 1;
         max: 1000;
@@ -717,6 +733,12 @@ export interface ApiActionTypeActionType extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::action-type.action-type',
+      'oneToMany',
+      'api::action-type.action-type'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -731,8 +753,19 @@ export interface ApiBiomeBiome extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::biome.biome',
       'manyToMany',
@@ -752,6 +785,12 @@ export interface ApiBiomeBiome extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::biome.biome',
+      'oneToMany',
+      'api::biome.biome'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -766,8 +805,19 @@ export interface ApiCobenefitCobenefit extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::cobenefit.cobenefit',
       'manyToMany',
@@ -787,6 +837,12 @@ export interface ApiCobenefitCobenefit extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::cobenefit.cobenefit',
+      'oneToMany',
+      'api::cobenefit.cobenefit'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -801,8 +857,19 @@ export interface ApiCountryCountry extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::country.country',
       'oneToMany',
@@ -822,6 +889,12 @@ export interface ApiCountryCountry extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::country.country',
+      'oneToMany',
+      'api::country.country'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -831,12 +904,24 @@ export interface ApiLessonCategoryLessonCategory extends Schema.CollectionType {
     singularName: 'lesson-category';
     pluralName: 'lesson-categories';
     displayName: 'Lesson Category';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects_1: Attribute.Relation<
       'api::lesson-category.lesson-category',
       'oneToMany',
@@ -866,6 +951,12 @@ export interface ApiLessonCategoryLessonCategory extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::lesson-category.lesson-category',
+      'oneToMany',
+      'api::lesson-category.lesson-category'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -880,8 +971,19 @@ export interface ApiPathwayPathway extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::pathway.pathway',
       'manyToMany',
@@ -901,6 +1003,12 @@ export interface ApiPathwayPathway extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::pathway.pathway',
+      'oneToMany',
+      'api::pathway.pathway'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -915,29 +1023,145 @@ export interface ApiProjectProject extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    project_name: Attribute.String & Attribute.Required;
-    long_title: Attribute.RichText;
-    carbon_mitigation: Attribute.Decimal;
-    hectares_impacted: Attribute.Decimal;
-    project_goal: Attribute.RichText;
-    project_summary: Attribute.RichText;
-    why_this_why_now: Attribute.RichText;
-    key_activities: Attribute.RichText;
-    successes: Attribute.RichText;
-    lesson_1: Attribute.RichText;
-    lesson_2: Attribute.RichText;
-    lesson_3: Attribute.RichText;
-    cb_biodiversity: Attribute.RichText;
-    cb_ecosystem_services: Attribute.RichText;
-    cb_resilience_adapt: Attribute.RichText;
-    cb_health_well_being: Attribute.RichText;
-    cb_livelihood_econ: Attribute.RichText;
-    callout: Attribute.RichText;
-    whats_next: Attribute.RichText;
-    abstract: Attribute.RichText;
-    citations: Attribute.RichText;
-    graphic_1: Attribute.Media;
+    project_name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    long_title: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carbon_mitigation: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    hectares_impacted: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    project_goal: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    project_summary: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    why_this_why_now: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    key_activities: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    successes: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    lesson_1: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    lesson_2: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    lesson_3: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cb_biodiversity: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cb_ecosystem_services: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cb_resilience_adapt: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cb_health_well_being: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cb_livelihood_econ: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    callout: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    whats_next: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    abstract: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    citations: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    graphic_1: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     region: Attribute.Relation<
       'api::project.project',
       'manyToOne',
@@ -1007,19 +1231,84 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToOne',
       'api::lesson-category.lesson-category'
     >;
-    centroid_lat: Attribute.Decimal;
-    centroid_long: Attribute.Decimal;
-    project_site_description: Attribute.Text;
-    project_size_ha: Attribute.Decimal;
-    project_site_attribution: Attribute.Text;
-    project_code: Attribute.String;
-    people_supported: Attribute.Decimal;
-    why_this_why_now_callout: Attribute.RichText;
-    header_photo: Attribute.Media;
-    footer_photo: Attribute.Media;
-    goals_photo: Attribute.Media;
-    fallback_photo: Attribute.Media;
-    extent: Attribute.JSON;
+    centroid_lat: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    centroid_long: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    project_site_description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    project_size_ha: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    project_site_attribution: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    project_code: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    people_supported: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    why_this_why_now_callout: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    header_photo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footer_photo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    goals_photo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    fallback_photo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    extent: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     resources: Attribute.Relation<
       'api::project.project',
       'manyToMany',
@@ -1039,11 +1328,36 @@ export interface ApiProjectProject extends Schema.CollectionType {
           separator: 'semicolon';
         }
       >;
-    video: Attribute.String;
-    video_caption: Attribute.RichText;
-    why_this_why_now_author: Attribute.String;
-    extent_credits: Attribute.RichText;
-    callout_author: Attribute.String;
+    video: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    video_caption: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    why_this_why_now_author: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    extent_credits: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    callout_author: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1059,6 +1373,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::project.project'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1069,12 +1389,24 @@ export interface ApiProjectCategoryProjectCategory
     singularName: 'project-category';
     pluralName: 'project-categories';
     displayName: 'Project Category';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::project-category.project-category',
       'manyToMany',
@@ -1094,6 +1426,12 @@ export interface ApiProjectCategoryProjectCategory
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::project-category.project-category',
+      'oneToMany',
+      'api::project-category.project-category'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1108,8 +1446,19 @@ export interface ApiProjectPhaseProjectPhase extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::project-phase.project-phase',
       'manyToMany',
@@ -1118,6 +1467,11 @@ export interface ApiProjectPhaseProjectPhase extends Schema.CollectionType {
     sort: Attribute.Integer &
       Attribute.Required &
       Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.SetMinMax<{
         min: 1;
         max: 1000;
@@ -1137,6 +1491,12 @@ export interface ApiProjectPhaseProjectPhase extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::project-phase.project-phase',
+      'oneToMany',
+      'api::project-phase.project-phase'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1151,8 +1511,19 @@ export interface ApiRegionRegion extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     projects: Attribute.Relation<
       'api::region.region',
       'oneToMany',
@@ -1172,6 +1543,12 @@ export interface ApiRegionRegion extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::region.region',
+      'oneToMany',
+      'api::region.region'
+    >;
+    locale: Attribute.String;
   };
 }
 

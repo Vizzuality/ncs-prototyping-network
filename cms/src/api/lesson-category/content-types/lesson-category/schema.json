@@ -4,16 +4,26 @@
   "info": {
     "singularName": "lesson-category",
     "pluralName": "lesson-categories",
-    "displayName": "Lesson Category"
+    "displayName": "Lesson Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "projects_1": {
       "type": "relation",
