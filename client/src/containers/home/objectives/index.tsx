@@ -1,6 +1,6 @@
-import Video from '@/components/video';
-
 import Wrapper from 'containers/wrapper';
+
+import Video from '@/components/video';
 
 import { OBJECTIVES } from './constants';
 

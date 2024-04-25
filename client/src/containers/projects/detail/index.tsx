@@ -8,24 +8,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
+import Button from 'components/ui/button';
+import Video from 'components/video';
+import Card from 'containers/projects/card';
+import ExtentMap from 'containers/projects/detail/extent-map';
+import Wrapper from 'containers/wrapper';
 import { motion, useInView } from 'framer-motion';
 import { BsArrowLeft } from 'react-icons/bs';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
 import { useSetRecoilState } from 'recoil';
 import remarkGfm from 'remark-gfm';
+import { cn } from 'utils/cn';
+import { toName, toSlug, toTBD } from 'utils/data';
 
 import { headerStyleAtom } from '@/store';
 
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
-
-import Button from 'components/ui/button';
-import Video from 'components/video';
-import Card from 'containers/projects/card';
-import ExtentMap from 'containers/projects/detail/extent-map';
-import Wrapper from 'containers/wrapper';
-import { cn } from 'utils/cn';
-import { toName, toSlug, toTBD } from 'utils/data';
 
 const ProjectDetail = (): JSX.Element => {
   const { slug } = useParams();
@@ -136,9 +135,13 @@ const ProjectDetail = (): JSX.Element => {
               </motion.div>
 
               <div className="flex max-w-2xl flex-col items-center">
-                <h2 className="mb-16  font-serif text-[35px] font-medium leading-9 text-indigo">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  className="mb-16 font-serif text-[35px] font-medium leading-9 text-indigo"
+                >
                   {data?.data?.data?.attributes.long_title}
-                </h2>
+                </Markdown>
+
                 <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
@@ -181,9 +184,9 @@ const ProjectDetail = (): JSX.Element => {
                 <ExtentMap extent={data?.data?.data?.attributes.extent} />
                 {data?.data?.data?.attributes.extent_credits && (
                   <div className="absolute bottom-24 right-2 mb-1 bg-black/40 px-2">
-                    <p className="text-xs text-white">
+                    <Markdown remarkPlugins={[remarkGfm]} className="text-xs text-white">
                       {data?.data?.data?.attributes.extent_credits}
-                    </p>
+                    </Markdown>
                   </div>
                 )}
               </div>
@@ -278,10 +281,12 @@ const ProjectDetail = (): JSX.Element => {
                     .map((pp) => pp.attributes.name)
                     .join(', ')}
                 </p>
-
-                <p className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text"
+                >
                   {data?.data?.data?.attributes.project_summary}
-                </p>
+                </Markdown>
               </div>
             </Wrapper>
           </section>
@@ -294,9 +299,12 @@ const ProjectDetail = (): JSX.Element => {
               <Wrapper>
                 <div className="flex flex-col items-center space-y-4 py-16 text-white">
                   <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
-                  <p className="max-w-3xl text-center font-sans text-xl font-light leading-9">
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="max-w-3xl text-center font-sans text-xl font-light leading-9"
+                  >
                     {data?.data?.data?.attributes.why_this_why_now_callout}
-                  </p>
+                  </Markdown>
                   <p className="uppercase">
                     {data?.data?.data?.attributes.why_this_why_now_author}
                   </p>
@@ -319,7 +327,9 @@ const ProjectDetail = (): JSX.Element => {
                     />
                   </div>
                   <div className="w-1/3 space-y-4 py-4">
-                    <p className="text-m text-text">{data?.data?.data?.attributes.video_caption}</p>
+                    <Markdown remarkPlugins={[remarkGfm]} className="text-m text-text">
+                      {data?.data?.data?.attributes.video_caption}
+                    </Markdown>
 
                     <div className="pt-2">
                       <Button onClick={() => setPlaying(!playing)}>
@@ -366,7 +376,9 @@ const ProjectDetail = (): JSX.Element => {
                         {data?.data?.data?.attributes.lesson_1_category.data.attributes.name}
                       </td>
                       <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
-                        {data?.data?.data?.attributes.lesson_1}
+                        <Markdown remarkPlugins={[remarkGfm]}>
+                          {data?.data?.data?.attributes.lesson_1}
+                        </Markdown>
                       </td>
                     </tr>
                   )}
@@ -377,7 +389,9 @@ const ProjectDetail = (): JSX.Element => {
                         {data?.data?.data?.attributes.lesson_2_category.data.attributes.name}
                       </td>
                       <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
-                        {data?.data?.data?.attributes.lesson_2}
+                        <Markdown remarkPlugins={[remarkGfm]}>
+                          {data?.data?.data?.attributes.lesson_2}
+                        </Markdown>
                       </td>
                     </tr>
                   )}
@@ -388,7 +402,9 @@ const ProjectDetail = (): JSX.Element => {
                         {data?.data?.data?.attributes.lesson_3_category.data.attributes.name}
                       </td>
                       <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
-                        {data?.data?.data?.attributes.lesson_3}
+                        <Markdown remarkPlugins={[remarkGfm]}>
+                          {data?.data?.data?.attributes.lesson_3}
+                        </Markdown>
                       </td>
                     </tr>
                   )}
@@ -408,9 +424,12 @@ const ProjectDetail = (): JSX.Element => {
               <div className="flex w-3/4 flex-col space-y-10">
                 <div className="flex-col space-y-6">
                   <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
-                  <p className="font-sans text-m font-light leading-7 text-text">
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="font-sans text-m font-light leading-7 text-text"
+                  >
                     {data?.data?.data?.attributes.abstract}
-                  </p>
+                  </Markdown>
                 </div>
                 {data?.data?.data?.attributes.citations && (
                   <div className="flex flex-col space-y-4">
@@ -520,9 +539,10 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Ecosystem Services</p>
                     </div>
-                    <p className="text-m leading-6">
+
+                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_ecosystem_services}
-                    </p>
+                    </Markdown>
                   </div>
                 )}
 
@@ -537,9 +557,9 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Resilience & Adaptation</p>
                     </div>
-                    <p className="text-m leading-6">
+                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_resilience_adapt}
-                    </p>
+                    </Markdown>
                   </div>
                 )}
 
@@ -554,9 +574,9 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Health & Well-being</p>
                     </div>
-                    <p className="text-m leading-6">
+                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_health_well_being}
-                    </p>
+                    </Markdown>
                   </div>
                 )}
 
@@ -571,9 +591,9 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">Livelihoods & Economics</p>
                     </div>
-                    <p className="text-m leading-6">
+                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_livelihood_econ}
-                    </p>
+                    </Markdown>
                   </div>
                 )}
               </div>
@@ -584,9 +604,12 @@ const ProjectDetail = (): JSX.Element => {
               <Wrapper className="flex flex-col items-center space-y-6 py-20">
                 <VscQuote className="fill-butternut" size={40} />
                 <div className="flex flex-col items-center justify-center space-y-5 font-sans text-white">
-                  <p className="max-w-3xl text-center text-xl font-light leading-9">
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="max-w-3xl text-center text-xl font-light leading-9"
+                  >
                     {data?.data?.data?.attributes.callout}
-                  </p>
+                  </Markdown>
                   <p className="uppercase">{data?.data?.data?.attributes.callout_author}</p>
                 </div>
               </Wrapper>
@@ -619,9 +642,12 @@ const ProjectDetail = (): JSX.Element => {
             <Wrapper className="flex flex-row space-x-20">
               <div className="w-3/4 space-y-6">
                 <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
-                <p className="font-sans text-m font-light leading-7 text-text">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  className="font-sans text-m font-light leading-7 text-text"
+                >
                   {data?.data?.data?.attributes.whats_next}
-                </p>
+                </Markdown>
               </div>
 
               {!!(
