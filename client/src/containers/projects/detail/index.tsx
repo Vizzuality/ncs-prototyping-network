@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 
+import Markdown from 'react-markdown';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -11,6 +13,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
 import { useSetRecoilState } from 'recoil';
+import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
 
@@ -217,9 +220,12 @@ const ProjectDetail = (): JSX.Element => {
             <div className="flex w-1/2 justify-end">
               <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
                 <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
-                <p className="xl: font-sans text-base leading-7 xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
+                >
                   {data?.data?.data?.attributes.project_goal}
-                </p>
+                </Markdown>
               </div>
             </div>
 
