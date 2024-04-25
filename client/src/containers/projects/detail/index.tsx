@@ -434,11 +434,10 @@ const ProjectDetail = (): JSX.Element => {
                 {data?.data?.data?.attributes.citations && (
                   <div className="flex flex-col space-y-4">
                     <h5 className="text-lg font-light uppercase">CITATIONS</h5>
-                    <div className="space-y-2 text-2xs font-light">
-                      {data?.data?.data?.attributes.citations?.split(';').map((citation, idx) => (
-                        <p key={idx}>{citation}</p>
-                      ))}
-                    </div>
+
+                    <Markdown remarkPlugins={[remarkGfm]} className="space-y-2 text-2xs font-light">
+                      {data?.data?.data?.attributes.citations}
+                    </Markdown>
                   </div>
                 )}
               </div>
