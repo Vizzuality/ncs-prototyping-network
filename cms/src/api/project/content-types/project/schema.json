@@ -17,7 +17,7 @@
       "required": true
     },
     "long_title": {
-      "type": "text"
+      "type": "richtext"
     },
     "carbon_mitigation": {
       "type": "decimal"
@@ -26,55 +26,55 @@
       "type": "decimal"
     },
     "project_goal": {
-      "type": "text"
+      "type": "richtext"
     },
     "project_summary": {
-      "type": "text"
+      "type": "richtext"
     },
     "why_this_why_now": {
-      "type": "text"
+      "type": "richtext"
     },
     "key_activities": {
-      "type": "text"
+      "type": "richtext"
     },
     "successes": {
-      "type": "text"
+      "type": "richtext"
     },
     "lesson_1": {
-      "type": "text"
+      "type": "richtext"
     },
     "lesson_2": {
-      "type": "text"
+      "type": "richtext"
     },
     "lesson_3": {
-      "type": "text"
+      "type": "richtext"
     },
     "cb_biodiversity": {
-      "type": "text"
+      "type": "richtext"
     },
     "cb_ecosystem_services": {
-      "type": "text"
+      "type": "richtext"
     },
     "cb_resilience_adapt": {
-      "type": "text"
+      "type": "richtext"
     },
     "cb_health_well_being": {
-      "type": "text"
+      "type": "richtext"
     },
     "cb_livelihood_econ": {
-      "type": "text"
+      "type": "richtext"
     },
     "callout": {
-      "type": "text"
+      "type": "richtext"
     },
     "whats_next": {
-      "type": "text"
+      "type": "richtext"
     },
     "abstract": {
-      "type": "text"
+      "type": "richtext"
     },
     "citations": {
-      "type": "text"
+      "type": "richtext"
     },
     "graphic_1": {
       "type": "media",
@@ -186,7 +186,7 @@
       "type": "decimal"
     },
     "why_this_why_now_callout": {
-      "type": "text"
+      "type": "richtext"
     },
     "header_photo": {
       "type": "media",
@@ -247,13 +247,13 @@
       "type": "string"
     },
     "video_caption": {
-      "type": "text"
+      "type": "richtext"
     },
     "why_this_why_now_author": {
       "type": "string"
     },
     "extent_credits": {
-      "type": "text"
+      "type": "richtext"
     },
     "callout_author": {
       "type": "string"

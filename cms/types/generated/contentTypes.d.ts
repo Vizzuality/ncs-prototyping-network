@@ -917,26 +917,26 @@ export interface ApiProjectProject extends Schema.CollectionType {
   };
   attributes: {
     project_name: Attribute.String & Attribute.Required;
-    long_title: Attribute.Text;
+    long_title: Attribute.RichText;
     carbon_mitigation: Attribute.Decimal;
     hectares_impacted: Attribute.Decimal;
-    project_goal: Attribute.Text;
-    project_summary: Attribute.Text;
-    why_this_why_now: Attribute.Text;
-    key_activities: Attribute.Text;
-    successes: Attribute.Text;
-    lesson_1: Attribute.Text;
-    lesson_2: Attribute.Text;
-    lesson_3: Attribute.Text;
-    cb_biodiversity: Attribute.Text;
-    cb_ecosystem_services: Attribute.Text;
-    cb_resilience_adapt: Attribute.Text;
-    cb_health_well_being: Attribute.Text;
-    cb_livelihood_econ: Attribute.Text;
-    callout: Attribute.Text;
-    whats_next: Attribute.Text;
-    abstract: Attribute.Text;
-    citations: Attribute.Text;
+    project_goal: Attribute.RichText;
+    project_summary: Attribute.RichText;
+    why_this_why_now: Attribute.RichText;
+    key_activities: Attribute.RichText;
+    successes: Attribute.RichText;
+    lesson_1: Attribute.RichText;
+    lesson_2: Attribute.RichText;
+    lesson_3: Attribute.RichText;
+    cb_biodiversity: Attribute.RichText;
+    cb_ecosystem_services: Attribute.RichText;
+    cb_resilience_adapt: Attribute.RichText;
+    cb_health_well_being: Attribute.RichText;
+    cb_livelihood_econ: Attribute.RichText;
+    callout: Attribute.RichText;
+    whats_next: Attribute.RichText;
+    abstract: Attribute.RichText;
+    citations: Attribute.RichText;
     graphic_1: Attribute.Media;
     region: Attribute.Relation<
       'api::project.project',
@@ -1014,7 +1014,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     project_site_attribution: Attribute.Text;
     project_code: Attribute.String;
     people_supported: Attribute.Decimal;
-    why_this_why_now_callout: Attribute.Text;
+    why_this_why_now_callout: Attribute.RichText;
     header_photo: Attribute.Media;
     footer_photo: Attribute.Media;
     goals_photo: Attribute.Media;
@@ -1040,9 +1040,9 @@ export interface ApiProjectProject extends Schema.CollectionType {
         }
       >;
     video: Attribute.String;
-    video_caption: Attribute.Text;
+    video_caption: Attribute.RichText;
     why_this_why_now_author: Attribute.String;
-    extent_credits: Attribute.Text;
+    extent_credits: Attribute.RichText;
     callout_author: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
