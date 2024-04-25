@@ -257,19 +257,12 @@ const ProjectDetail = (): JSX.Element => {
               {data?.data?.data?.attributes.key_activities && (
                 <div>
                   <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
-                  <div className="flex flex-col space-y-2 py-6 font-sans text-text">
-                    {data?.data?.data?.attributes.key_activities
-                      ?.split(';')
-                      .map((activity, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
-                        >
-                          <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
-                          <p className="mt-2 font-sans text-xl font-light text-text">{activity}</p>
-                        </div>
-                      ))}
-                  </div>
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="my-6 border-t border-b border-accents pl-10 [&_li]:py-4 [&_li]:marker:text-4xl [&_li]:marker:font-bold [&_li]:marker:text-butternut [&_ol]:flex [&_ol]:list-decimal [&_ol]:flex-col [&_ol]:font-sans [&_ol]:text-xl [&_ol]:font-light [&_ol]:text-text"
+                  >
+                    {data?.data?.data?.attributes.key_activities}
+                  </Markdown>
                 </div>
               )}
 
