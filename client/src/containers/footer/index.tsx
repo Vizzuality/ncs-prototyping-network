@@ -6,9 +6,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { useRecoilValue } from 'recoil';
+
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
-import { useRecoilValue } from 'recoil';
 import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
 
