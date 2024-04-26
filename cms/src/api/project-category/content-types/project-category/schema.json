@@ -4,16 +4,26 @@
   "info": {
     "singularName": "project-category",
     "pluralName": "project-categories",
-    "displayName": "Project Category"
+    "displayName": "Project Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "projects": {
       "type": "relation",
