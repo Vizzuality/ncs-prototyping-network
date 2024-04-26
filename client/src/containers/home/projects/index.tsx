@@ -1,11 +1,13 @@
 import { MouseEventHandler } from 'react';
 
+import Markdown from 'react-markdown';
 import Slider from 'react-slick';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+import remarkGfm from 'remark-gfm';
 
 import { useGetProjects } from '@/types/generated/project';
 
@@ -87,12 +89,19 @@ const HomeProjects = (): JSX.Element => {
 
                   <div className="to-black-0 absolute top-0 h-2/3 w-full bg-gradient-to-b from-black/50 text-white">
                     <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4">
-                      <h3 className="font-serif text-xs font-bold uppercase">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        className="font-serif text-xs font-bold uppercase"
+                      >
                         {project.attributes.project_name}
-                      </h3>
-                      <p className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">
+                      </Markdown>
+
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6"
+                      >
                         {project.attributes.long_title}
-                      </p>
+                      </Markdown>
                     </div>
                   </div>
                 </Link>
