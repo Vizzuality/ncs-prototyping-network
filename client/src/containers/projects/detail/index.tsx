@@ -37,7 +37,10 @@ const ProjectDetail = (): JSX.Element => {
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
-  const { data: projects } = useGetProjects({ populate: '*' });
+  const { data: projects } = useGetProjects({
+    populate: '*',
+    // locale: 'pt',
+  });
 
   const id = useMemo(() => {
     return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;

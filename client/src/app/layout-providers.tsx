@@ -5,9 +5,8 @@ import { PropsWithChildren, useState } from 'react';
 import { MapProvider } from 'react-map-gl';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { RecoilRoot } from 'recoil';
-
 import { MediaContextProvider } from 'components/media-query';
+import { RecoilRoot } from 'recoil';
 import { LoraFont, UbuntuFont } from 'styles/fonts';
 
 import 'styles/mapbox.css';
