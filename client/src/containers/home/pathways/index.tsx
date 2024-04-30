@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Wrapper from 'containers/wrapper';
 import { motion } from 'framer-motion';
 import { BsArrowRight } from 'react-icons/bs';
-
-import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 import { PATHWAYS } from './constants';

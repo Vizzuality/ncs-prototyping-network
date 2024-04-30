@@ -3,13 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { useRecoilValue } from 'recoil';
-
-import { headerStyleAtom } from '@/store';
-
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
+import { useRecoilValue } from 'recoil';
 import { cn } from 'utils/cn';
+
+import { headerStyleAtom } from '@/store';
 
 const Header: React.FC = () => {
   const pathname = usePathname();

@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import * as Select from '@radix-ui/react-select';
 import { HiChevronDown } from 'react-icons/hi';
-
 import { cn } from 'utils/cn';
 
 type Option = {

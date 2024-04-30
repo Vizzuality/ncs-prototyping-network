@@ -12,11 +12,6 @@
           "name",
           "projects",
           "sort"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -25,13 +20,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::action-type.action-type",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -43,11 +32,6 @@
           "name",
           "projects",
           "sort"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -61,11 +45,6 @@
           "name",
           "projects",
           "sort"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -78,11 +57,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -91,13 +65,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::biome.biome",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -108,11 +76,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -125,11 +88,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -156,13 +114,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::cobenefit.cobenefit",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -209,11 +161,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -222,13 +169,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::country.country",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -239,11 +180,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -256,11 +192,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -275,11 +206,6 @@
           "projects_1",
           "projects_2",
           "projects_3"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -288,13 +214,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::lesson-category.lesson-category",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -307,11 +227,6 @@
           "projects_1",
           "projects_2",
           "projects_3"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -326,11 +241,6 @@
           "projects_1",
           "projects_2",
           "projects_3"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -343,11 +253,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -356,13 +261,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::pathway.pathway",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -373,11 +272,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -390,11 +284,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -407,11 +296,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -420,13 +304,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::project-category.project-category",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -437,11 +315,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -454,11 +327,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -472,11 +340,6 @@
           "name",
           "projects",
           "sort"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -485,13 +348,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::project-phase.project-phase",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -503,11 +360,6 @@
           "name",
           "projects",
           "sort"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -521,11 +373,6 @@
           "name",
           "projects",
           "sort"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -606,26 +453,14 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::project.project",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
       "subject": "api::project.project",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -780,11 +615,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -793,13 +623,7 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::region.region",
-      "properties": {
-        "locales": [
-          "en",
-          "es",
-          "pt"
-        ]
-      },
+      "properties": {},
       "conditions": []
     },
     {
@@ -810,11 +634,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []
@@ -827,11 +646,6 @@
         "fields": [
           "name",
           "projects"
-        ],
-        "locales": [
-          "en",
-          "es",
-          "pt"
         ]
       },
       "conditions": []

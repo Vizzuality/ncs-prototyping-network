@@ -4,10 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { useRecoilValue } from 'recoil';
+import { cn } from 'utils/cn';
 
 import { headerStyleAtom } from '@/store';
-
-import { cn } from 'utils/cn';
 
 import { NAV_TABS_HEADER, NAV_TABS_FOOTER } from './constants';
 

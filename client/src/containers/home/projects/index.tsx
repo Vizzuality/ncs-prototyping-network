@@ -6,12 +6,11 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Wrapper from 'containers/wrapper';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import remarkGfm from 'remark-gfm';
 
 import { useGetProjects } from '@/types/generated/project';
-
-import Wrapper from 'containers/wrapper';
 
 const HomeProjects = (): JSX.Element => {
   const { data, isFetched } = useGetProjects({ populate: '*' });
