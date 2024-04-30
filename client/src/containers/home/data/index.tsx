@@ -1,9 +1,15 @@
+import { useRecoilValue } from 'recoil';
+
+import { localeAtom } from '@/store';
+
 import { useGetProjects } from '@/types/generated/project';
 
 import Wrapper from 'containers/wrapper';
 
 const Data = (): JSX.Element => {
-  const { data, isFetched } = useGetProjects({ populate: '*' });
+  const locale = useRecoilValue(localeAtom);
+
+  const { data, isFetched } = useGetProjects({ populate: '*', locale });
 
   const countriesArray = data?.data?.data.map(
     (project) => project.attributes.country.data.attributes.name

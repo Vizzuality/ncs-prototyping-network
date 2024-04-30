@@ -4,6 +4,7 @@ import { Config } from 'react-player';
 
 import { BaseReactPlayerProps } from 'react-player/base';
 import ReactPlayer from 'react-player/lazy';
+
 import { cn } from 'utils/cn';
 
 interface VideoProps extends BaseReactPlayerProps {

@@ -13,11 +13,14 @@ import MapView from 'containers/projects/map-view';
 import MetricsView from 'containers/projects/metrics-view';
 import Tabs from 'containers/projects/tabs';
 import Wrapper from 'containers/wrapper';
-import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
+import { filtersAtom, headerStyleAtom, localeAtom, projectsViewAtom } from 'store';
 
 const ProjectsPage = (): JSX.Element => {
-  const { data: pathwaysData, isFetched } = useGetPathways();
+  const locale = useRecoilValue(localeAtom);
+  const { data: pathwaysData, isFetched } = useGetPathways({ locale });
+
   const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
+  console.log({ pathways });
 
   const {
     data: projectsData,

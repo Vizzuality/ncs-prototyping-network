@@ -7,6 +7,8 @@ export type Basemap = 'outdoors' | 'satellite';
 
 export type HeaderStyle = 'default' | 'light' | 'dark';
 
+export type Locale = 'en' | 'es' | 'pt';
+
 export type Filters = {
   pathways: string[];
   action_types: string[];
@@ -44,12 +46,18 @@ export const headerStyleAtom = atom<HeaderStyle>({
   default: 'default',
 });
 
+export const localeAtom = atom<Locale>({
+  key: 'locale',
+  default: 'en',
+});
+
 const store = {
   projectsView: projectsViewAtom,
   filters: filtersAtom,
   basemap: basemapAtom,
   filteredBbox: filteredBboxAtom,
   headerStyle: headerStyleAtom,
+  locale: localeAtom,
 };
 
 export default store;

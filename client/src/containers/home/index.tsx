@@ -1,6 +1,11 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
+import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { useSetRecoilState } from 'recoil';
+
+import { headerStyleAtom } from '@/store';
+
 import Footer from 'containers/footer';
 import Data from 'containers/home/data';
 import Facts from 'containers/home/facts';
@@ -10,10 +15,6 @@ import HomeMap from 'containers/home/map';
 import Objectives from 'containers/home/objectives';
 import Pathways from 'containers/home/pathways';
 import Projects from 'containers/home/projects';
-import { AnimatePresence, motion, useInView } from 'framer-motion';
-import { useSetRecoilState } from 'recoil';
-
-import { headerStyleAtom } from '@/store';
 
 const HomePage = (): JSX.Element => {
   const ref = useRef();

@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import * as Select from '@radix-ui/react-select';
 import { HiChevronDown } from 'react-icons/hi';
+
 import { cn } from 'utils/cn';
 
 type Option = {
@@ -23,6 +24,12 @@ const THEME = {
     content: 'w-[180px]',
     trigger: 'border-none w-[180px] text-indigo justify-end space-x-2',
     value: 'text-indigo',
+  },
+  tertiary: {
+    arrow: 'fill-white',
+    content: 'w-32',
+    trigger: 'border-none w-32 text-white bg-indigo justify-end space-x-2 rounded-sm',
+    value: 'text-white',
   },
 };
 
@@ -50,7 +57,7 @@ const SelectComponent = ({
   options,
   onValueChange,
 }: {
-  theme?: 'primary' | 'secondary';
+  theme?: 'primary' | 'secondary' | 'tertiary';
   type: string;
   options: Option[];
   onValueChange: (value: string) => void;
