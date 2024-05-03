@@ -4,16 +4,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
-
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
+import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
+
+import { useSyncLocale } from '@/hooks/locale/sync-query';
+
 const DetailFooter: React.FC = () => {
   const { slug } = useParams();
+  const [locale] = useSyncLocale();
 
-  const { data: projects } = useGetProjects({ populate: '*' });
+  const { data: projects } = useGetProjects({ populate: '*', locale });
 
   const id = useMemo(() => {
     return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;

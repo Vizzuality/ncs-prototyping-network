@@ -26,6 +26,8 @@ import { headerStyleAtom } from '@/store';
 
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
+import { useSyncLocale } from '@/hooks/locale/sync-query';
+
 const ProjectDetail = (): JSX.Element => {
   const { slug } = useParams();
 
@@ -34,12 +36,13 @@ const ProjectDetail = (): JSX.Element => {
     once: false,
     amount: 0.25,
   });
+  const [locale] = useSyncLocale();
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
   const { data: projects } = useGetProjects({
     populate: '*',
-    // locale: 'pt',
+    locale,
   });
 
   const id = useMemo(() => {
@@ -686,6 +689,14 @@ const ProjectDetail = (): JSX.Element => {
                 {similarProjects?.map((project, idx) => (
                   <Card key={idx} id={project.id} slug={project.attributes.slug} />
                 ))}
+
+                {similarProjects.length === 0 && (
+                  <div className="flex h-64 w-full items-center justify-center">
+                    <p className="font-serif text-lg font-semibold text-indigo">
+                      No similar projects found
+                    </p>
+                  </div>
+                )}
               </div>
             </Wrapper>
           </section>

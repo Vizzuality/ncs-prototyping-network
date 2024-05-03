@@ -62,6 +62,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   });
 
   const filteredBbox = useRecoilValue(filteredBboxAtom);
+
   const basemap = useRecoilValue(basemapAtom);
 
   const { ['projects-map']: map } = useMap();
@@ -76,12 +77,6 @@ const MapView = ({ data }: { data }): JSX.Element => {
       map.fitBounds(filteredBbox, { padding: 20, maxZoom: 6 });
     }
   }, [filteredBbox, map, basemap]);
-
-  // const handleViewState = useCallback(() => {
-  //   if (map) {
-  //     console.log('map', map.getStyle().layers);
-  //   }
-  // }, [map]);
 
   const bounds: CustomMapProps['bounds'] = {
     bbox: [-237.65625, -78.836065, 238.007813, 78.767792],

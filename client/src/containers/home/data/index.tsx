@@ -1,13 +1,11 @@
-import { useRecoilValue } from 'recoil';
-
-import { localeAtom } from '@/store';
-
 import { useGetProjects } from '@/types/generated/project';
+
+import { useSyncLocale } from '@/hooks/locale/sync-query';
 
 import Wrapper from 'containers/wrapper';
 
 const Data = (): JSX.Element => {
-  const locale = useRecoilValue(localeAtom);
+  const [locale] = useSyncLocale();
 
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
 

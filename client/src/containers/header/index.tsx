@@ -7,6 +7,8 @@ import { useRecoilValue } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
+import { useSyncLocale } from '@/hooks/locale/sync-query';
+
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
@@ -14,6 +16,7 @@ import { cn } from 'utils/cn';
 const Header: React.FC = () => {
   const pathname = usePathname();
   const headerStyle = useRecoilValue(headerStyleAtom);
+  const [locale] = useSyncLocale();
 
   return (
     <div
@@ -27,7 +30,7 @@ const Header: React.FC = () => {
     >
       <Wrapper className="h-18 relative z-50 flex w-full flex-row items-center justify-between self-start">
         <div className="flex items-center space-x-4">
-          <Link className="flex cursor-pointer" href="/">
+          <Link className="flex cursor-pointer" href={`/${locale}`}>
             <h1
               className={cn({
                 'font-sans text-2xl uppercase text-white': true,

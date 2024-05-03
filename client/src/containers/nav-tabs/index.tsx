@@ -8,9 +8,17 @@ import { cn } from 'utils/cn';
 
 import { headerStyleAtom } from '@/store';
 
+<<<<<<< HEAD
+=======
+import { useSyncLocale } from '@/hooks/locale/sync-query';
+
+import { cn } from 'utils/cn';
+
+>>>>>>> 5ca6302f (add locale to most endpoints)
 import { NAV_TABS_HEADER, NAV_TABS_FOOTER } from './constants';
 
 const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
+  const [locale] = useSyncLocale();
   const pathname = usePathname();
   const headerStyle = useRecoilValue(headerStyleAtom);
 
@@ -32,7 +40,7 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
               // TODO: remove this when the about and resources pages are ready
               'pointer-events-none': tab.href === '/about' || tab.href === '/resources',
             })}
-            href={tab.href}
+            href={`${tab.href}?locale="${locale}"`}
           >
             <p
               className={cn({

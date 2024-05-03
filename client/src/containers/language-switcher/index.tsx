@@ -1,7 +1,6 @@
 'use client';
 
 import Select from 'components/ui/select';
-import Select from 'components/ui/select';
 
 import { type Locale } from '@/hooks/query/query-parsers';
 import { useSyncLocale } from '@/hooks/query/sync-query';

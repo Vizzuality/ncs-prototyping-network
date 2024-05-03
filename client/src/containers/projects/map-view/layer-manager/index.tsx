@@ -8,10 +8,15 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useGetProjects } from '@/types/generated/project';
 
+import { useSyncLocale } from '@/hooks/locale/sync-query';
+
 import { filteredBboxAtom, filtersAtom } from 'store';
 
 const LayerManager = () => {
-  const { data: projectsData } = useGetProjects({ populate: '*' });
+  const [locale] = useSyncLocale();
+
+  const { data: projectsData } = useGetProjects({ populate: '*', locale });
+
   const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
   const filters = useRecoilValue(filtersAtom);

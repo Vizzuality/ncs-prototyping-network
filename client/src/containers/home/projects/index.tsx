@@ -8,15 +8,14 @@ import Link from 'next/link';
 
 import Wrapper from 'containers/wrapper';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
-import { useRecoilValue } from 'recoil';
 import remarkGfm from 'remark-gfm';
-
-import { localeAtom } from '@/store';
 
 import { useGetProjects } from '@/types/generated/project';
 
+import { useSyncLocale } from '@/hooks/locale/sync-query';
+
 const HomeProjects = (): JSX.Element => {
-  const locale = useRecoilValue(localeAtom);
+  const [locale] = useSyncLocale();
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
 
   const SampleNextArrow = ({ onClick }: { onClick?: MouseEventHandler<HTMLButtonElement> }) => {
