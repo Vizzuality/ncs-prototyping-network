@@ -26,7 +26,8 @@ import { headerStyleAtom } from '@/store';
 
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
-import { useSyncLocale } from '@/hooks/locale/sync-query';
+import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 const ProjectDetail = (): JSX.Element => {
   const { slug } = useParams();
@@ -36,7 +37,9 @@ const ProjectDetail = (): JSX.Element => {
     once: false,
     amount: 0.25,
   });
+
   const [locale] = useSyncLocale();
+  const queryParams = useSyncQueryParams();
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
@@ -131,7 +134,7 @@ const ProjectDetail = (): JSX.Element => {
           <Wrapper className="relative flex w-full flex-row justify-between space-x-6 py-6">
             <div className="flex w-2/3 flex-col items-start">
               <motion.div whileHover="hover">
-                <Link href="/projects" className="flex items-center space-x-2 pb-8">
+                <Link href={`/projects${queryParams}`} className="flex items-center space-x-2 pb-8">
                   <motion.div variants={arrowAnimation}>
                     <BsArrowLeft className="fill-butternut" size={30} />
                   </motion.div>
@@ -673,7 +676,7 @@ const ProjectDetail = (): JSX.Element => {
                   Reach out and we’ll connect you to the people who will be the most helpful for
                   your questions.
                 </p>
-                <Link href="/contact">
+                <Link href={`/contact${queryParams}`}>
                   <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
                     <p className="text-base font-bold uppercase">Contact us</p>
                     <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />

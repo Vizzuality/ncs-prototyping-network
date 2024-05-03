@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncLocale } from '@/hooks/locale/sync-query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import { useTotalData } from 'hooks/projects';
 import { filtersAtom } from 'store';

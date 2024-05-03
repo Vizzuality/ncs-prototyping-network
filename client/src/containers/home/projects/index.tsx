@@ -12,7 +12,7 @@ import remarkGfm from 'remark-gfm';
 
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncLocale } from '@/hooks/locale/sync-query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 const HomeProjects = (): JSX.Element => {
   const [locale] = useSyncLocale();

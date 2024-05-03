@@ -8,7 +8,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncLocale } from '@/hooks/locale/sync-query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';

@@ -1,6 +1,6 @@
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncLocale } from '@/hooks/locale/sync-query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Wrapper from 'containers/wrapper';
 

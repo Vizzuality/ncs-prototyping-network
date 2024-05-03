@@ -10,6 +10,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
 
+import { useSyncQueryParams } from '@/hooks/query';
+
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
@@ -48,6 +50,8 @@ const DEFAULT_PROPS = {
 
 const MapView = ({ data }: { data }): JSX.Element => {
   const { push } = useRouter();
+
+  const queryParams = useSyncQueryParams();
 
   const mapRef = useRef(null);
   const [sortedBy, setSortedBy] = useState<string>('carbon_mitigation');
@@ -233,7 +237,13 @@ const MapView = ({ data }: { data }): JSX.Element => {
                     </Controls>
                     {!!projectsPopUp?.popup?.length && (
                       <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
+<<<<<<< HEAD
                         <Link href={`/projects/${projectSlug}`}>
+=======
+                        <Link
+                          href={`/projects/${toSlug(projectsPopUp.popupInfo?.name)}${queryParams}`}
+                        >
+>>>>>>> 2a21b782 (sync query params)
                           <div className="px-2 py-1">
                             <p className="font-sans text-2xs text-gray-800">
                               {projectsPopUp.popupInfo.name}

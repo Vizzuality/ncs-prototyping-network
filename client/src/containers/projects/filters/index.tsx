@@ -7,7 +7,7 @@ import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjectCategories } from '@/types/generated/project-category';
 import { useGetProjectPhases } from '@/types/generated/project-phase';
 
-import { useSyncLocale } from '@/hooks/locale/sync-query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import MultiSelect from 'components/ui/multiselect';
 import { filtersAtom } from 'store';
