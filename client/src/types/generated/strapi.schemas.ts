@@ -498,6 +498,7 @@ export type ResourceProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -2263,6 +2264,7 @@ export type RegionProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -3993,6 +3995,7 @@ export type ProjectPhaseProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -5714,6 +5717,7 @@ export type ProjectCategoryProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -7374,6 +7378,7 @@ export interface Project {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -7976,6 +7981,7 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -9734,6 +9740,7 @@ export type ProjectRequestData = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   locale?: string;
 };
 
@@ -9828,6 +9835,7 @@ export interface ProjectLocalizationRequest {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   locale: string;
 }
 
@@ -9945,6 +9953,7 @@ export type PathwayProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -11712,6 +11721,7 @@ export type LessonCategoryProjects1DataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -13466,6 +13476,7 @@ export type CountryProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -15155,6 +15166,7 @@ export type CobenefitProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -16916,6 +16928,7 @@ export type BiomeProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -18611,6 +18624,7 @@ export type ActionTypeProjectsDataItemAttributes = {
   why_this_why_now_author?: string;
   extent_credits?: string;
   callout_author?: string;
+  slug?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;

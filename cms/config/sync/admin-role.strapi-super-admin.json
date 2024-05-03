@@ -588,7 +588,8 @@
           "video_caption",
           "why_this_why_now_author",
           "extent_credits",
-          "callout_author"
+          "callout_author",
+          "slug"
         ],
         "locales": [
           "en",
@@ -685,7 +686,8 @@
           "video_caption",
           "why_this_why_now_author",
           "extent_credits",
-          "callout_author"
+          "callout_author",
+          "slug"
         ],
         "locales": [
           "en",
@@ -756,7 +758,8 @@
           "video_caption",
           "why_this_why_now_author",
           "extent_credits",
-          "callout_author"
+          "callout_author",
+          "slug"
         ],
         "locales": [
           "en",
