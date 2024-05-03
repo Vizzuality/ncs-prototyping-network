@@ -890,12 +890,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
-      ],
       "edit": [
         [
           {
@@ -1210,13 +1204,13 @@
             "name": "extent_credits",
             "size": 12
           }
-        ],
-        [
-          {
-            "name": "slug",
-            "size": 6
-          }
         ]
+      ],
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
       ]
     }
   },
