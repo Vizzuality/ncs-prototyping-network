@@ -12,6 +12,7 @@ const Data = (): JSX.Element => {
   const countriesArray = data?.data?.data.map(
     (project) => project.attributes.country.data.attributes.name
   );
+
   const countries = countriesArray?.filter((c, idx) => countriesArray.indexOf(c) === idx).length;
 
   const partnersArray = data?.data?.data

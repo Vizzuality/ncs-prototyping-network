@@ -9,6 +9,8 @@ import { headerStyleAtom } from '@/store';
 
 import { useSyncQueryParams } from '@/hooks/query';
 
+import LanguageSwitcher from '@/containers/language-switcher';
+
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
@@ -52,7 +54,10 @@ const Header: React.FC = () => {
             <p>BETA</p>
           </div>
         </div>
-        <NavigationTabs />
+        <div className="flex items-center space-x-20">
+          <LanguageSwitcher />
+          <NavigationTabs />
+        </div>
       </Wrapper>
     </div>
   );

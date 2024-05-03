@@ -27,8 +27,8 @@ const THEME = {
   },
   tertiary: {
     arrow: 'fill-white',
-    content: 'w-32',
-    trigger: 'border-none w-32 text-white bg-indigo justify-end space-x-2 rounded-sm',
+    content: 'w-36',
+    trigger: 'border-none w-36 text-white bg-indigo space-x-2 rounded-sm justify-between px-4',
     value: 'text-white',
   },
 };

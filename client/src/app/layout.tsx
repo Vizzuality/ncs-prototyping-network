@@ -3,8 +3,6 @@ import { Metadata } from 'next';
 
 import Head from 'next/head';
 
-import LanguageSwitcher from '@/containers/language-switcher';
-
 import Providers from 'app/layout-providers';
 import Header from 'containers/header';
 
@@ -25,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header />
 
             {children}
-            <LanguageSwitcher />
           </main>
         </body>
       </html>
