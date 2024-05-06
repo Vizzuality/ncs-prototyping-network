@@ -1,5 +1,7 @@
 import { useQueryState } from 'nuqs';
 
-import { localeParser } from '@/hooks/query/query-parsers';
+import { localeParser, pathwayParser } from '@/hooks/query/query-parsers';
 
 export const useSyncLocale = () => useQueryState('locale', localeParser);
+
+export const useSyncPathway = () => useQueryState('pathway', pathwayParser);

@@ -88,7 +88,7 @@ const SelectComponent = ({
         <Select.Portal>
           <Select.Content
             className={cn({
-              'z-20 mt-10 w-full overflow-hidden rounded-lg border bg-white text-base text-text':
+              'z-50 mt-10 w-full overflow-hidden rounded-lg border bg-white text-base text-text':
                 true,
               [THEME[theme].content]: !!theme,
             })}

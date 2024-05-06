@@ -1,14 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import { useSearchParams } from 'next/navigation';
-
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncLocale } from '@/hooks/query/sync-query';
+import { useSyncLocale, useSyncPathway } from '@/hooks/query/sync-query';
 
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
@@ -19,6 +17,7 @@ import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
 
 const ProjectsPage = (): JSX.Element => {
   const [locale] = useSyncLocale();
+  const [pathway] = useSyncPathway();
   const { data: pathwaysData, isFetched } = useGetPathways({ locale });
 
   const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
@@ -33,9 +32,6 @@ const ProjectsPage = (): JSX.Element => {
   const projectsView = useRecoilValue(projectsViewAtom);
   const [filters, setFilters] = useRecoilState(filtersAtom);
 
-  const searchParams = useSearchParams();
-  const pathway = searchParams.get('pathway');
-
   const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
   useEffect(() => {
@@ -44,7 +40,7 @@ const ProjectsPage = (): JSX.Element => {
 
   const getSpecificPathwayName = (pathway) => {
     switch (pathway) {
-      case 'Agroforestry':
+      case pathwaysData.data.data[0]?.attributes.name:
         return [pathways[0]];
       case 'Coastal Wetlands':
         return [pathways[1], pathways[2]];
@@ -61,7 +57,7 @@ const ProjectsPage = (): JSX.Element => {
   }, [pathwaysData?.data?.data]);
 
   useEffect(() => {
-    const activedFilters = Object.values(filters).some((f) => f.length > 0);
+    const activedFilters = Object.values(filters).some((f) => f?.length > 0);
     const dataFinalFiltered = () => {
       const data = projectsData?.data?.data?.filter((project) => {
         if (filters.pathways.length > 0) {
