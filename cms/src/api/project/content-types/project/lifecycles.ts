@@ -13,12 +13,11 @@ export default {
 
   async beforeUpdate(event) {
     const { project_name } = event.params.data;
-    const existingEntity = await strapi.entityService.findOne('api::project.project', event.params.where.id, {
+    const existingEntity: any = await strapi.entityService.findOne('api::project.project', event.params.where.id, {
       fields: ['locale']
     });
-    const locale = existingEntity.locale;
 
-    if (project_name && locale === 'en') {
+    if (project_name && existingEntity.locale && existingEntity.locale === 'en') {
       event.params.data.slug = project_name
         .toLowerCase()
         .replace(/ /g, '-')
