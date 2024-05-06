@@ -20,6 +20,8 @@ import type {
   CobenefitResponse,
   CobenefitRequest,
   GetCobenefitsIdParams,
+  CobenefitLocalizationResponse,
+  CobenefitLocalizationRequest,
 } from './strapi.schemas';
 import { API } from '../../services/api/index';
 import type { ErrorType } from '../../services/api/index';
@@ -334,6 +336,75 @@ export const useDeleteCobenefitsId = <TError = ErrorType<Error>, TContext = unkn
   request?: SecondParameter<typeof API>;
 }) => {
   const mutationOptions = getDeleteCobenefitsIdMutationOptions(options);
+
+  return useMutation(mutationOptions);
+};
+export const postCobenefitsIdLocalizations = (
+  id: number,
+  cobenefitLocalizationRequest: CobenefitLocalizationRequest,
+  options?: SecondParameter<typeof API>
+) => {
+  return API<CobenefitLocalizationResponse>(
+    {
+      url: `/cobenefits/${id}/localizations`,
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      data: cobenefitLocalizationRequest,
+    },
+    options
+  );
+};
+
+export const getPostCobenefitsIdLocalizationsMutationOptions = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postCobenefitsIdLocalizations>>,
+    TError,
+    { id: number; data: CobenefitLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof postCobenefitsIdLocalizations>>,
+  TError,
+  { id: number; data: CobenefitLocalizationRequest },
+  TContext
+> => {
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof postCobenefitsIdLocalizations>>,
+    { id: number; data: CobenefitLocalizationRequest }
+  > = (props) => {
+    const { id, data } = props ?? {};
+
+    return postCobenefitsIdLocalizations(id, data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type PostCobenefitsIdLocalizationsMutationResult = NonNullable<
+  Awaited<ReturnType<typeof postCobenefitsIdLocalizations>>
+>;
+export type PostCobenefitsIdLocalizationsMutationBody = CobenefitLocalizationRequest;
+export type PostCobenefitsIdLocalizationsMutationError = ErrorType<Error>;
+
+export const usePostCobenefitsIdLocalizations = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postCobenefitsIdLocalizations>>,
+    TError,
+    { id: number; data: CobenefitLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}) => {
+  const mutationOptions = getPostCobenefitsIdLocalizationsMutationOptions(options);
 
   return useMutation(mutationOptions);
 };

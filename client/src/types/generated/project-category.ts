@@ -20,6 +20,8 @@ import type {
   ProjectCategoryResponse,
   ProjectCategoryRequest,
   GetProjectCategoriesIdParams,
+  ProjectCategoryLocalizationResponse,
+  ProjectCategoryLocalizationRequest,
 } from './strapi.schemas';
 import { API } from '../../services/api/index';
 import type { ErrorType } from '../../services/api/index';
@@ -349,6 +351,75 @@ export const useDeleteProjectCategoriesId = <
   request?: SecondParameter<typeof API>;
 }) => {
   const mutationOptions = getDeleteProjectCategoriesIdMutationOptions(options);
+
+  return useMutation(mutationOptions);
+};
+export const postProjectCategoriesIdLocalizations = (
+  id: number,
+  projectCategoryLocalizationRequest: ProjectCategoryLocalizationRequest,
+  options?: SecondParameter<typeof API>
+) => {
+  return API<ProjectCategoryLocalizationResponse>(
+    {
+      url: `/project-categories/${id}/localizations`,
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      data: projectCategoryLocalizationRequest,
+    },
+    options
+  );
+};
+
+export const getPostProjectCategoriesIdLocalizationsMutationOptions = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postProjectCategoriesIdLocalizations>>,
+    TError,
+    { id: number; data: ProjectCategoryLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof postProjectCategoriesIdLocalizations>>,
+  TError,
+  { id: number; data: ProjectCategoryLocalizationRequest },
+  TContext
+> => {
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof postProjectCategoriesIdLocalizations>>,
+    { id: number; data: ProjectCategoryLocalizationRequest }
+  > = (props) => {
+    const { id, data } = props ?? {};
+
+    return postProjectCategoriesIdLocalizations(id, data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type PostProjectCategoriesIdLocalizationsMutationResult = NonNullable<
+  Awaited<ReturnType<typeof postProjectCategoriesIdLocalizations>>
+>;
+export type PostProjectCategoriesIdLocalizationsMutationBody = ProjectCategoryLocalizationRequest;
+export type PostProjectCategoriesIdLocalizationsMutationError = ErrorType<Error>;
+
+export const usePostProjectCategoriesIdLocalizations = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postProjectCategoriesIdLocalizations>>,
+    TError,
+    { id: number; data: ProjectCategoryLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}) => {
+  const mutationOptions = getPostProjectCategoriesIdLocalizationsMutationOptions(options);
 
   return useMutation(mutationOptions);
 };

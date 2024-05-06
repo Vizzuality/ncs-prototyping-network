@@ -20,6 +20,8 @@ import type {
   ProjectPhaseResponse,
   ProjectPhaseRequest,
   GetProjectPhasesIdParams,
+  ProjectPhaseLocalizationResponse,
+  ProjectPhaseLocalizationRequest,
 } from './strapi.schemas';
 import { API } from '../../services/api/index';
 import type { ErrorType } from '../../services/api/index';
@@ -341,6 +343,75 @@ export const useDeleteProjectPhasesId = <TError = ErrorType<Error>, TContext = u
   request?: SecondParameter<typeof API>;
 }) => {
   const mutationOptions = getDeleteProjectPhasesIdMutationOptions(options);
+
+  return useMutation(mutationOptions);
+};
+export const postProjectPhasesIdLocalizations = (
+  id: number,
+  projectPhaseLocalizationRequest: ProjectPhaseLocalizationRequest,
+  options?: SecondParameter<typeof API>
+) => {
+  return API<ProjectPhaseLocalizationResponse>(
+    {
+      url: `/project-phases/${id}/localizations`,
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      data: projectPhaseLocalizationRequest,
+    },
+    options
+  );
+};
+
+export const getPostProjectPhasesIdLocalizationsMutationOptions = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postProjectPhasesIdLocalizations>>,
+    TError,
+    { id: number; data: ProjectPhaseLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof postProjectPhasesIdLocalizations>>,
+  TError,
+  { id: number; data: ProjectPhaseLocalizationRequest },
+  TContext
+> => {
+  const { mutation: mutationOptions, request: requestOptions } = options ?? {};
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof postProjectPhasesIdLocalizations>>,
+    { id: number; data: ProjectPhaseLocalizationRequest }
+  > = (props) => {
+    const { id, data } = props ?? {};
+
+    return postProjectPhasesIdLocalizations(id, data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type PostProjectPhasesIdLocalizationsMutationResult = NonNullable<
+  Awaited<ReturnType<typeof postProjectPhasesIdLocalizations>>
+>;
+export type PostProjectPhasesIdLocalizationsMutationBody = ProjectPhaseLocalizationRequest;
+export type PostProjectPhasesIdLocalizationsMutationError = ErrorType<Error>;
+
+export const usePostProjectPhasesIdLocalizations = <
+  TError = ErrorType<Error>,
+  TContext = unknown
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof postProjectPhasesIdLocalizations>>,
+    TError,
+    { id: number; data: ProjectPhaseLocalizationRequest },
+    TContext
+  >;
+  request?: SecondParameter<typeof API>;
+}) => {
+  const mutationOptions = getPostProjectPhasesIdLocalizationsMutationOptions(options);
 
   return useMutation(mutationOptions);
 };

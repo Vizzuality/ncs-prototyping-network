@@ -12,6 +12,11 @@
           "name",
           "projects",
           "sort"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -20,7 +25,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::action-type.action-type",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -32,6 +43,11 @@
           "name",
           "projects",
           "sort"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -45,6 +61,11 @@
           "name",
           "projects",
           "sort"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -57,6 +78,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -65,7 +91,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::biome.biome",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -76,6 +108,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -88,6 +125,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -114,7 +156,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::cobenefit.cobenefit",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -161,6 +209,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -169,7 +222,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::country.country",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -180,6 +239,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -192,6 +256,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -206,6 +275,11 @@
           "projects_1",
           "projects_2",
           "projects_3"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -214,25 +288,17 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::lesson-category.lesson-category",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::lesson-category.lesson-category",
       "properties": {
-        "fields": [
-          "name",
-          "projects_1",
-          "projects_2",
-          "projects_3"
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.update",
+      "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::lesson-category.lesson-category",
       "properties": {
@@ -241,6 +307,30 @@
           "projects_1",
           "projects_2",
           "projects_3"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::lesson-category.lesson-category",
+      "properties": {
+        "fields": [
+          "name",
+          "projects_1",
+          "projects_2",
+          "projects_3"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -253,6 +343,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -261,7 +356,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::pathway.pathway",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -272,6 +373,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -284,6 +390,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -296,6 +407,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -304,7 +420,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::project-category.project-category",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -315,6 +437,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -327,6 +454,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -340,6 +472,11 @@
           "name",
           "projects",
           "sort"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -348,7 +485,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::project-phase.project-phase",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -360,6 +503,11 @@
           "name",
           "projects",
           "sort"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -373,6 +521,11 @@
           "name",
           "projects",
           "sort"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -453,14 +606,26 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::project.project",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
       "subject": "api::project.project",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -615,6 +780,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -623,7 +793,13 @@
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::region.region",
-      "properties": {},
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
       "conditions": []
     },
     {
@@ -634,6 +810,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
@@ -646,6 +827,11 @@
         "fields": [
           "name",
           "projects"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
         ]
       },
       "conditions": []
