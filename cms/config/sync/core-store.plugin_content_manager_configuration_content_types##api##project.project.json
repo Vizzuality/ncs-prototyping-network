@@ -44,8 +44,8 @@
         },
         "list": {
           "label": "long_title",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "carbon_mitigation": {
@@ -86,8 +86,8 @@
         },
         "list": {
           "label": "project_goal",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "project_summary": {
@@ -100,8 +100,8 @@
         },
         "list": {
           "label": "project_summary",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "why_this_why_now": {
@@ -114,8 +114,8 @@
         },
         "list": {
           "label": "why_this_why_now",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "key_activities": {
@@ -128,8 +128,8 @@
         },
         "list": {
           "label": "key_activities",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "successes": {
@@ -142,8 +142,8 @@
         },
         "list": {
           "label": "successes",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "lesson_1": {
@@ -156,8 +156,8 @@
         },
         "list": {
           "label": "lesson_1",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "lesson_2": {
@@ -170,8 +170,8 @@
         },
         "list": {
           "label": "lesson_2",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "lesson_3": {
@@ -184,8 +184,8 @@
         },
         "list": {
           "label": "lesson_3",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "cb_biodiversity": {
@@ -198,8 +198,8 @@
         },
         "list": {
           "label": "cb_biodiversity",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "cb_ecosystem_services": {
@@ -212,8 +212,8 @@
         },
         "list": {
           "label": "cb_ecosystem_services",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "cb_resilience_adapt": {
@@ -226,8 +226,8 @@
         },
         "list": {
           "label": "cb_resilience_adapt",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "cb_health_well_being": {
@@ -240,8 +240,8 @@
         },
         "list": {
           "label": "cb_health_well_being",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "cb_livelihood_econ": {
@@ -254,8 +254,8 @@
         },
         "list": {
           "label": "cb_livelihood_econ",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "callout": {
@@ -268,8 +268,8 @@
         },
         "list": {
           "label": "callout",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "whats_next": {
@@ -282,8 +282,8 @@
         },
         "list": {
           "label": "whats_next",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "abstract": {
@@ -296,8 +296,8 @@
         },
         "list": {
           "label": "abstract",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "citations": {
@@ -310,8 +310,8 @@
         },
         "list": {
           "label": "citations",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "graphic_1": {
@@ -629,8 +629,8 @@
         },
         "list": {
           "label": "why_this_why_now_callout",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "header_photo": {
@@ -770,8 +770,8 @@
         },
         "list": {
           "label": "video_caption",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "why_this_why_now_author": {
@@ -798,8 +798,8 @@
         },
         "list": {
           "label": "extent_credits",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "callout_author": {
@@ -812,6 +812,20 @@
         },
         "list": {
           "label": "callout_author",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
           "searchable": true,
           "sortable": true
         }
@@ -876,21 +890,17 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
-      ],
       "edit": [
         [
           {
             "name": "project_name",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "long_title",
-            "size": 6
+            "size": 12
           }
         ],
         [
@@ -906,30 +916,34 @@
         [
           {
             "name": "project_goal",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "project_summary",
-            "size": 6
+            "size": 12
           }
         ],
         [
           {
             "name": "key_activities",
-            "size": 6
+            "size": 12
           }
         ],
         [
           {
             "name": "successes",
-            "size": 6
+            "size": 12
           }
         ],
         [
           {
             "name": "lesson_1",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "lesson_1_category",
             "size": 6
@@ -938,8 +952,10 @@
         [
           {
             "name": "lesson_2",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "lesson_2_category",
             "size": 6
@@ -948,8 +964,10 @@
         [
           {
             "name": "lesson_3",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "lesson_3_category",
             "size": 6
@@ -964,47 +982,55 @@
         [
           {
             "name": "cb_ecosystem_services",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "cb_biodiversity",
-            "size": 6
+            "size": 12
           }
         ],
         [
           {
             "name": "cb_resilience_adapt",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "cb_health_well_being",
-            "size": 6
+            "size": 12
           }
         ],
         [
           {
             "name": "cb_livelihood_econ",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "callout",
-            "size": 6
+            "size": 12
           }
         ],
         [
           {
             "name": "whats_next",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "abstract",
-            "size": 6
+            "size": 12
           }
         ],
         [
           {
             "name": "citations",
-            "size": 6
+            "size": 12
           }
         ],
         [
@@ -1092,11 +1118,13 @@
         [
           {
             "name": "why_this_why_now",
-            "size": 6
-          },
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "why_this_why_now_callout",
-            "size": 6
+            "size": 12
           }
         ],
         [
@@ -1123,10 +1151,12 @@
           {
             "name": "video",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "video_caption",
-            "size": 6
+            "size": 12
           }
         ],
         [
@@ -1165,14 +1195,22 @@
         ],
         [
           {
-            "name": "extent_credits",
-            "size": 6
-          },
-          {
             "name": "callout_author",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "extent_credits",
+            "size": 12
+          }
         ]
+      ],
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
       ]
     }
   },

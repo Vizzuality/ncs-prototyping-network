@@ -1358,6 +1358,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
