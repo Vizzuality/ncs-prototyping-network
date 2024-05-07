@@ -1,16 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Wrapper from 'containers/wrapper';
 import { motion } from 'framer-motion';
 import { BsArrowRight } from 'react-icons/bs';
-import { cn } from 'utils/cn';
 
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
 
 import { useSyncQueryParams } from '@/hooks/query';
 import { useSyncLocale, useSyncPathway } from '@/hooks/query/sync-query';
+
+import Wrapper from 'containers/wrapper';
+import { cn } from 'utils/cn';
 
 const Pathways = (): JSX.Element => {
   const [locale] = useSyncLocale();

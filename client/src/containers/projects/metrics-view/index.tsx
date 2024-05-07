@@ -9,6 +9,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import remarkGfm from 'remark-gfm';
 
+import { useSyncQueryParams } from '@/hooks/query';
+
 import { COLUMNS } from 'containers/projects/constants';
 import { cn } from 'utils/cn';
 import { toTBD } from 'utils/data';
@@ -16,6 +18,8 @@ import { toTBD } from 'utils/data';
 type Direction = 'asc' | 'desc';
 
 const MetricsView = ({ data }: { data }): JSX.Element => {
+  const queryParams = useSyncQueryParams();
+
   const CO_BENEFITS_ICONS = {
     Biodiversity: '/images/icons/co-benefits/biodiversity.svg',
     'Ecosystem Services': '/images/icons/co-benefits/ecosystem_services.svg',
@@ -133,7 +137,11 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                     >
                       <td className="max-w-[140px] !pl-0 xl:w-3/12 xl:max-w-0">
                         <Link
+<<<<<<< HEAD
                           href={`/projects/${project.attributes.slug}`}
+=======
+                          href={`/projects/${project.attributes.slug}${queryParams}`}
+>>>>>>> e79f8914 (types)
                           className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
                         >
                           <Image

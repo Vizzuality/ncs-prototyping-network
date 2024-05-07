@@ -12,10 +12,13 @@ import remarkGfm from 'remark-gfm';
 
 import { useGetProjects } from '@/types/generated/project';
 
+import { useSyncQueryParams } from '@/hooks/query';
 import { useSyncLocale } from '@/hooks/query/sync-query';
 
 const HomeProjects = (): JSX.Element => {
   const [locale] = useSyncLocale();
+  const queryParams = useSyncQueryParams();
+
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
 
   const SampleNextArrow = ({ onClick }: { onClick?: MouseEventHandler<HTMLButtonElement> }) => {
@@ -74,7 +77,7 @@ const HomeProjects = (): JSX.Element => {
               {shuffleProjects(data?.data?.data)?.map((project) => (
                 <Link
                   key={project.id}
-                  href={`/projects/${project.attributes.slug}`}
+                  href={`/projects/${project.attributes.slug}${queryParams}`}
                   className="relative"
                 >
                   <Image
