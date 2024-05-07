@@ -9,14 +9,6 @@ export const toSlug = (string) => {
     .replace(/[^\w-]+/g, '');
 };
 
-export const toName = (slug) => {
-  return slug
-    .toLowerCase()
-    .split('-')
-    .map((i) => i[0].toUpperCase() + i.substr(1))
-    .join(' ');
-};
-
 export const toTBD = (d) => {
   if (d === '0') {
     return 'TBD';

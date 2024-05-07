@@ -6,7 +6,6 @@ import { useParams } from 'next/navigation';
 
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
-import { toName } from '@/utils/data';
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
@@ -17,15 +16,14 @@ const DetailFooter: React.FC = () => {
   const { data: projects } = useGetProjects({ populate: '*' });
 
   const id = useMemo(() => {
-    return projects?.data?.data?.find((project) => project.attributes.project_name === toName(slug))
-      ?.id;
+    return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;
   }, [slug, projects?.data?.data]);
 
   const { data, isFetched } = useGetProjectsId(+id, { populate: '*' });
 
   const getBackground = () => {
-    if (id && data?.data?.data?.attributes.footer_photo.data.attributes.url) {
-      return `url(${data?.data?.data?.attributes.footer_photo.data.attributes.url})`;
+    if (id && data?.data?.data?.attributes.footer_photo.data?.attributes.url) {
+      return `url(${data?.data?.data?.attributes.footer_photo.data?.attributes.url})`;
     }
   };
 
@@ -33,7 +31,7 @@ const DetailFooter: React.FC = () => {
     isFetched &&
     !!data?.data?.data.id && (
       <div className="relative">
-        {data?.data?.data?.attributes.footer_photo.data.attributes.alternativeText && (
+        {data?.data?.data?.attributes.footer_photo.data?.attributes.alternativeText && (
           <div className="absolute right-8 bottom-44 z-50">
             <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
               <p className="whitespace-nowrap text-xs text-black">
