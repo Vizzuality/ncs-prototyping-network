@@ -251,10 +251,10 @@ const ProjectDetail = (): JSX.Element => {
               style={{ objectFit: 'cover' }}
               className="max-h-[600px] w-1/2"
             />
-            {data?.data?.data?.attributes.goals_photo.data.attributes?.alternativeText && (
+            {data?.data?.data?.attributes.goals_photo.data?.attributes.alternativeText && (
               <div className="absolute bottom-2 right-6 z-50 bg-white/40 px-2">
                 <p className="text-xs text-black">
-                  {data?.data?.data?.attributes.goals_photo.data.attributes?.alternativeText}
+                  {data?.data?.data?.attributes.goals_photo.data?.attributes.alternativeText}
                 </p>
               </div>
             )}

@@ -6,12 +6,6 @@ import { useMap, Popup } from 'react-map-gl';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
-import { useRecoilValue } from 'recoil';
-
-import { useSyncQueryParams } from '@/hooks/query';
-
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
@@ -24,10 +18,15 @@ import { SORT_OPTIONS } from 'containers/projects/map-view/constants';
 import LayerManager from 'containers/projects/map-view/layer-manager';
 import Tabs from 'containers/projects/map-view/tabs';
 import Total from 'containers/projects/map-view/total';
+import { AnimatePresence, motion } from 'framer-motion';
+import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
+import { useRecoilValue } from 'recoil';
 import { basemapAtom, filteredBboxAtom } from 'store';
 import { PopUp } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
+
+import { useSyncQueryParams } from '@/hooks/query';
 
 const initialViewState: MapboxProps['initialViewState'] = {
   bounds: WORLD_BOUNDS,
@@ -138,7 +137,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
     const projectsFeature = e?.features?.find(({ layer }) => layer.id === 'projects-layer');
     if (projectsFeature) {
-      push(`/projects/${projectSlug}`);
+      push(`/projects/${projectSlug}${queryParams}`);
     }
   };
 
@@ -237,13 +236,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                     </Controls>
                     {!!projectsPopUp?.popup?.length && (
                       <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
-<<<<<<< HEAD
-                        <Link href={`/projects/${projectSlug}`}>
-=======
-                        <Link
-                          href={`/projects/${toSlug(projectsPopUp.popupInfo?.name)}${queryParams}`}
-                        >
->>>>>>> 2a21b782 (sync query params)
+                        <Link href={`/projects/${projectSlug}${queryParams}`}>
                           <div className="px-2 py-1">
                             <p className="font-sans text-2xs text-gray-800">
                               {projectsPopUp.popupInfo.name}
