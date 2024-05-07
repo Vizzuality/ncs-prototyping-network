@@ -1,8 +1,12 @@
-import Video from '@/components/video';
+import dynamic from 'next/dynamic';
 
 import Wrapper from 'containers/wrapper';
 
 import { OBJECTIVES } from './constants';
+
+const Video = dynamic(() => import('@/components/video'), {
+  ssr: false,
+});
 
 const Objectives = (): JSX.Element => {
   return (

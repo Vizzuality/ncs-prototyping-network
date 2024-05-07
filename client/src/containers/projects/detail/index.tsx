@@ -25,7 +25,7 @@ import Card from 'containers/projects/card';
 import ExtentMap from 'containers/projects/detail/extent-map';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
-import { toName, toSlug, toTBD } from 'utils/data';
+import { toTBD } from 'utils/data';
 
 const ProjectDetail = (): JSX.Element => {
   const { slug } = useParams();
@@ -41,8 +41,7 @@ const ProjectDetail = (): JSX.Element => {
   const { data: projects } = useGetProjects({ populate: '*' });
 
   const id = useMemo(() => {
-    return projects?.data?.data?.find((project) => project.attributes.project_name === toName(slug))
-      ?.id;
+    return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;
   }, [slug, projects?.data?.data]);
 
   const { data, isFetched, isFetching } = useGetProjectsId(+id, { populate: '*' });
@@ -235,19 +234,19 @@ const ProjectDetail = (): JSX.Element => {
 
             <Image
               src={
-                data?.data?.data?.attributes.goals_photo.data.attributes.url ||
+                data?.data?.data?.attributes.goals_photo.data?.attributes.url ||
                 '/images/projects/goals_placeholder.png'
               }
-              alt={data?.data?.data?.attributes.goals_photo.data.attributes.name || 'Goals'}
+              alt={data?.data?.data?.attributes.goals_photo.data?.attributes.name || 'Goals'}
               height={280}
               width={500}
               style={{ objectFit: 'cover' }}
               className="max-h-[600px] w-1/2"
             />
-            {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText && (
+            {data?.data?.data?.attributes.goals_photo.data.attributes?.alternativeText && (
               <div className="absolute bottom-2 right-6 z-50 bg-white/40 px-2">
                 <p className="text-xs text-black">
-                  {data?.data?.data?.attributes.goals_photo.data.attributes.alternativeText}
+                  {data?.data?.data?.attributes.goals_photo.data.attributes?.alternativeText}
                 </p>
               </div>
             )}
@@ -683,7 +682,7 @@ const ProjectDetail = (): JSX.Element => {
               <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
               <div className="flex justify-start space-x-6 2xl:space-x-10">
                 {similarProjects?.map((project, idx) => (
-                  <Card key={idx} id={project.id} slug={toSlug(project.attributes.project_name)} />
+                  <Card key={idx} id={project.id} slug={project.attributes.slug} />
                 ))}
               </div>
             </Wrapper>

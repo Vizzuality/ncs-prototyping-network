@@ -12,7 +12,6 @@ import remarkGfm from 'remark-gfm';
 import { useGetProjects } from '@/types/generated/project';
 
 import Wrapper from 'containers/wrapper';
-import { toSlug } from 'utils/data';
 
 const HomeProjects = (): JSX.Element => {
   const { data, isFetched } = useGetProjects({ populate: '*' });
@@ -73,7 +72,7 @@ const HomeProjects = (): JSX.Element => {
               {shuffleProjects(data?.data?.data)?.map((project) => (
                 <Link
                   key={project.id}
-                  href={`/projects/${toSlug(project.attributes.project_name)}`}
+                  href={`/projects/${project.attributes.slug}`}
                   className="relative"
                 >
                   <Image

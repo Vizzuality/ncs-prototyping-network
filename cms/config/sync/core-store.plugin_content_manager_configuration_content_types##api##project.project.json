@@ -890,17 +890,17 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
+      ],
       "edit": [
         [
           {
             "name": "project_name",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "long_title",
-            "size": 12
           }
         ],
         [
@@ -915,56 +915,14 @@
         ],
         [
           {
-            "name": "project_goal",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "project_summary",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "key_activities",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "successes",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lesson_1",
-            "size": 12
-          }
-        ],
-        [
-          {
             "name": "lesson_1_category",
             "size": 6
           }
         ],
         [
           {
-            "name": "lesson_2",
-            "size": 12
-          }
-        ],
-        [
-          {
             "name": "lesson_2_category",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "lesson_3",
-            "size": 12
           }
         ],
         [
@@ -977,60 +935,6 @@
           {
             "name": "cobenefits",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "cb_ecosystem_services",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "cb_biodiversity",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "cb_resilience_adapt",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "cb_health_well_being",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "cb_livelihood_econ",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "callout",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "whats_next",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "abstract",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "citations",
-            "size": 12
           }
         ],
         [
@@ -1117,18 +1021,6 @@
         ],
         [
           {
-            "name": "why_this_why_now",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "why_this_why_now_callout",
-            "size": 12
-          }
-        ],
-        [
-          {
             "name": "header_photo",
             "size": 6
           },
@@ -1151,12 +1043,6 @@
           {
             "name": "video",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "video_caption",
-            "size": 12
           }
         ],
         [
@@ -1201,16 +1087,136 @@
         ],
         [
           {
+            "name": "long_title",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "project_goal",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "project_summary",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activities",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "successes",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lesson_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lesson_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lesson_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "cb_ecosystem_services",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "cb_biodiversity",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "cb_resilience_adapt",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "cb_health_well_being",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "cb_livelihood_econ",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "callout",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "whats_next",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "abstract",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "citations",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "why_this_why_now",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "why_this_why_now_callout",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "video_caption",
+            "size": 12
+          }
+        ],
+        [
+          {
             "name": "extent_credits",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "slug",
+            "size": 6
+          }
         ]
-      ],
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
       ]
     }
   },

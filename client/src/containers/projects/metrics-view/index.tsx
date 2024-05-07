@@ -1,14 +1,17 @@
 import { useState } from 'react';
 
+import Markdown from 'react-markdown';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
+import remarkGfm from 'remark-gfm';
 
 import { COLUMNS } from 'containers/projects/constants';
 import { cn } from 'utils/cn';
-import { toSlug, toTBD } from 'utils/data';
+import { toTBD } from 'utils/data';
 
 type Direction = 'asc' | 'desc';
 
@@ -130,7 +133,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                     >
                       <td className="max-w-[140px] !pl-0 xl:w-3/12 xl:max-w-0">
                         <Link
-                          href={`/projects/${toSlug(project.attributes.project_name)}`}
+                          href={`/projects/${project.attributes.slug}`}
                           className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
                         >
                           <Image
@@ -151,12 +154,19 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                           />
 
                           <div className="flex w-[100px] flex-col xl:w-auto">
-                            <p className="-mt-1 font-serif text-lg font-semibold leading-6 text-indigo group-hover:underline xl:text-2xl xl:leading-7">
+                            <Markdown
+                              remarkPlugins={[remarkGfm]}
+                              className="-mt-1 font-serif text-lg font-semibold leading-6 text-indigo group-hover:underline xl:text-2xl xl:leading-7"
+                            >
                               {project.attributes.project_name}
-                            </p>
-                            <p className="overflow-hidden text-2xs text-text group-hover:opacity-80">
+                            </Markdown>
+
+                            <Markdown
+                              remarkPlugins={[remarkGfm]}
+                              className="overflow-hidden text-2xs text-text group-hover:opacity-80"
+                            >
                               {project.attributes.long_title}
-                            </p>
+                            </Markdown>
                           </div>
                         </Link>
                       </td>
