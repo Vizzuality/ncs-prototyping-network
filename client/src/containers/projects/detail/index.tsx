@@ -259,7 +259,7 @@ const ProjectDetail = (): JSX.Element => {
                   <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
                   <Markdown
                     remarkPlugins={[remarkGfm]}
-                    className="my-6 border-t border-b border-accents pl-10 [&_li]:py-4 [&_li]:marker:text-4xl [&_li]:marker:font-bold [&_li]:marker:text-butternut [&_ol]:flex [&_ol]:list-decimal [&_ol]:flex-col [&_ol]:font-sans [&_ol]:text-xl [&_ol]:font-light [&_ol]:text-text"
+                    className="my-6 border-t border-b border-accents pl-10 [&_li]:py-4 [&_li]:pl-3 [&_li]:marker:text-4xl [&_li]:marker:font-bold [&_li]:marker:text-butternut [&_ol]:flex [&_ol]:list-decimal [&_ol]:flex-col [&_ol]:font-sans [&_ol]:text-xl [&_ol]:font-light [&_ol]:text-text"
                   >
                     {data?.data?.data?.attributes.key_activities}
                   </Markdown>
