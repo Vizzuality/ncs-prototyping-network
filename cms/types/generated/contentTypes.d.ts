@@ -826,7 +826,7 @@ export interface ApiCobenefitCobenefit extends Schema.CollectionType {
     sort: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
