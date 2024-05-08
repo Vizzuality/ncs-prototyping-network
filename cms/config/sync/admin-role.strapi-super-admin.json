@@ -141,7 +141,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ],
         "locales": [
           "en",
@@ -171,7 +172,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ],
         "locales": [
           "en",
@@ -188,7 +190,8 @@
       "properties": {
         "fields": [
           "name",
-          "projects"
+          "projects",
+          "sort"
         ],
         "locales": [
           "en",

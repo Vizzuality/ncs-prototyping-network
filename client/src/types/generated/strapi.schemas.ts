@@ -1296,6 +1296,7 @@ export type ResourceProjectsDataItemAttributesCobenefitsDataItemAttributesProjec
 export type ResourceProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: ResourceProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ResourceProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -3030,6 +3031,7 @@ export type RegionProjectsDataItemAttributesCobenefitsDataItemAttributesUpdatedB
 export type RegionProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: RegionProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: RegionProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -4754,6 +4756,7 @@ export type ProjectPhaseProjectsDataItemAttributesCobenefitsDataItemAttributesUp
 export type ProjectPhaseProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: ProjectPhaseProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectPhaseProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -6484,6 +6487,7 @@ export type ProjectCategoryProjectsDataItemAttributesCobenefitsDataItemAttribute
 export type ProjectCategoryProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: ProjectCategoryProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectCategoryProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -8768,6 +8772,7 @@ export type ProjectRegionDataAttributesProjectsDataItemAttributesCobenefitsDataI
 export type ProjectRegionDataAttributesProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: ProjectRegionDataAttributesProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ProjectRegionDataAttributesProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -10711,6 +10716,7 @@ export type PathwayProjectsDataItemAttributesCobenefitsDataItemAttributesLocaliz
 export type PathwayProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: PathwayProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: PathwayProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -12488,6 +12494,7 @@ export type LessonCategoryProjects1DataItemAttributesCobenefitsDataItemAttribute
 export type LessonCategoryProjects1DataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: LessonCategoryProjects1DataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: LessonCategoryProjects1DataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -14202,6 +14209,7 @@ export type CountryProjectsDataItemAttributesCobenefitsDataItemAttributesLocaliz
 export type CountryProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: CountryProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: CountryProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -15066,6 +15074,7 @@ export type CobenefitLocalizations = {
 export interface Cobenefit {
   name: string;
   projects?: CobenefitProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: CobenefitCreatedBy;
@@ -15957,6 +15966,7 @@ export type CobenefitProjectsDataItemAttributesCobenefitsDataItemAttributesCreat
 export type CobenefitProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: CobenefitProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: CobenefitProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -16763,6 +16773,7 @@ export type CobenefitRequestDataProjectsItem = number | string;
 export type CobenefitRequestData = {
   name: string;
   projects?: CobenefitRequestDataProjectsItem[];
+  sort?: number;
   locale?: string;
 };
 
@@ -16775,6 +16786,7 @@ export type CobenefitLocalizationRequestProjectsItem = number | string;
 export interface CobenefitLocalizationRequest {
   name: string;
   projects?: CobenefitLocalizationRequestProjectsItem[];
+  sort?: number;
   locale: string;
 }
 
@@ -17657,6 +17669,7 @@ export type BiomeProjectsDataItemAttributesCobenefitsDataItemAttributesLocalizat
 export type BiomeProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: BiomeProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: BiomeProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
@@ -19426,6 +19439,7 @@ export type ActionTypeProjectsDataItemAttributesCobenefitsDataItemAttributesProj
 export type ActionTypeProjectsDataItemAttributesCobenefitsDataItemAttributes = {
   name?: string;
   projects?: ActionTypeProjectsDataItemAttributesCobenefitsDataItemAttributesProjects;
+  sort?: number;
   createdAt?: string;
   updatedAt?: string;
   createdBy?: ActionTypeProjectsDataItemAttributesCobenefitsDataItemAttributesCreatedBy;
