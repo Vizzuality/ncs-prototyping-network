@@ -688,7 +688,7 @@ const ProjectDetail = (): JSX.Element => {
           <section className="pt-16 pb-28">
             <Wrapper className="space-y-6">
               <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
-              <div className="flex justify-start space-x-6 2xl:space-x-10">
+              <div className="grid grid-cols-3 gap-6 xl:grid-cols-4 2xl:gap-10">
                 {similarProjects?.map((project, idx) => (
                   <Card key={idx} id={project.id} slug={project.attributes.slug} />
                 ))}

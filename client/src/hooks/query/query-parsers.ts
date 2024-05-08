@@ -1,10 +1,14 @@
-import { parseAsJson, createSerializer } from 'nuqs/parsers';
+import { createSerializer, parseAsStringEnum, parseAsString } from 'nuqs/parsers';
 
-export type Locale = 'en' | 'pt' | 'es';
+export enum Locale {
+  en = 'en',
+  es = 'es',
+  pt = 'pt',
+}
 
-export const localeParser = parseAsJson<Locale>().withDefault('en');
+export const localeParser = parseAsStringEnum<Locale>(Object.values(Locale)).withDefault(Locale.en);
 
-export const pathwayParser = parseAsJson<string>().withDefault('');
+export const pathwayParser = parseAsString.withDefault('');
 
 // query params parsers
 const searchQueryParams = {

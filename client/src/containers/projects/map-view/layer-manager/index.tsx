@@ -23,7 +23,7 @@ const LayerManager = () => {
   const setFilteredBbox = useSetRecoilState(filteredBboxAtom);
 
   useEffect(() => {
-    const activedFilters = Object.values(filters).some((f) => f.length > 0);
+    const activedFilters = Object.values(filters).some((f) => f?.length > 0);
     const dataFinalFiltered = () => {
       const data = projectsData?.data?.data?.filter((project) => {
         if (filters.pathways.length > 0) {

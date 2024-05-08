@@ -8,14 +8,14 @@ import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
 
 import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale, useSyncPathway } from '@/hooks/query/sync-query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const Pathways = (): JSX.Element => {
   const [locale] = useSyncLocale();
-  const [, setPathway] = useSyncPathway();
+
   const queryParams = useSyncQueryParams();
 
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
@@ -40,7 +40,7 @@ const Pathways = (): JSX.Element => {
     },
     {
       id: 3,
-      name: pathwaysData && pathwaysData.data.data[3]?.attributes.name.replace(/\([^()]*\)/g, ''),
+      name: pathwaysData && pathwaysData?.data.data[3]?.attributes.name.replace(/\([^()]*\)/g, ''),
       icon: '/images/pathways/peatlands.png',
       className: { arrow: 'fill-iris', text: 'text-iris' },
       href: '',
@@ -76,8 +76,7 @@ const Pathways = (): JSX.Element => {
               >
                 <Link
                   className="flex w-full items-center justify-between"
-                  href={`/projects${queryParams}`}
-                  onClick={() => setPathway(name)}
+                  href={`/projects/${queryParams}&pathway=${name}`}
                 >
                   <div className="flex items-center space-x-10">
                     <Image src={icon} alt={name} height={60} width={60} />

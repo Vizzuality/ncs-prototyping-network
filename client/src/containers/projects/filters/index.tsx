@@ -7,6 +7,7 @@ import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjectCategories } from '@/types/generated/project-category';
 import { useGetProjectPhases } from '@/types/generated/project-phase';
 
+import { useSyncQueryParams } from '@/hooks/query';
 import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import MultiSelect from 'components/ui/multiselect';
@@ -15,6 +16,8 @@ import { filtersAtom } from 'store';
 const Filters = (): JSX.Element => {
   const { push } = useRouter();
   const [locale] = useSyncLocale();
+  const queryParams = useSyncQueryParams();
+
   const [filters, setFilters] = useRecoilState(filtersAtom);
 
   const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways({ locale });
@@ -107,7 +110,7 @@ const Filters = (): JSX.Element => {
               project_phases: [],
               project_categories: [],
             });
-            push('/projects');
+            push(`/projects${queryParams}`);
           }}
         >
           Reset

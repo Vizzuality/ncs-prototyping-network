@@ -18,9 +18,8 @@ import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
 const ProjectsPage = (): JSX.Element => {
   const [locale] = useSyncLocale();
   const [pathway] = useSyncPathway();
-  const { data: pathwaysData, isFetched } = useGetPathways({ locale });
 
-  const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
+  const { data: pathwaysData, isFetched } = useGetPathways({ locale });
 
   const {
     data: projectsData,
@@ -38,23 +37,30 @@ const ProjectsPage = (): JSX.Element => {
     setHeaderStyle('default');
   }, [setHeaderStyle]);
 
-  const getSpecificPathwayName = (pathway) => {
-    switch (pathway) {
-      case pathwaysData.data.data[0]?.attributes.name:
-        return [pathways[0]];
-      case 'Coastal Wetlands':
-        return [pathways[1], pathways[2]];
-      case 'Peatlands':
-        return [pathways[3], pathways[4]];
-    }
-  };
-
   useEffect(() => {
     if (pathway) {
+      const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
+      const pathway_1 = pathwaysData?.data?.data[0]?.attributes.name;
+      const pathway_2 = pathwaysData.data.data[1]?.attributes.name
+        .replace(/\([^()]*\)/g, '')
+        .trim();
+      const pathway_3 = pathwaysData?.data.data[3]?.attributes.name
+        .replace(/\([^()]*\)/g, '')
+        .trim();
+      const getSpecificPathwayName = (pathway) => {
+        switch (pathway) {
+          case pathway_1:
+            return [pathways[0]];
+          case pathway_2:
+            return [pathways[1], pathways[2]];
+          case pathway_3:
+            return [pathways[3], pathways[4]];
+        }
+      };
       setFilters({ ...filters, pathways: getSpecificPathwayName(pathway) });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathwaysData?.data?.data]);
+  }, [pathwaysData?.data?.data, pathway]);
 
   useEffect(() => {
     const activedFilters = Object.values(filters).some((f) => f?.length > 0);
