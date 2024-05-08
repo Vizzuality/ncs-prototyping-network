@@ -54,9 +54,11 @@ const Header: React.FC = () => {
             <p>BETA</p>
           </div>
         </div>
-        <div className="flex items-center space-x-20">
-          <LanguageSwitcher />
+        <div className="relative flex items-center pr-20">
           <NavigationTabs />
+          <div className="absolute top-4 right-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </Wrapper>
     </div>
