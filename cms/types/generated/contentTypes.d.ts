@@ -823,6 +823,12 @@ export interface ApiCobenefitCobenefit extends Schema.CollectionType {
       'manyToMany',
       'api::project.project'
     >;
+    sort: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
