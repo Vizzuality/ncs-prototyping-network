@@ -6,14 +6,19 @@ import { useParams } from 'next/navigation';
 
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
+import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const DetailFooter: React.FC = () => {
   const { slug } = useParams();
+  const [locale] = useSyncLocale();
+  const queryParams = useSyncQueryParams();
 
-  const { data: projects } = useGetProjects({ populate: '*' });
+  const { data: projects } = useGetProjects({ populate: '*', locale });
 
   const id = useMemo(() => {
     return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;
@@ -50,7 +55,7 @@ const DetailFooter: React.FC = () => {
           }}
         >
           <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
-            <Link className="items-left flex cursor-pointer" href="/">
+            <Link className="items-left flex cursor-pointer" href={`/${queryParams}`}>
               <h1 className="text-2xl font-semibold uppercase">NCS Prototyping Network</h1>
             </Link>
 

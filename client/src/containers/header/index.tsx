@@ -7,12 +7,19 @@ import { useRecoilValue } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
+import { useSyncQueryParams } from '@/hooks/query';
+
+// import LanguageSwitcher from '@/containers/language-switcher';
+
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const Header: React.FC = () => {
   const pathname = usePathname();
+
+  const queryParams = useSyncQueryParams();
+
   const headerStyle = useRecoilValue(headerStyleAtom);
 
   return (
@@ -27,7 +34,7 @@ const Header: React.FC = () => {
     >
       <Wrapper className="h-18 relative z-50 flex w-full flex-row items-center justify-between self-start">
         <div className="flex items-center space-x-4">
-          <Link className="flex cursor-pointer" href="/">
+          <Link className="flex cursor-pointer" href={`/${queryParams}`}>
             <h1
               className={cn({
                 'font-sans text-2xl uppercase text-white': true,
@@ -47,7 +54,12 @@ const Header: React.FC = () => {
             <p>BETA</p>
           </div>
         </div>
-        <NavigationTabs />
+        <div className="relative flex items-center pr-20">
+          <NavigationTabs />
+          {/* <div className="absolute top-4 right-0">
+            <LanguageSwitcher />
+          </div> */}
+        </div>
       </Wrapper>
     </div>
   );

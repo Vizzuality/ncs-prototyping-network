@@ -4,21 +4,24 @@ import { useRecoilValue } from 'recoil';
 
 import { useGetProjects } from '@/types/generated/project';
 
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
 import { useTotalData } from 'hooks/projects';
 import { filtersAtom } from 'store';
 import { toTBD } from 'utils/data';
 
 const Total = (): JSX.Element => {
-  const { data: projectsData } = useGetProjects({ populate: '*' });
-
+  const [locale] = useSyncLocale();
   const filters = useRecoilValue(filtersAtom);
+
+  const { data: projectsData } = useGetProjects({ populate: '*', locale });
 
   const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
   const totalData = useTotalData({ dataFiltered });
 
   useEffect(() => {
-    const activedFilters = Object.values(filters).some((f) => f.length > 0);
+    const activedFilters = Object.values(filters).some((f) => f?.length > 0);
     const dataFinalFiltered = () => {
       const data = projectsData?.data?.data?.filter((project) => {
         if (filters.pathways.length > 0) {

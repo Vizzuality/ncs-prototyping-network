@@ -1,12 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import { useSearchParams } from 'next/navigation';
-
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
+
+import { useSyncLocale, useSyncPathway } from '@/hooks/query/sync-query';
 
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
@@ -16,48 +16,56 @@ import Wrapper from 'containers/wrapper';
 import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
 
 const ProjectsPage = (): JSX.Element => {
-  const { data: pathwaysData, isFetched } = useGetPathways();
-  const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
+  const [locale] = useSyncLocale();
+  const [pathway] = useSyncPathway();
+
+  const { data: pathwaysData, isFetched } = useGetPathways({ locale });
 
   const {
     data: projectsData,
     isFetching: projectsIsFetching,
     isFetchedAfterMount: projectsIsFetched,
-  } = useGetProjects({ populate: '*' });
+  } = useGetProjects({ populate: '*', locale });
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
   const projectsView = useRecoilValue(projectsViewAtom);
   const [filters, setFilters] = useRecoilState(filtersAtom);
 
-  const searchParams = useSearchParams();
-  const pathway = searchParams.get('pathway');
-
   const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
   useEffect(() => {
-    setHeaderStyle('default');
+    setHeaderStyle('dark');
   }, [setHeaderStyle]);
-
-  const getSpecificPathwayName = (pathway) => {
-    switch (pathway) {
-      case 'Agroforestry':
-        return [pathways[0]];
-      case 'Coastal Wetlands':
-        return [pathways[1], pathways[2]];
-      case 'Peatlands':
-        return [pathways[3], pathways[4]];
-    }
-  };
 
   useEffect(() => {
     if (pathway) {
+      const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
+      const pathway_1 = pathwaysData?.data?.data[0]?.attributes.name;
+      const pathway_2 = pathwaysData.data.data[1]?.attributes.name
+        .replace(/\([^()]*\)/g, '')
+        .trim();
+      const pathway_3 = pathwaysData?.data.data[3]?.attributes.name
+        .replace(/\([^()]*\)/g, '')
+        .trim();
+
+      const getSpecificPathwayName = (pathway) => {
+        switch (pathway) {
+          case pathway_1:
+            return [pathways[0]];
+          case pathway_2:
+            return [pathways[1], pathways[2]];
+          case pathway_3:
+            return [pathways[3], pathways[4]];
+        }
+      };
+
       setFilters({ ...filters, pathways: getSpecificPathwayName(pathway) });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathwaysData?.data?.data]);
+  }, [pathwaysData?.data?.data, pathway]);
 
   useEffect(() => {
-    const activedFilters = Object.values(filters).some((f) => f.length > 0);
+    const activedFilters = Object.values(filters).some((f) => f?.length > 0);
     const dataFinalFiltered = () => {
       const data = projectsData?.data?.data?.filter((project) => {
         if (filters.pathways.length > 0) {

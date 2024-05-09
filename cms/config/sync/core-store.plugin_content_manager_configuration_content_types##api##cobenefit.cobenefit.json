@@ -49,20 +49,6 @@
           "sortable": false
         }
       },
-      "sort": {
-        "edit": {
-          "label": "sort",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "sort",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -134,10 +120,6 @@
           {
             "name": "name",
             "size": 6
-          },
-          {
-            "name": "sort",
-            "size": 4
           }
         ]
       ]

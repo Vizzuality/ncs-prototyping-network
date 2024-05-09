@@ -19,6 +19,9 @@ import { headerStyleAtom } from '@/store';
 
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
+import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
 import Button from 'components/ui/button';
 import Video from 'components/video';
 import Card from 'containers/projects/card';
@@ -36,9 +39,15 @@ const ProjectDetail = (): JSX.Element => {
     amount: 0.25,
   });
 
+  const [locale] = useSyncLocale();
+  const queryParams = useSyncQueryParams();
+
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
-  const { data: projects } = useGetProjects({ populate: '*' });
+  const { data: projects } = useGetProjects({
+    populate: '*',
+    locale,
+  });
 
   const id = useMemo(() => {
     return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;
@@ -126,7 +135,7 @@ const ProjectDetail = (): JSX.Element => {
           <Wrapper className="relative flex w-full flex-row justify-between space-x-6 py-6">
             <div className="flex w-2/3 flex-col items-start">
               <motion.div whileHover="hover">
-                <Link href="/projects" className="flex items-center space-x-2 pb-8">
+                <Link href={`/projects${queryParams}`} className="flex items-center space-x-2 pb-8">
                   <motion.div variants={arrowAnimation}>
                     <BsArrowLeft className="fill-butternut" size={30} />
                   </motion.div>
@@ -216,21 +225,24 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
+
           <section
             id="goals"
             className="relative flex scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
           >
-            <div className="flex w-1/2 justify-end">
-              <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
-                <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
-                >
-                  {data?.data?.data?.attributes.project_goal}
-                </Markdown>
+            {data?.data?.data?.attributes.project_goal && (
+              <div className="flex w-1/2 justify-end">
+                <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
+                  <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
+                  >
+                    {data?.data?.data?.attributes.project_goal}
+                  </Markdown>
+                </div>
               </div>
-            </div>
+            )}
 
             <Image
               src={
@@ -243,10 +255,10 @@ const ProjectDetail = (): JSX.Element => {
               style={{ objectFit: 'cover' }}
               className="max-h-[600px] w-1/2"
             />
-            {data?.data?.data?.attributes.goals_photo.data.attributes?.alternativeText && (
+            {data?.data?.data?.attributes.goals_photo.data?.attributes.alternativeText && (
               <div className="absolute bottom-2 right-6 z-50 bg-white/40 px-2">
                 <p className="text-xs text-black">
-                  {data?.data?.data?.attributes.goals_photo.data.attributes?.alternativeText}
+                  {data?.data?.data?.attributes.goals_photo.data?.attributes.alternativeText}
                 </p>
               </div>
             )}
@@ -267,13 +279,17 @@ const ProjectDetail = (): JSX.Element => {
               )}
 
               <div>
-                <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
-                <p className="pt-6 font-sans text-lg font-light text-text">
-                  Project Phase:{' '}
-                  {data?.data?.data?.attributes.project_phases.data
-                    .map((pp) => pp.attributes.name)
-                    .join(', ')}
-                </p>
+                {data?.data?.data?.attributes.project_summary && (
+                  <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
+                )}
+                {!!data?.data?.data?.attributes.project_phases.data.length && (
+                  <p className="pt-6 font-sans text-lg font-light text-text">
+                    Project Phase:{' '}
+                    {data?.data?.data?.attributes.project_phases.data
+                      .map((pp) => pp.attributes.name)
+                      .join(', ')}
+                  </p>
+                )}
                 <Markdown
                   remarkPlugins={[remarkGfm]}
                   className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text"
@@ -352,6 +368,7 @@ const ProjectDetail = (): JSX.Element => {
                 </Wrapper>
               </section>
             )}
+
           <section id="lessons" className="scroll-mt-28">
             <div className="bg-indigo py-6">
               <Wrapper>
@@ -405,6 +422,7 @@ const ProjectDetail = (): JSX.Element => {
               </table>
             </Wrapper>
           </section>
+
           <section id="science" className="flex scroll-mt-28 flex-col">
             <div className="bg-indigo py-6">
               <Wrapper>
@@ -415,15 +433,17 @@ const ProjectDetail = (): JSX.Element => {
             </div>
             <Wrapper className="flex w-full flex-row space-x-20 py-16">
               <div className="flex w-3/4 flex-col space-y-10">
-                <div className="flex-col space-y-6">
-                  <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="font-sans text-m font-light leading-7 text-text"
-                  >
-                    {data?.data?.data?.attributes.abstract}
-                  </Markdown>
-                </div>
+                {data?.data?.data?.attributes.abstract && (
+                  <div className="flex-col space-y-6">
+                    <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
+                    <Markdown
+                      remarkPlugins={[remarkGfm]}
+                      className="font-sans text-m font-light leading-7 text-text"
+                    >
+                      {data?.data?.data?.attributes.abstract}
+                    </Markdown>
+                  </div>
+                )}
                 {data?.data?.data?.attributes.citations && (
                   <div className="flex flex-col space-y-4">
                     <h5 className="text-lg font-light uppercase">CITATIONS</h5>
@@ -632,15 +652,17 @@ const ProjectDetail = (): JSX.Element => {
 
           <section className="py-16">
             <Wrapper className="flex flex-row space-x-20">
-              <div className="w-3/4 space-y-6">
-                <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="font-sans text-m font-light leading-7 text-text"
-                >
-                  {data?.data?.data?.attributes.whats_next}
-                </Markdown>
-              </div>
+              {data?.data?.data?.attributes.whats_next && (
+                <div className="w-3/4 space-y-6">
+                  <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="font-sans text-m font-light leading-7 text-text"
+                  >
+                    {data?.data?.data?.attributes.whats_next}
+                  </Markdown>
+                </div>
+              )}
 
               {!!(
                 data?.data?.data?.attributes.public_contact_name ||
@@ -668,7 +690,7 @@ const ProjectDetail = (): JSX.Element => {
                   Reach out and we’ll connect you to the people who will be the most helpful for
                   your questions.
                 </p>
-                <Link href="/contact">
+                <Link href={`/contact${queryParams}`}>
                   <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
                     <p className="text-base font-bold uppercase">Contact us</p>
                     <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
@@ -680,10 +702,18 @@ const ProjectDetail = (): JSX.Element => {
           <section className="pt-16 pb-28">
             <Wrapper className="space-y-6">
               <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
-              <div className="flex justify-start space-x-6 2xl:space-x-10">
+              <div className="grid grid-cols-3 gap-6 xl:grid-cols-4 2xl:gap-10">
                 {similarProjects?.map((project, idx) => (
                   <Card key={idx} id={project.id} slug={project.attributes.slug} />
                 ))}
+
+                {similarProjects.length === 0 && (
+                  <div className="flex h-64 w-full items-center justify-center">
+                    <p className="font-serif text-lg font-semibold text-indigo">
+                      No similar projects found
+                    </p>
+                  </div>
+                )}
               </div>
             </Wrapper>
           </section>

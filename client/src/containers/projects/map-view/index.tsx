@@ -10,6 +10,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
 
+import { useSyncQueryParams } from '@/hooks/query';
+
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
@@ -49,6 +51,8 @@ const DEFAULT_PROPS = {
 const MapView = ({ data }: { data }): JSX.Element => {
   const { push } = useRouter();
 
+  const queryParams = useSyncQueryParams();
+
   const mapRef = useRef(null);
   const [sortedBy, setSortedBy] = useState<string>('carbon_mitigation');
 
@@ -62,6 +66,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   });
 
   const filteredBbox = useRecoilValue(filteredBboxAtom);
+
   const basemap = useRecoilValue(basemapAtom);
 
   const { ['projects-map']: map } = useMap();
@@ -76,12 +81,6 @@ const MapView = ({ data }: { data }): JSX.Element => {
       map.fitBounds(filteredBbox, { padding: 20, maxZoom: 6 });
     }
   }, [filteredBbox, map, basemap]);
-
-  // const handleViewState = useCallback(() => {
-  //   if (map) {
-  //     console.log('map', map.getStyle().layers);
-  //   }
-  // }, [map]);
 
   const bounds: CustomMapProps['bounds'] = {
     bbox: [-237.65625, -78.836065, 238.007813, 78.767792],
@@ -139,7 +138,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
     const projectsFeature = e?.features?.find(({ layer }) => layer.id === 'projects-layer');
     if (projectsFeature) {
-      push(`/projects/${projectSlug}`);
+      push(`/projects/${projectSlug}${queryParams}`);
     }
   };
 
@@ -238,7 +237,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                     </Controls>
                     {!!projectsPopUp?.popup?.length && (
                       <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
-                        <Link href={`/projects/${projectSlug}`}>
+                        <Link href={`/projects/${projectSlug}${queryParams}`}>
                           <div className="px-2 py-1">
                             <p className="font-sans text-2xs text-gray-800">
                               {projectsPopUp.popupInfo.name}

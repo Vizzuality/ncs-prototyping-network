@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { Config } from 'react-player';
 
 import { BaseReactPlayerProps } from 'react-player/base';

@@ -9,13 +9,19 @@ import remarkGfm from 'remark-gfm';
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjectsId } from '@/types/generated/project';
 
+import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
 import { cn } from 'utils/cn';
 import { toTBD } from 'utils/data';
 
 const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
+  const [locale] = useSyncLocale();
+  const queryParams = useSyncQueryParams();
+
   const { data, isFetched } = useGetProjectsId(id, { populate: '*' });
 
-  const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways();
+  const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways({ locale });
   const pathways = pathwaysIsFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
 
   const COLORS = {
@@ -41,13 +47,13 @@ const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
     : null;
 
   return (
-    <div className="relative w-[330px] cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
+    <div className="relative w-full cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
       {isFetched && (
-        <Link href={`/projects/${slug}`}>
+        <Link href={`/projects/${slug}${queryParams}`}>
           <Image
             alt={data.data.data.attributes.header_photo.data.attributes.name || 'Project image'}
             src={headerPhotoFormat.small.url || 'https://dummyimage.com/700x300/000/fff&text=+'}
-            style={{ objectFit: 'cover', height: '140px', width: '360px' }}
+            style={{ objectFit: 'cover', height: '140px', width: '100%' }}
             height={140}
             width={360}
           />

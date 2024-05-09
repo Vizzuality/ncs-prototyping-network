@@ -3,10 +3,14 @@ import Link from 'next/link';
 
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
+import { useSyncQueryParams } from '@/hooks/query';
+
 import Button from 'components/ui/button';
 import Wrapper from 'containers/wrapper';
 
 const HomeMap = (): JSX.Element => {
+  const queryParams = useSyncQueryParams();
+
   return (
     <Wrapper>
       <section className="-mt-44 mb-12 flex h-full items-center bg-white py-12 px-16">
@@ -19,7 +23,7 @@ const HomeMap = (): JSX.Element => {
             of different approaches.
           </p>
 
-          <Link href="/projects">
+          <Link href={`/projects${queryParams}`}>
             <Button>
               <p className="text-base font-bold uppercase">Projects</p>
               <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />

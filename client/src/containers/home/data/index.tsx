@@ -1,13 +1,18 @@
 import { useGetProjects } from '@/types/generated/project';
 
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
 import Wrapper from 'containers/wrapper';
 
 const Data = (): JSX.Element => {
-  const { data, isFetched } = useGetProjects({ populate: '*' });
+  const [locale] = useSyncLocale();
+
+  const { data, isFetched } = useGetProjects({ populate: '*', locale });
 
   const countriesArray = data?.data?.data.map(
     (project) => project.attributes.country.data.attributes.name
   );
+
   const countries = countriesArray?.filter((c, idx) => countriesArray.indexOf(c) === idx).length;
 
   const partnersArray = data?.data?.data

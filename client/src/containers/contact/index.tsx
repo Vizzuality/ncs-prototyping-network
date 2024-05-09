@@ -30,7 +30,7 @@ const ContactPage = (): JSX.Element => {
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
   useEffect(() => {
-    setHeaderStyle('default');
+    setHeaderStyle('dark');
   }, [setHeaderStyle]);
 
   const formRef = useRef(null);
