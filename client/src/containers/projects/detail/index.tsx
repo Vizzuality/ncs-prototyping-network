@@ -225,21 +225,24 @@ const ProjectDetail = (): JSX.Element => {
               </div>
             </Wrapper>
           </section>
+
           <section
             id="goals"
             className="relative flex scroll-mt-28 bg-gradient-to-r from-midnight via-indigo to-midnight"
           >
-            <div className="flex w-1/2 justify-end">
-              <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
-                <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
-                >
-                  {data?.data?.data?.attributes.project_goal}
-                </Markdown>
+            {data?.data?.data?.attributes.project_goal && (
+              <div className="flex w-1/2 justify-end">
+                <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
+                  <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
+                  >
+                    {data?.data?.data?.attributes.project_goal}
+                  </Markdown>
+                </div>
               </div>
-            </div>
+            )}
 
             <Image
               src={
@@ -276,13 +279,17 @@ const ProjectDetail = (): JSX.Element => {
               )}
 
               <div>
-                <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
-                <p className="pt-6 font-sans text-lg font-light text-text">
-                  Project Phase:{' '}
-                  {data?.data?.data?.attributes.project_phases.data
-                    .map((pp) => pp.attributes.name)
-                    .join(', ')}
-                </p>
+                {data?.data?.data?.attributes.project_summary && (
+                  <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
+                )}
+                {!!data?.data?.data?.attributes.project_phases.data.length && (
+                  <p className="pt-6 font-sans text-lg font-light text-text">
+                    Project Phase:{' '}
+                    {data?.data?.data?.attributes.project_phases.data
+                      .map((pp) => pp.attributes.name)
+                      .join(', ')}
+                  </p>
+                )}
                 <Markdown
                   remarkPlugins={[remarkGfm]}
                   className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text"
@@ -361,6 +368,7 @@ const ProjectDetail = (): JSX.Element => {
                 </Wrapper>
               </section>
             )}
+
           <section id="lessons" className="scroll-mt-28">
             <div className="bg-indigo py-6">
               <Wrapper>
@@ -414,6 +422,7 @@ const ProjectDetail = (): JSX.Element => {
               </table>
             </Wrapper>
           </section>
+
           <section id="science" className="flex scroll-mt-28 flex-col">
             <div className="bg-indigo py-6">
               <Wrapper>
@@ -424,15 +433,17 @@ const ProjectDetail = (): JSX.Element => {
             </div>
             <Wrapper className="flex w-full flex-row space-x-20 py-16">
               <div className="flex w-3/4 flex-col space-y-10">
-                <div className="flex-col space-y-6">
-                  <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="font-sans text-m font-light leading-7 text-text"
-                  >
-                    {data?.data?.data?.attributes.abstract}
-                  </Markdown>
-                </div>
+                {data?.data?.data?.attributes.abstract && (
+                  <div className="flex-col space-y-6">
+                    <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
+                    <Markdown
+                      remarkPlugins={[remarkGfm]}
+                      className="font-sans text-m font-light leading-7 text-text"
+                    >
+                      {data?.data?.data?.attributes.abstract}
+                    </Markdown>
+                  </div>
+                )}
                 {data?.data?.data?.attributes.citations && (
                   <div className="flex flex-col space-y-4">
                     <h5 className="text-lg font-light uppercase">CITATIONS</h5>
@@ -641,15 +652,17 @@ const ProjectDetail = (): JSX.Element => {
 
           <section className="py-16">
             <Wrapper className="flex flex-row space-x-20">
-              <div className="w-3/4 space-y-6">
-                <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="font-sans text-m font-light leading-7 text-text"
-                >
-                  {data?.data?.data?.attributes.whats_next}
-                </Markdown>
-              </div>
+              {data?.data?.data?.attributes.whats_next && (
+                <div className="w-3/4 space-y-6">
+                  <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className="font-sans text-m font-light leading-7 text-text"
+                  >
+                    {data?.data?.data?.attributes.whats_next}
+                  </Markdown>
+                </div>
+              )}
 
               {!!(
                 data?.data?.data?.attributes.public_contact_name ||
