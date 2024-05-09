@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
-import { Button } from 'components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
+
+import { Button } from 'components/ui/button';
 
 import type { CookiesProps } from './types';
 

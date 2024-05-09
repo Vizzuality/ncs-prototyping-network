@@ -6,7 +6,6 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Wrapper from 'containers/wrapper';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import remarkGfm from 'remark-gfm';
 
@@ -14,6 +13,8 @@ import { useGetProjects } from '@/types/generated/project';
 
 import { useSyncQueryParams } from '@/hooks/query';
 import { useSyncLocale } from '@/hooks/query/sync-query';
+
+import Wrapper from 'containers/wrapper';
 
 const HomeProjects = (): JSX.Element => {
   const [locale] = useSyncLocale();

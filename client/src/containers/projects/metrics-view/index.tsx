@@ -5,27 +5,36 @@ import Markdown from 'react-markdown';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { COLUMNS } from 'containers/projects/constants';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import remarkGfm from 'remark-gfm';
-import { cn } from 'utils/cn';
-import { toTBD } from 'utils/data';
+
+import { useGetCobenefits } from '@/types/generated/cobenefit';
 
 import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
+import { COLUMNS } from 'containers/projects/constants';
+import { cn } from 'utils/cn';
+import { toTBD } from 'utils/data';
 
 type Direction = 'asc' | 'desc';
 
 const MetricsView = ({ data }: { data }): JSX.Element => {
+  const [locale] = useSyncLocale();
   const queryParams = useSyncQueryParams();
+  const { data: cobenefits } = useGetCobenefits({ locale });
 
   const CO_BENEFITS_ICONS = {
-    Biodiversity: '/images/icons/co-benefits/biodiversity.svg',
-    'Ecosystem Services': '/images/icons/co-benefits/ecosystem_services.svg',
-    'Resilience/Adaptation': '/images/icons/co-benefits/resilience_and_adaptation.svg',
-    'Human Health/Well-Being': '/images/icons/co-benefits/human_health_wellbeing.svg',
-    'Livelihoods/Economic': '/images/icons/co-benefits/livelihoods_economic.svg',
-    'Socio-Cultural': '',
+    [cobenefits?.data.data[0]?.attributes.name]: '/images/icons/co-benefits/biodiversity.svg',
+    [cobenefits?.data.data[1]?.attributes.name]: '/images/icons/co-benefits/ecosystem_services.svg',
+    [cobenefits?.data.data[2]?.attributes.name]:
+      '/images/icons/co-benefits/resilience_and_adaptation.svg',
+    [cobenefits?.data.data[3]?.attributes.name]:
+      '/images/icons/co-benefits/human_health_wellbeing.svg',
+    [cobenefits?.data.data[4]?.attributes.name]:
+      '/images/icons/co-benefits/livelihoods_economic.svg',
+    [cobenefits?.data.data[5]?.attributes.name]: '',
   };
 
   const [sortedBy, setSortedBy] = useState<string>('country');
@@ -47,11 +56,11 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
   const sortedData = getSortedData(data, sortedBy, direction);
 
   const CO_BENEFITS_ORDER = {
-    Biodiversity: 0,
-    'Ecosystem Services': 1,
-    'Resilience/Adaptation': 2,
-    'Human Health/Well-Being': 3,
-    'Livelihoods/Economic': 4,
+    [cobenefits?.data.data[0]?.attributes.name]: 0,
+    [cobenefits?.data.data[1]?.attributes.name]: 1,
+    [cobenefits?.data.data[2]?.attributes.name]: 2,
+    [cobenefits?.data.data[3]?.attributes.name]: 3,
+    [cobenefits?.data.data[4]?.attributes.name]: 4,
   };
 
   return (

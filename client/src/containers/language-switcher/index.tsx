@@ -37,7 +37,7 @@ const LanguageSwitcher: React.FC = () => {
       ref={ref}
       className={cn({
         'w-16 rounded-lg border bg-transparent text-white': true,
-        'bg-white text-indigo': headerStyle === 'light',
+        'bg-white text-indigo': headerStyle === 'light' || (headerStyle === 'dark' && openSwitcher),
       })}
     >
       <button
@@ -56,7 +56,7 @@ const LanguageSwitcher: React.FC = () => {
               key={value}
               className={cn({
                 'flex h-9 w-full flex-col justify-center px-2 uppercase last:rounded-b-lg': true,
-                'hover:bg-gray-100': headerStyle === 'light',
+                'hover:bg-gray-100': headerStyle === 'light' || headerStyle === 'dark',
               })}
               onClick={() => setLocale(value as Locale)}
             >

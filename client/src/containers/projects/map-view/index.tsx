@@ -6,6 +6,12 @@ import { useMap, Popup } from 'react-map-gl';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import { AnimatePresence, motion } from 'framer-motion';
+import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
+import { useRecoilValue } from 'recoil';
+
+import { useSyncQueryParams } from '@/hooks/query';
+
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
@@ -18,15 +24,10 @@ import { SORT_OPTIONS } from 'containers/projects/map-view/constants';
 import LayerManager from 'containers/projects/map-view/layer-manager';
 import Tabs from 'containers/projects/map-view/tabs';
 import Total from 'containers/projects/map-view/total';
-import { AnimatePresence, motion } from 'framer-motion';
-import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
-import { useRecoilValue } from 'recoil';
 import { basemapAtom, filteredBboxAtom } from 'store';
 import { PopUp } from 'types/project';
 import BASEMAPS from 'utils/basemaps';
 import { cn } from 'utils/cn';
-
-import { useSyncQueryParams } from '@/hooks/query';
 
 const initialViewState: MapboxProps['initialViewState'] = {
   bounds: WORLD_BOUNDS,

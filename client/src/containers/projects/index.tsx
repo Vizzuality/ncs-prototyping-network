@@ -34,7 +34,7 @@ const ProjectsPage = (): JSX.Element => {
   const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
   useEffect(() => {
-    setHeaderStyle('default');
+    setHeaderStyle('dark');
   }, [setHeaderStyle]);
 
   useEffect(() => {
@@ -47,6 +47,7 @@ const ProjectsPage = (): JSX.Element => {
       const pathway_3 = pathwaysData?.data.data[3]?.attributes.name
         .replace(/\([^()]*\)/g, '')
         .trim();
+
       const getSpecificPathwayName = (pathway) => {
         switch (pathway) {
           case pathway_1:
@@ -57,6 +58,7 @@ const ProjectsPage = (): JSX.Element => {
             return [pathways[3], pathways[4]];
         }
       };
+
       setFilters({ ...filters, pathways: getSpecificPathwayName(pathway) });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

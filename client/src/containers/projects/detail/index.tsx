@@ -8,19 +8,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-import Button from 'components/ui/button';
-import Video from 'components/video';
-import Card from 'containers/projects/card';
-import ExtentMap from 'containers/projects/detail/extent-map';
-import Wrapper from 'containers/wrapper';
 import { motion, useInView } from 'framer-motion';
 import { BsArrowLeft } from 'react-icons/bs';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
 import { useSetRecoilState } from 'recoil';
 import remarkGfm from 'remark-gfm';
-import { cn } from 'utils/cn';
-import { toTBD } from 'utils/data';
 
 import { headerStyleAtom } from '@/store';
 
@@ -28,6 +21,14 @@ import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
 import { useSyncQueryParams } from '@/hooks/query';
 import { useSyncLocale } from '@/hooks/query/sync-query';
+
+import Button from 'components/ui/button';
+import Video from 'components/video';
+import Card from 'containers/projects/card';
+import ExtentMap from 'containers/projects/detail/extent-map';
+import Wrapper from 'containers/wrapper';
+import { cn } from 'utils/cn';
+import { toTBD } from 'utils/data';
 
 const ProjectDetail = (): JSX.Element => {
   const { slug } = useParams();
