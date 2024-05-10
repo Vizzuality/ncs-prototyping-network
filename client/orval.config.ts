@@ -29,6 +29,7 @@ module.exports = {
           'Cobenefit',
           'Project-phase',
           'Project-category',
+          'Message',
         ],
       },
     },
