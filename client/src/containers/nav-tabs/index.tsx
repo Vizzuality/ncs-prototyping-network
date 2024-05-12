@@ -66,8 +66,6 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
             className={cn({
               'flex cursor-pointer items-center px-4 first:pl-0 hover:opacity-80': true,
               'h-5 border-r-[3px] border-white last:border-none': section === 'footer',
-              // TODO: remove this when the about and resources pages are ready
-              'pointer-events-none': tab.href === '/about' || tab.href === '/resources',
             })}
             href={`${tab.href}${queryParams}`}
           >
