@@ -7,16 +7,49 @@ import { useRecoilValue } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
+import { useGetMessages } from '@/types/generated/message';
+
 import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import { cn } from 'utils/cn';
 
-import { NAV_TABS_HEADER, NAV_TABS_FOOTER } from './constants';
-
 const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
+  const [locale] = useSyncLocale();
+
   const queryParams = useSyncQueryParams();
   const pathname = usePathname();
   const headerStyle = useRecoilValue(headerStyleAtom);
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+
+  const NAV_TABS_HEADER = [
+    {
+      label: messages.nav_1,
+      href: '/',
+    },
+    {
+      label: messages.nav_2,
+      href: '/projects',
+    },
+  ];
+
+  const NAV_TABS_FOOTER = [
+    {
+      label: messages.nav_1,
+      href: '/',
+    },
+    {
+      label: messages.nav_2,
+      href: '/projects',
+    },
+    {
+      label: messages.nav_3,
+      href: '/contact',
+    },
+  ];
 
   const NAV_TABS = section === 'footer' ? NAV_TABS_FOOTER : NAV_TABS_HEADER;
 

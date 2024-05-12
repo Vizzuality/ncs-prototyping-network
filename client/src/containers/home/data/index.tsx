@@ -1,3 +1,4 @@
+import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
 
 import { useSyncLocale } from '@/hooks/query/sync-query';
@@ -8,6 +9,9 @@ const Data = (): JSX.Element => {
   const [locale] = useSyncLocale();
 
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
 
   const countriesArray = data?.data?.data.map(
     (project) => project.attributes.country.data.attributes.name
@@ -47,7 +51,7 @@ const Data = (): JSX.Element => {
                   {data?.data?.data.length || 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Projects to Date
+                  {messages.projects_to_date}
                 </p>
               </div>
             )}
@@ -57,7 +61,7 @@ const Data = (): JSX.Element => {
                 {countries || 'TBD'}
               </p>
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                Countries Across the World
+                {messages.total_countries}
               </p>
             </div>
 
@@ -67,7 +71,7 @@ const Data = (): JSX.Element => {
                   {partners || 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Partners Working Together
+                  {messages.total_partners}
                 </p>
               </div>
             )}
@@ -80,7 +84,7 @@ const Data = (): JSX.Element => {
                     : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Project Area (ha)
+                  {messages.project_area_unit}
                 </p>
               </div>
             )}
@@ -93,7 +97,7 @@ const Data = (): JSX.Element => {
                     : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  People Supported
+                  {messages.people_supported}
                 </p>
               </div>
             )}
@@ -106,15 +110,12 @@ const Data = (): JSX.Element => {
                     : 'TBD'}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
+                  {messages.mitigation_potencial_unit}
                 </p>
               </div>
             )}
           </div>
-          <p className="pb-3 text-right text-xs text-text/50">
-            <span className="text-sm">*</span> Mitigation values presented may or may not be
-            equivalent to carbon credit potential depending on methodology and timeframe.
-          </p>
+          <p className="pb-3 text-right text-xs text-text/50">{messages.disclaimer}</p>
         </Wrapper>
       )}
     </section>
