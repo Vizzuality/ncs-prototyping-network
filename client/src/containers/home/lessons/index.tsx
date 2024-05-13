@@ -15,7 +15,10 @@ import { cn } from 'utils/cn';
 
 const Lessons = (): JSX.Element => {
   const [locale] = useSyncLocale();
-  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
 
   const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
 
@@ -29,8 +32,8 @@ const Lessons = (): JSX.Element => {
         'Restoration and mitigation projects span many years, requiring cross-generational engagement and participation to ensure project longevity and sustainability.',
         'Building relationship trust with communities is important to overcome perceptions of distrust and/or suspicion towards foreign organizations.',
       ],
-      image: '/images/home/lessons/community.png',
-      photoCredit: '©Roshni Lodhia',
+      image: messages.lessons_learned_1_photo?.data?.attributes.url,
+      photoCredit: messages.lessons_learned_1_photo?.data?.attributes.alternativeText,
     },
     {
       id: 2,
@@ -40,8 +43,8 @@ const Lessons = (): JSX.Element => {
         'Government, policy, and legislative turnover may hinder project continuity, field site accessibility, and/or project implementation.',
         'Bureaucracy, both external and internal, can cause administrative delays in contracting, hiring, permitting, and registering projects.',
       ],
-      image: '/images/home/lessons/institutional.png',
-      photoCredit: '©YKAN',
+      image: messages.lessons_learned_2_photo?.data?.attributes.url,
+      photoCredit: messages.lessons_learned_2_photo?.data?.attributes.alternativeText,
     },
     {
       id: 3,
@@ -51,8 +54,8 @@ const Lessons = (): JSX.Element => {
         'Many research and methodological gaps remain. NCS projects are pioneering new solutions with little locally applicable data and methods.',
         'Limited technical capacity often leads to hiring difficulties and unavailability of technical laboratories for biogeochemical analyses.',
       ],
-      image: '/images/home/lessons/science.png',
-      photoCredit: '©Kristen Blann/TNC',
+      image: messages.lessons_learned_3_photo?.data?.attributes.url,
+      photoCredit: messages.lessons_learned_3_photo?.data?.attributes.alternativeText,
     },
     {
       id: 4,
@@ -63,8 +66,8 @@ const Lessons = (): JSX.Element => {
         'Seasonal weather can further restrict field accessibility. Missing a sampling window can result in a one-year delay in data collection, so planning is imperative.',
         ' Some project areas are prone to safety risks, affecting infrastructure development and field access. This includes social and political considerations for accessing sampling sites.',
       ],
-      image: '/images/home/lessons/logistics.png',
-      photoCredit: '©Carlos Cifuentes/TNC',
+      image: messages.lessons_learned_4_photo?.data?.attributes.url,
+      photoCredit: messages.lessons_learned_4_photo?.data?.attributes.alternativeText,
     },
 
     {
@@ -75,8 +78,8 @@ const Lessons = (): JSX.Element => {
         'Operating as a foreign entity can cause elevated contracting costs in certain areas.',
         ' Growing global and local interest in climate mitigation and environmental restoration are providing new opportunities for fundraising, partnerships, and improved government alignment.',
       ],
-      image: '/images/home/lessons/resources.png',
-      photoCredit: '©Eugene Wemin',
+      image: messages.lessons_learned_5_photo?.data?.attributes.url,
+      photoCredit: messages.lessons_learned_5_photo?.data?.attributes.alternativeText,
     },
   ];
 
@@ -121,7 +124,12 @@ const Lessons = (): JSX.Element => {
             })}
           >
             <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
-              <h5 className="pb-4 font-serif text-2xl font-semibold text-indigo">{lesson.title}</h5>
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                className="pb-4 font-serif text-2xl font-semibold text-indigo"
+              >
+                {lesson.title}
+              </Markdown>
 
               {lesson.points.map((point) => (
                 <div key={point} className="flex items-start space-x-3 space-y-1.5">

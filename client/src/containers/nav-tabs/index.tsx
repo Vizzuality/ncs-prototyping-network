@@ -60,24 +60,24 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
       })}
     >
       <ul className="relative m-0 flex w-full items-center p-0">
-        {NAV_TABS.map((tab) => (
+        {NAV_TABS.map(({ label, href }, index) => (
           <Link
-            key={tab.label}
+            key={index}
             className={cn({
               'flex cursor-pointer items-center px-4 first:pl-0 hover:opacity-80': true,
               'h-5 border-r-[3px] border-white last:border-none': section === 'footer',
             })}
-            href={`${tab.href}${queryParams}`}
+            href={`${href}${queryParams}`}
           >
             <p
               className={cn({
                 'py-5 font-sans text-xl uppercase text-white': true,
                 'text-indigo': headerStyle === 'light' && section !== 'footer',
-                'font-bold': pathname === tab.href && section !== 'footer',
+                'font-bold': pathname === href && section !== 'footer',
                 'py-0 text-base font-normal': section === 'footer',
               })}
             >
-              {tab.label}
+              {label}
             </p>
           </Link>
         ))}
