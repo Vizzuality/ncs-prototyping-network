@@ -24,11 +24,7 @@ const HomeProjects = (): JSX.Element => {
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
 
-<<<<<<< HEAD
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
-=======
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
->>>>>>> aa12ceda (home content integration)
 
   const SampleNextArrow = ({ onClick }: { onClick?: MouseEventHandler<HTMLButtonElement> }) => {
     return (
@@ -68,7 +64,6 @@ const HomeProjects = (): JSX.Element => {
   return (
     <Wrapper>
       <section className="flex flex-col space-y-12 py-14">
-<<<<<<< HEAD
         {messages && (
           <Markdown
             remarkPlugins={[remarkGfm]}
@@ -77,14 +72,6 @@ const HomeProjects = (): JSX.Element => {
             {messages.prototyping_projects}
           </Markdown>
         )}
-=======
-        <Markdown
-          remarkPlugins={[remarkGfm]}
-          className="text-lg font-light leading-7 text-text [&_h2]:font-serif [&_h2]:text-4xl [&_h2]:font-semibold [&_h2]:text-indigo [&_p]:pt-6"
-        >
-          {messages.prototyping_projects}
-        </Markdown>
->>>>>>> aa12ceda (home content integration)
 
         <div>
           {isFetched && (
