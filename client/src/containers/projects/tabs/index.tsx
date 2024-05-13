@@ -17,7 +17,7 @@ const Tabs = (): JSX.Element => {
     locale,
   });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const [projectsView, setProjectsView] = useRecoilState(projectsViewAtom);
 

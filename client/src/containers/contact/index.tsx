@@ -41,7 +41,7 @@ const ContactPage = (): JSX.Element => {
     locale,
   });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   useEffect(() => {
     setHeaderStyle('dark');

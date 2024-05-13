@@ -86,7 +86,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
     locale,
   });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   // ? This effect will update bounds when filtering projects
   useEffect(() => {

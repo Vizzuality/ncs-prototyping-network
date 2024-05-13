@@ -30,7 +30,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
     locale,
   });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const CO_BENEFITS_ICONS = {
     [cobenefits?.data.data[0]?.attributes.name]: '/images/icons/co-benefits/biodiversity.svg',

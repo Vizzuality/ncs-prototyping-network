@@ -14,7 +14,7 @@ const Hero = (): JSX.Element => {
   const { data, isFetched: messagesIsFetched } = useGetMessages({ locale });
   const { data: projects, isFetched: projectsIsFetched } = useGetProjects({ locale });
 
-  const messages = messagesIsFetched && data.data.data[0].attributes;
+  const messages = messagesIsFetched && data.data.data[0]?.attributes;
 
   return (
     <section className=" bg-[url('/images/home/hero.png')] bg-cover bg-no-repeat">
@@ -25,7 +25,7 @@ const Hero = (): JSX.Element => {
       </div>
       <Wrapper>
         <div className="mb-64 mt-44 flex flex-col items-center space-y-8 py-10 text-white">
-          {projectsIsFetched && (
+          {projectsIsFetched && messagesIsFetched && messages && (
             <Markdown remarkPlugins={[remarkGfm]} className="font-serif text-4xl font-semibold">
               {`${projects.data.data.length} ${messages.hero_title}`}
             </Markdown>
@@ -34,7 +34,7 @@ const Hero = (): JSX.Element => {
             remarkPlugins={[remarkGfm]}
             className="max-w-4xl text-center text-xl leading-9 xl:text-2xl"
           >
-            {messages.hero_description}
+            {messages?.hero_description}
           </Markdown>
         </div>
       </Wrapper>

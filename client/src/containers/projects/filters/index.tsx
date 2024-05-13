@@ -26,7 +26,7 @@ const Filters = (): JSX.Element => {
     locale,
   });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways({ locale });
   const pathways = pathwaysIsFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];

@@ -55,7 +55,7 @@ const ProjectDetail = (): JSX.Element => {
     locale,
   });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const id = useMemo(() => {
     return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;
@@ -141,19 +141,19 @@ const ProjectDetail = (): JSX.Element => {
         )}
       </div>
 
-      {isFetching && (
+      {isFetching && messages && (
         <div className="flex h-64 w-full items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
         </div>
       )}
 
-      {!isFetching && isFetched && !data && (
+      {!isFetching && isFetched && !data && messages && (
         <div className="flex h-64 w-full items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">{messages.no_data}</p>
         </div>
       )}
 
-      {isFetched && !!data?.data?.data && (
+      {isFetched && !!data?.data?.data && messages && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between space-x-6 py-6">
             <div className="flex w-2/3 flex-col items-start">

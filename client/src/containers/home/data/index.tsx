@@ -11,7 +11,7 @@ const Data = (): JSX.Element => {
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const countriesArray = data?.data?.data.map(
     (project) => project.attributes.country.data.attributes.name
@@ -42,10 +42,10 @@ const Data = (): JSX.Element => {
 
   return (
     <section className="bg-background">
-      {isFetched && (
+      {isFetched && messages && (
         <Wrapper>
           <div className="mx-6 flex justify-between py-7 xl:mx-20">
-            {data?.data?.data && (
+            {data?.data?.data && messages && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                   {data?.data?.data.length || 'TBD'}
@@ -60,6 +60,7 @@ const Data = (): JSX.Element => {
               <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                 {countries || 'TBD'}
               </p>
+
               <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                 {messages.total_countries}
               </p>

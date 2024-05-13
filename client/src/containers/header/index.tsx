@@ -9,7 +9,7 @@ import { headerStyleAtom } from '@/store';
 
 import { useSyncQueryParams } from '@/hooks/query';
 
-// import LanguageSwitcher from '@/containers/language-switcher';
+import LanguageSwitcher from '@/containers/language-switcher';
 
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
@@ -56,9 +56,9 @@ const Header: React.FC = () => {
         </div>
         <div className="relative flex items-center pr-20">
           <NavigationTabs />
-          {/* <div className="absolute top-4 right-0">
+          <div className="absolute top-4 right-0">
             <LanguageSwitcher />
-          </div> */}
+          </div>
         </div>
       </Wrapper>
     </div>

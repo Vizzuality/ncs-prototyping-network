@@ -26,7 +26,7 @@ const Pathways = (): JSX.Element => {
   const { data: pathwaysData, isFetched: isPathwaysFetched } = useGetPathways({ locale });
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
 
-  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const numberProjects = isFetched ? data?.data.data.length : 0;
 
@@ -64,20 +64,26 @@ const Pathways = (): JSX.Element => {
   return (
     <Wrapper>
       <section className="z-10 -mb-40 flex flex-col space-y-12 py-20">
-        <Markdown
-          remarkPlugins={[remarkGfm]}
-          className="font-serif text-4xl font-semibold text-indigo"
-        >
-          {messages.what_we_are_field_testing_title}
-        </Markdown>
-        <Markdown
-          remarkPlugins={[remarkGfm]}
-          className="max-w-7xl text-xl font-light leading-7 text-text"
-        >
-          {`${numberProjects} ${messages.what_we_are_field_testing_description}`}
-        </Markdown>
+        {messages && (
+          <>
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              className="font-serif text-4xl font-semibold text-indigo"
+            >
+              {messages.what_we_are_field_testing_title}
+            </Markdown>
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              className="max-w-7xl text-xl font-light leading-7 text-text"
+            >
+              {`${numberProjects} ${messages.what_we_are_field_testing_description}`}
+            </Markdown>
+          </>
+        )}
+
         <div>
           {isPathwaysFetched &&
+            pathwaysData?.data.data.length > 0 &&
             PATHWAYS.map(({ id, icon, name, className }) => (
               <motion.div
                 key={id}
