@@ -84,8 +84,8 @@ const Lessons = (): JSX.Element => {
   ];
 
   return (
-    messages && (
-      <section>
+    <section>
+      {messages?.lessons_learned_intro && (
         <div className="bg-indigo">
           <Wrapper>
             <Markdown
@@ -96,55 +96,55 @@ const Lessons = (): JSX.Element => {
             </Markdown>
           </Wrapper>
         </div>
+      )}
 
-        {LESSONS.map((lesson) => (
-          <div key={lesson.id} className="relative flex justify-between">
-            <Image
-              src={lesson.image}
-              alt={lesson.title}
-              height={500}
-              width={700}
-              style={{ objectFit: 'cover' }}
-              className="w-1/2"
-            />
-            <div
-              className={cn({
-                'absolute bottom-20 z-10': true,
-                'right-8': lesson.id % 2 === 0,
-                'left-4': lesson.id % 2 !== 0,
-              })}
-            >
-              <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
-                <p className="whitespace-nowrap text-xs text-black">{lesson.photoCredit}</p>
-              </div>
-            </div>
-            <div
-              className={cn({
-                'flex w-1/2 bg-background text-xl leading-9': true,
-                '-order-1 justify-end': lesson.id % 2 === 0,
-              })}
-            >
-              <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="pb-4 font-serif text-2xl font-semibold text-indigo"
-                >
-                  {lesson.title}
-                </Markdown>
-
-                {lesson.points.map((point) => (
-                  <div key={point} className="flex items-start space-x-3 space-y-1.5">
-                    <Icon icon={ARROW_SVG} className="mt-2 h-6 w-8 stroke-butternut stroke-2" />
-
-                    <p className="w-5/6 font-sans text-m font-light leading-7 text-text">{point}</p>
-                  </div>
-                ))}
-              </div>
+      {LESSONS.map((lesson) => (
+        <div key={lesson.id} className="relative flex justify-between">
+          <Image
+            src={lesson.image}
+            alt={lesson.title}
+            height={500}
+            width={700}
+            style={{ objectFit: 'cover' }}
+            className="w-1/2"
+          />
+          <div
+            className={cn({
+              'absolute bottom-20 z-10': true,
+              'right-8': lesson.id % 2 === 0,
+              'left-4': lesson.id % 2 !== 0,
+            })}
+          >
+            <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
+              <p className="whitespace-nowrap text-xs text-black">{lesson.photoCredit}</p>
             </div>
           </div>
-        ))}
-      </section>
-    )
+          <div
+            className={cn({
+              'flex w-1/2 bg-background text-xl leading-9': true,
+              '-order-1 justify-end': lesson.id % 2 === 0,
+            })}
+          >
+            <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                className="pb-4 font-serif text-2xl font-semibold text-indigo"
+              >
+                {lesson.title}
+              </Markdown>
+
+              {lesson.points.map((point) => (
+                <div key={point} className="flex items-start space-x-3 space-y-1.5">
+                  <Icon icon={ARROW_SVG} className="mt-2 h-6 w-8 stroke-butternut stroke-2" />
+
+                  <p className="w-5/6 font-sans text-m font-light leading-7 text-text">{point}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
   );
 };
 

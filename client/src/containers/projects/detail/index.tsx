@@ -753,7 +753,7 @@ const ProjectDetail = (): JSX.Element => {
 
                 <Link href={`/contact${queryParams}`}>
                   <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
-                    <p className="text-base font-bold uppercase">{messages.contact_us_copy}</p>
+                    <p className="text-base font-bold uppercase">{messages?.contact_us_copy}</p>
                     <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
                   </button>
                 </Link>
@@ -763,7 +763,7 @@ const ProjectDetail = (): JSX.Element => {
           <section className="pt-16 pb-28">
             <Wrapper className="space-y-6">
               <h4 className="font-serif text-2xl font-medium text-indigo">
-                {messages.similiar_projects}
+                {messages?.similiar_projects}
               </h4>
               <div className="grid grid-cols-3 gap-6 xl:grid-cols-4 2xl:gap-10">
                 {similarProjects?.map((project, idx) => (
@@ -773,7 +773,7 @@ const ProjectDetail = (): JSX.Element => {
                 {similarProjects.length === 0 && (
                   <div className="flex h-64 w-full items-center justify-center">
                     <p className="font-serif text-lg font-semibold text-indigo">
-                      {messages.no_projects}
+                      {messages?.no_projects}
                     </p>
                   </div>
                 )}

@@ -40,86 +40,98 @@ const Data = (): JSX.Element => {
     0
   );
 
+  const someTotalData =
+    messages.projects_to_date ||
+    messages.total_countries ||
+    messages.total_partners ||
+    messages.project_area_unit ||
+    messages.people_supported ||
+    messages.mitigation_potencial_unit;
+
   return (
-    <section className="bg-background">
-      {isFetched && messages && (
-        <Wrapper>
-          <div className="mx-6 flex justify-between py-7 xl:mx-20">
-            {data?.data?.data && messages && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {data?.data?.data.length || 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  {messages.projects_to_date}
-                </p>
-              </div>
-            )}
+    someTotalData && (
+      <section className="bg-background">
+        {isFetched && (
+          <Wrapper>
+            <div className="mx-6 flex justify-between py-7 xl:mx-20">
+              {data?.data?.data && messages.projects_to_date && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {data?.data?.data.length || 'TBD'}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.projects_to_date}
+                  </p>
+                </div>
+              )}
 
-            <div className="flex flex-col items-center space-y-2">
-              <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                {countries || 'TBD'}
-              </p>
+              {countries && messages.total_countries && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {countries || 'TBD'}
+                  </p>
 
-              <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                {messages.total_countries}
-              </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.total_countries}
+                  </p>
+                </div>
+              )}
+
+              {partners && messages.total_partners && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {partners || 'TBD'}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.total_partners}
+                  </p>
+                </div>
+              )}
+
+              {!isNaN(total_hectares_impacted) && messages.project_area_unit && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {total_hectares_impacted !== 0
+                      ? Intl.NumberFormat().format(total_hectares_impacted)
+                      : 'TBD'}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.project_area_unit}
+                  </p>
+                </div>
+              )}
+
+              {!isNaN(total_people_supported) && messages.people_supported && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {total_people_supported !== 0
+                      ? Intl.NumberFormat().format(total_people_supported)
+                      : 'TBD'}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.people_supported}
+                  </p>
+                </div>
+              )}
+
+              {!isNaN(total_carbon_mitigation) && messages.mitigation_potencial_unit && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {total_carbon_mitigation !== 0
+                      ? Intl.NumberFormat().format(total_carbon_mitigation)
+                      : 'TBD'}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.mitigation_potencial_unit}
+                  </p>
+                </div>
+              )}
             </div>
-
-            {partners && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {partners || 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  {messages.total_partners}
-                </p>
-              </div>
-            )}
-
-            {!isNaN(total_hectares_impacted) && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {total_hectares_impacted !== 0
-                    ? Intl.NumberFormat().format(total_hectares_impacted)
-                    : 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  {messages.project_area_unit}
-                </p>
-              </div>
-            )}
-
-            {!isNaN(total_people_supported) && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {total_people_supported !== 0
-                    ? Intl.NumberFormat().format(total_people_supported)
-                    : 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  {messages.people_supported}
-                </p>
-              </div>
-            )}
-
-            {!isNaN(total_carbon_mitigation) && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {total_carbon_mitigation !== 0
-                    ? Intl.NumberFormat().format(total_carbon_mitigation)
-                    : 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  {messages.mitigation_potencial_unit}
-                </p>
-              </div>
-            )}
-          </div>
-          <p className="pb-3 text-right text-xs text-text/50">{messages.disclaimer}</p>
-        </Wrapper>
-      )}
-    </section>
+            <p className="pb-3 text-right text-xs text-text/50">{messages?.disclaimer}</p>
+          </Wrapper>
+        )}
+      </section>
+    )
   );
 };
 

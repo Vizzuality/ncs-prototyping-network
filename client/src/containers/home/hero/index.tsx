@@ -12,7 +12,7 @@ import Wrapper from 'containers/wrapper';
 const Hero = (): JSX.Element => {
   const [locale] = useSyncLocale();
   const { data, isFetched: messagesIsFetched } = useGetMessages({ locale });
-  const { data: projects, isFetched: projectsIsFetched } = useGetProjects({ locale });
+  const { data: projects } = useGetProjects({ locale });
 
   const messages = messagesIsFetched && data.data.data[0]?.attributes;
 
@@ -25,7 +25,7 @@ const Hero = (): JSX.Element => {
       </div>
       <Wrapper>
         <div className="mb-64 mt-44 flex flex-col items-center space-y-8 py-10 text-white">
-          {projectsIsFetched && messagesIsFetched && messages && (
+          {!!projects?.data.data.length && messages.hero_title && (
             <Markdown remarkPlugins={[remarkGfm]} className="font-serif text-4xl font-semibold">
               {`${projects.data.data.length} ${messages.hero_title}`}
             </Markdown>

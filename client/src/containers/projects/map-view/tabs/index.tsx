@@ -20,8 +20,8 @@ const MapTabs = (): JSX.Element => {
   const [basemap, setBasemap] = useRecoilState(basemapAtom);
 
   const TABS = [
-    { id: 'outdoors', label: messages.map },
-    { id: 'satellite', label: messages.satellite },
+    { id: 'outdoors', label: messages?.map },
+    { id: 'satellite', label: messages?.satellite },
   ];
 
   return (

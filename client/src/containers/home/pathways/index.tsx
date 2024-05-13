@@ -64,22 +64,23 @@ const Pathways = (): JSX.Element => {
   return (
     <Wrapper>
       <section className="z-10 -mb-40 flex flex-col space-y-12 py-20">
-        {messages && (
-          <>
-            <Markdown
-              remarkPlugins={[remarkGfm]}
-              className="font-serif text-4xl font-semibold text-indigo"
-            >
-              {messages.what_we_are_field_testing_title}
-            </Markdown>
-            <Markdown
-              remarkPlugins={[remarkGfm]}
-              className="max-w-7xl text-xl font-light leading-7 text-text"
-            >
-              {`${numberProjects} ${messages.what_we_are_field_testing_description}`}
-            </Markdown>
-          </>
-        )}
+        {messages.what_we_are_field_testing_title &&
+          messages.what_we_are_field_testing_description && (
+            <>
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                className="font-serif text-4xl font-semibold text-indigo"
+              >
+                {messages.what_we_are_field_testing_title}
+              </Markdown>
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                className="max-w-7xl text-xl font-light leading-7 text-text"
+              >
+                {`${numberProjects} ${messages.what_we_are_field_testing_description}`}
+              </Markdown>
+            </>
+          )}
 
         <div>
           {isPathwaysFetched &&

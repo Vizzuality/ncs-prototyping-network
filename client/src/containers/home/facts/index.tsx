@@ -26,7 +26,7 @@ const Facts = (): JSX.Element => {
   return (
     <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
       <Wrapper>
-        {messages && (
+        {messages.facts && (
           <div className="my-20 flex flex-col items-center space-y-4 font-sans text-xl text-white">
             <Markdown remarkPlugins={[remarkGfm]} className="max-w-4xl text-center leading-8">
               {messages.facts}
