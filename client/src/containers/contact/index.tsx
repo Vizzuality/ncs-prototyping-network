@@ -119,147 +119,165 @@ const ContactPage = (): JSX.Element => {
                 // eslint-disable-next-line @typescript-eslint/no-misused-promises
                 <form noValidate onSubmit={handleSubmit}>
                   <div className="mt-10 flex w-full flex-col justify-between space-y-6">
-                    <Field
-                      name="first_name"
-                      component="input"
-                      validate={composeValidators([{ presence: true }])}
-                    >
-                      {({ input, meta }) => (
-                        <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">
-                            {messages.contact_us_name_title}
-                          </label>
-                          <input
-                            {...input}
-                            value={input.value as string}
-                            placeholder={messages.contact_us_name_placeholder}
-                            type="text"
-                            className={cn({
-                              'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
-                                true,
-                              'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
-                            })}
-                          />
-                        </div>
-                      )}
-                    </Field>
-
-                    <Field
-                      name="last_name"
-                      component="input"
-                      validate={composeValidators([{ presence: true }])}
-                    >
-                      {({ input, meta }) => (
-                        <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">
-                            {messages.contact_us_surname_title}
-                          </label>
-                          <input
-                            {...input}
-                            value={input.value as string}
-                            placeholder={messages.contact_us_surname_placeholder}
-                            type="text"
-                            className={cn({
-                              'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
-                                true,
-                              'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
-                            })}
-                          />
-                        </div>
-                      )}
-                    </Field>
-                    <Field
-                      name="email"
-                      component="input"
-                      validate={composeValidators([{ presence: true, email: true }])}
-                    >
-                      {({ input, meta }) => (
-                        <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">
-                            {messages.contact_us_email_title}
-                          </label>
-                          <input
-                            {...input}
-                            value={input.value as string}
-                            placeholder={messages.contact_us_email_placeholder}
-                            type="email"
-                            className={cn({
-                              'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
-                                true,
-                              'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
-                            })}
-                          />
-                        </div>
-                      )}
-                    </Field>
-                    <Field
-                      name="subject"
-                      component="input"
-                      validate={composeValidators([{ presence: true }])}
-                    >
-                      {({ input, meta }) => (
-                        <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">
-                            {messages.contact_us_subject_title}
-                          </label>
-                          <input
-                            {...input}
-                            value={input.value as string}
-                            placeholder={messages.contact_us_subject_placeholder}
-                            type="text"
-                            className={cn({
-                              'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
-                                true,
-                              'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
-                            })}
-                          />
-                        </div>
-                      )}
-                    </Field>
-                    <Field
-                      name="message"
-                      component="input"
-                      validate={composeValidators([{ presence: true }])}
-                    >
-                      {({ input, meta }) => {
-                        return (
+                    {messages.contact_us_name_title && (
+                      <Field
+                        name="first_name"
+                        component="input"
+                        validate={composeValidators([{ presence: true }])}
+                      >
+                        {({ input, meta }) => (
                           <div className="relative w-full space-y-2">
                             <label className="text-xl font-light text-text">
-                              {messages.contact_us_message_title}
+                              {messages.contact_us_name_title}
                             </label>
-                            <textarea
+                            <input
                               {...input}
-                              placeholder={messages.contact_us_message_placeholder}
                               value={input.value as string}
-                              rows={4}
+                              placeholder={messages.contact_us_name_placeholder}
+                              type="text"
                               className={cn({
-                                'focus:ring-brand-700 flex h-40 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                                'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
                                   true,
                                 'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
                               })}
                             />
                           </div>
-                        );
-                      }}
-                    </Field>
-                    <div className="flex items-center space-x-4">
-                      <Field
-                        name="copy"
-                        component="input"
-                        type="checkbox"
-                        format={(v) => v === true}
-                        parse={(v) => (v ? true : false)}
-                      />
-                      <label className="text-base text-text" htmlFor="copy">
-                        {messages.contact_us_copy}
-                      </label>
-                    </div>
+                        )}
+                      </Field>
+                    )}
 
-                    <div className="pt-2">
-                      <Button type="submit">
-                        <p className="text-base font-bold uppercase">{messages.send_caption}</p>
-                      </Button>
-                    </div>
+                    {messages.contact_us_surname_title && (
+                      <Field
+                        name="last_name"
+                        component="input"
+                        validate={composeValidators([{ presence: true }])}
+                      >
+                        {({ input, meta }) => (
+                          <div className="relative w-full space-y-2">
+                            <label className="text-xl font-light text-text">
+                              {messages.contact_us_surname_title}
+                            </label>
+                            <input
+                              {...input}
+                              value={input.value as string}
+                              placeholder={messages.contact_us_surname_placeholder}
+                              type="text"
+                              className={cn({
+                                'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                                  true,
+                                'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                              })}
+                            />
+                          </div>
+                        )}
+                      </Field>
+                    )}
+
+                    {messages.contact_us_email_title && (
+                      <Field
+                        name="email"
+                        component="input"
+                        validate={composeValidators([{ presence: true, email: true }])}
+                      >
+                        {({ input, meta }) => (
+                          <div className="relative w-full space-y-2">
+                            <label className="text-xl font-light text-text">
+                              {messages.contact_us_email_title}
+                            </label>
+                            <input
+                              {...input}
+                              value={input.value as string}
+                              placeholder={messages.contact_us_email_placeholder}
+                              type="email"
+                              className={cn({
+                                'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                                  true,
+                                'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                              })}
+                            />
+                          </div>
+                        )}
+                      </Field>
+                    )}
+
+                    {messages.contact_us_subject_title && (
+                      <Field
+                        name="subject"
+                        component="input"
+                        validate={composeValidators([{ presence: true }])}
+                      >
+                        {({ input, meta }) => (
+                          <div className="relative w-full space-y-2">
+                            <label className="text-xl font-light text-text">
+                              {messages.contact_us_subject_title}
+                            </label>
+                            <input
+                              {...input}
+                              value={input.value as string}
+                              placeholder={messages.contact_us_subject_placeholder}
+                              type="text"
+                              className={cn({
+                                'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                                  true,
+                                'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                              })}
+                            />
+                          </div>
+                        )}
+                      </Field>
+                    )}
+
+                    {messages.contact_us_message_title && (
+                      <Field
+                        name="message"
+                        component="input"
+                        validate={composeValidators([{ presence: true }])}
+                      >
+                        {({ input, meta }) => {
+                          return (
+                            <div className="relative w-full space-y-2">
+                              <label className="text-xl font-light text-text">
+                                {messages.contact_us_message_title}
+                              </label>
+                              <textarea
+                                {...input}
+                                placeholder={messages.contact_us_message_placeholder}
+                                value={input.value as string}
+                                rows={4}
+                                className={cn({
+                                  'focus:ring-brand-700 flex h-40 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
+                                    true,
+                                  'ring-2 ring-red-500 focus:ring-red-500': isError(meta.error),
+                                })}
+                              />
+                            </div>
+                          );
+                        }}
+                      </Field>
+                    )}
+
+                    {messages.contact_us_copy && (
+                      <div className="flex items-center space-x-4">
+                        <Field
+                          name="copy"
+                          component="input"
+                          type="checkbox"
+                          format={(v) => v === true}
+                          parse={(v) => (v ? true : false)}
+                        />
+                        <label className="text-base text-text" htmlFor="copy">
+                          {messages.contact_us_copy}
+                        </label>
+                      </div>
+                    )}
+
+                    {messages.send_caption && (
+                      <div className="pt-2">
+                        <Button type="submit">
+                          <p className="text-base font-bold uppercase">{messages.send_caption}</p>
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </form>
               );
