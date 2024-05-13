@@ -2,11 +2,17 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { Form, Field, FormProps } from 'react-final-form';
+import Markdown from 'react-markdown';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSetRecoilState } from 'recoil';
+import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
+
+import { useGetMessages } from '@/types/generated/message';
+
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import { Toaster } from '@/components/ui/toaster';
 
@@ -27,7 +33,15 @@ interface FormValues {
 }
 
 const ContactPage = (): JSX.Element => {
+  const [locale] = useSyncLocale();
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
 
   useEffect(() => {
     setHeaderStyle('dark');
@@ -85,11 +99,15 @@ const ContactPage = (): JSX.Element => {
         transition={{ delay: 0.25, duration: 0.3 }}
       >
         <Wrapper className="!px-56 py-20">
-          <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">Contact Us</h4>
-          <p className="pt-3 text-xl font-light leading-8 text-text">
-            If you would like more information about the network in general, would like to be
-            connected to a project team, or see an error, please contact us using this form.
-          </p>
+          <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">
+            {messages.contact_us}
+          </h4>
+          <Markdown
+            remarkPlugins={[remarkGfm]}
+            className="pt-3 text-xl font-light leading-8 text-text"
+          >
+            {messages.contact_us_description}
+          </Markdown>
 
           <Form initialValues={INITIAL_VALUES} onSubmit={onSubmit}>
             {({ handleSubmit, form }) => {
@@ -108,11 +126,13 @@ const ContactPage = (): JSX.Element => {
                     >
                       {({ input, meta }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">Given name *</label>
+                          <label className="text-xl font-light text-text">
+                            {messages.contact_us_name_title}
+                          </label>
                           <input
                             {...input}
                             value={input.value as string}
-                            placeholder="Your first name or given name"
+                            placeholder={messages.contact_us_name_placeholder}
                             type="text"
                             className={cn({
                               'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -131,11 +151,13 @@ const ContactPage = (): JSX.Element => {
                     >
                       {({ input, meta }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">Surname *</label>
+                          <label className="text-xl font-light text-text">
+                            {messages.contact_us_surname_title}
+                          </label>
                           <input
                             {...input}
                             value={input.value as string}
-                            placeholder="Your surname or family name(s)"
+                            placeholder={messages.contact_us_surname_placeholder}
                             type="text"
                             className={cn({
                               'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -153,11 +175,13 @@ const ContactPage = (): JSX.Element => {
                     >
                       {({ input, meta }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">Email</label>
+                          <label className="text-xl font-light text-text">
+                            {messages.contact_us_email_title}
+                          </label>
                           <input
                             {...input}
                             value={input.value as string}
-                            placeholder="Your email address"
+                            placeholder={messages.contact_us_email_placeholder}
                             type="email"
                             className={cn({
                               'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -175,11 +199,13 @@ const ContactPage = (): JSX.Element => {
                     >
                       {({ input, meta }) => (
                         <div className="relative w-full space-y-2">
-                          <label className="text-xl font-light text-text">Subject *</label>
+                          <label className="text-xl font-light text-text">
+                            {messages.contact_us_subject_title}
+                          </label>
                           <input
                             {...input}
                             value={input.value as string}
-                            placeholder="Enter your subject"
+                            placeholder={messages.contact_us_subject_placeholder}
                             type="text"
                             className={cn({
                               'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -198,10 +224,12 @@ const ContactPage = (): JSX.Element => {
                       {({ input, meta }) => {
                         return (
                           <div className="relative w-full space-y-2">
-                            <label className="text-xl font-light text-text">Message *</label>
+                            <label className="text-xl font-light text-text">
+                              {messages.contact_us_message_title}
+                            </label>
                             <textarea
                               {...input}
-                              placeholder="Enter your message"
+                              placeholder={messages.contact_us_message_placeholder}
                               value={input.value as string}
                               rows={4}
                               className={cn({
@@ -223,13 +251,13 @@ const ContactPage = (): JSX.Element => {
                         parse={(v) => (v ? true : false)}
                       />
                       <label className="text-base text-text" htmlFor="copy">
-                        I’d like to receive an email copy of my message
+                        {messages.contact_us_copy}
                       </label>
                     </div>
 
                     <div className="pt-2">
                       <Button type="submit">
-                        <p className="text-base font-bold uppercase">Send</p>
+                        <p className="text-base font-bold uppercase">{messages.send_caption}</p>
                       </Button>
                     </div>
                   </div>

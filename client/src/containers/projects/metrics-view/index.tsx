@@ -10,11 +10,11 @@ import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import remarkGfm from 'remark-gfm';
 
 import { useGetCobenefits } from '@/types/generated/cobenefit';
+import { useGetMessages } from '@/types/generated/message';
 
 import { useSyncQueryParams } from '@/hooks/query';
 import { useSyncLocale } from '@/hooks/query/sync-query';
 
-import { COLUMNS } from 'containers/projects/constants';
 import { cn } from 'utils/cn';
 import { toTBD } from 'utils/data';
 
@@ -24,6 +24,13 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
   const [locale] = useSyncLocale();
   const queryParams = useSyncQueryParams();
   const { data: cobenefits } = useGetCobenefits({ locale });
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
 
   const CO_BENEFITS_ICONS = {
     [cobenefits?.data.data[0]?.attributes.name]: '/images/icons/co-benefits/biodiversity.svg',
@@ -36,6 +43,63 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
       '/images/icons/co-benefits/livelihoods_economic.svg',
     [cobenefits?.data.data[5]?.attributes.name]: '',
   };
+
+  const COLUMNS = [
+    {
+      id: 'country',
+      label: messages.disclaimer,
+      sorting: false,
+      width: 180,
+    },
+    {
+      id: 'pathways',
+      label: messages.pathway,
+      sorting: false,
+      width: 140,
+    },
+    {
+      id: 'action_types',
+      label: messages.action_type,
+      sorting: false,
+      width: 100,
+    },
+    {
+      id: 'project_phases',
+      label: messages.project_phase,
+      sorting: true,
+      width: 100,
+    },
+    {
+      id: 'project_categories',
+      label: messages.project_category,
+      sorting: false,
+      width: 130,
+    },
+    {
+      id: 'hectares_impacted',
+      label: messages.project_area_unit,
+      sorting: true,
+      width: 140,
+    },
+    {
+      id: 'people_supported',
+      label: messages.people_supported,
+      sorting: true,
+      width: 60,
+    },
+    {
+      id: 'carbon_mitigation',
+      label: messages.mitigation_potencial_unit,
+      sorting: true,
+      width: 160,
+    },
+    {
+      id: 'co-benefits',
+      label: messages.co_benefits,
+      sorting: false,
+      width: 120,
+    },
+  ];
 
   const [sortedBy, setSortedBy] = useState<string>('country');
 
@@ -74,7 +138,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
       >
         {!sortedData?.length && (
           <div className="flex h-64 w-full items-center justify-center">
-            <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
+            <p className="font-serif text-lg font-semibold text-indigo">{messages.no_projects}</p>
           </div>
         )}
 

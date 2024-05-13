@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useMap, Popup } from 'react-map-gl';
+import Markdown from 'react-markdown';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -9,8 +10,12 @@ import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
+import remarkGfm from 'remark-gfm';
+
+import { useGetMessages } from '@/types/generated/message';
 
 import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
@@ -51,6 +56,7 @@ const DEFAULT_PROPS = {
 const MapView = ({ data }: { data }): JSX.Element => {
   const { push } = useRouter();
 
+  const [locale] = useSyncLocale();
   const queryParams = useSyncQueryParams();
 
   const mapRef = useRef(null);
@@ -74,6 +80,13 @@ const MapView = ({ data }: { data }): JSX.Element => {
   const selectedBasemap = useMemo(() => BASEMAPS.find((b) => b.id === basemap).url, [basemap]);
 
   const { minZoom, maxZoom } = DEFAULT_PROPS;
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0].attributes;
 
   // ? This effect will update bounds when filtering projects
   useEffect(() => {
@@ -167,21 +180,24 @@ const MapView = ({ data }: { data }): JSX.Element => {
       >
         {!sortedData?.length && (
           <div className="flex h-64 w-full items-center justify-center">
-            <p className="font-serif text-lg font-semibold text-indigo">No projects found</p>
+            <p className="font-serif text-lg font-semibold text-indigo">{messages.no_projects}</p>
           </div>
         )}
         {!!sortedData?.length && (
           <div className="flex space-x-6">
             <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
               <Total />
-              <p className="py-3 text-right text-xs text-text/50">
-                <span className="text-sm">*</span>Mitigation values presented may or may not be
-                equivalent to carbon credit potential depending on methodology and timeframe.
-              </p>
+
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                className="py-3 text-right text-xs text-text/50"
+              >
+                {messages.disclaimer}
+              </Markdown>
               <div className="flex h-10 items-center justify-end space-x-3">
                 {sortedData?.length > 1 && (
                   <>
-                    <p className="font-sans text-xs text-text">SORT BY:</p>
+                    <p className="font-sans text-xs uppercase text-text">{messages.sort_by}</p>
                     <div className="mb-1">
                       <Select
                         theme="secondary"
