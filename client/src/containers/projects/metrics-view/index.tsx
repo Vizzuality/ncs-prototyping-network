@@ -277,11 +277,11 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                           ))}
                       </td>
                       <td className="bg-background">
-                        {toTBD(project.attributes.hectares_impacted)}
+                        {toTBD(project.attributes.hectares_impacted, messages.tbd)}
                       </td>
-                      <td>{toTBD(project.attributes.people_supported)}</td>
+                      <td>{toTBD(project.attributes.people_supported, messages.tbd)}</td>
                       <td className="bg-background">
-                        {toTBD(project.attributes.carbon_mitigation)}
+                        {toTBD(project.attributes.carbon_mitigation, messages.tbd)}
                       </td>
                       <td>
                         <div className="grid grid-cols-2 gap-x-0 gap-y-5">

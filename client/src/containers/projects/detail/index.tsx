@@ -180,7 +180,8 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.hectares_impacted)
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.hectares_impacted),
+                        messages.tbd
                       )}
                     </p>
                     <p className="text-center text-m font-medium text-text">
@@ -191,7 +192,8 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.people_supported)
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.people_supported),
+                        messages.tbd
                       )}
                     </p>
                     <p className="text-center text-m font-medium text-text">
@@ -202,7 +204,8 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation)
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation),
+                        messages.tbd
                       )}
                     </p>
                     <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">

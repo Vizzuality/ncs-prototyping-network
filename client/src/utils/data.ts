@@ -2,12 +2,9 @@ export const isNumber = (value) => {
   return typeof value === 'number';
 };
 
-export const toTBD = (d) => {
+export const toTBD = (d, message = 'TBD') => {
   if (d === '0') {
-    return 'TBD';
-  }
-  if (d === 0) {
-    return 'TBD';
+    return message;
   }
   return d;
 };
