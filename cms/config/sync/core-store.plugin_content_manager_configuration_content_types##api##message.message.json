@@ -258,20 +258,6 @@
           "sortable": false
         }
       },
-      "lessons_learned_1_issues": {
-        "edit": {
-          "label": "lessons_learned_1_issues",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "lessons_learned_1_issues",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "lessons_learned_1_photo": {
         "edit": {
           "label": "lessons_learned_1_photo",
@@ -296,20 +282,6 @@
         },
         "list": {
           "label": "lessons_learned_2_title",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "lessons_learned_2_issues": {
-        "edit": {
-          "label": "lessons_learned_2_issues",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "lessons_learned_2_issues",
           "searchable": false,
           "sortable": false
         }
@@ -342,20 +314,6 @@
           "sortable": false
         }
       },
-      "lessons_learned_3_issues": {
-        "edit": {
-          "label": "lessons_learned_3_issues",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "lessons_learned_3_issues",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "lessons_learned_3_photo": {
         "edit": {
           "label": "lessons_learned_3_photo",
@@ -384,20 +342,6 @@
           "sortable": false
         }
       },
-      "lessons_learned_4_issues": {
-        "edit": {
-          "label": "lessons_learned_4_issues",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "lessons_learned_4_issues",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "lessons_learned_4_photo": {
         "edit": {
           "label": "lessons_learned_4_photo",
@@ -422,20 +366,6 @@
         },
         "list": {
           "label": "lessons_learned_5_title",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "lessons_learned_5_issues": {
-        "edit": {
-          "label": "lessons_learned_5_issues",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "lessons_learned_5_issues",
           "searchable": false,
           "sortable": false
         }
@@ -1336,6 +1266,594 @@
           "sortable": true
         }
       },
+      "main_title": {
+        "edit": {
+          "label": "main_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "main_title",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "home_hero_photo": {
+        "edit": {
+          "label": "home_hero_photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "home_hero_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "home_footer_photo": {
+        "edit": {
+          "label": "home_footer_photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "home_footer_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "home_map_photo": {
+        "edit": {
+          "label": "home_map_photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "home_map_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "metrics_footer_photo": {
+        "edit": {
+          "label": "metrics_footer_photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "metrics_footer_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "map_view_footer_photo": {
+        "edit": {
+          "label": "map_view_footer_photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "map_view_footer_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "contact_us_footer_photo": {
+        "edit": {
+          "label": "contact_us_footer_photo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contact_us_footer_photo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "learn_more_facts_caption": {
+        "edit": {
+          "label": "learn_more_facts_caption",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "learn_more_facts_caption",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "loading": {
+        "edit": {
+          "label": "loading",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "loading",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "pathway_plural": {
+        "edit": {
+          "label": "pathway_plural",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "pathway_plural",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "action_type_plural": {
+        "edit": {
+          "label": "action_type_plural",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "action_type_plural",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact_us_success_title": {
+        "edit": {
+          "label": "contact_us_success_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contact_us_success_title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact_us_success_description": {
+        "edit": {
+          "label": "contact_us_success_description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contact_us_success_description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact_us_error_title": {
+        "edit": {
+          "label": "contact_us_error_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contact_us_error_title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact_us_error_description": {
+        "edit": {
+          "label": "contact_us_error_description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contact_us_error_description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "tbd": {
+        "edit": {
+          "label": "tbd",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "tbd",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "select_placeholder": {
+        "edit": {
+          "label": "select_placeholder",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "select_placeholder",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "selected_items": {
+        "edit": {
+          "label": "selected_items",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "selected_items",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "all_selected_items": {
+        "edit": {
+          "label": "all_selected_items",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "all_selected_items",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "what_we_do_title": {
+        "edit": {
+          "label": "what_we_do_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "what_we_do_title",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "what_we_do_description": {
+        "edit": {
+          "label": "what_we_do_description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "what_we_do_description",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "what_we_do_1": {
+        "edit": {
+          "label": "what_we_do_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "what_we_do_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "what_we_do_2": {
+        "edit": {
+          "label": "what_we_do_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "what_we_do_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "what_we_do_3": {
+        "edit": {
+          "label": "what_we_do_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "what_we_do_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "what_we_do_4": {
+        "edit": {
+          "label": "what_we_do_4",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "what_we_do_4",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_1_issue_1": {
+        "edit": {
+          "label": "lessons_learned_1_issue_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_1_issue_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_1_issue_2": {
+        "edit": {
+          "label": "lessons_learned_1_issue_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_1_issue_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_1_issue_3": {
+        "edit": {
+          "label": "lessons_learned_1_issue_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_1_issue_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_1_issue_4": {
+        "edit": {
+          "label": "lessons_learned_1_issue_4",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_1_issue_4",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_2_issue_1": {
+        "edit": {
+          "label": "lessons_learned_2_issue_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_2_issue_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_2_issue_2": {
+        "edit": {
+          "label": "lessons_learned_2_issue_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_2_issue_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_2_issue_3": {
+        "edit": {
+          "label": "lessons_learned_2_issue_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_2_issue_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_3_issue_1": {
+        "edit": {
+          "label": "lessons_learned_3_issue_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_3_issue_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_3_issue_2": {
+        "edit": {
+          "label": "lessons_learned_3_issue_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_3_issue_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_3_issue_3": {
+        "edit": {
+          "label": "lessons_learned_3_issue_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_3_issue_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_4_issue_1": {
+        "edit": {
+          "label": "lessons_learned_4_issue_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_4_issue_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_4_issue_2": {
+        "edit": {
+          "label": "lessons_learned_4_issue_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_4_issue_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_4_issue_3": {
+        "edit": {
+          "label": "lessons_learned_4_issue_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_4_issue_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_4_issue_4": {
+        "edit": {
+          "label": "lessons_learned_4_issue_4",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_4_issue_4",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_5_issue_1": {
+        "edit": {
+          "label": "lessons_learned_5_issue_1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_5_issue_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_5_issue_2": {
+        "edit": {
+          "label": "lessons_learned_5_issue_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_5_issue_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "lessons_learned_5_issue_3": {
+        "edit": {
+          "label": "lessons_learned_5_issue_3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lessons_learned_5_issue_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -1396,13 +1914,13 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "nav_1",
-        "nav_2",
-        "nav_3"
-      ],
       "edit": [
+        [
+          {
+            "name": "main_title",
+            "size": 12
+          }
+        ],
         [
           {
             "name": "nav_1",
@@ -1416,6 +1934,32 @@
         [
           {
             "name": "nav_3",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "home_hero_photo",
+            "size": 6
+          },
+          {
+            "name": "home_footer_photo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "home_map_photo",
+            "size": 6
+          },
+          {
+            "name": "metrics_footer_photo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "map_view_footer_photo",
             "size": 6
           }
         ],
@@ -1441,7 +1985,9 @@
           {
             "name": "projects",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "projects_to_date",
             "size": 6
@@ -1451,7 +1997,9 @@
           {
             "name": "total_countries",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "total_partners",
             "size": 6
@@ -1501,7 +2049,25 @@
         ],
         [
           {
-            "name": "lessons_learned_1_issues",
+            "name": "lessons_learned_1_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_1_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_1_issue_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_1_issue_4",
             "size": 12
           }
         ],
@@ -1519,7 +2085,19 @@
         ],
         [
           {
-            "name": "lessons_learned_2_issues",
+            "name": "lessons_learned_2_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_2_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_2_issue_3",
             "size": 12
           }
         ],
@@ -1537,7 +2115,19 @@
         ],
         [
           {
-            "name": "lessons_learned_3_issues",
+            "name": "lessons_learned_3_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_3_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_3_issue_3",
             "size": 12
           }
         ],
@@ -1555,7 +2145,25 @@
         ],
         [
           {
-            "name": "lessons_learned_4_issues",
+            "name": "lessons_learned_4_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_4_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_4_issue_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_4_issue_4",
             "size": 12
           }
         ],
@@ -1573,7 +2181,19 @@
         ],
         [
           {
-            "name": "lessons_learned_5_issues",
+            "name": "lessons_learned_5_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_5_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_5_issue_3",
             "size": 12
           }
         ],
@@ -1599,7 +2219,9 @@
           {
             "name": "partners_sites",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "rights",
             "size": 6
@@ -1619,7 +2241,9 @@
           {
             "name": "map",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "metrics",
             "size": 6
@@ -1639,7 +2263,9 @@
           {
             "name": "sort_select_placeholder",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "satellite",
             "size": 6
@@ -1659,7 +2285,9 @@
           {
             "name": "project_area_unit",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "project_area",
             "size": 6
@@ -1669,7 +2297,9 @@
           {
             "name": "mitigation_potencial",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "pathway",
             "size": 6
@@ -1769,7 +2399,9 @@
           {
             "name": "ecosystem_services",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "resilience_and_adaptation",
             "size": 6
@@ -1789,7 +2421,9 @@
           {
             "name": "partners",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "whats_next",
             "size": 6
@@ -1809,7 +2443,9 @@
           {
             "name": "contact_us",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "similiar_projects",
             "size": 6
@@ -1902,7 +2538,119 @@
             "name": "send_caption",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "contact_us_footer_photo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "learn_more_facts_caption",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "loading",
+            "size": 6
+          },
+          {
+            "name": "pathway_plural",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "action_type_plural",
+            "size": 6
+          },
+          {
+            "name": "contact_us_success_title",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "contact_us_success_description",
+            "size": 6
+          },
+          {
+            "name": "contact_us_error_title",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "contact_us_error_description",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "tbd",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "select_placeholder",
+            "size": 6
+          },
+          {
+            "name": "selected_items",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "all_selected_items",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "what_we_do_title",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "what_we_do_description",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "what_we_do_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "what_we_do_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "what_we_do_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "what_we_do_4",
+            "size": 12
+          }
         ]
+      ],
+      "list": [
+        "id",
+        "nav_1",
+        "nav_2",
+        "nav_3"
       ]
     }
   },
