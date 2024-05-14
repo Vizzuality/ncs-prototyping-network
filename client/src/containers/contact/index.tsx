@@ -72,22 +72,22 @@ const ContactPage = (): JSX.Element => {
         {
           onSuccess: () => {
             toast({
-              title: 'Your message has been sent',
-              description: "We'll be in touch soon.",
+              title: messages?.contact_us_success_title,
+              description: messages?.contact_us_success_description,
             });
 
             form.reset();
           },
           onError: () => {
             toast({
-              title: 'Something went wrong',
-              description: 'Please try again later.',
+              title: messages?.contact_us_error_title,
+              description: messages?.contact_us_error_description,
             });
           },
         }
       );
     },
-    [saveContactMutation, toast]
+    [saveContactMutation, toast, messages]
   );
 
   return (

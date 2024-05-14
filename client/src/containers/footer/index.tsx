@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import Markdown from 'react-markdown';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -22,7 +24,10 @@ const Footer: React.FC = () => {
   const [locale] = useSyncLocale();
   const queryParams = useSyncQueryParams();
 
-  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
 
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
@@ -32,16 +37,16 @@ const Footer: React.FC = () => {
 
   const getBackground = () => {
     if (pathname === '/') {
-      return `url('/images/home/footer.png')`;
+      return `url(${messages.home_footer_photo?.data?.attributes.url})` || '';
     }
     if (pathname.startsWith('/projects') && projectsView === 'map') {
-      return `url('/images/projects/map/footer.png')`;
+      return `url(${messages.map_view_footer_photo?.data?.attributes.url})` || '';
     }
     if (pathname.startsWith('/projects') && projectsView === 'metrics') {
-      return `url('/images/projects/metrics/footer.png')`;
+      return `url(${messages.metrics_footer_photo?.data?.attributes.url})` || '';
     }
     if (pathname === '/contact') {
-      return `url('/images/contact/footer.jpg')`;
+      return `url(${messages.contact_us_footer_photo?.data?.attributes.url})` || '';
     }
   };
 
@@ -58,7 +63,7 @@ const Footer: React.FC = () => {
       >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
           <Link className="items-left flex cursor-pointer" href={`/${queryParams}`}>
-            <h1 className="text-2xl font-semibold uppercase">NCS Prototyping Network</h1>
+            <Markdown className="text-2xl font-semibold uppercase">{messages.main_title}</Markdown>
           </Link>
 
           <div className="z-10 flex justify-between">

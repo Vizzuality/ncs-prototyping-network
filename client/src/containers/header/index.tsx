@@ -1,5 +1,7 @@
 'use client';
 
+import Markdown from 'react-markdown';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -7,7 +9,10 @@ import { useRecoilValue } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
+import { useGetMessages } from '@/types/generated/message';
+
 import { useSyncQueryParams } from '@/hooks/query';
+import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import LanguageSwitcher from '@/containers/language-switcher';
 
@@ -18,7 +23,12 @@ import { cn } from 'utils/cn';
 const Header: React.FC = () => {
   const pathname = usePathname();
 
+  const [locale] = useSyncLocale();
   const queryParams = useSyncQueryParams();
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const headerStyle = useRecoilValue(headerStyleAtom);
 
@@ -35,14 +45,14 @@ const Header: React.FC = () => {
       <Wrapper className="h-18 relative z-50 flex w-full flex-row items-center justify-between self-start">
         <div className="flex items-center space-x-4">
           <Link className="flex cursor-pointer" href={`/${queryParams}`}>
-            <h1
+            <Markdown
               className={cn({
                 'font-sans text-2xl uppercase text-white': true,
                 'text-indigo': headerStyle === 'light',
               })}
             >
-              NCS Prototyping Network
-            </h1>
+              {messages.main_title}
+            </Markdown>
           </Link>
 
           <div

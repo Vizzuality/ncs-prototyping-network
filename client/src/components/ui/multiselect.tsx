@@ -4,6 +4,10 @@ import { Listbox, Transition } from '@headlessui/react';
 import { HiCheck } from 'react-icons/hi';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
 
+import { useGetMessages } from '@/types/generated/message';
+
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
 import Loading from 'components/loading';
 import { cn } from 'utils/cn';
 
@@ -39,6 +43,15 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
   const initialValues = values || [];
   const [selected, setSelected] = useState<string[]>(initialValues);
 
+  const [locale] = useSyncLocale();
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
+
   const SELECTED = useMemo(() => {
     if (loading) return 'Loading...';
 
@@ -50,12 +63,12 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
       return null;
     }
 
-    if (selected.length === options.length) return `All items selected`;
+    if (selected.length === options.length) return messages.all_selected_items;
 
-    if (selected.length > 1) return `Selected items (${selected.length})`;
+    if (selected.length > 1) return `${messages.selected_items} (${selected.length})`;
 
     return null;
-  }, [loading, options, placeholder, selected]);
+  }, [loading, options, placeholder, selected, messages]);
 
   useEffect(() => {
     if (values) {

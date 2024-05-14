@@ -17,7 +17,7 @@ import Wrapper from 'containers/wrapper';
 const HomeMap = (): JSX.Element => {
   const [locale] = useSyncLocale();
   const queryParams = useSyncQueryParams();
-  const { data, isFetched: messagesIsFetched } = useGetMessages({ locale });
+  const { data, isFetched: messagesIsFetched } = useGetMessages({ populate: '*', locale });
 
   const messages = messagesIsFetched && data.data.data[0]?.attributes;
 
@@ -41,7 +41,14 @@ const HomeMap = (): JSX.Element => {
           )}
         </div>
         <div className="ml-20 flex h-full w-2/3 items-center justify-center xl:ml-0">
-          <Image src="/images/home/map.png" alt="Map" width={678} height={338} />
+          {messages.home_map_photo?.data?.attributes.url && (
+            <Image
+              src={messages.home_map_photo.data.attributes.url}
+              alt="Map"
+              width={678}
+              height={338}
+            />
+          )}
         </div>
       </section>
     </Wrapper>

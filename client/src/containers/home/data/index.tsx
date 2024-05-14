@@ -54,10 +54,10 @@ const Data = (): JSX.Element => {
         {isFetched && (
           <Wrapper>
             <div className="mx-6 flex justify-between py-7 xl:mx-20">
-              {data?.data?.data && messages.projects_to_date && (
+              {data?.data?.data && messages.projects_to_date && messages.tbd && (
                 <div className="flex flex-col items-center space-y-2">
                   <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                    {data?.data?.data.length || 'TBD'}
+                    {data?.data?.data.length || messages.tbd}
                   </p>
                   <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                     {messages.projects_to_date}
@@ -65,10 +65,10 @@ const Data = (): JSX.Element => {
                 </div>
               )}
 
-              {countries && messages.total_countries && (
+              {countries && messages.total_countries && messages.tbd && (
                 <div className="flex flex-col items-center space-y-2">
                   <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                    {countries || 'TBD'}
+                    {countries || messages.tbd}
                   </p>
 
                   <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
@@ -77,10 +77,10 @@ const Data = (): JSX.Element => {
                 </div>
               )}
 
-              {partners && messages.total_partners && (
+              {partners && messages.total_partners && messages.tbd && (
                 <div className="flex flex-col items-center space-y-2">
                   <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                    {partners || 'TBD'}
+                    {partners || messages.tbd}
                   </p>
                   <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                     {messages.total_partners}
@@ -93,7 +93,7 @@ const Data = (): JSX.Element => {
                   <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                     {total_hectares_impacted !== 0
                       ? Intl.NumberFormat().format(total_hectares_impacted)
-                      : 'TBD'}
+                      : messages.tbd}
                   </p>
                   <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                     {messages.project_area_unit}
@@ -101,12 +101,12 @@ const Data = (): JSX.Element => {
                 </div>
               )}
 
-              {!isNaN(total_people_supported) && messages.people_supported && (
+              {!isNaN(total_people_supported) && messages.people_supported && messages.tbd && (
                 <div className="flex flex-col items-center space-y-2">
                   <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                     {total_people_supported !== 0
                       ? Intl.NumberFormat().format(total_people_supported)
-                      : 'TBD'}
+                      : messages.tbd}
                   </p>
                   <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                     {messages.people_supported}
@@ -114,18 +114,20 @@ const Data = (): JSX.Element => {
                 </div>
               )}
 
-              {!isNaN(total_carbon_mitigation) && messages.mitigation_potencial_unit && (
-                <div className="flex flex-col items-center space-y-2">
-                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                    {total_carbon_mitigation !== 0
-                      ? Intl.NumberFormat().format(total_carbon_mitigation)
-                      : 'TBD'}
-                  </p>
-                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                    {messages.mitigation_potencial_unit}
-                  </p>
-                </div>
-              )}
+              {!isNaN(total_carbon_mitigation) &&
+                messages.mitigation_potencial_unit &&
+                messages.tbd && (
+                  <div className="flex flex-col items-center space-y-2">
+                    <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                      {total_carbon_mitigation !== 0
+                        ? Intl.NumberFormat().format(total_carbon_mitigation)
+                        : messages.tbd}
+                    </p>
+                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                      {messages.mitigation_potencial_unit}
+                    </p>
+                  </div>
+                )}
             </div>
             <p className="pb-3 text-right text-xs text-text/50">{messages?.disclaimer}</p>
           </Wrapper>

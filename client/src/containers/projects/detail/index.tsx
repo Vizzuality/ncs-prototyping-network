@@ -143,7 +143,7 @@ const ProjectDetail = (): JSX.Element => {
 
       {isFetching && messages && (
         <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
+          <p className="font-serif text-lg font-semibold text-indigo">{messages.loading}</p>
         </div>
       )}
 

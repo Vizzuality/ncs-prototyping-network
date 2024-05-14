@@ -1,3 +1,5 @@
+import Markdown from 'react-markdown';
+
 import dynamic from 'next/dynamic';
 
 import { useGetMessages } from '@/types/generated/message';
@@ -6,26 +8,47 @@ import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Wrapper from 'containers/wrapper';
 
-import { OBJECTIVES } from './constants';
-
 const Video = dynamic(() => import('@/components/video'), {
   ssr: false,
 });
 
 const Objectives = (): JSX.Element => {
   const [locale] = useSyncLocale();
+
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
+
+  const OBJECTIVES = [
+    {
+      id: '01',
+      text: messages?.what_we_do_1,
+    },
+    {
+      id: '02',
+      text: messages?.what_we_do_2,
+    },
+    {
+      id: '03',
+      text: messages?.what_we_do_3,
+    },
+    {
+      id: '04',
+      text: messages?.what_we_do_4,
+    },
+  ];
 
   return (
     <>
       <Wrapper>
         <section className="flex flex-col space-y-12 py-16">
           <div className="flex flex-col space-y-4">
-            <h4 className="font-serif text-4xl font-semibold text-indigo">What we do</h4>
-            <p className="text-lg font-medium text-text">
-              Local and global teams work together to:{' '}
-            </p>
+            <Markdown className="font-serif text-4xl font-semibold text-indigo">
+              {messages.what_we_do_title}
+            </Markdown>
+
+            <Markdown className="text-lg font-medium text-text">
+              {messages.what_we_do_description}
+            </Markdown>
           </div>
           <div className="grid grid-cols-4 gap-x-10">
             {OBJECTIVES.map((o) => (

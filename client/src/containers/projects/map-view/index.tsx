@@ -203,7 +203,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                       <div className="mb-1">
                         <Select
                           theme="secondary"
-                          type="Select..."
+                          type={messages.select_placeholder}
                           onValueChange={(v) => setSortedBy(v)}
                           options={SORT_OPTIONS}
                         />

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
+import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
 
@@ -26,6 +27,12 @@ const ProjectsPage = (): JSX.Element => {
     isFetching: projectsIsFetching,
     isFetchedAfterMount: projectsIsFetched,
   } = useGetProjects({ populate: '*', locale });
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
   const projectsView = useRecoilValue(projectsViewAtom);
@@ -121,7 +128,7 @@ const ProjectsPage = (): JSX.Element => {
 
       {!projectsIsFetched && projectsIsFetching && (
         <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
+          <p className="font-serif text-lg font-semibold text-indigo">{messages.loading}</p>
         </div>
       )}
       {projectsView === 'map' && projectsIsFetched && <MapView data={dataFiltered} />}

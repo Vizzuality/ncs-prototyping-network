@@ -27,10 +27,10 @@ const Lessons = (): JSX.Element => {
       id: 1,
       title: messages?.lessons_learned_1_title,
       points: [
-        'In some countries, gender roles dictate project participation, with men often the primary participants. Additional arrangements may be required to effectively engage women.',
-        '(Religious) holidays and traditions sometimes take precedence over business and operational activities.',
-        'Restoration and mitigation projects span many years, requiring cross-generational engagement and participation to ensure project longevity and sustainability.',
-        'Building relationship trust with communities is important to overcome perceptions of distrust and/or suspicion towards foreign organizations.',
+        messages.lessons_learned_1_issue_1,
+        messages.lessons_learned_1_issue_2,
+        messages.lessons_learned_1_issue_3,
+        messages.lessons_learned_1_issue_4,
       ],
       image: messages?.lessons_learned_1_photo?.data?.attributes.url,
       photoCredit: messages?.lessons_learned_1_photo?.data?.attributes.alternativeText,
@@ -39,9 +39,9 @@ const Lessons = (): JSX.Element => {
       id: 2,
       title: messages?.lessons_learned_2_title,
       points: [
-        'Political instability can lead to project delays, through difficulties in scheduling meetings and community engagement activities, safety concerns and field site inaccessibility.',
-        'Government, policy, and legislative turnover may hinder project continuity, field site accessibility, and/or project implementation.',
-        'Bureaucracy, both external and internal, can cause administrative delays in contracting, hiring, permitting, and registering projects.',
+        messages.lessons_learned_2_issue_1,
+        messages.lessons_learned_2_issue_2,
+        messages.lessons_learned_2_issue_3,
       ],
       image: messages?.lessons_learned_2_photo?.data?.attributes.url,
       photoCredit: messages?.lessons_learned_2_photo?.data?.attributes.alternativeText,
@@ -50,9 +50,9 @@ const Lessons = (): JSX.Element => {
       id: 3,
       title: messages?.lessons_learned_3_title,
       points: [
-        'Many projects encountered data discrepancies, including mismatches between gathered field and goverment data, between remote sensing data and field surveys, and between internal and external analyses.',
-        'Many research and methodological gaps remain. NCS projects are pioneering new solutions with little locally applicable data and methods.',
-        'Limited technical capacity often leads to hiring difficulties and unavailability of technical laboratories for biogeochemical analyses.',
+        messages.lessons_learned_3_issue_1,
+        messages.lessons_learned_3_issue_2,
+        messages.lessons_learned_3_issue_3,
       ],
       image: messages?.lessons_learned_3_photo?.data?.attributes.url,
       photoCredit: messages?.lessons_learned_3_photo?.data?.attributes.alternativeText,
@@ -61,10 +61,10 @@ const Lessons = (): JSX.Element => {
       id: 4,
       title: messages?.lessons_learned_4_title,
       points: [
-        'COVID-19 hindered fieldwork and community and partner meetings which are critical for planning, implementation, and ensuring community support.',
-        'Sampling sites are often in remote locations, with difficult accessibility.',
-        'Seasonal weather can further restrict field accessibility. Missing a sampling window can result in a one-year delay in data collection, so planning is imperative.',
-        ' Some project areas are prone to safety risks, affecting infrastructure development and field access. This includes social and political considerations for accessing sampling sites.',
+        messages.lessons_learned_4_issue_1,
+        messages.lessons_learned_4_issue_2,
+        messages.lessons_learned_4_issue_3,
+        messages.lessons_learned_4_issue_4,
       ],
       image: messages?.lessons_learned_4_photo?.data?.attributes.url,
       photoCredit: messages?.lessons_learned_4_photo?.data?.attributes.alternativeText,
@@ -74,9 +74,9 @@ const Lessons = (): JSX.Element => {
       id: 5,
       title: messages?.lessons_learned_5_title,
       points: [
-        'Macroeconomic pressures have resulted in elevated budgetary requirements and high operational costs.',
-        'Operating as a foreign entity can cause elevated contracting costs in certain areas.',
-        'Growing global and local interest in climate mitigation and environmental restoration are providing new opportunities for fundraising, partnerships, and improved government alignment.',
+        messages.lessons_learned_5_issue_1,
+        messages.lessons_learned_5_issue_2,
+        messages.lessons_learned_5_issue_3,
       ],
       image: messages?.lessons_learned_5_photo?.data?.attributes.url,
       photoCredit: messages?.lessons_learned_5_photo?.data?.attributes.alternativeText,
@@ -137,7 +137,9 @@ const Lessons = (): JSX.Element => {
                 <div key={point} className="flex items-start space-x-3 space-y-1.5">
                   <Icon icon={ARROW_SVG} className="mt-2 h-6 w-8 stroke-butternut stroke-2" />
 
-                  <p className="w-5/6 font-sans text-m font-light leading-7 text-text">{point}</p>
+                  <Markdown className="w-5/6 font-sans text-m font-light leading-7 text-text">
+                    {point}
+                  </Markdown>
                 </div>
               ))}
             </div>

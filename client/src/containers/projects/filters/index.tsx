@@ -83,14 +83,14 @@ const Filters = (): JSX.Element => {
         <div className="flex items-center space-x-1">
           <MultiSelect
             id="pathways"
-            placeholder={messages.pathway}
+            placeholder={messages.pathway_plural}
             options={PATHWAYS_OPTIONS}
             values={filters.pathways}
             onSelect={(v) => setFilters({ ...filters, pathways: v })}
           />
           <MultiSelect
             id="action"
-            placeholder={messages.action_type}
+            placeholder={messages.action_type_plural}
             options={ACTION_TYPES_OPTIONS}
             values={filters.action_types}
             onSelect={(v) => setFilters({ ...filters, action_types: v })}
