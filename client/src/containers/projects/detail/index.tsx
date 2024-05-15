@@ -97,6 +97,21 @@ const ProjectDetail = (): JSX.Element => {
     }
   }, [inView, setHeaderStyle]);
 
+  const KEY_ACTIVITIES = [
+    data?.data?.data?.attributes.key_activity_1,
+    data?.data?.data?.attributes.key_activity_2,
+    data?.data?.data?.attributes.key_activity_3,
+    data?.data?.data?.attributes.key_activity_4,
+    data?.data?.data?.attributes.key_activity_5,
+    data?.data?.data?.attributes.key_activity_6,
+    data?.data?.data?.attributes.key_activity_7,
+    data?.data?.data?.attributes.key_activity_8,
+    data?.data?.data?.attributes.key_activity_9,
+    data?.data?.data?.attributes.key_activity_10,
+    data?.data?.data?.attributes.key_activity_11,
+    data?.data?.data?.attributes.key_activity_12,
+  ].filter((k) => k);
+
   return (
     <div>
       <div
@@ -266,17 +281,22 @@ const ProjectDetail = (): JSX.Element => {
 
           <section className="py-16">
             <Wrapper className="space-y-10">
-              {data?.data?.data?.attributes.key_activities && (
-                <div>
-                  <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="my-6 border-t border-b border-accents pl-10 [&_li]:py-4 [&_li]:pl-3 [&_li]:marker:text-4xl [&_li]:marker:font-bold [&_li]:marker:text-butternut [&_ol]:flex [&_ol]:list-decimal [&_ol]:flex-col [&_ol]:font-sans [&_ol]:text-xl [&_ol]:font-light [&_ol]:text-text"
-                  >
-                    {data?.data?.data?.attributes.key_activities}
-                  </Markdown>
+              <div>
+                <h4 className="font-serif text-2xl font-medium text-indigo">Key Activities</h4>
+                <div className="flex flex-col space-y-2 py-6 font-sans text-text">
+                  {KEY_ACTIVITIES.map((activity, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
+                    >
+                      <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
+                      <Markdown className="mt-2 font-sans text-xl font-light text-text">
+                        {activity}
+                      </Markdown>
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
 
               <div>
                 {data?.data?.data?.attributes.project_summary && (
