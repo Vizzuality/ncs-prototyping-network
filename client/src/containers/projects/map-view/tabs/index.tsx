@@ -1,13 +1,28 @@
 import { motion } from 'framer-motion';
 import { useRecoilState } from 'recoil';
 
-import { basemapAtom } from 'store';
+import { useGetMessages } from '@/types/generated/message';
+
+import { useSyncLocale } from '@/hooks/query/sync-query';
+
+import { Basemap, basemapAtom } from 'store';
 import { cn } from 'utils/cn';
 
-import { TABS } from './constants';
-
 const MapTabs = (): JSX.Element => {
+  const [locale] = useSyncLocale();
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
+
   const [basemap, setBasemap] = useRecoilState(basemapAtom);
+
+  const TABS = [
+    { id: 'outdoors', label: messages?.map },
+    { id: 'satellite', label: messages?.satellite },
+  ];
 
   return (
     <div className="inline-flex h-7 flex-wrap space-x-1 rounded-3xl bg-background p-1">
@@ -15,7 +30,7 @@ const MapTabs = (): JSX.Element => {
         <button
           key={tab.id}
           className="relative m-0 flex cursor-pointer items-center justify-between"
-          onClick={() => setBasemap(tab.id)}
+          onClick={() => setBasemap(tab.id as Basemap)}
         >
           {tab.id === basemap && (
             <motion.div

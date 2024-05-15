@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
+import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
 import { useSyncQueryParams } from '@/hooks/query';
@@ -25,6 +26,9 @@ const DetailFooter: React.FC = () => {
   }, [slug, projects?.data?.data]);
 
   const { data, isFetched } = useGetProjectsId(+id, { populate: '*' });
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const getBackground = () => {
     if (id && data?.data?.data?.attributes.footer_photo.data?.attributes.url) {
@@ -34,7 +38,8 @@ const DetailFooter: React.FC = () => {
 
   return (
     isFetched &&
-    !!data?.data?.data.id && (
+    !!data?.data?.data.id &&
+    messages && (
       <div className="relative">
         {data?.data?.data?.attributes.footer_photo.data?.attributes.alternativeText && (
           <div className="absolute right-8 bottom-44 z-50">
@@ -66,7 +71,7 @@ const DetailFooter: React.FC = () => {
 
               <div className="flex flex-col space-y-6">
                 <div className="flex h-20 items-center space-x-6">
-                  <p className="uppercase">Visit our partner sites:</p>
+                  <p className="uppercase">{messages.partners_sites}</p>
                   <a href="https://www.naturebase.org" className="w-44">
                     <Image src="/images/logos/naturbase.svg" alt="Logo" width={150} height={20} />
                   </a>

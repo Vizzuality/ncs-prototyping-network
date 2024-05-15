@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import remarkGfm from 'remark-gfm';
 
+import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjectsId } from '@/types/generated/project';
 
@@ -23,6 +24,13 @@ const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
 
   const { data: pathwaysData, isFetched: pathwaysIsFetched } = useGetPathways({ locale });
   const pathways = pathwaysIsFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const COLORS = {
     [pathways[0]]: 'bg-rust',
@@ -100,11 +108,11 @@ const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
               </div>
               <p className="max-w-xs font-sans text-2xs font-light text-text">
                 <span className="font-medium uppercase">Project Area:</span> {''}
-                {toTBD(data.data.data.attributes.hectares_impacted)}
+                {toTBD(data.data.data.attributes.hectares_impacted, messages.tbd)}
               </p>
               <p className="max-w-xs font-sans text-2xs font-light text-text">
                 <span className="font-medium uppercase">Mitigation potential:</span> {''}
-                {toTBD(data.data.data.attributes.carbon_mitigation)}
+                {toTBD(data.data.data.attributes.carbon_mitigation, messages.tbd)}
               </p>
             </div>
           </div>

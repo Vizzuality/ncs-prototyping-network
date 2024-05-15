@@ -1,3 +1,4 @@
+import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
 
 import { useSyncLocale } from '@/hooks/query/sync-query';
@@ -8,6 +9,9 @@ const Data = (): JSX.Element => {
   const [locale] = useSyncLocale();
 
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const countriesArray = data?.data?.data.map(
     (project) => project.attributes.country.data.attributes.name
@@ -36,88 +40,100 @@ const Data = (): JSX.Element => {
     0
   );
 
+  const someTotalData =
+    messages.projects_to_date ||
+    messages.total_countries ||
+    messages.total_partners ||
+    messages.project_area_unit ||
+    messages.people_supported ||
+    messages.mitigation_potencial_unit;
+
   return (
-    <section className="bg-background">
-      {isFetched && (
-        <Wrapper>
-          <div className="mx-6 flex justify-between py-7 xl:mx-20">
-            {data?.data?.data && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {data?.data?.data.length || 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Projects to Date
-                </p>
-              </div>
-            )}
+    someTotalData && (
+      <section className="bg-background">
+        {isFetched && (
+          <Wrapper>
+            <div className="mx-6 flex justify-between py-7 xl:mx-20">
+              {data?.data?.data && messages.projects_to_date && messages.tbd && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {data?.data?.data.length || messages.tbd}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.projects_to_date}
+                  </p>
+                </div>
+              )}
 
-            <div className="flex flex-col items-center space-y-2">
-              <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                {countries || 'TBD'}
-              </p>
-              <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                Countries Across the World
-              </p>
+              {countries && messages.total_countries && messages.tbd && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {countries || messages.tbd}
+                  </p>
+
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.total_countries}
+                  </p>
+                </div>
+              )}
+
+              {partners && messages.total_partners && messages.tbd && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {partners || messages.tbd}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.total_partners}
+                  </p>
+                </div>
+              )}
+
+              {!isNaN(total_hectares_impacted) && messages.project_area_unit && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {total_hectares_impacted !== 0
+                      ? Intl.NumberFormat().format(total_hectares_impacted)
+                      : messages.tbd}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.project_area_unit}
+                  </p>
+                </div>
+              )}
+
+              {!isNaN(total_people_supported) && messages.people_supported && messages.tbd && (
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                    {total_people_supported !== 0
+                      ? Intl.NumberFormat().format(total_people_supported)
+                      : messages.tbd}
+                  </p>
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.people_supported}
+                  </p>
+                </div>
+              )}
+
+              {!isNaN(total_carbon_mitigation) &&
+                messages.mitigation_potencial_unit &&
+                messages.tbd && (
+                  <div className="flex flex-col items-center space-y-2">
+                    <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                      {total_carbon_mitigation !== 0
+                        ? Intl.NumberFormat().format(total_carbon_mitigation)
+                        : messages.tbd}
+                    </p>
+                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                      {messages.mitigation_potencial_unit}
+                    </p>
+                  </div>
+                )}
             </div>
-
-            {partners && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {partners || 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Partners Working Together
-                </p>
-              </div>
-            )}
-
-            {!isNaN(total_hectares_impacted) && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {total_hectares_impacted !== 0
-                    ? Intl.NumberFormat().format(total_hectares_impacted)
-                    : 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Project Area (ha)
-                </p>
-              </div>
-            )}
-
-            {!isNaN(total_people_supported) && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {total_people_supported !== 0
-                    ? Intl.NumberFormat().format(total_people_supported)
-                    : 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  People Supported
-                </p>
-              </div>
-            )}
-
-            {!isNaN(total_carbon_mitigation) && (
-              <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {total_carbon_mitigation !== 0
-                    ? Intl.NumberFormat().format(total_carbon_mitigation)
-                    : 'TBD'}
-                </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
-                </p>
-              </div>
-            )}
-          </div>
-          <p className="pb-3 text-right text-xs text-text/50">
-            <span className="text-sm">*</span> Mitigation values presented may or may not be
-            equivalent to carbon credit potential depending on methodology and timeframe.
-          </p>
-        </Wrapper>
-      )}
-    </section>
+            <p className="pb-3 text-right text-xs text-text/50">{messages?.disclaimer}</p>
+          </Wrapper>
+        )}
+      </section>
+    )
   );
 };
 

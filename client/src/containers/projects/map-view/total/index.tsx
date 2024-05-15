@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useRecoilValue } from 'recoil';
 
+import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
 
 import { useSyncLocale } from '@/hooks/query/sync-query';
@@ -15,6 +16,13 @@ const Total = (): JSX.Element => {
   const filters = useRecoilValue(filtersAtom);
 
   const { data: projectsData } = useGetProjects({ populate: '*', locale });
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const [dataFiltered, setDataFiltered] = useState(projectsData?.data.data || []);
 
@@ -76,7 +84,7 @@ const Total = (): JSX.Element => {
             {totalData?.total_hectares_impacted && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {toTBD(totalData?.total_hectares_impacted)}
+                  {toTBD(totalData?.total_hectares_impacted, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Project Area (ha)
@@ -87,7 +95,7 @@ const Total = (): JSX.Element => {
             {totalData?.total_people_supported && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {toTBD(totalData?.total_people_supported)}
+                  {toTBD(totalData?.total_people_supported, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   People Supported
@@ -98,7 +106,7 @@ const Total = (): JSX.Element => {
             {totalData?.total_carbon_mitigation && (
               <div className="flex flex-col items-center space-y-2">
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
-                  {toTBD(totalData?.total_carbon_mitigation)}
+                  {toTBD(totalData?.total_carbon_mitigation, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                   Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>

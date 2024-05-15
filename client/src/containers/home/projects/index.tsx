@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import remarkGfm from 'remark-gfm';
 
+import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
 
 import { useSyncQueryParams } from '@/hooks/query';
@@ -21,6 +22,9 @@ const HomeProjects = (): JSX.Element => {
   const queryParams = useSyncQueryParams();
 
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const SampleNextArrow = ({ onClick }: { onClick?: MouseEventHandler<HTMLButtonElement> }) => {
     return (
@@ -60,18 +64,15 @@ const HomeProjects = (): JSX.Element => {
   return (
     <Wrapper>
       <section className="flex flex-col space-y-12 py-14">
-        <div className="flex flex-col space-y-4">
-          <h4 className="font-serif text-4xl font-semibold text-indigo">
-            NCS Prototyping Projects
-          </h4>
-          <p className="pt-2 text-lg font-light leading-7 text-text">
-            The NCS Prototyping Network strengthens the bridge between global NCS science and local
-            NCS implementation. The network provides a cross-project community of learning and
-            collaboration, and facilitates a constant feedback loop to improve implementation
-            through adaptive management. Additional data and case studies from around the world are
-            available through naturebase.
-          </p>
-        </div>
+        {messages && (
+          <Markdown
+            remarkPlugins={[remarkGfm]}
+            className="text-lg font-light leading-7 text-text [&_h2]:font-serif [&_h2]:text-4xl [&_h2]:font-semibold [&_h2]:text-indigo [&_p]:pt-6"
+          >
+            {messages.prototyping_projects}
+          </Markdown>
+        )}
+
         <div>
           {isFetched && (
             <Slider {...settings}>

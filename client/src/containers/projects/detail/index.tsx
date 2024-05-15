@@ -17,6 +17,7 @@ import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
 
+import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
 import { useSyncQueryParams } from '@/hooks/query';
@@ -48,6 +49,13 @@ const ProjectDetail = (): JSX.Element => {
     populate: '*',
     locale,
   });
+
+  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
+    populate: '*',
+    locale,
+  });
+
+  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const id = useMemo(() => {
     return projects?.data?.data?.find((project) => project.attributes.slug === slug)?.id;
@@ -133,19 +141,19 @@ const ProjectDetail = (): JSX.Element => {
         )}
       </div>
 
-      {isFetching && (
+      {isFetching && messages && (
         <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">Loading...</p>
+          <p className="font-serif text-lg font-semibold text-indigo">{messages.loading}</p>
         </div>
       )}
 
-      {!isFetching && isFetched && !data && (
+      {!isFetching && isFetched && !data && messages && (
         <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">No data available</p>
+          <p className="font-serif text-lg font-semibold text-indigo">{messages.no_data}</p>
         </div>
       )}
 
-      {isFetched && !!data?.data?.data && (
+      {isFetched && !!data?.data?.data && messages && (
         <div>
           <Wrapper className="relative flex w-full flex-row justify-between space-x-6 py-6">
             <div className="flex w-2/3 flex-col items-start">
@@ -154,7 +162,9 @@ const ProjectDetail = (): JSX.Element => {
                   <motion.div variants={arrowAnimation}>
                     <BsArrowLeft className="fill-butternut" size={30} />
                   </motion.div>
-                  <p className="font-sans text-xl font-medium text-butternut">Back to projects</p>
+                  <p className="font-sans text-xl font-medium text-butternut">
+                    {messages.back_to_projects}
+                  </p>
                 </Link>
               </motion.div>
 
@@ -170,36 +180,46 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.hectares_impacted)
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.hectares_impacted),
+                        messages.tbd
                       )}
                     </p>
-                    <p className="text-center text-m font-medium text-text">Project Area (ha)</p>
+                    <p className="text-center text-m font-medium text-text">
+                      {messages.project_area_unit}
+                    </p>
                   </div>
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.people_supported)
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.people_supported),
+                        messages.tbd
                       )}
                     </p>
-                    <p className="text-center text-m font-medium text-text">People Supported</p>
+                    <p className="text-center text-m font-medium text-text">
+                      {messages.people_supported}
+                    </p>
                   </div>
 
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
                       {toTBD(
-                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation)
+                        Intl.NumberFormat().format(data?.data?.data?.attributes.carbon_mitigation),
+                        messages.tbd
                       )}
                     </p>
                     <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                      Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
+                      {messages.mitigation_potencial_unit}
                     </p>
                   </div>
                 </div>
-                <p className="mt-8 text-right text-xs font-normal text-text/50">
-                  <span className="text-sm">*</span> Mitigation values presented may or may not be
-                  equivalent to carbon credit potential depending on methodology and timeframe.
-                </p>
+
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  className="mt-8 text-right text-xs font-normal text-text/50"
+                >
+                  {messages.disclaimer}
+                </Markdown>
               </div>
             </div>
 
@@ -220,22 +240,22 @@ const ProjectDetail = (): JSX.Element => {
             <Wrapper>
               <div className="flex justify-between py-4 px-28 text-text">
                 <a className="hover:text-butternut" href="#goals">
-                  Overview
+                  {messages.overview}
                 </a>
                 <a className="hover:text-butternut" href="#why">
-                  Why This, Why Now
+                  {messages.why_this_why_now_title}
                 </a>
                 <a className="hover:text-butternut" href="#lessons">
-                  Lessons Learned
+                  {messages.lessons_learned}
                 </a>
                 <a className="hover:text-butternut" href="#science">
-                  Science
+                  {messages.science}
                 </a>
                 <a className="hover:text-butternut" href="#co-benefits">
-                  Co-benefits
+                  {messages.co_benefits}
                 </a>
                 <a className="hover:text-butternut" href="#contact">
-                  Contact
+                  {messages.contact}
                 </a>
               </div>
             </Wrapper>
@@ -248,7 +268,9 @@ const ProjectDetail = (): JSX.Element => {
             {data?.data?.data?.attributes.project_goal && (
               <div className="flex w-1/2 justify-end">
                 <div className="flex max-w-2xl flex-col justify-center space-y-3 py-10 pl-10 pr-10 text-white 2xl:py-20 2xl:pl-0 2xl:pr-20">
-                  <h4 className="font-serif text-3xl font-medium xl:text-4xl">Goals</h4>
+                  <h4 className="font-serif text-3xl font-medium xl:text-4xl">
+                    {messages.goals_title}
+                  </h4>
                   <Markdown
                     remarkPlugins={[remarkGfm]}
                     className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
@@ -302,11 +324,13 @@ const ProjectDetail = (): JSX.Element => {
 
               <div>
                 {data?.data?.data?.attributes.project_summary && (
-                  <h4 className="font-serif text-2xl font-medium text-indigo">Summary</h4>
+                  <h4 className="font-serif text-2xl font-medium text-indigo">
+                    {messages.summary_title}
+                  </h4>
                 )}
                 {!!data?.data?.data?.attributes.project_phases.data.length && (
                   <p className="pt-6 font-sans text-lg font-light text-text">
-                    Project Phase:{' '}
+                    {messages.project_phase}:{' '}
                     {data?.data?.data?.attributes.project_phases.data
                       .map((pp) => pp.attributes.name)
                       .join(', ')}
@@ -329,7 +353,9 @@ const ProjectDetail = (): JSX.Element => {
             >
               <Wrapper>
                 <div className="flex flex-col items-center space-y-4 py-16 text-white">
-                  <h4 className="pb-2 font-serif text-3xl font-semibold">Why This, Why Now</h4>
+                  <h4 className="pb-2 font-serif text-3xl font-semibold">
+                    {messages.why_this_why_now_title}
+                  </h4>
                   <Markdown
                     remarkPlugins={[remarkGfm]}
                     className="max-w-3xl text-center font-sans text-xl font-light leading-9"
@@ -365,7 +391,7 @@ const ProjectDetail = (): JSX.Element => {
                     <div className="pt-2">
                       <Button onClick={() => setPlaying(!playing)}>
                         <p className="text-base font-bold uppercase">
-                          {playing ? 'Pause video' : 'Watch video'}
+                          {playing ? messages.pause_video : messages.watch_video}
                         </p>
                       </Button>
                     </div>
@@ -395,7 +421,9 @@ const ProjectDetail = (): JSX.Element => {
             <div className="bg-indigo py-6">
               <Wrapper>
                 <div>
-                  <h4 className="font-serif text-3xl font-medium text-white">Lessons Learned</h4>
+                  <h4 className="font-serif text-3xl font-medium text-white">
+                    {messages.lessons_learned}
+                  </h4>
                 </div>
               </Wrapper>
             </div>
@@ -449,7 +477,7 @@ const ProjectDetail = (): JSX.Element => {
             <div className="bg-indigo py-6">
               <Wrapper>
                 <div>
-                  <h4 className="font-serif text-3xl font-medium text-white">Science</h4>
+                  <h4 className="font-serif text-3xl font-medium text-white">{messages.science}</h4>
                 </div>
               </Wrapper>
             </div>
@@ -457,7 +485,9 @@ const ProjectDetail = (): JSX.Element => {
               <div className="flex w-3/4 flex-col space-y-10">
                 {data?.data?.data?.attributes.abstract && (
                   <div className="flex-col space-y-6">
-                    <p className="font-serif text-2xl font-medium text-indigo">Research Summary</p>
+                    <p className="font-serif text-2xl font-medium text-indigo">
+                      {messages.research_summary_title}
+                    </p>
                     <Markdown
                       remarkPlugins={[remarkGfm]}
                       className="font-sans text-m font-light leading-7 text-text"
@@ -468,7 +498,7 @@ const ProjectDetail = (): JSX.Element => {
                 )}
                 {data?.data?.data?.attributes.citations && (
                   <div className="flex flex-col space-y-4">
-                    <h5 className="text-lg font-light uppercase">CITATIONS</h5>
+                    <h5 className="text-lg font-light uppercase">{messages.citations}</h5>
 
                     <Markdown remarkPlugins={[remarkGfm]} className="space-y-2 text-2xs font-light">
                       {data?.data?.data?.attributes.citations}
@@ -476,35 +506,37 @@ const ProjectDetail = (): JSX.Element => {
                   </div>
                 )}
               </div>
-              {!!data?.data?.data?.attributes.resources.data.length && (
+              {/* {!!data?.data?.data?.attributes.resources.data.length && (
                 <section className="flex w-1/4 flex-col space-y-6">
-                  <p className="font-serif text-2xl font-medium text-indigo">Resources</p>
+                  <p className="font-serif text-2xl font-medium text-indigo">
+                    {messages.resources}
+                  </p>
 
                   <div className="flex flex-col items-start font-sans text-xl font-light leading-9 text-text">
                     <button
                       type="button"
                       className="hover:font-medium"
-                      // onClick={() => onDownload(data?.data?.data?.attributes.resources[0], 'Fact Sheet')}
+                      onClick={() => onDownload(data?.data?.data?.attributes.resources[0], 'Fact Sheet')}
                     >
                       <p>Download Fact Sheet</p>
                     </button>
                     <button
                       type="button"
                       className="hover:font-medium"
-                      // onClick={() => onDownload(data?.data?.data?.attributes.resources[1], 'Download 2')}
+                      onClick={() => onDownload(data?.data?.data?.attributes.resources[1], 'Download 2')}
                     >
                       <p>Download 2</p>
                     </button>
                     <button
                       type="button"
                       className="hover:font-medium"
-                      // onClick={() => onDownload(data?.data?.data?.attributes.resources[2], 'Download 3')}
+                      onClick={() => onDownload(data?.data?.data?.attributes.resources[2], 'Download 3')}
                     >
                       <p>Download 3</p>
                     </button>
                   </div>
                 </section>
-              )}
+              )} */}
             </Wrapper>
           </section>
 
@@ -539,7 +571,9 @@ const ProjectDetail = (): JSX.Element => {
             <div className="bg-indigo py-6">
               <Wrapper>
                 <div>
-                  <h4 className="font-serif text-3xl font-medium text-white">Co-Benefits</h4>
+                  <h4 className="font-serif text-3xl font-medium text-white">
+                    {messages.co_benefits}
+                  </h4>
                 </div>
               </Wrapper>
             </div>
@@ -549,12 +583,12 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
-                        alt="Biodiversity"
+                        alt={messages.biodiversity}
                         src="/images/icons/co-benefits/biodiversity.svg"
                         height={24}
                         width={24}
                       />
-                      <p className="text-xl">Biodiversity</p>
+                      <p className="text-xl">{messages.biodiversity}</p>
                     </div>
                     <p className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_biodiversity}
@@ -571,7 +605,7 @@ const ProjectDetail = (): JSX.Element => {
                         height={24}
                         width={24}
                       />
-                      <p className="text-xl">Ecosystem Services</p>
+                      <p className="text-xl">{messages.ecosystem_services}</p>
                     </div>
 
                     <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
@@ -584,12 +618,12 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
-                        alt="Resilience & Adaptation"
+                        alt={messages.resilience_and_adaptation}
                         src="/images/icons/co-benefits/resilience_and_adaptation.svg"
                         height={24}
                         width={24}
                       />
-                      <p className="text-xl">Resilience & Adaptation</p>
+                      <p className="text-xl">{messages.resilience_and_adaptation}</p>
                     </div>
                     <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_resilience_adapt}
@@ -601,12 +635,12 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
-                        alt="Human Health & Well-being"
+                        alt={messages.health_and_well_being}
                         src="/images/icons/co-benefits/human_health_wellbeing.svg"
                         height={24}
                         width={24}
                       />
-                      <p className="text-xl">Health & Well-being</p>
+                      <p className="text-xl">{messages.health_and_well_being}</p>
                     </div>
                     <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_health_well_being}
@@ -618,12 +652,12 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col space-y-2 py-6 font-sans text-text">
                     <div className="flex items-center space-x-2">
                       <Image
-                        alt="Livehoods"
+                        alt={messages.livelihoods_and_economics}
                         src="/images/icons/co-benefits/livelihoods_economic.svg"
                         height={24}
                         width={24}
                       />
-                      <p className="text-xl">Livelihoods & Economics</p>
+                      <p className="text-xl">{messages.livelihoods_and_economics}</p>
                     </div>
                     <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
                       {data?.data?.data?.attributes.cb_livelihood_econ}
@@ -653,7 +687,9 @@ const ProjectDetail = (): JSX.Element => {
             <section>
               <Wrapper>
                 <div className="space-y-4 border-b-[2px] py-14">
-                  <h4 className="font-serif text-3xl font-medium text-indigo">Partners</h4>
+                  <h4 className="font-serif text-3xl font-medium text-indigo">
+                    {messages.partners}
+                  </h4>
                   <div
                     className={cn({
                       'font-light leading-8 text-text': true,
@@ -676,7 +712,9 @@ const ProjectDetail = (): JSX.Element => {
             <Wrapper className="flex flex-row space-x-20">
               {data?.data?.data?.attributes.whats_next && (
                 <div className="w-3/4 space-y-6">
-                  <h4 className="font-serif text-3xl font-medium text-indigo">What’s Next</h4>
+                  <h4 className="font-serif text-3xl font-medium text-indigo">
+                    {messages.whats_next}
+                  </h4>
                   <Markdown
                     remarkPlugins={[remarkGfm]}
                     className="font-sans text-m font-light leading-7 text-text"
@@ -691,9 +729,11 @@ const ProjectDetail = (): JSX.Element => {
                 data?.data?.data?.attributes.public_contact_email
               ) && (
                 <div className="w-1/4 space-y-6 pt-16">
-                  <h5 className="font-serif text-2xl font-medium text-indigo ">Contact Info</h5>
+                  <h5 className="font-serif text-2xl font-medium text-indigo ">
+                    {messages.contact_info}
+                  </h5>
                   <div className="text-m font-light text-gray-800">
-                    <p>MAIN CONTACT:</p>
+                    <p className="uppercase">{messages.main_contact}</p>
                     <p>{data?.data?.data?.attributes.public_contact_name}</p>
                     <p>{data?.data?.data?.attributes.public_contact_email}</p>
                   </div>
@@ -707,14 +747,16 @@ const ProjectDetail = (): JSX.Element => {
           >
             <Wrapper>
               <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
-                <p className="text-2xl">WANT MORE INFORMATION?</p>
-                <p className="text-center text-m">
-                  Reach out and we’ll connect you to the people who will be the most helpful for
-                  your questions.
-                </p>
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  className="text-center [&_h4]:pb-4 [&_h4]:text-2xl [&_h4]:uppercase [&_p]:text-center [&_p]:text-m"
+                >
+                  {messages.more_information}
+                </Markdown>
+
                 <Link href={`/contact${queryParams}`}>
                   <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
-                    <p className="text-base font-bold uppercase">Contact us</p>
+                    <p className="text-base font-bold uppercase">{messages?.contact_us_copy}</p>
                     <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
                   </button>
                 </Link>
@@ -723,7 +765,9 @@ const ProjectDetail = (): JSX.Element => {
           </section>
           <section className="pt-16 pb-28">
             <Wrapper className="space-y-6">
-              <h4 className="font-serif text-2xl font-medium text-indigo">Similar Projects</h4>
+              <h4 className="font-serif text-2xl font-medium text-indigo">
+                {messages?.similiar_projects}
+              </h4>
               <div className="grid grid-cols-3 gap-6 xl:grid-cols-4 2xl:gap-10">
                 {similarProjects?.map((project, idx) => (
                   <Card key={idx} id={project.id} slug={project.attributes.slug} />
@@ -732,7 +776,7 @@ const ProjectDetail = (): JSX.Element => {
                 {similarProjects.length === 0 && (
                   <div className="flex h-64 w-full items-center justify-center">
                     <p className="font-serif text-lg font-semibold text-indigo">
-                      No similar projects found
+                      {messages?.no_projects}
                     </p>
                   </div>
                 )}
