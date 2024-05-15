@@ -830,6 +830,174 @@
           "sortable": true
         }
       },
+      "key_activity_1": {
+        "edit": {
+          "label": "Key Activity 1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_2": {
+        "edit": {
+          "label": "Key Activity 2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_3": {
+        "edit": {
+          "label": "Key Activity 3",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_4": {
+        "edit": {
+          "label": "Key Activity 4",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_4",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_5": {
+        "edit": {
+          "label": "Key Activity 5",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_5",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_6": {
+        "edit": {
+          "label": "Key Activity 6",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_6",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_7": {
+        "edit": {
+          "label": "Key Activity 7",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_7",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_8": {
+        "edit": {
+          "label": "Key Activity 8",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_8",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_9": {
+        "edit": {
+          "label": "Key Activity 9",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_9",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_10": {
+        "edit": {
+          "label": "Key Activity 10",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_10",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_11": {
+        "edit": {
+          "label": "Key Activity 11",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_11",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "key_activity_12": {
+        "edit": {
+          "label": "Key Activity 12",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "key_activity_12",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -928,6 +1096,78 @@
         [
           {
             "name": "key_activities",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_4",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_5",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_6",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_7",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_8",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_9",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_10",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_11",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "key_activity_12",
             "size": 12
           }
         ],

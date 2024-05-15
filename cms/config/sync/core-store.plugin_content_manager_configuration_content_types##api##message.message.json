@@ -1914,13 +1914,13 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "nav_1",
+        "nav_2",
+        "nav_3"
+      ],
       "edit": [
-        [
-          {
-            "name": "main_title",
-            "size": 12
-          }
-        ],
         [
           {
             "name": "nav_1",
@@ -1934,32 +1934,6 @@
         [
           {
             "name": "nav_3",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "home_hero_photo",
-            "size": 6
-          },
-          {
-            "name": "home_footer_photo",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "home_map_photo",
-            "size": 6
-          },
-          {
-            "name": "metrics_footer_photo",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "map_view_footer_photo",
             "size": 6
           }
         ],
@@ -2049,30 +2023,6 @@
         ],
         [
           {
-            "name": "lessons_learned_1_issue_1",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_1_issue_2",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_1_issue_3",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_1_issue_4",
-            "size": 12
-          }
-        ],
-        [
-          {
             "name": "lessons_learned_1_photo",
             "size": 6
           }
@@ -2080,24 +2030,6 @@
         [
           {
             "name": "lessons_learned_2_title",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_2_issue_1",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_2_issue_2",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_2_issue_3",
             "size": 12
           }
         ],
@@ -2115,24 +2047,6 @@
         ],
         [
           {
-            "name": "lessons_learned_3_issue_1",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_3_issue_2",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_3_issue_3",
-            "size": 12
-          }
-        ],
-        [
-          {
             "name": "lessons_learned_3_photo",
             "size": 6
           }
@@ -2145,30 +2059,6 @@
         ],
         [
           {
-            "name": "lessons_learned_4_issue_1",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_4_issue_2",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_4_issue_3",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_4_issue_4",
-            "size": 12
-          }
-        ],
-        [
-          {
             "name": "lessons_learned_4_photo",
             "size": 6
           }
@@ -2176,24 +2066,6 @@
         [
           {
             "name": "lessons_learned_5_title",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_5_issue_1",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_5_issue_2",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "lessons_learned_5_issue_3",
             "size": 12
           }
         ],
@@ -2541,6 +2413,36 @@
         ],
         [
           {
+            "name": "main_title",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "home_hero_photo",
+            "size": 6
+          },
+          {
+            "name": "home_footer_photo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "home_map_photo",
+            "size": 6
+          },
+          {
+            "name": "metrics_footer_photo",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "map_view_footer_photo",
+            "size": 6
+          },
+          {
             "name": "contact_us_footer_photo",
             "size": 6
           }
@@ -2644,13 +2546,109 @@
             "name": "what_we_do_4",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "lessons_learned_1_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_1_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_1_issue_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_1_issue_4",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_2_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_2_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_2_issue_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_3_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_3_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_3_issue_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_4_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_4_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_4_issue_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_4_issue_4",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_5_issue_1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_5_issue_2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "lessons_learned_5_issue_3",
+            "size": 12
+          }
         ]
-      ],
-      "list": [
-        "id",
-        "nav_1",
-        "nav_2",
-        "nav_3"
       ]
     }
   },
