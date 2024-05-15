@@ -2,15 +2,14 @@ import Markdown from 'react-markdown';
 
 import Image from 'next/image';
 
+import { BsArrowRight } from 'react-icons/bs';
 import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
 import { useSyncLocale } from '@/hooks/query/sync-query';
 
-import Icon from 'components/icon';
 import Wrapper from 'containers/wrapper';
-import ARROW_SVG from 'svgs/ui/arrow.svg?sprite';
 import { cn } from 'utils/cn';
 
 const Lessons = (): JSX.Element => {
@@ -135,8 +134,10 @@ const Lessons = (): JSX.Element => {
 
               {lesson.points.map((point) => (
                 <div key={point} className="flex items-start space-x-3 space-y-1.5">
-                  <Icon icon={ARROW_SVG} className="mt-2 h-6 w-8 stroke-butternut stroke-2" />
-
+                  <BsArrowRight
+                    size={36}
+                    className="mt-0.5 fill-butternut stroke-butternut stroke-[0.4px]"
+                  />
                   <Markdown className="w-5/6 font-sans text-m font-light leading-7 text-text">
                     {point}
                   </Markdown>
