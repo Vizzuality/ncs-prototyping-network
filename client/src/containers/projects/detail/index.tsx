@@ -169,13 +169,9 @@ const ProjectDetail = (): JSX.Element => {
               </motion.div>
 
               <div className="flex max-w-2xl flex-col items-center">
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="mb-16 font-serif text-[35px] font-medium leading-9 text-indigo"
-                >
+                <Markdown className="mb-16 font-serif text-[35px] font-medium leading-9 text-indigo">
                   {data?.data?.data?.attributes.long_title}
                 </Markdown>
-
                 <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
@@ -213,13 +209,12 @@ const ProjectDetail = (): JSX.Element => {
                     </p>
                   </div>
                 </div>
-
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="mt-8 text-right text-xs font-normal text-text/50"
-                >
-                  {messages.disclaimer}
-                </Markdown>
+                <div className="mt-8 flex w-full items-end justify-end">
+                  <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
+                  <Markdown className="prose prose-link text-left text-xs font-normal text-text/50">
+                    {messages.disclaimer}
+                  </Markdown>
+                </div>
               </div>
             </div>
 
@@ -271,10 +266,7 @@ const ProjectDetail = (): JSX.Element => {
                   <h4 className="font-serif text-3xl font-medium xl:text-4xl">
                     {messages.goals_title}
                   </h4>
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
-                  >
+                  <Markdown className="prose prose-link text-base leading-7 text-white xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9">
                     {data?.data?.data?.attributes.project_goal}
                   </Markdown>
                 </div>
@@ -336,10 +328,7 @@ const ProjectDetail = (): JSX.Element => {
                       .join(', ')}
                   </p>
                 )}
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text"
-                >
+                <Markdown className="prose prose-link w-2/3 pt-4 font-sans text-m font-light leading-7 text-text">
                   {data?.data?.data?.attributes.project_summary}
                 </Markdown>
               </div>

@@ -65,10 +65,7 @@ const HomeProjects = (): JSX.Element => {
     <Wrapper>
       <section className="flex flex-col space-y-12 py-14">
         {messages && (
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            className="text-lg font-light leading-7 text-text [&_h2]:font-serif [&_h2]:text-4xl [&_h2]:font-semibold [&_h2]:text-indigo [&_p]:pt-6"
-          >
+          <Markdown className="prose prose-link text-lg font-light leading-7 text-text [&_h2]:font-serif [&_h2]:text-4xl [&_h2]:font-semibold [&_h2]:text-indigo">
             {messages.prototyping_projects}
           </Markdown>
         )}

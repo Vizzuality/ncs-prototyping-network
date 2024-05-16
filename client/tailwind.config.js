@@ -65,7 +65,14 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      typography: ({ theme }) => ({
+        link: {
+          css: {
+            '--tw-prose-links': theme('colors.blue[600]'),
+          },
+        },
+      }),
     },
   },
-  plugins: [require('tailwindcss-animate'), forms, lineClamp],
+  plugins: [require('tailwindcss-animate'), forms, lineClamp, require('@tailwindcss/typography')],
 };

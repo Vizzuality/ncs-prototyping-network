@@ -87,10 +87,7 @@ const Lessons = (): JSX.Element => {
       {messages?.lessons_learned_intro && (
         <div className="bg-indigo">
           <Wrapper>
-            <Markdown
-              remarkPlugins={[remarkGfm]}
-              className="my-10 flex flex-col space-y-4 text-white [&_h4]:font-serif [&_h4]:text-4xl [&_h4]:font-semibold [&_p]:text-xl [&_p]:font-normal [&_p]:leading-9"
-            >
+            <Markdown className="prose prose-link my-10 flex flex-col space-y-4 text-white [&_h4]:font-serif [&_h4]:text-4xl [&_h4]:font-semibold [&_p]:text-xl [&_p]:font-normal [&_p]:leading-9">
               {messages?.lessons_learned_intro}
             </Markdown>
           </Wrapper>

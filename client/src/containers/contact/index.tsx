@@ -6,7 +6,6 @@ import Markdown from 'react-markdown';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSetRecoilState } from 'recoil';
-import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
 
@@ -102,10 +101,7 @@ const ContactPage = (): JSX.Element => {
           <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">
             {messages.contact_us}
           </h4>
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            className="pt-3 text-xl font-light leading-8 text-text"
-          >
+          <Markdown className="prose prose-link pt-3 text-xl font-light leading-8 text-text">
             {messages.contact_us_description}
           </Markdown>
 
