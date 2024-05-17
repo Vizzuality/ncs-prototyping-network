@@ -189,9 +189,10 @@ const MapView = ({ data }: { data }): JSX.Element => {
               <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
                 <Total />
 
-                <div className="flex w-full justify-end py-3">
+                <div className="flex w-full justify-end py-3 pl-4">
                   <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
-                  <Markdown className="prose prose-link max-w-3xl text-xs font-normal text-text/50">
+
+                  <Markdown className="prose prose-default text-xs font-normal text-text/50">
                     {messages.disclaimer}
                   </Markdown>
                 </div>

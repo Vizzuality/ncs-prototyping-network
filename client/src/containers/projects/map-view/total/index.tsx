@@ -87,7 +87,7 @@ const Total = (): JSX.Element => {
                   {toTBD(totalData?.total_hectares_impacted, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Project Area (ha)
+                  {messages.project_area_unit}
                 </p>
               </div>
             )}
@@ -98,7 +98,7 @@ const Total = (): JSX.Element => {
                   {toTBD(totalData?.total_people_supported, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  People Supported
+                  {messages.people_supported}
                 </p>
               </div>
             )}
@@ -109,7 +109,8 @@ const Total = (): JSX.Element => {
                   {toTBD(totalData?.total_carbon_mitigation, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  Mitigation Potential (tCO<sub>2</sub>e)<sup>*</sup>
+                  {messages.mitigation_potencial_unit}
+                  <sup>*</sup>
                 </p>
               </div>
             )}

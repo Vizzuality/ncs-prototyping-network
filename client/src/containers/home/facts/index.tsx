@@ -27,9 +27,11 @@ const Facts = (): JSX.Element => {
       <Wrapper>
         {messages.facts && (
           <div className="my-20 flex flex-col items-center space-y-4 font-sans text-white">
-            <Markdown className="prose prose-link max-w-4xl text-center text-xl leading-8 text-white">
-              {messages.facts}
-            </Markdown>
+            <div className="max-w-4xl">
+              <Markdown className="prose prose-tertiary text-center text-xl leading-8">
+                {messages.facts}
+              </Markdown>
+            </div>
             <motion.div whileHover="hover">
               <a
                 href="https://www.nature.org/en-us/what-we-do/our-insights/perspectives/natural-climate-solutions/"

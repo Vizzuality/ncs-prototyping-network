@@ -98,10 +98,10 @@ const ContactPage = (): JSX.Element => {
         transition={{ delay: 0.25, duration: 0.3 }}
       >
         <Wrapper className="!px-56 py-20">
-          <h4 className="pt-20 font-serif text-4xl font-semibold text-indigo">
+          <h4 className="pt-20 pb-3 font-serif text-4xl font-semibold text-indigo">
             {messages.contact_us}
           </h4>
-          <Markdown className="prose prose-link pt-3 text-xl font-light leading-8 text-text">
+          <Markdown className="prose prose-secondary text-xl font-light leading-8">
             {messages.contact_us_description}
           </Markdown>
 

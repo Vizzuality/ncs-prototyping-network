@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { HiArrowNarrowRight } from 'react-icons/hi';
-import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -25,10 +24,7 @@ const HomeMap = (): JSX.Element => {
     <Wrapper>
       <section className="-mt-44 mb-12 flex h-full items-center bg-white py-12 px-16">
         <div className="flex w-1/3 flex-col">
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            className="text-base font-light leading-7 text-text lg:text-lg xl:text-xl xl:leading-9"
-          >
+          <Markdown className="prose prose-secondary text-base font-light leading-7 lg:text-lg xl:text-xl xl:leading-9">
             {messages?.map_description}
           </Markdown>
           {messages?.projects && (

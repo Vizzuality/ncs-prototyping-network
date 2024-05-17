@@ -33,13 +33,15 @@ const Hero = (): JSX.Element => {
       <Wrapper>
         <div className="mb-64 mt-44 flex flex-col items-center space-y-8 py-10 text-white">
           {!!projects?.data.data.length && messages.hero_title && (
-            <Markdown className="prose prose-link font-serif text-4xl font-semibold text-white">
+            <Markdown className="prose prose-tertiary font-serif text-4xl font-semibold">
               {`${projects.data.data.length} ${messages.hero_title}`}
             </Markdown>
           )}
-          <Markdown className="prose prose-link max-w-4xl text-center text-xl leading-9 text-white xl:text-2xl">
-            {messages?.hero_description}
-          </Markdown>
+          <div className="max-w-4xl">
+            <Markdown className="prose prose-tertiary text-center text-xl leading-9 text-white xl:text-2xl">
+              {messages?.hero_description}
+            </Markdown>
+          </div>
         </div>
       </Wrapper>
     </section>

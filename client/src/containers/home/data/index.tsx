@@ -127,6 +127,7 @@ const Data = (): JSX.Element => {
                     </p>
                     <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                       {messages.mitigation_potencial_unit}
+                      <sup>*</sup>
                     </p>
                   </div>
                 )}
@@ -134,9 +135,12 @@ const Data = (): JSX.Element => {
 
             <div className="flex w-full justify-end pb-3">
               <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
-              <Markdown className="prose prose-link max-w-3xl text-xs font-normal text-text/50">
-                {messages.disclaimer}
-              </Markdown>
+
+              <div className="max-w-3xl">
+                <Markdown className="prose prose-default text-xs font-normal text-text/50">
+                  {messages.disclaimer}
+                </Markdown>
+              </div>
             </div>
           </Wrapper>
         )}
