@@ -7,7 +7,6 @@ import Link from 'next/link';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
-import remarkGfm from 'remark-gfm';
 
 import { useGetCobenefits } from '@/types/generated/cobenefit';
 import { useGetMessages } from '@/types/generated/message';
@@ -230,17 +229,13 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                           />
 
                           <div className="flex w-[100px] flex-col xl:w-auto">
-                            <Markdown
-                              remarkPlugins={[remarkGfm]}
-                              className="-mt-1 font-serif text-lg font-semibold leading-6 text-indigo group-hover:underline xl:text-2xl xl:leading-7"
-                            >
-                              {project.attributes.project_name}
-                            </Markdown>
+                            <div className="-mt-1">
+                              <Markdown className="prose prose-primary font-serif text-lg font-semibold leading-6 group-hover:underline xl:text-2xl xl:leading-7">
+                                {project.attributes.project_name}
+                              </Markdown>
+                            </div>
 
-                            <Markdown
-                              remarkPlugins={[remarkGfm]}
-                              className="overflow-hidden text-2xs text-text group-hover:opacity-80"
-                            >
+                            <Markdown className="prose prose-secondary overflow-hidden text-2xs leading-4 line-clamp-3 group-hover:opacity-80">
                               {project.attributes.long_title}
                             </Markdown>
                           </div>

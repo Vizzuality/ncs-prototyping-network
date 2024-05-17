@@ -13,7 +13,6 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
 import { useSetRecoilState } from 'recoil';
-import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
 
@@ -169,13 +168,11 @@ const ProjectDetail = (): JSX.Element => {
               </motion.div>
 
               <div className="flex max-w-2xl flex-col items-center">
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="mb-16 font-serif text-[35px] font-medium leading-9 text-indigo"
-                >
-                  {data?.data?.data?.attributes.long_title}
-                </Markdown>
-
+                <div className="mb-16">
+                  <Markdown className="prose prose-primary font-serif text-[35px] font-medium leading-9">
+                    {data?.data?.data?.attributes.long_title}
+                  </Markdown>
+                </div>
                 <div className="flex min-h-[72px] space-x-10 font-sans xl:space-x-20">
                   <div className="flex flex-col items-center">
                     <p className="pb-2 text-4xl font-bold text-spring">
@@ -210,16 +207,16 @@ const ProjectDetail = (): JSX.Element => {
                     </p>
                     <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                       {messages.mitigation_potencial_unit}
+                      <sup>*</sup>
                     </p>
                   </div>
                 </div>
-
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="mt-8 text-right text-xs font-normal text-text/50"
-                >
-                  {messages.disclaimer}
-                </Markdown>
+                <div className="mt-8 flex w-full items-end justify-end">
+                  <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
+                  <Markdown className="prose prose-default text-left text-xs font-normal text-text/50">
+                    {messages.disclaimer}
+                  </Markdown>
+                </div>
               </div>
             </div>
 
@@ -227,8 +224,8 @@ const ProjectDetail = (): JSX.Element => {
               <div className="relative">
                 <ExtentMap extent={data?.data?.data?.attributes.extent} />
                 {data?.data?.data?.attributes.extent_credits && (
-                  <div className="absolute bottom-24 right-2 mb-1 bg-black/40 px-2">
-                    <Markdown remarkPlugins={[remarkGfm]} className="text-xs text-white">
+                  <div className="absolute bottom-2 right-2 mb-1 bg-black/40 px-2">
+                    <Markdown className="prose prose-tertiary text-xs text-white">
                       {data?.data?.data?.attributes.extent_credits}
                     </Markdown>
                   </div>
@@ -271,10 +268,7 @@ const ProjectDetail = (): JSX.Element => {
                   <h4 className="font-serif text-3xl font-medium xl:text-4xl">
                     {messages.goals_title}
                   </h4>
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
-                  >
+                  <Markdown className="prose prose-tertiary text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9">
                     {data?.data?.data?.attributes.project_goal}
                   </Markdown>
                 </div>
@@ -313,9 +307,11 @@ const ProjectDetail = (): JSX.Element => {
                         className="flex items-start space-x-6 border-t border-accents py-4 last:border-b"
                       >
                         <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
-                        <Markdown className="mt-2 font-sans text-xl font-light text-text">
-                          {activity}
-                        </Markdown>
+                        <div className="mt-2">
+                          <Markdown className="prose prose-secondary font-sans text-xl font-light">
+                            {activity}
+                          </Markdown>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -336,12 +332,11 @@ const ProjectDetail = (): JSX.Element => {
                       .join(', ')}
                   </p>
                 )}
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="w-2/3 pt-4 font-sans text-m font-light leading-7 text-text"
-                >
-                  {data?.data?.data?.attributes.project_summary}
-                </Markdown>
+                <div className="w-2/3 pt-4">
+                  <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
+                    {data?.data?.data?.attributes.project_summary}
+                  </Markdown>
+                </div>
               </div>
             </Wrapper>
           </section>
@@ -356,12 +351,11 @@ const ProjectDetail = (): JSX.Element => {
                   <h4 className="pb-2 font-serif text-3xl font-semibold">
                     {messages.why_this_why_now_title}
                   </h4>
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="max-w-3xl text-center font-sans text-xl font-light leading-9"
-                  >
-                    {data?.data?.data?.attributes.why_this_why_now_callout}
-                  </Markdown>
+                  <div className="max-w-3xl">
+                    <Markdown className="prose prose-tertiary text-center font-sans text-xl font-light leading-9">
+                      {data?.data?.data?.attributes.why_this_why_now_callout}
+                    </Markdown>
+                  </div>
                   <p className="uppercase">
                     {data?.data?.data?.attributes.why_this_why_now_author}
                   </p>
@@ -384,7 +378,7 @@ const ProjectDetail = (): JSX.Element => {
                     />
                   </div>
                   <div className="w-1/3 space-y-4 py-4">
-                    <Markdown remarkPlugins={[remarkGfm]} className="text-m text-text">
+                    <Markdown className="prose prose-secondary text-m">
                       {data?.data?.data?.attributes.video_caption}
                     </Markdown>
 
@@ -435,8 +429,8 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_1_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
-                        <Markdown remarkPlugins={[remarkGfm]}>
+                      <td className="w-3/4 px-20">
+                        <Markdown className="prose prose-secondary font-sans text-m font-light leading-6">
                           {data?.data?.data?.attributes.lesson_1}
                         </Markdown>
                       </td>
@@ -448,8 +442,8 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 pr-10 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_2_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
-                        <Markdown remarkPlugins={[remarkGfm]}>
+                      <td className="w-3/4 px-20">
+                        <Markdown className="prose prose-secondary font-sans text-m font-light leading-6">
                           {data?.data?.data?.attributes.lesson_2}
                         </Markdown>
                       </td>
@@ -461,8 +455,8 @@ const ProjectDetail = (): JSX.Element => {
                       <td className="w-1/4 font-serif text-2xl font-medium text-indigo">
                         {data?.data?.data?.attributes.lesson_3_category.data.attributes.name}
                       </td>
-                      <td className="w-3/4 px-20 font-sans text-m font-light leading-6 text-text">
-                        <Markdown remarkPlugins={[remarkGfm]}>
+                      <td className="w-3/4 px-20">
+                        <Markdown className="prose prose-secondary font-sans text-m font-light leading-6">
                           {data?.data?.data?.attributes.lesson_3}
                         </Markdown>
                       </td>
@@ -488,10 +482,7 @@ const ProjectDetail = (): JSX.Element => {
                     <p className="font-serif text-2xl font-medium text-indigo">
                       {messages.research_summary_title}
                     </p>
-                    <Markdown
-                      remarkPlugins={[remarkGfm]}
-                      className="font-sans text-m font-light leading-7 text-text"
-                    >
+                    <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
                       {data?.data?.data?.attributes.abstract}
                     </Markdown>
                   </div>
@@ -500,9 +491,11 @@ const ProjectDetail = (): JSX.Element => {
                   <div className="flex flex-col space-y-4">
                     <h5 className="text-lg font-light uppercase">{messages.citations}</h5>
 
-                    <Markdown remarkPlugins={[remarkGfm]} className="space-y-2 text-2xs font-light">
-                      {data?.data?.data?.attributes.citations}
-                    </Markdown>
+                    <div className="space-y-2">
+                      <Markdown className="prose prose-default text-2xs font-light">
+                        {data?.data?.data?.attributes.citations}
+                      </Markdown>
+                    </div>
                   </div>
                 )}
               </div>
@@ -608,7 +601,7 @@ const ProjectDetail = (): JSX.Element => {
                       <p className="text-xl">{messages.ecosystem_services}</p>
                     </div>
 
-                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
+                    <Markdown className="prose prose-default text-m leading-6">
                       {data?.data?.data?.attributes.cb_ecosystem_services}
                     </Markdown>
                   </div>
@@ -625,7 +618,7 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">{messages.resilience_and_adaptation}</p>
                     </div>
-                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
+                    <Markdown className="prose prose-default text-m leading-6">
                       {data?.data?.data?.attributes.cb_resilience_adapt}
                     </Markdown>
                   </div>
@@ -642,7 +635,7 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">{messages.health_and_well_being}</p>
                     </div>
-                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
+                    <Markdown className="prose prose-default text-m leading-6">
                       {data?.data?.data?.attributes.cb_health_well_being}
                     </Markdown>
                   </div>
@@ -659,7 +652,7 @@ const ProjectDetail = (): JSX.Element => {
                       />
                       <p className="text-xl">{messages.livelihoods_and_economics}</p>
                     </div>
-                    <Markdown remarkPlugins={[remarkGfm]} className="text-m leading-6">
+                    <Markdown className="prose prose-default text-m leading-6">
                       {data?.data?.data?.attributes.cb_livelihood_econ}
                     </Markdown>
                   </div>
@@ -671,11 +664,8 @@ const ProjectDetail = (): JSX.Element => {
             <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
               <Wrapper className="flex flex-col items-center space-y-6 py-20">
                 <VscQuote className="fill-butternut" size={40} />
-                <div className="flex flex-col items-center justify-center space-y-5 font-sans text-white">
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="max-w-3xl text-center text-xl font-light leading-9"
-                  >
+                <div className="flex max-w-3xl flex-col items-center justify-center space-y-5 font-sans text-white">
+                  <Markdown className="prose prose-tertiary text-center text-xl font-light leading-9">
                     {data?.data?.data?.attributes.callout}
                   </Markdown>
                   <p className="uppercase">{data?.data?.data?.attributes.callout_author}</p>
@@ -715,10 +705,7 @@ const ProjectDetail = (): JSX.Element => {
                   <h4 className="font-serif text-3xl font-medium text-indigo">
                     {messages.whats_next}
                   </h4>
-                  <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className="font-sans text-m font-light leading-7 text-text"
-                  >
+                  <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
                     {data?.data?.data?.attributes.whats_next}
                   </Markdown>
                 </div>
@@ -747,16 +734,14 @@ const ProjectDetail = (): JSX.Element => {
           >
             <Wrapper>
               <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="text-center [&_h4]:pb-4 [&_h4]:text-2xl [&_h4]:uppercase [&_p]:text-center [&_p]:text-m"
-                >
+                <p className="pb-4 text-2xl uppercase">More information</p>
+                <Markdown className="prose prose-tertiary text-center text-center text-m">
                   {messages.more_information}
                 </Markdown>
 
                 <Link href={`/contact${queryParams}`}>
                   <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
-                    <p className="text-base font-bold uppercase">{messages?.contact_us_copy}</p>
+                    <p className="text-base font-bold uppercase">{messages?.contact_us}</p>
                     <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
                   </button>
                 </Link>

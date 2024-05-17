@@ -65,7 +65,37 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: '100%',
+          },
+        },
+        default: {
+          css: {
+            '--tw-prose-links': theme('colors.blue[600]'),
+          },
+        },
+        primary: {
+          css: {
+            '--tw-prose-links': theme('colors.blue[600]'),
+            '--tw-prose-body': theme('colors.indigo'),
+          },
+        },
+        secondary: {
+          css: {
+            '--tw-prose-links': theme('colors.blue[600]'),
+            '--tw-prose-body': theme('colors.text'),
+          },
+        },
+        tertiary: {
+          css: {
+            '--tw-prose-links': theme('colors.blue[600]'),
+            '--tw-prose-body': theme('colors.white'),
+          },
+        },
+      }),
     },
   },
-  plugins: [require('tailwindcss-animate'), forms, lineClamp],
+  plugins: [require('tailwindcss-animate'), forms, lineClamp, require('@tailwindcss/typography')],
 };

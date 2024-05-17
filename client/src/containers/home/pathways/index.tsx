@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 import { motion } from 'framer-motion';
 import { BsArrowRight } from 'react-icons/bs';
-import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
@@ -67,16 +66,10 @@ const Pathways = (): JSX.Element => {
         {messages.what_we_are_field_testing_title &&
           messages.what_we_are_field_testing_description && (
             <>
-              <Markdown
-                remarkPlugins={[remarkGfm]}
-                className="font-serif text-4xl font-semibold text-indigo"
-              >
+              <Markdown className="prose prose-primary font-serif text-4xl font-semibold">
                 {messages.what_we_are_field_testing_title}
               </Markdown>
-              <Markdown
-                remarkPlugins={[remarkGfm]}
-                className="max-w-7xl text-xl font-light leading-7 text-text"
-              >
+              <Markdown className="prose prose-secondary text-xl font-light leading-7">
                 {`${numberProjects} ${messages.what_we_are_field_testing_description}`}
               </Markdown>
             </>

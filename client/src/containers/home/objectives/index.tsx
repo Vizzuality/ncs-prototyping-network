@@ -42,11 +42,11 @@ const Objectives = (): JSX.Element => {
       <Wrapper>
         <section className="flex flex-col space-y-12 py-16">
           <div className="flex flex-col space-y-4">
-            <Markdown className="font-serif text-4xl font-semibold text-indigo">
+            <Markdown className="prose prose-primary font-serif text-4xl font-semibold text-indigo">
               {messages.what_we_do_title}
             </Markdown>
 
-            <Markdown className="text-lg font-medium text-text">
+            <Markdown className="prose prose-secondary text-lg font-medium">
               {messages.what_we_do_description}
             </Markdown>
           </div>

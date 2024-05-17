@@ -2,7 +2,6 @@ import Markdown from 'react-markdown';
 
 import { motion } from 'framer-motion';
 import { HiArrowNarrowRight } from 'react-icons/hi';
-import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -27,10 +26,12 @@ const Facts = (): JSX.Element => {
     <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
       <Wrapper>
         {messages.facts && (
-          <div className="my-20 flex flex-col items-center space-y-4 font-sans text-xl text-white">
-            <Markdown remarkPlugins={[remarkGfm]} className="max-w-4xl text-center leading-8">
-              {messages.facts}
-            </Markdown>
+          <div className="my-20 flex flex-col items-center space-y-4 font-sans text-white">
+            <div className="max-w-4xl">
+              <Markdown className="prose prose-tertiary text-center text-xl leading-8">
+                {messages.facts}
+              </Markdown>
+            </div>
             <motion.div whileHover="hover">
               <a
                 href="https://www.nature.org/en-us/what-we-do/our-insights/perspectives/natural-climate-solutions/"

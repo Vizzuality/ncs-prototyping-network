@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
-import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
@@ -65,12 +64,14 @@ const HomeProjects = (): JSX.Element => {
     <Wrapper>
       <section className="flex flex-col space-y-12 py-14">
         {messages && (
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            className="text-lg font-light leading-7 text-text [&_h2]:font-serif [&_h2]:text-4xl [&_h2]:font-semibold [&_h2]:text-indigo [&_p]:pt-6"
-          >
-            {messages.prototyping_projects}
-          </Markdown>
+          <>
+            <h4 className="font-serif text-4xl font-semibold text-indigo">
+              NCS Prototyping Projects
+            </h4>
+            <Markdown className="prose prose-secondary text-lg font-light leading-7">
+              {messages.prototyping_projects}
+            </Markdown>
+          </>
         )}
 
         <div>
@@ -95,17 +96,11 @@ const HomeProjects = (): JSX.Element => {
 
                   <div className="to-black-0 absolute top-0 h-2/3 w-full bg-gradient-to-b from-black/50 text-white">
                     <div className="absolute top-0 flex flex-col !items-start space-y-2 px-8 py-4">
-                      <Markdown
-                        remarkPlugins={[remarkGfm]}
-                        className="font-serif text-xs font-bold uppercase"
-                      >
+                      <Markdown className="prose prose-tertiary font-serif text-xs font-bold uppercase">
                         {project.attributes.project_name}
                       </Markdown>
 
-                      <Markdown
-                        remarkPlugins={[remarkGfm]}
-                        className="font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6"
-                      >
+                      <Markdown className="prose prose-tertiary font-sans text-m font-light leading-5 line-clamp-6 xl:text-lg xl:leading-6">
                         {project.attributes.long_title}
                       </Markdown>
                     </div>

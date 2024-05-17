@@ -1,3 +1,5 @@
+import Markdown from 'react-markdown';
+
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
 
@@ -125,11 +127,21 @@ const Data = (): JSX.Element => {
                     </p>
                     <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
                       {messages.mitigation_potencial_unit}
+                      <sup>*</sup>
                     </p>
                   </div>
                 )}
             </div>
-            <p className="pb-3 text-right text-xs text-text/50">{messages?.disclaimer}</p>
+
+            <div className="flex w-full justify-end pb-3">
+              <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
+
+              <div className="max-w-3xl">
+                <Markdown className="prose prose-default text-xs font-normal text-text/50">
+                  {messages.disclaimer}
+                </Markdown>
+              </div>
+            </div>
           </Wrapper>
         )}
       </section>

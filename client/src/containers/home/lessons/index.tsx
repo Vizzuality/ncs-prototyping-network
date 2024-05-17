@@ -3,7 +3,6 @@ import Markdown from 'react-markdown';
 import Image from 'next/image';
 
 import { BsArrowRight } from 'react-icons/bs';
-import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -86,11 +85,11 @@ const Lessons = (): JSX.Element => {
     <section>
       {messages?.lessons_learned_intro && (
         <div className="bg-indigo">
-          <Wrapper>
-            <Markdown
-              remarkPlugins={[remarkGfm]}
-              className="my-10 flex flex-col space-y-4 text-white [&_h4]:font-serif [&_h4]:text-4xl [&_h4]:font-semibold [&_p]:text-xl [&_p]:font-normal [&_p]:leading-9"
-            >
+          <Wrapper className="flex w-full flex-col space-y-4 py-10">
+            <h4 className="font-serif text-4xl font-semibold font-normal leading-9 text-white">
+              {messages?.lessons_learned}
+            </h4>
+            <Markdown className="prose prose-primary flex flex-col text-xl font-normal leading-9 text-white">
               {messages?.lessons_learned_intro}
             </Markdown>
           </Wrapper>
@@ -125,12 +124,11 @@ const Lessons = (): JSX.Element => {
             })}
           >
             <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
-              <Markdown
-                remarkPlugins={[remarkGfm]}
-                className="pb-4 font-serif text-2xl font-semibold text-indigo"
-              >
-                {lesson.title}
-              </Markdown>
+              <div className="pb-4">
+                <Markdown className="prose prose-primary font-serif text-2xl font-semibold">
+                  {lesson.title}
+                </Markdown>
+              </div>
 
               {lesson.points.map((point) => (
                 <div key={point} className="flex items-start space-x-3 space-y-1.5">
@@ -138,9 +136,11 @@ const Lessons = (): JSX.Element => {
                     size={36}
                     className="mt-0.5 fill-butternut stroke-butternut stroke-[0.4px]"
                   />
-                  <Markdown className="w-5/6 font-sans text-m font-light leading-7 text-text">
-                    {point}
-                  </Markdown>
+                  <div className="w-5/6">
+                    <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
+                      {point}
+                    </Markdown>
+                  </div>
                 </div>
               ))}
             </div>

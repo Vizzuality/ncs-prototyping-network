@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
-import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -190,12 +189,13 @@ const MapView = ({ data }: { data }): JSX.Element => {
               <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
                 <Total />
 
-                <Markdown
-                  remarkPlugins={[remarkGfm]}
-                  className="py-3 text-right text-xs text-text/50"
-                >
-                  {messages.disclaimer}
-                </Markdown>
+                <div className="flex w-full justify-end py-3 pl-4">
+                  <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
+
+                  <Markdown className="prose prose-default text-xs font-normal text-text/50">
+                    {messages.disclaimer}
+                  </Markdown>
+                </div>
                 <div className="flex h-10 items-center justify-end space-x-3">
                   {sortedData?.length > 1 && (
                     <>
