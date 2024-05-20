@@ -3,25 +3,23 @@ import { useState } from 'react';
 import Markdown from 'react-markdown';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
 import { useGetCobenefits } from '@/types/generated/cobenefit';
 import { useGetMessages } from '@/types/generated/message';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import { cn } from 'utils/cn';
 import { toTBD } from 'utils/data';
 
 type Direction = 'asc' | 'desc';
 
 const MetricsView = ({ data }: { data }): JSX.Element => {
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
+
   const { data: cobenefits } = useGetCobenefits({ locale });
 
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
@@ -208,8 +206,9 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                     >
                       <td className="max-w-[140px] !pl-0 xl:w-3/12 xl:max-w-0">
                         <Link
-                          href={`/projects/${project.attributes.slug}${queryParams}`}
+                          href={`/projects/${project.attributes.slug}`}
                           className="group flex flex-col space-y-3 xl:flex-row xl:space-y-0 xl:space-x-3"
+                          locale={locale}
                         >
                           <Image
                             alt={

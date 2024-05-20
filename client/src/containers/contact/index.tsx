@@ -5,13 +5,12 @@ import { Form, Field, FormProps } from 'react-final-form';
 import Markdown from 'react-markdown';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { useSetRecoilState } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
 import { useGetMessages } from '@/types/generated/message';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import { Toaster } from '@/components/ui/toaster';
 
@@ -32,7 +31,7 @@ interface FormValues {
 }
 
 const ContactPage = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({

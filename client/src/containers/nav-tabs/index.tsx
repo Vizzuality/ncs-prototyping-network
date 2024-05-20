@@ -1,23 +1,20 @@
 import React from 'react';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { useLocale } from 'next-intl';
 import { useRecoilValue } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
 import { useGetMessages } from '@/types/generated/message';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import { cn } from 'utils/cn';
 
 const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
 
-  const queryParams = useSyncQueryParams();
   const pathname = usePathname();
   const headerStyle = useRecoilValue(headerStyleAtom);
 
@@ -68,7 +65,8 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
                 'flex cursor-pointer items-center px-4 first:pl-0 hover:opacity-80': true,
                 'h-5 border-r-[3px] border-white last:border-none': section === 'footer',
               })}
-              href={`${href}${queryParams}`}
+              href={href}
+              locale={locale}
             >
               <p
                 className={cn({

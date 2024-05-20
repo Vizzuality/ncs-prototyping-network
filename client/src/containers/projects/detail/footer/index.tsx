@@ -1,23 +1,21 @@
 import React, { useMemo } from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
+
+import { useLocale } from 'next-intl';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const DetailFooter: React.FC = () => {
   const { slug } = useParams();
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
 
   const { data: projects } = useGetProjects({ populate: '*', locale });
 
@@ -60,7 +58,7 @@ const DetailFooter: React.FC = () => {
           }}
         >
           <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
-            <Link className="items-left flex cursor-pointer" href={`/${queryParams}`}>
+            <Link className="items-left flex cursor-pointer" href={'/'} locale={locale}>
               <h1 className="text-2xl font-semibold uppercase">{messages.main_title}</h1>
             </Link>
 

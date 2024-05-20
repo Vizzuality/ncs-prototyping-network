@@ -5,24 +5,21 @@ import React from 'react';
 import Markdown from 'react-markdown';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { useLocale } from 'next-intl';
 import { useRecoilValue } from 'recoil';
 
 import { useGetMessages } from '@/types/generated/message';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
 import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
 
 const Footer: React.FC = () => {
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
 
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
     populate: '*',
@@ -36,18 +33,16 @@ const Footer: React.FC = () => {
   const projectsView = useRecoilValue(projectsViewAtom);
 
   const getBackground = () => {
-    if (pathname === '/') {
-      return `url(${messages.home_footer_photo?.data?.attributes.url})` || '';
+    if (pathname.includes('/projects') && projectsView === 'map') {
+      return `url(${messages?.map_view_footer_photo?.data?.attributes.url})` || '';
     }
-    if (pathname.startsWith('/projects') && projectsView === 'map') {
-      return `url(${messages.map_view_footer_photo?.data?.attributes.url})` || '';
+    if (pathname.includes('/projects') && projectsView === 'metrics') {
+      return `url(${messages?.metrics_footer_photo?.data?.attributes.url})` || '';
     }
-    if (pathname.startsWith('/projects') && projectsView === 'metrics') {
-      return `url(${messages.metrics_footer_photo?.data?.attributes.url})` || '';
+    if (pathname.includes('/contact')) {
+      return `url(${messages?.contact_us_footer_photo?.data?.attributes.url})` || '';
     }
-    if (pathname === '/contact') {
-      return `url(${messages.contact_us_footer_photo?.data?.attributes.url})` || '';
-    }
+    return `url(${messages?.home_footer_photo?.data?.attributes.url})` || '';
   };
 
   return (
@@ -62,8 +57,8 @@ const Footer: React.FC = () => {
         }}
       >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
-          <Link className="items-left flex cursor-pointer" href={`/${queryParams}`}>
-            <Markdown className="text-2xl font-semibold uppercase">{messages.main_title}</Markdown>
+          <Link className="items-left flex cursor-pointer" href={'/'} locale={locale}>
+            <Markdown className="text-2xl font-semibold uppercase">{messages?.main_title}</Markdown>
           </Link>
 
           <div className="z-10 flex justify-between">
@@ -73,7 +68,7 @@ const Footer: React.FC = () => {
 
             <div className="flex flex-col space-y-6">
               <div className="flex h-20 items-center space-x-6">
-                {messages.partners_sites && (
+                {messages?.partners_sites && (
                   <p className="hidden uppercase xl:block">{messages.partners_sites}</p>
                 )}
                 <a href="https://www.naturebase.org" className="w-44">
@@ -91,8 +86,8 @@ const Footer: React.FC = () => {
       <div className="h-[72px] bg-black text-white">
         <Wrapper>
           <div className="flex justify-between py-7 font-serif text-xs uppercase tracking-wide">
-            <p>{messages.rights}</p>
-            <p>{messages.support}</p>
+            <p>{messages?.rights}</p>
+            <p>{messages?.support}</p>
           </div>
         </Wrapper>
       </div>

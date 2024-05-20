@@ -4,18 +4,16 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useMap, Popup } from 'react-map-gl';
 import Markdown from 'react-markdown';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
 
 import { useGetMessages } from '@/types/generated/message';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import Map from 'components/map';
 import { WORLD_BOUNDS } from 'components/map/constants';
 import Controls from 'components/map/controls';
@@ -55,8 +53,7 @@ const DEFAULT_PROPS = {
 const MapView = ({ data }: { data }): JSX.Element => {
   const { push } = useRouter();
 
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
 
   const mapRef = useRef(null);
   const [sortedBy, setSortedBy] = useState<string>('carbon_mitigation');
@@ -150,7 +147,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
     const projectsFeature = e?.features?.find(({ layer }) => layer.id === 'projects-layer');
     if (projectsFeature) {
-      push(`/projects/${projectSlug}${queryParams}`);
+      push(`/projects/${projectSlug}`);
     }
   };
 
@@ -189,13 +186,15 @@ const MapView = ({ data }: { data }): JSX.Element => {
               <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
                 <Total />
 
-                <div className="flex w-full justify-end py-3 pl-4">
-                  <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
+                {messages.disclaimer && (
+                  <div className="flex w-full justify-end py-3 pl-4">
+                    <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
 
-                  <Markdown className="prose prose-default text-xs font-normal text-text/50">
-                    {messages.disclaimer}
-                  </Markdown>
-                </div>
+                    <Markdown className="prose prose-default text-xs font-normal text-text/50">
+                      {messages.disclaimer}
+                    </Markdown>
+                  </div>
+                )}
                 <div className="flex h-10 items-center justify-end space-x-3">
                   {sortedData?.length > 1 && (
                     <>
@@ -255,7 +254,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                       </Controls>
                       {!!projectsPopUp?.popup?.length && (
                         <Popup longitude={projectsPopUp.popup[1]} latitude={projectsPopUp.popup[0]}>
-                          <Link href={`/projects/${projectSlug}${queryParams}`}>
+                          <Link href={`/projects/${projectSlug}`} locale={locale}>
                             <div className="px-2 py-1">
                               <p className="font-sans text-2xs text-gray-800">
                                 {projectsPopUp.popupInfo.name}

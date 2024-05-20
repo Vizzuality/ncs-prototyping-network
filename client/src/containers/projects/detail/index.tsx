@@ -5,10 +5,10 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Markdown from 'react-markdown';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
 import { motion, useInView } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { BsArrowLeft } from 'react-icons/bs';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
@@ -19,9 +19,7 @@ import { headerStyleAtom } from '@/store';
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects, useGetProjectsId } from '@/types/generated/project';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import Button from 'components/ui/button';
 import Video from 'components/video';
 import Card from 'containers/projects/card';
@@ -39,8 +37,7 @@ const ProjectDetail = (): JSX.Element => {
     amount: 0.25,
   });
 
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
 
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
@@ -157,7 +154,11 @@ const ProjectDetail = (): JSX.Element => {
           <Wrapper className="relative flex w-full flex-row justify-between space-x-6 py-6">
             <div className="flex w-2/3 flex-col items-start">
               <motion.div whileHover="hover">
-                <Link href={`/projects${queryParams}`} className="flex items-center space-x-2 pb-8">
+                <Link
+                  href={'/projects'}
+                  className="flex items-center space-x-2 pb-8"
+                  locale={locale}
+                >
                   <motion.div variants={arrowAnimation}>
                     <BsArrowLeft className="fill-butternut" size={30} />
                   </motion.div>
@@ -205,18 +206,22 @@ const ProjectDetail = (): JSX.Element => {
                         messages.tbd
                       )}
                     </p>
-                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                      {messages.mitigation_potencial_unit}
-                      <sup>*</sup>
-                    </p>
+                    {messages.mitigation_potencial_unit && (
+                      <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                        {messages.mitigation_potencial_unit}
+                        <sup>*</sup>
+                      </p>
+                    )}
                   </div>
                 </div>
-                <div className="mt-8 flex w-full items-end justify-end">
-                  <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
-                  <Markdown className="prose prose-default text-left text-xs font-normal text-text/50">
-                    {messages.disclaimer}
-                  </Markdown>
-                </div>
+                {messages.disclaimer && (
+                  <div className="mt-8 flex w-full items-end justify-end">
+                    <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
+                    <Markdown className="prose prose-default text-left text-xs font-normal text-text/50">
+                      {messages.disclaimer}
+                    </Markdown>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -741,7 +746,7 @@ const ProjectDetail = (): JSX.Element => {
                   {messages.more_information}
                 </Markdown>
 
-                <Link href={`/contact${queryParams}`}>
+                <Link href={'/contact'} locale={locale}>
                   <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
                     <p className="text-base font-bold uppercase">{messages?.contact_us}</p>
                     <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />

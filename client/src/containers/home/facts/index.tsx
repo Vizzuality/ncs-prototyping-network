@@ -1,16 +1,15 @@
 import Markdown from 'react-markdown';
 
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import { useGetMessages } from '@/types/generated/message';
 
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
 import Wrapper from 'containers/wrapper';
 
 const Facts = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
 
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
@@ -25,7 +24,7 @@ const Facts = (): JSX.Element => {
   return (
     <section className="bg-gradient-to-r from-midnight via-indigo to-midnight">
       <Wrapper>
-        {messages.facts && (
+        {messages?.facts && (
           <div className="my-20 flex flex-col items-center space-y-4 font-sans text-white">
             <div className="max-w-4xl">
               <Markdown className="prose prose-tertiary text-center text-xl leading-8">

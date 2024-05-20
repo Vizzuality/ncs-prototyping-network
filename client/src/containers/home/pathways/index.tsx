@@ -1,26 +1,21 @@
 import Markdown from 'react-markdown';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { BsArrowRight } from 'react-icons/bs';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import Wrapper from 'containers/wrapper';
 import { cn } from 'utils/cn';
 
 const Pathways = (): JSX.Element => {
-  const [locale] = useSyncLocale();
-
-  const queryParams = useSyncQueryParams();
-
+  const locale = useLocale();
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
   const { data: pathwaysData, isFetched: isPathwaysFetched } = useGetPathways({ locale });
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
@@ -63,8 +58,8 @@ const Pathways = (): JSX.Element => {
   return (
     <Wrapper>
       <section className="z-10 -mb-40 flex flex-col space-y-12 py-20">
-        {messages.what_we_are_field_testing_title &&
-          messages.what_we_are_field_testing_description && (
+        {messages?.what_we_are_field_testing_title &&
+          messages?.what_we_are_field_testing_description && (
             <>
               <Markdown className="prose prose-primary font-serif text-4xl font-semibold">
                 {messages.what_we_are_field_testing_title}
@@ -86,7 +81,8 @@ const Pathways = (): JSX.Element => {
               >
                 <Link
                   className="flex w-full items-center justify-between"
-                  href={`/projects/${queryParams}&pathway=${name}`}
+                  href={`/projects?pathway=${name}`}
+                  locale={locale}
                 >
                   <div className="flex items-center space-x-10">
                     <Image src={icon} alt={name} height={60} width={60} />

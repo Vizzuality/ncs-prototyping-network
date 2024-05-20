@@ -1,13 +1,14 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+import { useLocale } from 'next-intl';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncLocale, useSyncPathway } from '@/hooks/query/sync-query';
+import { useSyncPathway } from '@/hooks/query/sync-query';
 
 import Filters from 'containers/projects/filters';
 import MapView from 'containers/projects/map-view';
@@ -17,7 +18,7 @@ import Wrapper from 'containers/wrapper';
 import { filtersAtom, headerStyleAtom, projectsViewAtom } from 'store';
 
 const ProjectsPage = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const [pathway] = useSyncPathway();
 
   const { data: pathwaysData, isFetched } = useGetPathways({ locale });
@@ -48,7 +49,7 @@ const ProjectsPage = (): JSX.Element => {
     if (pathway) {
       const pathways = isFetched ? pathwaysData?.data.data.map((p) => p.attributes.name) : [];
       const pathway_1 = pathwaysData?.data?.data[0]?.attributes.name;
-      const pathway_2 = pathwaysData.data.data[1]?.attributes.name
+      const pathway_2 = pathwaysData?.data.data[1]?.attributes.name
         .replace(/\([^()]*\)/g, '')
         .trim();
       const pathway_3 = pathwaysData?.data.data[3]?.attributes.name

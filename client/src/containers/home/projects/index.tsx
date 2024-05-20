@@ -4,21 +4,18 @@ import Markdown from 'react-markdown';
 import Slider from 'react-slick';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
+import { useLocale } from 'next-intl';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import Wrapper from 'containers/wrapper';
 
 const HomeProjects = (): JSX.Element => {
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
 
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
@@ -80,8 +77,9 @@ const HomeProjects = (): JSX.Element => {
               {shuffleProjects(data?.data?.data)?.map((project) => (
                 <Link
                   key={project.id}
-                  href={`/projects/${project.attributes.slug}${queryParams}`}
+                  href={`/projects/${project.attributes.slug}`}
                   className="relative"
+                  locale={locale}
                 >
                   <Image
                     alt={project.attributes.header_photo.data.attributes.formats.large?.name}
