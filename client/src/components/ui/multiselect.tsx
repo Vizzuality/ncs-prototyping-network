@@ -1,12 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Listbox, Transition } from '@headlessui/react';
+import { useTranslations } from 'next-intl';
 import { HiCheck } from 'react-icons/hi';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
-
-import { useGetMessages } from '@/types/generated/message';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Loading from 'components/loading';
 import { cn } from 'utils/cn';
@@ -43,14 +40,7 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
   const initialValues = values || [];
   const [selected, setSelected] = useState<string[]>(initialValues);
 
-  const [locale] = useSyncLocale();
-
-  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
-    populate: '*',
-    locale,
-  });
-
-  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
+  const t = useTranslations();
 
   const SELECTED = useMemo(() => {
     if (loading) return 'Loading...';
@@ -63,12 +53,12 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
       return null;
     }
 
-    if (selected.length === options.length) return messages.all_selected_items;
+    if (selected.length === options.length) return t('all_selected_items');
 
-    if (selected.length > 1) return `${messages.selected_items} (${selected.length})`;
+    if (selected.length > 1) return `${t('selected_items')} (${selected.length})`;
 
     return null;
-  }, [loading, options, placeholder, selected, messages]);
+  }, [loading, options, placeholder, selected, t]);
 
   useEffect(() => {
     if (values) {

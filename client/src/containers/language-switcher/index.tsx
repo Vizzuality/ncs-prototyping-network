@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 
+import { useLocale } from 'next-intl';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import { useRecoilValue } from 'recoil';
 import { useOnClickOutside } from 'usehooks-ts';
@@ -14,7 +15,8 @@ import { locales } from '@/i18n';
 import { Link, usePathname } from '@/navigation';
 
 const LanguageSwitcher: React.FC = () => {
-  const path = usePathname();
+  const pathname = usePathname();
+  const selectedLocale = useLocale();
   const headerStyle = useRecoilValue(headerStyleAtom);
 
   const [openSwitcher, setOpenSwitcher] = useState(false);
@@ -40,26 +42,28 @@ const LanguageSwitcher: React.FC = () => {
         className="flex h-9 w-full items-center justify-between space-x-2 px-2 uppercase"
         onClick={handleSwitcher}
       >
-        <p>{path}</p>
+        <p>{selectedLocale}</p>
         {!openSwitcher && <MdArrowDropDown className="h-6 w-6" />}
         {openSwitcher && <MdArrowDropUp className="h-6 w-6" />}
       </button>
 
       {openSwitcher && (
         <div>
-          {locales.map((locale) => (
-            <li
-              key={locale}
-              className={cn({
-                'flex h-9 w-full flex-col justify-center px-2 uppercase last:rounded-b-lg': true,
-                'hover:bg-gray-100': headerStyle === 'light' || headerStyle === 'dark',
-              })}
-            >
-              <Link href={path} locale={locale}>
-                {locale}
-              </Link>
-            </li>
-          ))}
+          {locales
+            .filter((l) => l !== selectedLocale)
+            .map((locale) => (
+              <li
+                key={locale}
+                className={cn({
+                  'flex h-9 w-full flex-col justify-center px-2 uppercase last:rounded-b-lg': true,
+                  'hover:bg-gray-100': headerStyle === 'light' || headerStyle === 'dark',
+                })}
+              >
+                <Link href={pathname} locale={locale}>
+                  {locale}
+                </Link>
+              </li>
+            ))}
         </div>
       )}
     </div>
