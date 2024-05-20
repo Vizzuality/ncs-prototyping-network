@@ -734,7 +734,7 @@ const ProjectDetail = (): JSX.Element => {
           >
             <Wrapper>
               <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
-                <Markdown className="pb-4 text-2xl uppercase">
+                <Markdown className="prose prose-tertiary pb-4 text-2xl uppercase">
                   {messages.more_information_title}
                 </Markdown>
                 <Markdown className="prose prose-tertiary text-center text-center text-m">
