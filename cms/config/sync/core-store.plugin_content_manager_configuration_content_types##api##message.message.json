@@ -1266,20 +1266,6 @@
           "sortable": true
         }
       },
-      "main_title": {
-        "edit": {
-          "label": "main_title",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "main_title",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "home_hero_photo": {
         "edit": {
           "label": "home_hero_photo",
@@ -1850,6 +1836,48 @@
         },
         "list": {
           "label": "lessons_learned_5_issue_3",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "main_title": {
+        "edit": {
+          "label": "main_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "main_title",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "more_information_title": {
+        "edit": {
+          "label": "more_information_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "more_information_title",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "prototyping_projects_title": {
+        "edit": {
+          "label": "prototyping_projects_title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "prototyping_projects_title",
           "searchable": false,
           "sortable": false
         }
@@ -2646,6 +2674,18 @@
         [
           {
             "name": "lessons_learned_5_issue_3",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "more_information_title",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "prototyping_projects_title",
             "size": 12
           }
         ]

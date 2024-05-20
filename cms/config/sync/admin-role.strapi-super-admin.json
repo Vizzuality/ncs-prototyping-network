@@ -450,7 +450,6 @@
           "contact_us_message_placeholder",
           "contact_us_copy",
           "send_caption",
-          "main_title",
           "home_hero_photo",
           "home_footer_photo",
           "home_map_photo",
@@ -491,7 +490,10 @@
           "lessons_learned_4_issue_4",
           "lessons_learned_5_issue_1",
           "lessons_learned_5_issue_2",
-          "lessons_learned_5_issue_3"
+          "lessons_learned_5_issue_3",
+          "main_title",
+          "more_information_title",
+          "prototyping_projects_title"
         ],
         "locales": [
           "en",
@@ -625,7 +627,6 @@
           "contact_us_message_placeholder",
           "contact_us_copy",
           "send_caption",
-          "main_title",
           "home_hero_photo",
           "home_footer_photo",
           "home_map_photo",
@@ -666,7 +667,10 @@
           "lessons_learned_4_issue_4",
           "lessons_learned_5_issue_1",
           "lessons_learned_5_issue_2",
-          "lessons_learned_5_issue_3"
+          "lessons_learned_5_issue_3",
+          "main_title",
+          "more_information_title",
+          "prototyping_projects_title"
         ],
         "locales": [
           "en",
@@ -772,7 +776,6 @@
           "contact_us_message_placeholder",
           "contact_us_copy",
           "send_caption",
-          "main_title",
           "home_hero_photo",
           "home_footer_photo",
           "home_map_photo",
@@ -813,7 +816,10 @@
           "lessons_learned_4_issue_4",
           "lessons_learned_5_issue_1",
           "lessons_learned_5_issue_2",
-          "lessons_learned_5_issue_3"
+          "lessons_learned_5_issue_3",
+          "main_title",
+          "more_information_title",
+          "prototyping_projects_title"
         ],
         "locales": [
           "en",
