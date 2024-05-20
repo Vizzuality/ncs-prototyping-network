@@ -5,6 +5,7 @@ import Markdown from 'react-markdown';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { useTranslations } from 'next-intl';
 import { useRecoilValue } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
@@ -31,6 +32,7 @@ const Header: React.FC = () => {
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const headerStyle = useRecoilValue(headerStyleAtom);
+  const t = useTranslations();
 
   return (
     <div
@@ -61,7 +63,7 @@ const Header: React.FC = () => {
               'bg-indigo text-white': headerStyle === 'light',
             })}
           >
-            <p>BETA</p>
+            <p>{t('main_title')}</p>
           </div>
         </div>
         <div className="relative flex items-center pr-20">

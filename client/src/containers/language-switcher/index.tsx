@@ -10,21 +10,17 @@ import { cn } from '@/lib/utils';
 
 import { headerStyleAtom } from '@/store';
 
-import { type Locale } from '@/hooks/query/query-parsers';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
-import { LOCALE_OPTIONS } from './constants';
+import { locales } from '@/i18n';
+import { Link, usePathname } from '@/navigation';
 
 const LanguageSwitcher: React.FC = () => {
-  const [locale, setLocale] = useSyncLocale();
+  const path = usePathname();
   const headerStyle = useRecoilValue(headerStyleAtom);
 
   const [openSwitcher, setOpenSwitcher] = useState(false);
   const handleSwitcher = () => setOpenSwitcher(!openSwitcher);
 
   const ref = useRef(null);
-
-  const options = LOCALE_OPTIONS.filter((option) => option.value !== locale);
 
   const handleClickOutside = () => {
     setOpenSwitcher(false);
@@ -44,24 +40,25 @@ const LanguageSwitcher: React.FC = () => {
         className="flex h-9 w-full items-center justify-between space-x-2 px-2 uppercase"
         onClick={handleSwitcher}
       >
-        <p>{locale}</p>
+        <p>{path}</p>
         {!openSwitcher && <MdArrowDropDown className="h-6 w-6" />}
         {openSwitcher && <MdArrowDropUp className="h-6 w-6" />}
       </button>
 
       {openSwitcher && (
         <div>
-          {options.map(({ value }) => (
-            <button
-              key={value}
+          {locales.map((locale) => (
+            <li
+              key={locale}
               className={cn({
                 'flex h-9 w-full flex-col justify-center px-2 uppercase last:rounded-b-lg': true,
                 'hover:bg-gray-100': headerStyle === 'light' || headerStyle === 'dark',
               })}
-              onClick={() => setLocale(value as Locale)}
             >
-              {value}
-            </button>
+              <Link href={path} locale={locale}>
+                {locale}
+              </Link>
+            </li>
           ))}
         </div>
       )}

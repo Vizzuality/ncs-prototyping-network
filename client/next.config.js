@@ -1,4 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const createNextIntlPlugin = require('next-intl/plugin');
+// eslint-disable-next-line @typescript-eslint/no-var-requires, import/order
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -11,6 +13,8 @@ const withMDX = require('@next/mdx')({
     // providerImportSource: "@mdx-js/react",
   },
 });
+
+const withNextIntl = createNextIntlPlugin();
 
 /**
  * @type { import('next').NextConfig }
@@ -56,4 +60,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = withNextIntl(withMDX(nextConfig));
