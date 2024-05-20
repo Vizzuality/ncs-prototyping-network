@@ -61,7 +61,7 @@ const DetailFooter: React.FC = () => {
         >
           <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
             <Link className="items-left flex cursor-pointer" href={`/${queryParams}`}>
-              <h1 className="text-2xl font-semibold uppercase">NCS Prototyping Network</h1>
+              <h1 className="text-2xl font-semibold uppercase">{messages.main_title}</h1>
             </Link>
 
             <div className="z-10 flex justify-between">

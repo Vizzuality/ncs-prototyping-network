@@ -65,9 +65,9 @@ const HomeProjects = (): JSX.Element => {
       <section className="flex flex-col space-y-12 py-14">
         {messages && (
           <>
-            <h4 className="font-serif text-4xl font-semibold text-indigo">
-              NCS Prototyping Projects
-            </h4>
+            <Markdown className="prose prose-primary font-serif text-4xl font-semibold text-indigo">
+              {messages.prototyping_projects_title}
+            </Markdown>
             <Markdown className="prose prose-secondary text-lg font-light leading-7">
               {messages.prototyping_projects}
             </Markdown>
