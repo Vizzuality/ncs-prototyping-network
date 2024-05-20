@@ -1,15 +1,14 @@
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { useRecoilState } from 'recoil';
 
 import { useGetMessages } from '@/types/generated/message';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import { Basemap, basemapAtom } from 'store';
 import { cn } from 'utils/cn';
 
 const MapTabs = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
     populate: '*',
     locale,

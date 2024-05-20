@@ -1,21 +1,19 @@
 import Markdown from 'react-markdown';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
+import { useLocale } from 'next-intl';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
 import { useGetMessages } from '@/types/generated/message';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import Button from 'components/ui/button';
 import Wrapper from 'containers/wrapper';
 
 const HomeMap = (): JSX.Element => {
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
+
   const { data, isFetched: messagesIsFetched } = useGetMessages({ populate: '*', locale });
 
   const messages = messagesIsFetched && data.data.data[0]?.attributes;
@@ -28,7 +26,7 @@ const HomeMap = (): JSX.Element => {
             {messages?.map_description}
           </Markdown>
           {messages?.projects && (
-            <Link href={`/projects${queryParams}`}>
+            <Link href={'/projects'} locale={locale}>
               <Button>
                 <p className="text-base font-bold uppercase">{messages?.projects}</p>
                 <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
@@ -37,7 +35,7 @@ const HomeMap = (): JSX.Element => {
           )}
         </div>
         <div className="ml-20 flex h-full w-2/3 items-center justify-center xl:ml-0">
-          {messages.home_map_photo?.data?.attributes.url && (
+          {messages?.home_map_photo?.data?.attributes.url && (
             <Image
               src={messages.home_map_photo.data.attributes.url}
               alt="Map"

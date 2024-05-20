@@ -1,14 +1,14 @@
 import Markdown from 'react-markdown';
 
+import { useLocale } from 'next-intl';
+
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Wrapper from 'containers/wrapper';
 
 const Hero = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const { data, isFetched: messagesIsFetched } = useGetMessages({ populate: '*', locale });
   const { data: projects } = useGetProjects({ locale });
 
@@ -18,10 +18,10 @@ const Hero = (): JSX.Element => {
     <section
       className="bg-cover bg-no-repeat"
       style={{
-        backgroundImage: `url(${messages.home_hero_photo?.data?.attributes.url})` || '',
+        backgroundImage: `url(${messages?.home_hero_photo?.data?.attributes.url})` || '',
       }}
     >
-      {messages.home_hero_photo?.data?.attributes.alternativeText && (
+      {messages?.home_hero_photo && messages.home_hero_photo?.data?.attributes.alternativeText && (
         <div className="absolute right-4 bottom-96 z-50">
           <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
             <p className="whitespace-nowrap text-xs text-black">

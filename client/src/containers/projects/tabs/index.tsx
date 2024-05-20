@@ -1,17 +1,16 @@
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { BsFillGrid3X3GapFill } from 'react-icons/bs';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
 
 import { useGetMessages } from '@/types/generated/message';
 
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
 import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
 
 const Tabs = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
     populate: '*',
     locale,
@@ -27,9 +26,9 @@ const Tabs = (): JSX.Element => {
   ];
 
   return (
-    <div className="mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
-      {messages &&
-        TABS.map((tab) => (
+    messages && (
+      <div className="mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
+        {TABS.map((tab) => (
           <button
             key={tab.id}
             className="relative m-0 flex cursor-pointer items-center justify-between"
@@ -71,7 +70,8 @@ const Tabs = (): JSX.Element => {
             </div>
           </button>
         ))}
-    </div>
+      </div>
+    )
   );
 };
 

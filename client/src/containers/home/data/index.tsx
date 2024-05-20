@@ -1,14 +1,14 @@
 import Markdown from 'react-markdown';
 
+import { useLocale } from 'next-intl';
+
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Wrapper from 'containers/wrapper';
 
 const Data = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
 
   const { data, isFetched } = useGetProjects({ populate: '*', locale });
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
@@ -43,12 +43,12 @@ const Data = (): JSX.Element => {
   );
 
   const someTotalData =
-    messages.projects_to_date ||
-    messages.total_countries ||
-    messages.total_partners ||
-    messages.project_area_unit ||
-    messages.people_supported ||
-    messages.mitigation_potencial_unit;
+    messages?.projects_to_date ||
+    messages?.total_countries ||
+    messages?.total_partners ||
+    messages?.project_area_unit ||
+    messages?.people_supported ||
+    messages?.mitigation_potencial_unit;
 
   return (
     someTotalData && (
@@ -67,7 +67,7 @@ const Data = (): JSX.Element => {
                 </div>
               )}
 
-              {countries && messages.total_countries && messages.tbd && (
+              {countries && messages.total_countries && (
                 <div className="flex flex-col items-center space-y-2">
                   <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                     {countries || messages.tbd}
@@ -79,7 +79,7 @@ const Data = (): JSX.Element => {
                 </div>
               )}
 
-              {partners && messages.total_partners && messages.tbd && (
+              {partners && messages.total_partners && (
                 <div className="flex flex-col items-center space-y-2">
                   <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                     {partners || messages.tbd}
@@ -125,23 +125,27 @@ const Data = (): JSX.Element => {
                         ? Intl.NumberFormat().format(total_carbon_mitigation)
                         : messages.tbd}
                     </p>
-                    <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                      {messages.mitigation_potencial_unit}
-                      <sup>*</sup>
-                    </p>
+                    {messages.mitigation_potencial_unit && (
+                      <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                        {messages.mitigation_potencial_unit}
+                        <sup>*</sup>
+                      </p>
+                    )}
                   </div>
                 )}
             </div>
 
-            <div className="flex w-full justify-end pb-3">
-              <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
+            {messages.disclaimer && (
+              <div className="flex w-full justify-end pb-3">
+                <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
 
-              <div className="max-w-3xl">
-                <Markdown className="prose prose-default text-xs font-normal text-text/50">
-                  {messages.disclaimer}
-                </Markdown>
+                <div className="max-w-3xl">
+                  <Markdown className="prose prose-default text-xs font-normal text-text/50">
+                    {messages.disclaimer}
+                  </Markdown>
+                </div>
               </div>
-            </div>
+            )}
           </Wrapper>
         )}
       </section>

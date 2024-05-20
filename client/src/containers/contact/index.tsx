@@ -5,13 +5,12 @@ import { Form, Field, FormProps } from 'react-final-form';
 import Markdown from 'react-markdown';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { useSetRecoilState } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
 import { useGetMessages } from '@/types/generated/message';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import { Toaster } from '@/components/ui/toaster';
 
@@ -32,7 +31,7 @@ interface FormValues {
 }
 
 const ContactPage = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const setHeaderStyle = useSetRecoilState(headerStyleAtom);
 
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
@@ -99,10 +98,10 @@ const ContactPage = (): JSX.Element => {
       >
         <Wrapper className="!px-56 py-20">
           <h4 className="pt-20 pb-3 font-serif text-4xl font-semibold text-indigo">
-            {messages.contact_us}
+            {messages?.contact_us}
           </h4>
           <Markdown className="prose prose-secondary text-xl font-light leading-8">
-            {messages.contact_us_description}
+            {messages?.contact_us_description}
           </Markdown>
 
           <Form initialValues={INITIAL_VALUES} onSubmit={onSubmit}>
@@ -115,7 +114,7 @@ const ContactPage = (): JSX.Element => {
                 // eslint-disable-next-line @typescript-eslint/no-misused-promises
                 <form noValidate onSubmit={handleSubmit}>
                   <div className="mt-10 flex w-full flex-col justify-between space-y-6">
-                    {messages.contact_us_name_title && (
+                    {messages?.contact_us_name_title && (
                       <Field
                         name="first_name"
                         component="input"
@@ -124,12 +123,12 @@ const ContactPage = (): JSX.Element => {
                         {({ input, meta }) => (
                           <div className="relative w-full space-y-2">
                             <label className="text-xl font-light text-text">
-                              {messages.contact_us_name_title}
+                              {messages?.contact_us_name_title}
                             </label>
                             <input
                               {...input}
                               value={input.value as string}
-                              placeholder={messages.contact_us_name_placeholder}
+                              placeholder={messages?.contact_us_name_placeholder}
                               type="text"
                               className={cn({
                                 'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -142,7 +141,7 @@ const ContactPage = (): JSX.Element => {
                       </Field>
                     )}
 
-                    {messages.contact_us_surname_title && (
+                    {messages?.contact_us_surname_title && (
                       <Field
                         name="last_name"
                         component="input"
@@ -151,12 +150,12 @@ const ContactPage = (): JSX.Element => {
                         {({ input, meta }) => (
                           <div className="relative w-full space-y-2">
                             <label className="text-xl font-light text-text">
-                              {messages.contact_us_surname_title}
+                              {messages?.contact_us_surname_title}
                             </label>
                             <input
                               {...input}
                               value={input.value as string}
-                              placeholder={messages.contact_us_surname_placeholder}
+                              placeholder={messages?.contact_us_surname_placeholder}
                               type="text"
                               className={cn({
                                 'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -169,7 +168,7 @@ const ContactPage = (): JSX.Element => {
                       </Field>
                     )}
 
-                    {messages.contact_us_email_title && (
+                    {messages?.contact_us_email_title && (
                       <Field
                         name="email"
                         component="input"
@@ -178,12 +177,12 @@ const ContactPage = (): JSX.Element => {
                         {({ input, meta }) => (
                           <div className="relative w-full space-y-2">
                             <label className="text-xl font-light text-text">
-                              {messages.contact_us_email_title}
+                              {messages?.contact_us_email_title}
                             </label>
                             <input
                               {...input}
                               value={input.value as string}
-                              placeholder={messages.contact_us_email_placeholder}
+                              placeholder={messages?.contact_us_email_placeholder}
                               type="email"
                               className={cn({
                                 'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -196,7 +195,7 @@ const ContactPage = (): JSX.Element => {
                       </Field>
                     )}
 
-                    {messages.contact_us_subject_title && (
+                    {messages?.contact_us_subject_title && (
                       <Field
                         name="subject"
                         component="input"
@@ -205,12 +204,12 @@ const ContactPage = (): JSX.Element => {
                         {({ input, meta }) => (
                           <div className="relative w-full space-y-2">
                             <label className="text-xl font-light text-text">
-                              {messages.contact_us_subject_title}
+                              {messages?.contact_us_subject_title}
                             </label>
                             <input
                               {...input}
                               value={input.value as string}
-                              placeholder={messages.contact_us_subject_placeholder}
+                              placeholder={messages?.contact_us_subject_placeholder}
                               type="text"
                               className={cn({
                                 'focus:ring-brand-700 flex h-16 w-full border-none bg-background py-4 px-6 text-lg text-text transition duration-300 delay-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-inset':
@@ -223,7 +222,7 @@ const ContactPage = (): JSX.Element => {
                       </Field>
                     )}
 
-                    {messages.contact_us_message_title && (
+                    {messages?.contact_us_message_title && (
                       <Field
                         name="message"
                         component="input"
@@ -233,11 +232,11 @@ const ContactPage = (): JSX.Element => {
                           return (
                             <div className="relative w-full space-y-2">
                               <label className="text-xl font-light text-text">
-                                {messages.contact_us_message_title}
+                                {messages?.contact_us_message_title}
                               </label>
                               <textarea
                                 {...input}
-                                placeholder={messages.contact_us_message_placeholder}
+                                placeholder={messages?.contact_us_message_placeholder}
                                 value={input.value as string}
                                 rows={4}
                                 className={cn({
@@ -252,7 +251,7 @@ const ContactPage = (): JSX.Element => {
                       </Field>
                     )}
 
-                    {messages.contact_us_copy && (
+                    {messages?.contact_us_copy && (
                       <div className="flex items-center space-x-4">
                         <Field
                           name="copy"
@@ -262,15 +261,15 @@ const ContactPage = (): JSX.Element => {
                           parse={(v) => (v ? true : false)}
                         />
                         <label className="text-base text-text" htmlFor="copy">
-                          {messages.contact_us_copy}
+                          {messages?.contact_us_copy}
                         </label>
                       </div>
                     )}
 
-                    {messages.send_caption && (
+                    {messages?.send_caption && (
                       <div className="pt-2">
                         <Button type="submit">
-                          <p className="text-base font-bold uppercase">{messages.send_caption}</p>
+                          <p className="text-base font-bold uppercase">{messages?.send_caption}</p>
                         </Button>
                       </div>
                     )}

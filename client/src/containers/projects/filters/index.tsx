@@ -1,5 +1,4 @@
-import { useRouter } from 'next/navigation';
-
+import { useLocale } from 'next-intl';
 import { useRecoilState } from 'recoil';
 
 import { useGetActionTypes } from '@/types/generated/action-type';
@@ -8,16 +7,12 @@ import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjectCategories } from '@/types/generated/project-category';
 import { useGetProjectPhases } from '@/types/generated/project-phase';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import MultiSelect from 'components/ui/multiselect';
 import { filtersAtom } from 'store';
 
 const Filters = (): JSX.Element => {
-  const { push } = useRouter();
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
 
   const [filters, setFilters] = useRecoilState(filtersAtom);
 
@@ -120,10 +115,11 @@ const Filters = (): JSX.Element => {
                 project_phases: [],
                 project_categories: [],
               });
-              push(`/projects${queryParams}`);
             }}
           >
-            {messages.reset}
+            <Link className="flex items-center space-x-1" locale={locale} href={'/projects'}>
+              <span>{messages.reset}</span>
+            </Link>
           </button>
         </div>
       </div>

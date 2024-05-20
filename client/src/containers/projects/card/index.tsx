@@ -2,21 +2,19 @@
 import Markdown from 'react-markdown';
 
 import Image from 'next/image';
-import Link from 'next/link';
+
+import { useLocale } from 'next-intl';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
 import { useGetProjectsId } from '@/types/generated/project';
 
-import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
+import { Link } from '@/navigation';
 import { cn } from 'utils/cn';
 import { toTBD } from 'utils/data';
 
 const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
-  const [locale] = useSyncLocale();
-  const queryParams = useSyncQueryParams();
+  const locale = useLocale();
 
   const { data, isFetched } = useGetProjectsId(id, { populate: '*' });
 
@@ -55,7 +53,7 @@ const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
   return (
     <div className="relative w-full cursor-pointer shadow-lg transition-shadow hover:shadow-2xl">
       {isFetched && (
-        <Link href={`/projects/${slug}${queryParams}`}>
+        <Link href={`/projects/${slug}`} locale={locale}>
           <Image
             alt={data.data.data.attributes.header_photo.data.attributes.name || 'Project image'}
             src={headerPhotoFormat.small.url || 'https://dummyimage.com/700x300/000/fff&text=+'}

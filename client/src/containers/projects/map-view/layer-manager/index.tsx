@@ -4,16 +4,15 @@ import { Source, Layer } from 'react-map-gl';
 
 import bbox from '@turf/bbox';
 import { GeoJSONSourceRaw, GeoJSONSourceOptions, LngLatBoundsLike, SymbolLayer } from 'mapbox-gl';
+import { useLocale } from 'next-intl';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { useGetProjects } from '@/types/generated/project';
 
-import { useSyncLocale } from '@/hooks/query/sync-query';
-
 import { filteredBboxAtom, filtersAtom } from 'store';
 
 const LayerManager = () => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
 
   const { data: projectsData } = useGetProjects({ populate: '*', locale });
 

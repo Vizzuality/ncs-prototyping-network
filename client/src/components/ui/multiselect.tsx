@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Listbox, Transition } from '@headlessui/react';
+import { useLocale } from 'next-intl';
 import { HiCheck } from 'react-icons/hi';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
 
 import { useGetMessages } from '@/types/generated/message';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import Loading from 'components/loading';
 import { cn } from 'utils/cn';
@@ -43,7 +42,7 @@ export const MultiSelect = (props: MultiSelectProps): JSX.Element => {
   const initialValues = values || [];
   const [selected, setSelected] = useState<string[]>(initialValues);
 
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
 
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
     populate: '*',

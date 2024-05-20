@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
 
+import { useLocale } from 'next-intl';
 import { useRecoilValue } from 'recoil';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
-
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import { useTotalData } from 'hooks/projects';
 import { filtersAtom } from 'store';
 import { toTBD } from 'utils/data';
 
 const Total = (): JSX.Element => {
-  const [locale] = useSyncLocale();
+  const locale = useLocale();
   const filters = useRecoilValue(filtersAtom);
 
   const { data: projectsData } = useGetProjects({ populate: '*', locale });
@@ -108,10 +107,12 @@ const Total = (): JSX.Element => {
                 <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
                   {toTBD(totalData?.total_carbon_mitigation, messages.tbd)}
                 </p>
-                <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
-                  {messages.mitigation_potencial_unit}
-                  <sup>*</sup>
-                </p>
+                {messages.mitigation_potencial_unit && (
+                  <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
+                    {messages.mitigation_potencial_unit}
+                    <sup>*</sup>
+                  </p>
+                )}
               </div>
             )}
           </div>
