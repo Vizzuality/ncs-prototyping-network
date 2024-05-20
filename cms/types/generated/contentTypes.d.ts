@@ -1517,12 +1517,6 @@ export interface ApiMessageMessage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    main_title: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     home_hero_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1764,6 +1758,24 @@ export interface ApiMessageMessage extends Schema.CollectionType {
         };
       }>;
     lessons_learned_5_issue_3: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    main_title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    more_information_title: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    prototyping_projects_title: Attribute.RichText &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

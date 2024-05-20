@@ -11830,7 +11830,6 @@ export interface Message {
   contact_us_message_placeholder?: string;
   contact_us_copy?: string;
   send_caption?: string;
-  main_title?: string;
   home_hero_photo?: MessageHomeHeroPhoto;
   home_footer_photo?: MessageHomeFooterPhoto;
   home_map_photo?: MessageHomeMapPhoto;
@@ -11872,6 +11871,9 @@ export interface Message {
   lessons_learned_5_issue_1?: string;
   lessons_learned_5_issue_2?: string;
   lessons_learned_5_issue_3?: string;
+  main_title?: string;
+  more_information_title?: string;
+  prototyping_projects_title?: string;
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
@@ -13292,7 +13294,6 @@ export type MessageRequestData = {
   contact_us_message_placeholder?: string;
   contact_us_copy?: string;
   send_caption?: string;
-  main_title?: string;
   home_hero_photo?: MessageRequestDataHomeHeroPhoto;
   home_footer_photo?: MessageRequestDataHomeFooterPhoto;
   home_map_photo?: MessageRequestDataHomeMapPhoto;
@@ -13334,6 +13335,9 @@ export type MessageRequestData = {
   lessons_learned_5_issue_1?: string;
   lessons_learned_5_issue_2?: string;
   lessons_learned_5_issue_3?: string;
+  main_title?: string;
+  more_information_title?: string;
+  prototyping_projects_title?: string;
   locale?: string;
 };
 
@@ -13449,7 +13453,6 @@ export interface MessageLocalizationRequest {
   contact_us_message_placeholder?: string;
   contact_us_copy?: string;
   send_caption?: string;
-  main_title?: string;
   home_hero_photo?: MessageLocalizationRequestHomeHeroPhoto;
   home_footer_photo?: MessageLocalizationRequestHomeFooterPhoto;
   home_map_photo?: MessageLocalizationRequestHomeMapPhoto;
@@ -13491,6 +13494,9 @@ export interface MessageLocalizationRequest {
   lessons_learned_5_issue_1?: string;
   lessons_learned_5_issue_2?: string;
   lessons_learned_5_issue_3?: string;
+  main_title?: string;
+  more_information_title?: string;
+  prototyping_projects_title?: string;
   locale: string;
 }
 
