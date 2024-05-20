@@ -8,12 +8,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { useLocale, useTranslations } from 'next-intl';
 import { useRecoilValue } from 'recoil';
 
 import { useGetMessages } from '@/types/generated/message';
 
 import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import NavigationTabs from 'containers/nav-tabs';
 import Wrapper from 'containers/wrapper';
@@ -21,12 +21,13 @@ import { projectsViewAtom } from 'store';
 import { cn } from 'utils/cn';
 
 const Footer: React.FC = () => {
-  const [locale] = useSyncLocale();
+  const selectedLocale = useLocale();
   const queryParams = useSyncQueryParams();
+  const t = useTranslations();
 
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({
     populate: '*',
-    locale,
+    locale: selectedLocale,
   });
 
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
@@ -36,7 +37,7 @@ const Footer: React.FC = () => {
   const projectsView = useRecoilValue(projectsViewAtom);
 
   const getBackground = () => {
-    if (pathname === '/') {
+    if (pathname === `/${selectedLocale}`) {
       return `url(${messages.home_footer_photo?.data?.attributes.url})` || '';
     }
     if (pathname.startsWith('/projects') && projectsView === 'map') {
@@ -63,7 +64,7 @@ const Footer: React.FC = () => {
       >
         <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
           <Link className="items-left flex cursor-pointer" href={`/${queryParams}`}>
-            <Markdown className="text-2xl font-semibold uppercase">{messages.main_title}</Markdown>
+            <Markdown className="text-2xl font-semibold uppercase">{t('main_title')}</Markdown>
           </Link>
 
           <div className="z-10 flex justify-between">
@@ -73,8 +74,8 @@ const Footer: React.FC = () => {
 
             <div className="flex flex-col space-y-6">
               <div className="flex h-20 items-center space-x-6">
-                {messages.partners_sites && (
-                  <p className="hidden uppercase xl:block">{messages.partners_sites}</p>
+                {t('partners_sites') && (
+                  <p className="hidden uppercase xl:block">{t('partners_sites')}</p>
                 )}
                 <a href="https://www.naturebase.org" className="w-44">
                   <Image src="/images/logos/naturbase.svg" alt="Logo" width={150} height={20} />
@@ -91,8 +92,8 @@ const Footer: React.FC = () => {
       <div className="h-[72px] bg-black text-white">
         <Wrapper>
           <div className="flex justify-between py-7 font-serif text-xs uppercase tracking-wide">
-            <p>{messages.rights}</p>
-            <p>{messages.support}</p>
+            <p>{t('rights')}</p>
+            <p>{t('support')}</p>
           </div>
         </Wrapper>
       </div>
