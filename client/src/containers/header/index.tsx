@@ -10,10 +10,7 @@ import { useRecoilValue } from 'recoil';
 
 import { headerStyleAtom } from '@/store';
 
-import { useGetMessages } from '@/types/generated/message';
-
 import { useSyncQueryParams } from '@/hooks/query';
-import { useSyncLocale } from '@/hooks/query/sync-query';
 
 import LanguageSwitcher from '@/containers/language-switcher';
 
@@ -24,15 +21,11 @@ import { cn } from 'utils/cn';
 const Header: React.FC = () => {
   const pathname = usePathname();
 
-  const [locale] = useSyncLocale();
+  const t = useTranslations();
+
   const queryParams = useSyncQueryParams();
 
-  const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
-
-  const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
-
   const headerStyle = useRecoilValue(headerStyleAtom);
-  const t = useTranslations();
 
   return (
     <div
@@ -53,7 +46,7 @@ const Header: React.FC = () => {
                 'text-indigo': headerStyle === 'light',
               })}
             >
-              {messages.main_title}
+              {t('main_title')}
             </Markdown>
           </Link>
 
@@ -63,7 +56,7 @@ const Header: React.FC = () => {
               'bg-indigo text-white': headerStyle === 'light',
             })}
           >
-            <p>{t('main_title')}</p>
+            <p>BETA</p>
           </div>
         </div>
         <div className="relative flex items-center pr-20">

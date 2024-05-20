@@ -70,6 +70,9 @@
       "action": "api::resource.resource.findOne"
     },
     {
+      "action": "api::test.test.find"
+    },
+    {
       "action": "plugin::users-permissions.auth.callback"
     },
     {

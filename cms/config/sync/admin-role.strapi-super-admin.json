@@ -1386,6 +1386,83 @@
       "conditions": []
     },
     {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::test.test",
+      "properties": {
+        "fields": [
+          "mobile",
+          "test2"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::test.test",
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::test.test",
+      "properties": {
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::test.test",
+      "properties": {
+        "fields": [
+          "mobile",
+          "test2"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::test.test",
+      "properties": {
+        "fields": [
+          "mobile",
+          "test2"
+        ],
+        "locales": [
+          "en",
+          "es",
+          "pt"
+        ]
+      },
+      "conditions": []
+    },
+    {
       "action": "admin::api-tokens.access",
       "actionParameters": {},
       "subject": null,
