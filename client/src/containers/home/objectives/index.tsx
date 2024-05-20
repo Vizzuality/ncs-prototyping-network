@@ -54,7 +54,8 @@ const Objectives = (): JSX.Element => {
               </Markdown>
             )}
           </div>
-          {messages && (
+
+          {OBJECTIVES.map((o) => o.text).some((o) => o) && (
             <div className="grid grid-cols-4 gap-x-10">
               {OBJECTIVES.map((o) => (
                 <div key={o.id} className="flex flex-col space-y-1">

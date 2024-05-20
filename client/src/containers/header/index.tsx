@@ -40,18 +40,16 @@ const Header: React.FC = () => {
     >
       <Wrapper className="h-18 relative z-50 flex w-full flex-row items-center justify-between self-start">
         <div className="flex items-center space-x-4">
-          {messages?.main_title && (
-            <Link className="flex cursor-pointer" href={'/'} locale={locale}>
-              <Markdown
-                className={cn({
-                  'font-sans text-2xl uppercase text-white': true,
-                  'text-indigo': headerStyle === 'light',
-                })}
-              >
-                {messages.main_title}
-              </Markdown>
-            </Link>
-          )}
+          <Link className="flex cursor-pointer" href={'/'} locale={locale}>
+            <Markdown
+              className={cn({
+                'font-sans text-2xl uppercase text-white': true,
+                'text-indigo': headerStyle === 'light',
+              })}
+            >
+              {messages?.main_title || 'NCS Prototyping Network'}
+            </Markdown>
+          </Link>
 
           <div
             className={cn({

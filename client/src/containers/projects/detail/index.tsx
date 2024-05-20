@@ -139,7 +139,7 @@ const ProjectDetail = (): JSX.Element => {
 
       {isFetching && messages && (
         <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">{messages.loading}</p>
+          <p className="font-serif text-lg font-semibold text-indigo">{messages?.loading}</p>
         </div>
       )}
 
@@ -740,18 +740,23 @@ const ProjectDetail = (): JSX.Element => {
             <Wrapper>
               <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
                 <Markdown className="prose prose-tertiary pb-4 text-2xl uppercase">
-                  {messages.more_information_title}
+                  {messages?.more_information_title}
                 </Markdown>
                 <Markdown className="prose prose-tertiary text-center text-center text-m">
-                  {messages.more_information}
+                  {messages?.more_information}
                 </Markdown>
 
-                <Link href={'/contact'} locale={locale}>
-                  <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
-                    <p className="text-base font-bold uppercase">{messages?.contact_us}</p>
-                    <HiArrowNarrowRight className="stroke-white hover:stroke-butternut" size={20} />
-                  </button>
-                </Link>
+                {messages?.contact_us && (
+                  <Link href={'/contact'} locale={locale}>
+                    <button className="mt-6 inline-flex h-14 items-center space-x-6 rounded-none bg-butternut px-7 text-white transition-colors hover:bg-background hover:text-butternut">
+                      <p className="text-base font-bold uppercase">{messages?.contact_us}</p>
+                      <HiArrowNarrowRight
+                        className="stroke-white hover:stroke-butternut"
+                        size={20}
+                      />
+                    </button>
+                  </Link>
+                )}
               </div>
             </Wrapper>
           </section>

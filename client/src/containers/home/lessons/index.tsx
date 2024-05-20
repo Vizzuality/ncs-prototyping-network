@@ -98,53 +98,59 @@ const Lessons = (): JSX.Element => {
       {messages &&
         LESSONS.map((lesson) => (
           <div key={lesson.id} className="relative flex justify-between">
-            <Image
-              src={lesson.image}
-              alt={lesson.title}
-              height={500}
-              width={700}
-              style={{ objectFit: 'cover' }}
-              className="w-1/2"
-            />
-            <div
-              className={cn({
-                'absolute bottom-20 z-10': true,
-                'right-8': lesson.id % 2 === 0,
-                'left-4': lesson.id % 2 !== 0,
-              })}
-            >
-              <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
-                <p className="whitespace-nowrap text-xs text-black">{lesson.photoCredit}</p>
-              </div>
-            </div>
-            <div
-              className={cn({
-                'flex w-1/2 bg-background text-xl leading-9': true,
-                '-order-1 justify-end': lesson.id % 2 === 0,
-              })}
-            >
-              <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
-                <div className="pb-4">
-                  <Markdown className="prose prose-primary font-serif text-2xl font-semibold">
-                    {lesson.title}
-                  </Markdown>
+            {lesson.image && (
+              <Image
+                src={lesson.image}
+                alt={lesson.title}
+                height={500}
+                width={700}
+                style={{ objectFit: 'cover' }}
+                className="w-1/2"
+              />
+            )}
+            {lesson.points.some((el) => el !== null) && (
+              <>
+                <div
+                  className={cn({
+                    'absolute bottom-20 z-10': true,
+                    'right-8': lesson.id % 2 === 0,
+                    'left-4': lesson.id % 2 !== 0,
+                  })}
+                >
+                  <div className="bg-white/40 py-2" style={{ writingMode: 'vertical-lr' }}>
+                    <p className="whitespace-nowrap text-xs text-black">{lesson.photoCredit}</p>
+                  </div>
                 </div>
-
-                {lesson.points.map((point) => (
-                  <div key={point} className="flex items-start space-x-3 space-y-1.5">
-                    <BsArrowRight
-                      size={36}
-                      className="mt-0.5 fill-butternut stroke-butternut stroke-[0.4px]"
-                    />
-                    <div className="w-5/6">
-                      <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
-                        {point}
+                <div
+                  className={cn({
+                    'flex w-1/2 bg-background text-xl leading-9': true,
+                    '-order-1 justify-end': lesson.id % 2 === 0,
+                  })}
+                >
+                  <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
+                    <div className="pb-4">
+                      <Markdown className="prose prose-primary font-serif text-2xl font-semibold">
+                        {lesson.title}
                       </Markdown>
                     </div>
+
+                    {lesson.points.map((point) => (
+                      <div key={point} className="flex items-start space-x-3 space-y-1.5">
+                        <BsArrowRight
+                          size={36}
+                          className="mt-0.5 fill-butternut stroke-butternut stroke-[0.4px]"
+                        />
+                        <div className="w-5/6">
+                          <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
+                            {point}
+                          </Markdown>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
+              </>
+            )}
           </div>
         ))}
     </section>

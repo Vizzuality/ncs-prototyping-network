@@ -44,7 +44,7 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
   const COLUMNS = [
     {
       id: 'country',
-      label: messages.disclaimer,
+      label: `* ${messages?.disclaimer}`,
       sorting: false,
       width: 180,
     },

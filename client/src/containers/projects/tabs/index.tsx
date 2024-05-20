@@ -26,9 +26,9 @@ const Tabs = (): JSX.Element => {
   ];
 
   return (
-    <div className="mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
-      {messages &&
-        TABS.map((tab) => (
+    messages && (
+      <div className="mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
+        {TABS.map((tab) => (
           <button
             key={tab.id}
             className="relative m-0 flex cursor-pointer items-center justify-between"
@@ -70,7 +70,8 @@ const Tabs = (): JSX.Element => {
             </div>
           </button>
         ))}
-    </div>
+      </div>
+    )
   );
 };
 

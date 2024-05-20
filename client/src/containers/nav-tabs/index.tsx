@@ -24,26 +24,26 @@ const NavigationTabs = ({ section }: { section?: string }): JSX.Element => {
 
   const NAV_TABS_HEADER = [
     {
-      label: messages?.nav_1,
+      label: messages?.nav_1 || 'Home',
       href: '/',
     },
     {
-      label: messages?.nav_2,
+      label: messages?.nav_2 || 'Projects',
       href: '/projects',
     },
   ];
 
   const NAV_TABS_FOOTER = [
     {
-      label: messages?.nav_1,
+      label: messages?.nav_1 || 'Home',
       href: '/',
     },
     {
-      label: messages?.nav_2,
+      label: messages?.nav_2 || 'Projects',
       href: '/projects',
     },
     {
-      label: messages?.nav_3,
+      label: messages?.nav_3 || 'Contact',
       href: '/contact',
     },
   ];
