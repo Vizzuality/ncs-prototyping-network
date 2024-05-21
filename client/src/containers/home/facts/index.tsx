@@ -43,9 +43,13 @@ const Facts = (): JSX.Element => {
                 className="flex h-12 items-center space-x-6 px-6 text-white hover:bg-transparent hover:text-white"
                 target="_blank"
               >
-                <p className="text-base font-light uppercase">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  className="prose prose-tertiary text-base font-light uppercase"
+                >
                   {messages.learn_more_facts_caption}
-                </p>
+                </Markdown>
                 <motion.div variants={arrowAnimation}>
                   <HiArrowNarrowRight color="white" size={20} />
                 </motion.div>
