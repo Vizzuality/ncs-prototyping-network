@@ -121,20 +121,32 @@ const ProjectsPage = (): JSX.Element => {
   }, [filters, projectsData?.data?.data]);
 
   return (
-    <Wrapper>
-      <div className="sticky top-16 z-40 mt-16 flex items-center space-x-6 bg-white py-9">
-        <Tabs />
-        <Filters />
-      </div>
-
-      {!projectsIsFetched && projectsIsFetching && (
-        <div className="flex h-64 w-full items-center justify-center">
-          <p className="font-serif text-lg font-semibold text-indigo">{messages?.loading}</p>
+    <>
+      {isFetched && dataMessages?.data.data.length === 0 && (
+        <div className="flex h-screen w-screen items-center justify-center">
+          <p className="font-serif text-lg font-semibold text-indigo">
+            No content translate for this language
+          </p>
         </div>
       )}
-      {projectsView === 'map' && projectsIsFetched && <MapView data={dataFiltered} />}
-      {projectsView === 'metrics' && projectsIsFetched && <MetricsView data={dataFiltered} />}
-    </Wrapper>
+
+      {isFetched && !!dataMessages?.data.data.length && (
+        <Wrapper>
+          <div className="sticky top-16 z-40 mt-16 flex items-center space-x-6 bg-white py-9">
+            <Tabs />
+            <Filters />
+          </div>
+
+          {!projectsIsFetched && projectsIsFetching && (
+            <div className="flex h-64 w-full items-center justify-center">
+              <p className="font-serif text-lg font-semibold text-indigo">{messages?.loading}</p>
+            </div>
+          )}
+          {projectsView === 'map' && projectsIsFetched && <MapView data={dataFiltered} />}
+          {projectsView === 'metrics' && projectsIsFetched && <MetricsView data={dataFiltered} />}
+        </Wrapper>
+      )}
+    </>
   );
 };
 
