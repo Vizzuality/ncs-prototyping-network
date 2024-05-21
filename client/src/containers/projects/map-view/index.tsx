@@ -10,6 +10,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { MapboxProps } from 'react-map-gl/dist/esm/mapbox/mapbox';
 import { useRecoilValue } from 'recoil';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -190,7 +192,11 @@ const MapView = ({ data }: { data }): JSX.Element => {
                   <div className="flex w-full justify-end py-3 pl-4">
                     <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
 
-                    <Markdown className="prose prose-default text-xs font-normal text-text/50">
+                    <Markdown
+                      remarkPlugins={[remarkGfm]}
+                      rehypePlugins={[rehypeRaw]}
+                      className="prose prose-default text-xs font-normal text-text/50"
+                    >
                       {messages.disclaimer}
                     </Markdown>
                   </div>

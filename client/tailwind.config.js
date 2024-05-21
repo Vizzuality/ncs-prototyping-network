@@ -80,18 +80,21 @@ module.exports = {
           css: {
             '--tw-prose-links': theme('colors.blue[600]'),
             '--tw-prose-body': theme('colors.indigo'),
+            '--tw-prose-bold': theme('colors.indigo'),
           },
         },
         secondary: {
           css: {
             '--tw-prose-links': theme('colors.blue[600]'),
             '--tw-prose-body': theme('colors.text'),
+            '--tw-prose-bold': theme('colors.text'),
           },
         },
         tertiary: {
           css: {
             '--tw-prose-links': theme('colors.blue[600]'),
             '--tw-prose-body': theme('colors.white'),
+            '--tw-prose-bold': theme('colors.white'),
           },
         },
       }),

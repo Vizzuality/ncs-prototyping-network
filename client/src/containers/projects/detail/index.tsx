@@ -13,6 +13,8 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { VscQuote } from 'react-icons/vsc';
 import { useSetRecoilState } from 'recoil';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
 
@@ -179,7 +181,11 @@ const ProjectDetail = (): JSX.Element => {
 
                   <div className="flex max-w-2xl flex-col items-center">
                     <div className="mb-16">
-                      <Markdown className="prose prose-primary font-serif text-[35px] font-medium leading-9">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        className="prose prose-primary font-serif text-[35px] font-medium leading-9"
+                      >
                         {data?.data?.data?.attributes.long_title}
                       </Markdown>
                     </div>
@@ -232,7 +238,11 @@ const ProjectDetail = (): JSX.Element => {
                     {messages.disclaimer && (
                       <div className="mt-8 flex w-full items-end justify-end">
                         <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
-                        <Markdown className="prose prose-default text-left text-xs font-normal text-text/50">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-default text-left text-xs font-normal text-text/50"
+                        >
                           {messages.disclaimer}
                         </Markdown>
                       </div>
@@ -245,7 +255,11 @@ const ProjectDetail = (): JSX.Element => {
                     <ExtentMap extent={data?.data?.data?.attributes.extent} />
                     {data?.data?.data?.attributes.extent_credits && (
                       <div className="absolute bottom-2 right-2 mb-1 bg-black/40 px-2">
-                        <Markdown className="prose prose-tertiary text-xs text-white">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-tertiary text-xs text-white"
+                        >
                           {data?.data?.data?.attributes.extent_credits}
                         </Markdown>
                       </div>
@@ -288,7 +302,11 @@ const ProjectDetail = (): JSX.Element => {
                       <h4 className="font-serif text-3xl font-medium xl:text-4xl">
                         {messages.goals_title}
                       </h4>
-                      <Markdown className="prose prose-tertiary text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        className="prose prose-tertiary text-base leading-7 xl:font-sans xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-9"
+                      >
                         {data?.data?.data?.attributes.project_goal}
                       </Markdown>
                     </div>
@@ -330,7 +348,11 @@ const ProjectDetail = (): JSX.Element => {
                           >
                             <span className="text-4xl font-bold text-butternut">{idx + 1}.</span>
                             <div className="mt-2">
-                              <Markdown className="prose prose-secondary font-sans text-xl font-light">
+                              <Markdown
+                                remarkPlugins={[remarkGfm]}
+                                rehypePlugins={[rehypeRaw]}
+                                className="prose prose-secondary font-sans text-xl font-light"
+                              >
                                 {activity}
                               </Markdown>
                             </div>
@@ -355,7 +377,11 @@ const ProjectDetail = (): JSX.Element => {
                       </p>
                     )}
                     <div className="w-2/3 pt-4">
-                      <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        className="prose prose-secondary font-sans text-m font-light leading-7"
+                      >
                         {data?.data?.data?.attributes.project_summary}
                       </Markdown>
                     </div>
@@ -374,7 +400,11 @@ const ProjectDetail = (): JSX.Element => {
                         {messages.why_this_why_now_title}
                       </h4>
                       <div className="max-w-3xl">
-                        <Markdown className="prose prose-tertiary text-center font-sans text-xl font-light leading-9">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-tertiary text-center font-sans text-xl font-light leading-9"
+                        >
                           {data?.data?.data?.attributes.why_this_why_now_callout}
                         </Markdown>
                       </div>
@@ -400,7 +430,11 @@ const ProjectDetail = (): JSX.Element => {
                         />
                       </div>
                       <div className="w-1/3 space-y-4 py-4">
-                        <Markdown className="prose prose-secondary text-m">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-secondary text-m"
+                        >
                           {data?.data?.data?.attributes.video_caption}
                         </Markdown>
 
@@ -454,7 +488,11 @@ const ProjectDetail = (): JSX.Element => {
                             {data?.data?.data?.attributes.lesson_1_category.data.attributes.name}
                           </td>
                           <td className="w-3/4 px-20">
-                            <Markdown className="prose prose-secondary font-sans text-m font-light leading-6">
+                            <Markdown
+                              remarkPlugins={[remarkGfm]}
+                              rehypePlugins={[rehypeRaw]}
+                              className="prose prose-secondary font-sans text-m font-light leading-6"
+                            >
                               {data?.data?.data?.attributes.lesson_1}
                             </Markdown>
                           </td>
@@ -467,7 +505,11 @@ const ProjectDetail = (): JSX.Element => {
                             {data?.data?.data?.attributes.lesson_2_category.data.attributes.name}
                           </td>
                           <td className="w-3/4 px-20">
-                            <Markdown className="prose prose-secondary font-sans text-m font-light leading-6">
+                            <Markdown
+                              remarkPlugins={[remarkGfm]}
+                              rehypePlugins={[rehypeRaw]}
+                              className="prose prose-secondary font-sans text-m font-light leading-6"
+                            >
                               {data?.data?.data?.attributes.lesson_2}
                             </Markdown>
                           </td>
@@ -480,7 +522,11 @@ const ProjectDetail = (): JSX.Element => {
                             {data?.data?.data?.attributes.lesson_3_category.data.attributes.name}
                           </td>
                           <td className="w-3/4 px-20">
-                            <Markdown className="prose prose-secondary font-sans text-m font-light leading-6">
+                            <Markdown
+                              remarkPlugins={[remarkGfm]}
+                              rehypePlugins={[rehypeRaw]}
+                              className="prose prose-secondary font-sans text-m font-light leading-6"
+                            >
                               {data?.data?.data?.attributes.lesson_3}
                             </Markdown>
                           </td>
@@ -508,7 +554,11 @@ const ProjectDetail = (): JSX.Element => {
                         <p className="font-serif text-2xl font-medium text-indigo">
                           {messages.research_summary_title}
                         </p>
-                        <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-secondary font-sans text-m font-light leading-7"
+                        >
                           {data?.data?.data?.attributes.abstract}
                         </Markdown>
                       </div>
@@ -518,7 +568,11 @@ const ProjectDetail = (): JSX.Element => {
                         <h5 className="text-lg font-light uppercase">{messages.citations}</h5>
 
                         <div className="space-y-2">
-                          <Markdown className="prose prose-default text-2xs font-light">
+                          <Markdown
+                            remarkPlugins={[remarkGfm]}
+                            rehypePlugins={[rehypeRaw]}
+                            className="prose prose-default text-2xs font-light"
+                          >
                             {data?.data?.data?.attributes.citations}
                           </Markdown>
                         </div>
@@ -627,7 +681,11 @@ const ProjectDetail = (): JSX.Element => {
                           <p className="text-xl">{messages.ecosystem_services}</p>
                         </div>
 
-                        <Markdown className="prose prose-default text-m leading-6">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-default text-m leading-6"
+                        >
                           {data?.data?.data?.attributes.cb_ecosystem_services}
                         </Markdown>
                       </div>
@@ -644,7 +702,11 @@ const ProjectDetail = (): JSX.Element => {
                           />
                           <p className="text-xl">{messages.resilience_and_adaptation}</p>
                         </div>
-                        <Markdown className="prose prose-default text-m leading-6">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-default text-m leading-6"
+                        >
                           {data?.data?.data?.attributes.cb_resilience_adapt}
                         </Markdown>
                       </div>
@@ -661,7 +723,11 @@ const ProjectDetail = (): JSX.Element => {
                           />
                           <p className="text-xl">{messages.health_and_well_being}</p>
                         </div>
-                        <Markdown className="prose prose-default text-m leading-6">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-default text-m leading-6"
+                        >
                           {data?.data?.data?.attributes.cb_health_well_being}
                         </Markdown>
                       </div>
@@ -678,7 +744,11 @@ const ProjectDetail = (): JSX.Element => {
                           />
                           <p className="text-xl">{messages.livelihoods_and_economics}</p>
                         </div>
-                        <Markdown className="prose prose-default text-m leading-6">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-default text-m leading-6"
+                        >
                           {data?.data?.data?.attributes.cb_livelihood_econ}
                         </Markdown>
                       </div>
@@ -691,7 +761,11 @@ const ProjectDetail = (): JSX.Element => {
                   <Wrapper className="flex flex-col items-center space-y-6 py-20">
                     <VscQuote className="fill-butternut" size={40} />
                     <div className="flex max-w-3xl flex-col items-center justify-center space-y-5 font-sans text-white">
-                      <Markdown className="prose prose-tertiary text-center text-xl font-light leading-9">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        className="prose prose-tertiary text-center text-xl font-light leading-9"
+                      >
                         {data?.data?.data?.attributes.callout}
                       </Markdown>
                       <p className="uppercase">{data?.data?.data?.attributes.callout_author}</p>
@@ -733,7 +807,11 @@ const ProjectDetail = (): JSX.Element => {
                       <h4 className="font-serif text-3xl font-medium text-indigo">
                         {messages.whats_next}
                       </h4>
-                      <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        className="prose prose-secondary font-sans text-m font-light leading-7"
+                      >
                         {data?.data?.data?.attributes.whats_next}
                       </Markdown>
                     </div>
@@ -762,10 +840,18 @@ const ProjectDetail = (): JSX.Element => {
               >
                 <Wrapper>
                   <div className="flex flex-col items-center space-y-4 py-16 font-sans text-white">
-                    <Markdown className="prose prose-tertiary pb-4 text-2xl uppercase">
+                    <Markdown
+                      remarkPlugins={[remarkGfm]}
+                      rehypePlugins={[rehypeRaw]}
+                      className="prose prose-tertiary pb-4 text-2xl uppercase"
+                    >
                       {messages?.more_information_title}
                     </Markdown>
-                    <Markdown className="prose prose-tertiary text-center text-center text-m">
+                    <Markdown
+                      remarkPlugins={[remarkGfm]}
+                      rehypePlugins={[rehypeRaw]}
+                      className="prose prose-tertiary text-center text-center text-m"
+                    >
                       {messages?.more_information}
                     </Markdown>
 

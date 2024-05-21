@@ -4,6 +4,8 @@ import Markdown from 'react-markdown';
 import Image from 'next/image';
 
 import { useLocale } from 'next-intl';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
@@ -82,11 +84,19 @@ const Card = ({ id, slug }: { id: number; slug: string }): JSX.Element => {
 
           <div className="flex h-[235px] flex-col justify-between bg-white p-[18px]">
             <div className="flex flex-col space-y-2">
-              <Markdown className="prose prose-primary font-serif text-2xl font-semibold line-clamp-2">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="prose prose-primary font-serif text-2xl font-semibold line-clamp-2"
+              >
                 {data.data.data.attributes.project_name}
               </Markdown>
               <div className="h-10 max-w-xs">
-                <Markdown className="prose prose-secondary font-sans text-2xs font-light line-clamp-2">
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                  className="prose prose-secondary font-sans text-2xs font-light line-clamp-2"
+                >
                   {data.data.data.attributes.long_title}
                 </Markdown>
               </div>

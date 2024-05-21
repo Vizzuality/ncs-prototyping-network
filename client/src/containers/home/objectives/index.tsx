@@ -3,6 +3,8 @@ import Markdown from 'react-markdown';
 import dynamic from 'next/dynamic';
 
 import { useLocale } from 'next-intl';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -43,13 +45,21 @@ const Objectives = (): JSX.Element => {
         <section className="flex flex-col space-y-12 py-16">
           <div className="flex flex-col space-y-4">
             {messages?.what_we_do_title && (
-              <Markdown className="prose prose-primary font-serif text-4xl font-semibold text-indigo">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="prose prose-primary font-serif text-4xl font-semibold text-indigo"
+              >
                 {messages.what_we_do_title}
               </Markdown>
             )}
 
             {messages?.what_we_do_description && (
-              <Markdown className="prose prose-secondary text-lg font-medium">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="prose prose-secondary text-lg font-medium"
+              >
                 {messages.what_we_do_description}
               </Markdown>
             )}
