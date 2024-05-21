@@ -93,7 +93,7 @@ const ContactPage = (): JSX.Element => {
       {messagesIsFetched && dataMessages?.data.data.length === 0 && (
         <div className="flex h-screen w-screen items-center justify-center">
           <p className="font-serif text-lg font-semibold text-indigo">
-            There is no translated content for this language.
+            There is no translated content for this language
           </p>
         </div>
       )}
