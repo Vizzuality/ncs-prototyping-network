@@ -1987,7 +1987,9 @@
           {
             "name": "projects",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "projects_to_date",
             "size": 6
@@ -1997,7 +1999,9 @@
           {
             "name": "total_countries",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "total_partners",
             "size": 6
@@ -2115,7 +2119,9 @@
           {
             "name": "partners_sites",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "rights",
             "size": 6
@@ -2135,7 +2141,9 @@
           {
             "name": "map",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "metrics",
             "size": 6
@@ -2155,7 +2163,9 @@
           {
             "name": "sort_select_placeholder",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "satellite",
             "size": 6
@@ -2175,7 +2185,9 @@
           {
             "name": "project_area_unit",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "project_area",
             "size": 6
@@ -2185,7 +2197,9 @@
           {
             "name": "mitigation_potencial",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "pathway",
             "size": 6
@@ -2285,7 +2299,9 @@
           {
             "name": "ecosystem_services",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "resilience_and_adaptation",
             "size": 6
@@ -2305,7 +2321,9 @@
           {
             "name": "partners",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "whats_next",
             "size": 6
@@ -2325,7 +2343,9 @@
           {
             "name": "contact_us",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "similiar_projects",
             "size": 6

@@ -34,6 +34,24 @@
       "action": "api::lesson-category.lesson-category.findOne"
     },
     {
+      "action": "api::message.message.create"
+    },
+    {
+      "action": "api::message.message.createLocalization"
+    },
+    {
+      "action": "api::message.message.delete"
+    },
+    {
+      "action": "api::message.message.find"
+    },
+    {
+      "action": "api::message.message.findOne"
+    },
+    {
+      "action": "api::message.message.update"
+    },
+    {
       "action": "api::pathway.pathway.find"
     },
     {
@@ -68,6 +86,12 @@
     },
     {
       "action": "api::resource.resource.findOne"
+    },
+    {
+      "action": "plugin::upload.content-api.find"
+    },
+    {
+      "action": "plugin::upload.content-api.findOne"
     },
     {
       "action": "plugin::users-permissions.auth.callback"
