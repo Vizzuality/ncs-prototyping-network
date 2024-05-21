@@ -1,6 +1,8 @@
 import Markdown from 'react-markdown';
 
 import { useLocale } from 'next-intl';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetProjects } from '@/types/generated/project';
@@ -140,7 +142,11 @@ const Data = (): JSX.Element => {
                 <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
 
                 <div className="max-w-3xl">
-                  <Markdown className="prose prose-default text-xs font-normal text-text/50">
+                  <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw]}
+                    className="prose prose-default text-xs font-normal text-text/50"
+                  >
                     {messages.disclaimer}
                   </Markdown>
                 </div>

@@ -7,6 +7,8 @@ import Markdown from 'react-markdown';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { useSetRecoilState } from 'recoil';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
 
@@ -109,7 +111,11 @@ const ContactPage = (): JSX.Element => {
               <h4 className="pt-20 pb-3 font-serif text-4xl font-semibold text-indigo">
                 {messages?.contact_us}
               </h4>
-              <Markdown className="prose prose-secondary text-xl font-light leading-8">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="prose prose-secondary text-xl font-light leading-8"
+              >
                 {messages?.contact_us_description}
               </Markdown>
 

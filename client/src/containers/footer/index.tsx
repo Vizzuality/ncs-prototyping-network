@@ -9,6 +9,8 @@ import { usePathname } from 'next/navigation';
 
 import { useLocale } from 'next-intl';
 import { useRecoilValue } from 'recoil';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -59,7 +61,11 @@ const Footer: React.FC = () => {
         >
           <Wrapper className="flex w-full flex-col self-end pt-[300px] text-white xl:pt-[350px] 2xl:pt-[450px]">
             <Link className="items-left flex cursor-pointer" href={'/'} locale={locale}>
-              <Markdown className="text-2xl font-semibold uppercase">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="text-2xl font-semibold uppercase"
+              >
                 {messages?.main_title}
               </Markdown>
             </Link>

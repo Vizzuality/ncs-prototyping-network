@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import { useLocale } from 'next-intl';
 import { BsArrowRight } from 'react-icons/bs';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -88,7 +90,11 @@ const Lessons = (): JSX.Element => {
             <h4 className="font-serif text-4xl font-semibold font-normal leading-9 text-white">
               {messages?.lessons_learned}
             </h4>
-            <Markdown className="prose prose-primary flex flex-col text-xl font-normal leading-9 text-white">
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+              className="prose prose-primary flex flex-col text-xl font-normal leading-9 text-white"
+            >
               {messages?.lessons_learned_intro}
             </Markdown>
           </Wrapper>
@@ -129,7 +135,11 @@ const Lessons = (): JSX.Element => {
                 >
                   <div className="min-w-xl flex flex-col space-y-3 p-10 text-xl leading-9 xl:p-16">
                     <div className="pb-4">
-                      <Markdown className="prose prose-primary font-serif text-2xl font-semibold">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        className="prose prose-primary font-serif text-2xl font-semibold"
+                      >
                         {lesson.title}
                       </Markdown>
                     </div>
@@ -141,7 +151,11 @@ const Lessons = (): JSX.Element => {
                           className="mt-0.5 fill-butternut stroke-butternut stroke-[0.4px]"
                         />
                         <div className="w-5/6">
-                          <Markdown className="prose prose-secondary font-sans text-m font-light leading-7">
+                          <Markdown
+                            remarkPlugins={[remarkGfm]}
+                            rehypePlugins={[rehypeRaw]}
+                            className="prose prose-secondary font-sans text-m font-light leading-7"
+                          >
                             {point}
                           </Markdown>
                         </div>

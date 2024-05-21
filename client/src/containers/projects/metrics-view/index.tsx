@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetCobenefits } from '@/types/generated/cobenefit';
 import { useGetMessages } from '@/types/generated/message';
@@ -229,12 +231,20 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
 
                           <div className="flex w-[100px] flex-col xl:w-auto">
                             <div className="-mt-1">
-                              <Markdown className="prose prose-primary font-serif text-lg font-semibold leading-6 group-hover:underline xl:text-2xl xl:leading-7">
+                              <Markdown
+                                remarkPlugins={[remarkGfm]}
+                                rehypePlugins={[rehypeRaw]}
+                                className="prose prose-primary font-serif text-lg font-semibold leading-6 group-hover:underline xl:text-2xl xl:leading-7"
+                              >
                                 {project.attributes.project_name}
                               </Markdown>
                             </div>
 
-                            <Markdown className="prose prose-secondary overflow-hidden text-2xs leading-4 line-clamp-3 group-hover:opacity-80">
+                            <Markdown
+                              remarkPlugins={[remarkGfm]}
+                              rehypePlugins={[rehypeRaw]}
+                              className="prose prose-secondary overflow-hidden text-2xs leading-4 line-clamp-3 group-hover:opacity-80"
+                            >
                               {project.attributes.long_title}
                             </Markdown>
                           </div>

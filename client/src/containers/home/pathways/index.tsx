@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { BsArrowRight } from 'react-icons/bs';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 import { useGetPathways } from '@/types/generated/pathway';
@@ -61,10 +63,18 @@ const Pathways = (): JSX.Element => {
         {messages?.what_we_are_field_testing_title &&
           messages?.what_we_are_field_testing_description && (
             <>
-              <Markdown className="prose prose-primary font-serif text-4xl font-semibold">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="prose prose-primary font-serif text-4xl font-semibold"
+              >
                 {messages.what_we_are_field_testing_title}
               </Markdown>
-              <Markdown className="prose prose-secondary text-xl font-light leading-7">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="prose prose-secondary text-xl font-light leading-7"
+              >
                 {`${numberProjects} ${messages.what_we_are_field_testing_description}`}
               </Markdown>
             </>

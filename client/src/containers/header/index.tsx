@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 
 import { useLocale } from 'next-intl';
 import { useRecoilValue } from 'recoil';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { headerStyleAtom } from '@/store';
 
@@ -42,6 +44,8 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-4">
           <Link className="flex cursor-pointer" href={'/'} locale={locale}>
             <Markdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
               className={cn({
                 'font-sans text-2xl uppercase text-white': true,
                 'text-indigo': headerStyle === 'light',

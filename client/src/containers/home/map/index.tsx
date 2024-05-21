@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import { useLocale } from 'next-intl';
 import { HiArrowNarrowRight } from 'react-icons/hi';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -22,7 +24,11 @@ const HomeMap = (): JSX.Element => {
     <Wrapper>
       <section className="-mt-44 mb-12 flex h-full items-center bg-white py-12 px-16">
         <div className="flex w-1/3 flex-col">
-          <Markdown className="prose prose-secondary text-base font-light leading-7 lg:text-lg xl:text-xl xl:leading-9">
+          <Markdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            className="prose prose-secondary text-base font-light leading-7 lg:text-lg xl:text-xl xl:leading-9"
+          >
             {messages?.map_description}
           </Markdown>
           {messages?.projects && (

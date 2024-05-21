@@ -3,6 +3,8 @@ import Markdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { HiArrowNarrowRight } from 'react-icons/hi';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import { useGetMessages } from '@/types/generated/message';
 
@@ -27,7 +29,11 @@ const Facts = (): JSX.Element => {
         {messages?.facts && (
           <div className="my-20 flex flex-col items-center space-y-4 font-sans text-white">
             <div className="max-w-4xl">
-              <Markdown className="prose prose-tertiary text-center text-xl leading-8">
+              <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                className="prose prose-tertiary text-center text-xl leading-8"
+              >
                 {messages.facts}
               </Markdown>
             </div>
