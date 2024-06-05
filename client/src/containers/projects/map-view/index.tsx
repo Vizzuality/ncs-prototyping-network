@@ -184,7 +184,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
           )}
 
           {!!sortedData?.length && (
-            <div className="flex space-x-6">
+            <div className="flex space-x-2 xl:space-x-6">
               <div className="no-scrollbar max-h-[80vh] w-4/12 overflow-hidden overflow-x-hidden overflow-y-scroll xl:w-6/12">
                 <Total />
 
