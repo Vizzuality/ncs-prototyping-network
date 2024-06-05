@@ -7,18 +7,18 @@ import Markdown from 'react-markdown';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import NavigationTabs from 'containers/nav-tabs';
-import Wrapper from 'containers/wrapper';
 import { useLocale } from 'next-intl';
 import { useRecoilValue } from 'recoil';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
-import { projectsViewAtom } from 'store';
-import { cn } from 'utils/cn';
 
 import { useGetMessages } from '@/types/generated/message';
 
 import { Link } from '@/navigation';
+import NavigationTabs from 'containers/nav-tabs';
+import Wrapper from 'containers/wrapper';
+import { projectsViewAtom } from 'store';
+import { cn } from 'utils/cn';
 
 const Footer: React.FC = () => {
   const locale = useLocale();

@@ -79,10 +79,10 @@ const Total = (): JSX.Element => {
     <section className="bg-background">
       {totalData && (
         <>
-          <div className="mx-6 flex justify-between py-7 xl:mx-20">
+          <div className="mx-3 grid grid-cols-3 gap-3 py-7 xl:mx-20 xl:gap-4">
             {totalData?.total_hectares_impacted && (
               <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                <p className="font-sans text-xl font-bold text-spring xl:text-3xl xl:text-4xl">
                   {toTBD(totalData?.total_hectares_impacted, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
@@ -93,7 +93,7 @@ const Total = (): JSX.Element => {
 
             {totalData?.total_people_supported && (
               <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                <p className="font-sans text-xl font-bold text-spring xl:text-3xl xl:text-4xl">
                   {toTBD(totalData?.total_people_supported, messages.tbd)}
                 </p>
                 <p className="max-w-[160px] text-center text-sm font-medium leading-5 text-text xl:text-base">
@@ -104,7 +104,7 @@ const Total = (): JSX.Element => {
 
             {totalData?.total_carbon_mitigation && (
               <div className="flex flex-col items-center space-y-2">
-                <p className="font-sans text-3xl font-bold text-spring xl:text-4xl">
+                <p className="font-sans text-xl font-bold text-spring xl:text-3xl xl:text-4xl">
                   {toTBD(totalData?.total_carbon_mitigation, messages.tbd)}
                 </p>
                 {messages.mitigation_potencial_unit && (
