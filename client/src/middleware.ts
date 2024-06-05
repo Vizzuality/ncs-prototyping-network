@@ -6,7 +6,7 @@ export default async function middleware(request: NextRequest) {
   const defaultLocale = request.headers.get('x-your-custom-locale') || 'en';
 
   const handleI18nRouting = createIntlMiddleware({
-    locales: ['en', 'es', 'pt', 'id'],
+    locales: ['en', 'es', 'pt', 'id', 'fr', 'cmn', 'sw'],
     defaultLocale,
   });
   const response = handleI18nRouting(request);

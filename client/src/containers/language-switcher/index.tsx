@@ -29,19 +29,29 @@ const LanguageSwitcher: React.FC = () => {
 
   useOnClickOutside(ref, handleClickOutside);
 
+  const LOCALE_LABELS = {
+    en: 'English',
+    es: 'Spanish',
+    pt: 'Portuguese',
+    id: 'Indonesian',
+    fr: 'French',
+    cmn: 'Mandarin',
+    sw: 'Swahili',
+  };
+
   return (
     <div
       ref={ref}
       className={cn({
-        'w-16 rounded-lg border bg-transparent text-white': true,
+        'w-28 rounded-lg border bg-transparent text-white': true,
         'bg-white text-indigo': headerStyle === 'light' || (headerStyle === 'dark' && openSwitcher),
       })}
     >
       <button
-        className="flex h-9 w-full items-center justify-between space-x-2 px-2 uppercase"
+        className="flex h-9 w-full items-center justify-between space-x-2 px-2"
         onClick={handleSwitcher}
       >
-        <p>{selectedLocale}</p>
+        <p>{LOCALE_LABELS[selectedLocale]}</p>
         {!openSwitcher && <MdArrowDropDown className="h-6 w-6" />}
         {openSwitcher && <MdArrowDropUp className="h-6 w-6" />}
       </button>
@@ -54,12 +64,12 @@ const LanguageSwitcher: React.FC = () => {
               <li
                 key={locale}
                 className={cn({
-                  'flex h-9 w-full flex-col justify-center px-2 uppercase last:rounded-b-lg': true,
+                  'flex h-9 w-full flex-col justify-center px-2 last:rounded-b-lg': true,
                   'hover:bg-gray-100': headerStyle === 'light' || headerStyle === 'dark',
                 })}
               >
                 <Link href={pathname} locale={locale}>
-                  {locale}
+                  {LOCALE_LABELS[locale]}
                 </Link>
               </li>
             ))}
