@@ -75,7 +75,7 @@ const Filters = (): JSX.Element => {
     messages && (
       <div className="flex w-9/12 flex-col space-y-1">
         <p className="text-xs uppercase text-text">{messages.filter_by}</p>
-        <div className="flex items-center space-x-1">
+        <div className="flex flex-wrap items-center gap-2 lg:flex-nowrap lg:gap-0 lg:space-x-1">
           <MultiSelect
             id="pathways"
             placeholder={messages.pathway_plural}
@@ -97,7 +97,6 @@ const Filters = (): JSX.Element => {
             options={P_PHASE_OPTIONS}
             onSelect={(v) => setFilters({ ...filters, project_phases: v })}
           />
-
           <MultiSelect
             id="category"
             placeholder={messages.project_category}

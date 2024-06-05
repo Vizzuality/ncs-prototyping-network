@@ -27,7 +27,7 @@ const Tabs = (): JSX.Element => {
 
   return (
     messages && (
-      <div className="mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
+      <div className="mb-auto mt-5 inline-flex h-10 flex-wrap space-x-1 rounded-3xl border-2 bg-background p-1">
         {TABS.map((tab) => (
           <button
             key={tab.id}
@@ -40,7 +40,7 @@ const Tabs = (): JSX.Element => {
                 layoutId="underline-view"
               />
             )}
-            <div className="z-20 flex items-center space-x-2 px-[18.5px]">
+            <div className="z-20 flex items-center space-x-2 px-2 lg:px-[18.5px]">
               {tab.id === TABS[0].id && (
                 <FaMapMarkerAlt
                   size={16}

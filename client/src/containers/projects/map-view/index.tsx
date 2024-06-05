@@ -189,7 +189,7 @@ const MapView = ({ data }: { data }): JSX.Element => {
                 <Total />
 
                 {messages.disclaimer && (
-                  <div className="flex w-full justify-end py-3 pl-4">
+                  <div className="flex w-full justify-end py-3 lg:pl-4">
                     <span className="mr-1 h-full text-xs font-normal text-text/50">*</span>
 
                     <Markdown
