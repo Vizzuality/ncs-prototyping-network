@@ -148,8 +148,9 @@ const MapView = ({ data }: { data }): JSX.Element => {
 
   const onClickHandler = (e: Parameters<CustomMapProps['onClick']>[0]) => {
     const projectsFeature = e?.features?.find(({ layer }) => layer.id === 'projects-layer');
-    if (projectsFeature) {
-      push(`/projects/${projectSlug}`);
+
+    if (projectsFeature && projectSlug) {
+      push(`projects/${projectSlug}`);
     }
   };
 
