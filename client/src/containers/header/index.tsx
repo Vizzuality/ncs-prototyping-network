@@ -33,7 +33,7 @@ const Header: React.FC = () => {
   return (
     <div
       className={cn({
-        'fixed z-50 w-full': true,
+        'fixed z-[60] w-full': true,
         'border-b bg-white': headerStyle === 'light',
         'top-0 w-full': !pathname.startsWith('/projects'),
         'bg-gradient-to-r from-midnight to-indigo':
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
             <p>BETA</p>
           </div>
         </div>
-        <div className="relative flex items-center pr-20">
+        <div className="relative flex items-center pr-32">
           <NavigationTabs />
           <div className="absolute top-4 right-0">
             <LanguageSwitcher />
