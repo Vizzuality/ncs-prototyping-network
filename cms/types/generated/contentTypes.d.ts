@@ -2154,11 +2154,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    resources: Attribute.Relation<
-      'api::project.project',
-      'manyToMany',
-      'api::resource.resource'
-    >;
     public_contact_name: Attribute.Text &
       Attribute.CustomField<
         'plugin::string-array.input',
@@ -2535,43 +2530,6 @@ export interface ApiRegionRegion extends Schema.CollectionType {
   };
 }
 
-export interface ApiResourceResource extends Schema.CollectionType {
-  collectionName: 'resources';
-  info: {
-    singularName: 'resource';
-    pluralName: 'resources';
-    displayName: 'Resource';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    label: Attribute.String;
-    link: Attribute.String;
-    file: Attribute.Media;
-    projects: Attribute.Relation<
-      'api::resource.resource',
-      'manyToMany',
-      'api::project.project'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::resource.resource',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::resource.resource',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -2599,7 +2557,6 @@ declare module '@strapi/types' {
       'api::project-category.project-category': ApiProjectCategoryProjectCategory;
       'api::project-phase.project-phase': ApiProjectPhaseProjectPhase;
       'api::region.region': ApiRegionRegion;
-      'api::resource.resource': ApiResourceResource;
     }
   }
 }
