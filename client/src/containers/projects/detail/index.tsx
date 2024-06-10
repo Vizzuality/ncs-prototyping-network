@@ -375,52 +375,30 @@ const ProjectDetail = (): JSX.Element => {
                     </div>
                   )}
 
-                  <div className="flex w-full space-x-20">
-                    <div className="w-4/6">
-                      {data?.data?.data?.attributes.project_summary && (
-                        <h4 className="font-serif text-2xl font-medium text-indigo">
-                          {messages.summary_title}
-                        </h4>
-                      )}
+                  <div className="w-4/6 pr-24">
+                    {data?.data?.data?.attributes.project_summary && (
+                      <h4 className="font-serif text-2xl font-medium text-indigo">
+                        {messages.summary_title}
+                      </h4>
+                    )}
 
-                      {!!data?.data?.data?.attributes.project_phases.data.length && (
-                        <p className="pt-6 font-sans text-lg font-light text-text">
-                          {messages.project_phase}:{' '}
-                          {data?.data?.data?.attributes.project_phases.data
-                            .map((pp) => pp.attributes.name)
-                            .join(', ')}
-                        </p>
-                      )}
+                    {!!data?.data?.data?.attributes.project_phases.data.length && (
+                      <p className="pt-6 font-sans text-lg font-light text-text">
+                        {messages.project_phase}:{' '}
+                        {data?.data?.data?.attributes.project_phases.data
+                          .map((pp) => pp.attributes.name)
+                          .join(', ')}
+                      </p>
+                    )}
 
-                      <div className="pt-4">
-                        <Markdown
-                          remarkPlugins={[remarkGfm]}
-                          rehypePlugins={[rehypeRaw]}
-                          className="prose prose-secondary font-sans text-m font-light leading-7"
-                        >
-                          {data?.data?.data?.attributes.project_summary}
-                        </Markdown>
-                      </div>
-                    </div>
-                    <div className="flex w-2/6 flex-col">
-                      {messages.resources && !!RESOURCES.length && (
-                        <h4 className="font-serif text-2xl font-medium text-indigo">
-                          {messages.resources}
-                        </h4>
-                      )}
-                      <div className="flex flex-col space-y-1 pt-6">
-                        {RESOURCES.map((resource, idx) => (
-                          <div key={idx}>
-                            <Markdown
-                              remarkPlugins={[remarkGfm]}
-                              rehypePlugins={[rehypeRaw]}
-                              className="font-sans text-m font-light leading-7 text-text hover:underline"
-                            >
-                              {resource}
-                            </Markdown>
-                          </div>
-                        ))}
-                      </div>
+                    <div className="pt-4">
+                      <Markdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        className="prose prose-secondary font-sans text-m font-light leading-7"
+                      >
+                        {data?.data?.data?.attributes.project_summary}
+                      </Markdown>
                     </div>
                   </div>
                 </Wrapper>
@@ -585,7 +563,7 @@ const ProjectDetail = (): JSX.Element => {
                   </Wrapper>
                 </div>
                 <Wrapper className="flex w-full flex-row space-x-24 py-16">
-                  <div className="flex w-3/4 flex-col space-y-10">
+                  <div className="flex w-4/6 flex-col space-y-10">
                     {data?.data?.data?.attributes.abstract && (
                       <div className="flex-col space-y-6">
                         <p className="font-serif text-2xl font-medium text-indigo">
@@ -615,6 +593,26 @@ const ProjectDetail = (): JSX.Element => {
                         </div>
                       </div>
                     )}
+                  </div>
+                  <div className="flex w-2/6 flex-col">
+                    {messages.resources && !!RESOURCES.length && (
+                      <h4 className="font-serif text-2xl font-medium text-indigo">
+                        {messages.resources}
+                      </h4>
+                    )}
+                    <div className="flex flex-col space-y-1 pt-6">
+                      {RESOURCES.map((resource, idx) => (
+                        <div key={idx}>
+                          <Markdown
+                            remarkPlugins={[remarkGfm]}
+                            rehypePlugins={[rehypeRaw]}
+                            className="font-sans text-m font-light leading-7 text-text hover:underline"
+                          >
+                            {resource}
+                          </Markdown>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </Wrapper>
               </section>
