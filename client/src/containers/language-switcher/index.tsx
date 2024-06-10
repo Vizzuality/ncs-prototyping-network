@@ -35,7 +35,7 @@ const LanguageSwitcher: React.FC = () => {
     pt: 'Portuguese',
     id: 'Indonesian',
     fr: 'French',
-    cmn: 'Mandarin',
+    'zh-Hans': 'Chinese',
     sw: 'Swahili',
   };
 
