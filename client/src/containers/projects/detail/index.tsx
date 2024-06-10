@@ -118,6 +118,19 @@ const ProjectDetail = (): JSX.Element => {
     data?.data?.data?.attributes.key_activity_12,
   ].filter((k) => k);
 
+  const RESOURCES = [
+    data?.data?.data?.attributes.resource_link_1,
+    data?.data?.data?.attributes.resource_link_2,
+    data?.data?.data?.attributes.resource_link_3,
+    data?.data?.data?.attributes.resource_link_4,
+    data?.data?.data?.attributes.resource_link_5,
+    data?.data?.data?.attributes.resource_link_6,
+    data?.data?.data?.attributes.resource_link_7,
+    data?.data?.data?.attributes.resource_link_8,
+    data?.data?.data?.attributes.resource_link_9,
+    data?.data?.data?.attributes.resource_link_10,
+  ].filter((k) => k);
+
   return (
     <>
       {messagesIsFetched && dataMessages?.data.data.length === 0 && (
@@ -362,28 +375,52 @@ const ProjectDetail = (): JSX.Element => {
                     </div>
                   )}
 
-                  <div>
-                    {data?.data?.data?.attributes.project_summary && (
-                      <h4 className="font-serif text-2xl font-medium text-indigo">
-                        {messages.summary_title}
-                      </h4>
-                    )}
-                    {!!data?.data?.data?.attributes.project_phases.data.length && (
-                      <p className="pt-6 font-sans text-lg font-light text-text">
-                        {messages.project_phase}:{' '}
-                        {data?.data?.data?.attributes.project_phases.data
-                          .map((pp) => pp.attributes.name)
-                          .join(', ')}
-                      </p>
-                    )}
-                    <div className="w-2/3 pt-4">
-                      <Markdown
-                        remarkPlugins={[remarkGfm]}
-                        rehypePlugins={[rehypeRaw]}
-                        className="prose prose-secondary font-sans text-m font-light leading-7"
-                      >
-                        {data?.data?.data?.attributes.project_summary}
-                      </Markdown>
+                  <div className="flex w-full space-x-20">
+                    <div className="w-4/6">
+                      {data?.data?.data?.attributes.project_summary && (
+                        <h4 className="font-serif text-2xl font-medium text-indigo">
+                          {messages.summary_title}
+                        </h4>
+                      )}
+
+                      {!!data?.data?.data?.attributes.project_phases.data.length && (
+                        <p className="pt-6 font-sans text-lg font-light text-text">
+                          {messages.project_phase}:{' '}
+                          {data?.data?.data?.attributes.project_phases.data
+                            .map((pp) => pp.attributes.name)
+                            .join(', ')}
+                        </p>
+                      )}
+
+                      <div className="pt-4">
+                        <Markdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                          className="prose prose-secondary font-sans text-m font-light leading-7"
+                        >
+                          {data?.data?.data?.attributes.project_summary}
+                        </Markdown>
+                      </div>
+                    </div>
+                    <div className="flex w-2/6 flex-col">
+                      {messages.resources && !!RESOURCES.length && (
+                        <h4 className="font-serif text-2xl font-medium text-indigo">
+                          {messages.resources}
+                        </h4>
+                      )}
+                      <div className="flex flex-col space-y-1 pt-6">
+                        {RESOURCES.map((resource, idx) => (
+                          <div key={idx}>
+                            <Markdown
+                              remarkPlugins={[remarkGfm]}
+                              rehypePlugins={[rehypeRaw]}
+                              className="font-sans text-m font-light leading-7 text-text hover:underline"
+                            >
+                              {resource}
+                            </Markdown>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </Wrapper>
@@ -547,7 +584,7 @@ const ProjectDetail = (): JSX.Element => {
                     </div>
                   </Wrapper>
                 </div>
-                <Wrapper className="flex w-full flex-row space-x-20 py-16">
+                <Wrapper className="flex w-full flex-row space-x-24 py-16">
                   <div className="flex w-3/4 flex-col space-y-10">
                     {data?.data?.data?.attributes.abstract && (
                       <div className="flex-col space-y-6">
@@ -579,37 +616,6 @@ const ProjectDetail = (): JSX.Element => {
                       </div>
                     )}
                   </div>
-                  {/* {!!data?.data?.data?.attributes.resources.data.length && (
-                <section className="flex w-1/4 flex-col space-y-6">
-                  <p className="font-serif text-2xl font-medium text-indigo">
-                    {messages.resources}
-                  </p>
-
-                  <div className="flex flex-col items-start font-sans text-xl font-light leading-9 text-text">
-                    <button
-                      type="button"
-                      className="hover:font-medium"
-                      onClick={() => onDownload(data?.data?.data?.attributes.resources[0], 'Fact Sheet')}
-                    >
-                      <p>Download Fact Sheet</p>
-                    </button>
-                    <button
-                      type="button"
-                      className="hover:font-medium"
-                      onClick={() => onDownload(data?.data?.data?.attributes.resources[1], 'Download 2')}
-                    >
-                      <p>Download 2</p>
-                    </button>
-                    <button
-                      type="button"
-                      className="hover:font-medium"
-                      onClick={() => onDownload(data?.data?.data?.attributes.resources[2], 'Download 3')}
-                    >
-                      <p>Download 3</p>
-                    </button>
-                  </div>
-                </section>
-              )} */}
                 </Wrapper>
               </section>
 
