@@ -703,21 +703,6 @@
           "sortable": false
         }
       },
-      "resources": {
-        "edit": {
-          "label": "Resources",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "label"
-        },
-        "list": {
-          "label": "resources",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "public_contact_name": {
         "edit": {
           "label": "Public Contact Name",
@@ -1198,6 +1183,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "project_code",
+        "project_name",
+        "project_phases"
+      ],
       "edit": [
         [
           {
@@ -1493,10 +1484,6 @@
         ],
         [
           {
-            "name": "resources",
-            "size": 6
-          },
-          {
             "name": "why_this_why_now_author",
             "size": 6
           }
@@ -1645,12 +1632,6 @@
             "size": 12
           }
         ]
-      ],
-      "list": [
-        "id",
-        "project_code",
-        "project_name",
-        "project_phases"
       ]
     }
   },
