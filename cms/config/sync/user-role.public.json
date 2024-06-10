@@ -82,12 +82,6 @@
       "action": "api::region.region.findOne"
     },
     {
-      "action": "api::resource.resource.find"
-    },
-    {
-      "action": "api::resource.resource.findOne"
-    },
-    {
       "action": "plugin::upload.content-api.find"
     },
     {

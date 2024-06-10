@@ -703,21 +703,6 @@
           "sortable": false
         }
       },
-      "resources": {
-        "edit": {
-          "label": "Resources",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "label"
-        },
-        "list": {
-          "label": "resources",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "public_contact_name": {
         "edit": {
           "label": "Public Contact Name",
@@ -776,7 +761,7 @@
       },
       "why_this_why_now_author": {
         "edit": {
-          "label": "why_this_why_now_author",
+          "label": "Why This Why Now Author",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -790,7 +775,7 @@
       },
       "extent_credits": {
         "edit": {
-          "label": "extent_credits",
+          "label": "Extent Credits",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -804,7 +789,7 @@
       },
       "callout_author": {
         "edit": {
-          "label": "callout_author",
+          "label": "Callout Author",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -832,7 +817,7 @@
       },
       "key_activity_1": {
         "edit": {
-          "label": "key_activity_1",
+          "label": "Key Activity 1",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -846,7 +831,7 @@
       },
       "key_activity_2": {
         "edit": {
-          "label": "key_activity_2",
+          "label": "Key Activity 2",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -860,7 +845,7 @@
       },
       "key_activity_3": {
         "edit": {
-          "label": "key_activity_3",
+          "label": "Key Activity 3",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -874,7 +859,7 @@
       },
       "key_activity_4": {
         "edit": {
-          "label": "key_activity_4",
+          "label": "Key Activity 4",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -888,7 +873,7 @@
       },
       "key_activity_5": {
         "edit": {
-          "label": "key_activity_5",
+          "label": "Key Activity 5",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -902,7 +887,7 @@
       },
       "key_activity_6": {
         "edit": {
-          "label": "key_activity_6",
+          "label": "Key Activity 6",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -916,7 +901,7 @@
       },
       "key_activity_7": {
         "edit": {
-          "label": "key_activity_7",
+          "label": "Key Activity 7",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -930,7 +915,7 @@
       },
       "key_activity_8": {
         "edit": {
-          "label": "key_activity_8",
+          "label": "Key Activity 8",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -944,7 +929,7 @@
       },
       "key_activity_9": {
         "edit": {
-          "label": "key_activity_9",
+          "label": "Key Activity 9",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -958,7 +943,7 @@
       },
       "key_activity_10": {
         "edit": {
-          "label": "key_activity_10",
+          "label": "Key Activity 10",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -972,7 +957,7 @@
       },
       "key_activity_11": {
         "edit": {
-          "label": "key_activity_11",
+          "label": "Key Activity 11",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -986,7 +971,7 @@
       },
       "key_activity_12": {
         "edit": {
-          "label": "key_activity_12",
+          "label": "Key Activity 12",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1000,7 +985,7 @@
       },
       "resource_link_1": {
         "edit": {
-          "label": "resource_link_1",
+          "label": "Resource Link 1",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1014,7 +999,7 @@
       },
       "resource_link_2": {
         "edit": {
-          "label": "resource_link_2",
+          "label": "Resource Link 2",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1028,7 +1013,7 @@
       },
       "resource_link_3": {
         "edit": {
-          "label": "resource_link_3",
+          "label": "Resource Link 3",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1042,7 +1027,7 @@
       },
       "resource_link_4": {
         "edit": {
-          "label": "resource_link_4",
+          "label": "Resource Link 4",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1056,7 +1041,7 @@
       },
       "resource_link_5": {
         "edit": {
-          "label": "resource_link_5",
+          "label": "Resource Link 5",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1070,7 +1055,7 @@
       },
       "resource_link_6": {
         "edit": {
-          "label": "resource_link_6",
+          "label": "Resource Link 6",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1084,7 +1069,7 @@
       },
       "resource_link_7": {
         "edit": {
-          "label": "resource_link_7",
+          "label": "Resource Link 7",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1098,7 +1083,7 @@
       },
       "resource_link_8": {
         "edit": {
-          "label": "resource_link_8",
+          "label": "Resource Link 8",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1112,7 +1097,7 @@
       },
       "resource_link_9": {
         "edit": {
-          "label": "resource_link_9",
+          "label": "Resource Link 9",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1126,7 +1111,7 @@
       },
       "resource_link_10": {
         "edit": {
-          "label": "resource_link_10",
+          "label": "Resource Link 10",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -1498,10 +1483,6 @@
           }
         ],
         [
-          {
-            "name": "resources",
-            "size": 6
-          },
           {
             "name": "why_this_why_now_author",
             "size": 6
