@@ -34,10 +34,10 @@ const LanguageSwitcher: React.FC = () => {
     es: 'Spanish',
     pt: 'Portuguese',
     id: 'Indonesian',
-    fr: 'French',
-    'zh-Hans': 'Chinese',
-    sw: 'Swahili',
   };
+  // fr: 'French',
+  // 'zh-Hans': 'Chinese',
+  // sw: 'Swahili',
 
   return (
     <div

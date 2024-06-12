@@ -1202,6 +1202,7 @@
           "goals_photo",
           "fallback_photo",
           "extent",
+          "resources",
           "public_contact_name",
           "public_contact_email",
           "video",
@@ -1333,6 +1334,7 @@
           "goals_photo",
           "fallback_photo",
           "extent",
+          "resources",
           "public_contact_name",
           "public_contact_email",
           "video",
@@ -1430,6 +1432,7 @@
           "goals_photo",
           "fallback_photo",
           "extent",
+          "resources",
           "public_contact_name",
           "public_contact_email",
           "video",
@@ -1549,6 +1552,55 @@
           "fr",
           "zh-Hans",
           "sw"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::resource.resource",
+      "properties": {
+        "fields": [
+          "label",
+          "link",
+          "file",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::resource.resource",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::resource.resource",
+      "properties": {
+        "fields": [
+          "label",
+          "link",
+          "file",
+          "projects"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::resource.resource",
+      "properties": {
+        "fields": [
+          "label",
+          "link",
+          "file",
+          "projects"
         ]
       },
       "conditions": []
