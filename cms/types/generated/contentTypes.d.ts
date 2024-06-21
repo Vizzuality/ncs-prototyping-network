@@ -1088,7 +1088,7 @@ export interface ApiMessageMessage extends Schema.CollectionType {
     lessons_learned_1_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     lessons_learned_2_title: Attribute.RichText &
@@ -1100,7 +1100,7 @@ export interface ApiMessageMessage extends Schema.CollectionType {
     lessons_learned_2_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     lessons_learned_3_title: Attribute.RichText &
@@ -1112,7 +1112,7 @@ export interface ApiMessageMessage extends Schema.CollectionType {
     lessons_learned_3_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     lessons_learned_4_title: Attribute.RichText &
@@ -1124,7 +1124,7 @@ export interface ApiMessageMessage extends Schema.CollectionType {
     lessons_learned_4_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     lessons_learned_5_title: Attribute.RichText &
@@ -1136,7 +1136,7 @@ export interface ApiMessageMessage extends Schema.CollectionType {
     lessons_learned_5_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     what_we_are_field_testing_title: Attribute.RichText &
@@ -1520,37 +1520,37 @@ export interface ApiMessageMessage extends Schema.CollectionType {
     home_hero_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     home_footer_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     home_map_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     metrics_footer_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     map_view_footer_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     contact_us_footer_photo: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     learn_more_facts_caption: Attribute.RichText &
