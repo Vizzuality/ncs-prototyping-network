@@ -703,21 +703,6 @@
           "sortable": false
         }
       },
-      "resources": {
-        "edit": {
-          "label": "resources",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "label"
-        },
-        "list": {
-          "label": "resources",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "public_contact_name": {
         "edit": {
           "label": "Public Contact Name",
@@ -1645,12 +1630,6 @@
           {
             "name": "resource_link_10",
             "size": 12
-          }
-        ],
-        [
-          {
-            "name": "resources",
-            "size": 6
           }
         ]
       ]
