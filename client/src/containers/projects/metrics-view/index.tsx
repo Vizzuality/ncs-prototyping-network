@@ -32,15 +32,15 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
   const CO_BENEFITS_ICONS = {
-    [cobenefits?.data.data[0]?.attributes.name]: '/images/icons/co-benefits/biodiversity.svg',
-    [cobenefits?.data.data[1]?.attributes.name]: '/images/icons/co-benefits/ecosystem_services.svg',
-    [cobenefits?.data.data[2]?.attributes.name]:
-      '/images/icons/co-benefits/resilience_and_adaptation.svg',
+    [cobenefits?.data.data[0]?.attributes.name]: '',
+    [cobenefits?.data.data[1]?.attributes.name]: '/images/icons/co-benefits/biodiversity.svg',
+    [cobenefits?.data.data[2]?.attributes.name]: '/images/icons/co-benefits/ecosystem_services.svg',
     [cobenefits?.data.data[3]?.attributes.name]:
       '/images/icons/co-benefits/human_health_wellbeing.svg',
     [cobenefits?.data.data[4]?.attributes.name]:
       '/images/icons/co-benefits/livelihoods_economic.svg',
-    [cobenefits?.data.data[5]?.attributes.name]: '',
+    [cobenefits?.data.data[5]?.attributes.name]:
+      '/images/icons/co-benefits/resilience_and_adaptation.svg',
   };
 
   const COLUMNS = [
