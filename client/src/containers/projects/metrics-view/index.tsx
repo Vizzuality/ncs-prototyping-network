@@ -31,16 +31,25 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
 
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
 
+  const ORDERED_CO_BENEFITS_BY_ID =
+    (cobenefits &&
+      cobenefits?.data.data.sort(function (a, b) {
+        return a.id - b.id;
+      })) ||
+    [];
+
   const CO_BENEFITS_ICONS = {
-    [cobenefits?.data.data[0]?.attributes.name]: '',
-    [cobenefits?.data.data[1]?.attributes.name]: '/images/icons/co-benefits/biodiversity.svg',
-    [cobenefits?.data.data[2]?.attributes.name]: '/images/icons/co-benefits/ecosystem_services.svg',
-    [cobenefits?.data.data[3]?.attributes.name]:
-      '/images/icons/co-benefits/human_health_wellbeing.svg',
-    [cobenefits?.data.data[4]?.attributes.name]:
-      '/images/icons/co-benefits/livelihoods_economic.svg',
-    [cobenefits?.data.data[5]?.attributes.name]:
+    [ORDERED_CO_BENEFITS_BY_ID[0]?.attributes.name]:
+      '/images/icons/co-benefits/ecosystem_services.svg',
+
+    [ORDERED_CO_BENEFITS_BY_ID[1]?.attributes.name]:
       '/images/icons/co-benefits/resilience_and_adaptation.svg',
+    [ORDERED_CO_BENEFITS_BY_ID[2]?.attributes.name]: '/images/icons/co-benefits/biodiversity.svg',
+    [ORDERED_CO_BENEFITS_BY_ID[3]?.attributes.name]:
+      '/images/icons/co-benefits/livelihoods_economic.svg',
+    [ORDERED_CO_BENEFITS_BY_ID[4]?.attributes.name]:
+      '/images/icons/co-benefits/human_health_wellbeing.svg',
+    [ORDERED_CO_BENEFITS_BY_ID[5]?.attributes.name]: '',
   };
 
   const COLUMNS = [
@@ -118,12 +127,12 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
 
   const sortedData = getSortedData(data, sortedBy, direction);
 
-  const CO_BENEFITS_ORDER = {
-    [cobenefits?.data.data[0]?.attributes.name]: 0,
-    [cobenefits?.data.data[1]?.attributes.name]: 1,
-    [cobenefits?.data.data[2]?.attributes.name]: 2,
-    [cobenefits?.data.data[3]?.attributes.name]: 3,
-    [cobenefits?.data.data[4]?.attributes.name]: 4,
+  const VISUAL_ORDERED_CO_BENEFITS = {
+    [ORDERED_CO_BENEFITS_BY_ID[0]?.attributes.name]: 1,
+    [ORDERED_CO_BENEFITS_BY_ID[1]?.attributes.name]: 3,
+    [ORDERED_CO_BENEFITS_BY_ID[2]?.attributes.name]: 2,
+    [ORDERED_CO_BENEFITS_BY_ID[3]?.attributes.name]: 0,
+    [ORDERED_CO_BENEFITS_BY_ID[4]?.attributes.name]: 4,
   };
 
   return (
@@ -198,7 +207,8 @@ const MetricsView = ({ data }: { data }): JSX.Element => {
                     .map((cb) => cb)
                     .sort(
                       (a, b) =>
-                        CO_BENEFITS_ORDER[a.attributes.name] - CO_BENEFITS_ORDER[b.attributes.name]
+                        VISUAL_ORDERED_CO_BENEFITS[a.attributes.name] -
+                        VISUAL_ORDERED_CO_BENEFITS[b.attributes.name]
                     );
 
                   return (
