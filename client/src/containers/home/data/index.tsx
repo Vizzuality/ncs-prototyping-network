@@ -16,9 +16,8 @@ const Data = (): JSX.Element => {
   const { data: dataMessages, isFetched: messagesIsFetched } = useGetMessages({ locale });
 
   const messages = messagesIsFetched && dataMessages.data.data[0]?.attributes;
-
   const countriesArray = data?.data?.data.map(
-    (project) => project.attributes.country.data.attributes.name
+    (project) => project.attributes.country?.data?.attributes.name
   );
 
   const countries = countriesArray?.filter((c, idx) => countriesArray.indexOf(c) === idx).length;
